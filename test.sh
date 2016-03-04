@@ -5,8 +5,7 @@ cd $(dirname "${BASH_SOURCE[0]}")
 WD=$(pwd)
 
 if [ ! -f "geoengine-server" ];then 
-	echo missing geoengine-server binary
-	exit 1
+	./build.sh
 fi
 
 TMP="$(mktemp -d -t data-test)"
