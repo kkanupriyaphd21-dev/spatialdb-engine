@@ -223,7 +223,7 @@ Currently we have only one native client written in Go. Though is should be triv
 
 
 ## Commands
-This a the full list of commands availble to GeoEngine. 
+This is the full list of commands available to GeoEngine. 
 
 ### Crud
 ```md
