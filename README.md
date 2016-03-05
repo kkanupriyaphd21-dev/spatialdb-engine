@@ -16,8 +16,6 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 - Leader / follower [replication](#replication).
 - In-memory database that persists on disk.
 - Simliar feel and syntax style to the fantastic [Redis](http://redis.io) api.
-- Written 100% in [Go](https://golang.org).
-- Very high performance.
 
 ## Components
 - `geoengine-server ` - The server
