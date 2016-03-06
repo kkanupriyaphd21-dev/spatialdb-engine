@@ -11,7 +11,8 @@ import (
 	"time"
 
 	"github.com/tidwall/geoengine/client"
-	"github.com/tidwall/geoengine/log"
+	"github.com/tidwall/geoengine/controller/log"
+	"github.com/tidwall/geoengine/core"
 )
 
 var errNoLongerFollowing = errors.New("no longer following")
@@ -156,7 +157,7 @@ func (c *Controller) followStep(host string, port int, followc uint64) error {
 		}
 		return errors.New("invalid response to aof live request")
 	}
-	if ShowDebugMessages {
+	if core.ShowDebugMessages {
 		log.Debug("follow:", addr, ":read aof")
 	}
 	caughtUp := pos >= int64(stats.Stats.AOFSize)

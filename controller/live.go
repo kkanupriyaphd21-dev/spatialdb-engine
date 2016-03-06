@@ -10,9 +10,9 @@ import (
 	"sync"
 
 	"github.com/tidwall/geoengine/client"
-	"github.com/tidwall/geoengine/collection"
+	"github.com/tidwall/geoengine/controller/collection"
+	"github.com/tidwall/geoengine/controller/log"
 	"github.com/tidwall/geoengine/geojson"
-	"github.com/tidwall/geoengine/log"
 )
 
 type liveBuffer struct {

@@ -10,7 +10,8 @@ import (
 	"os"
 
 	"github.com/tidwall/geoengine/client"
-	"github.com/tidwall/geoengine/log"
+	"github.com/tidwall/geoengine/controller/log"
+	"github.com/tidwall/geoengine/core"
 )
 
 // checksum performs a simple md5 checksum on the aof file
@@ -100,7 +101,7 @@ func (c *Controller) matchChecksums(conn *client.Conn, pos, size int64) (match b
 // followCheckSome is not a full checksum. It just "checks some" data.
 // We will do some various checksums on the leader until we find the correct position to start at.
 func (c *Controller) followCheckSome(addr string, followc uint64) (pos int64, err error) {
-	if ShowDebugMessages {
+	if core.ShowDebugMessages {
 		log.Debug("follow:", addr, ":check some")
 	}
 	c.mu.Lock()
@@ -215,7 +216,7 @@ outer:
 		pos -= bufsz
 	}
 	if pos == fullpos {
-		if ShowDebugMessages {
+		if core.ShowDebugMessages {
 			log.Debug("follow: aof fully intact")
 		}
 		return pos, nil

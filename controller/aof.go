@@ -16,7 +16,7 @@ import (
 	"github.com/boltdb/bolt"
 	"github.com/google/btree"
 	"github.com/tidwall/geoengine/client"
-	"github.com/tidwall/geoengine/log"
+	"github.com/tidwall/geoengine/controller/log"
 )
 
 const backwardsBufferSize = 50000

@@ -3,7 +3,7 @@ package controller
 import (
 	"strings"
 
-	"github.com/tidwall/geoengine/log"
+	"github.com/tidwall/geoengine/controller/log"
 )
 
 func (c *Controller) cmdReadOnly(line string) error {

@@ -10,9 +10,8 @@ import (
 	"strconv"
 
 	"github.com/tidwall/geoengine/controller"
+	"github.com/tidwall/geoengine/controller/log"
 	"github.com/tidwall/geoengine/core"
-	"github.com/tidwall/geoengine/log"
-	"github.com/tidwall/geoengine/server"
 )
 
 var (
@@ -42,9 +41,8 @@ func main() {
 		HideDebug: !veryVerbose,
 		HideWarn:  !(veryVerbose || verbose),
 	})
-	controller.DevMode = devMode
-	controller.ShowDebugMessages = veryVerbose
-	server.ShowDebugMessages = veryVerbose
+	core.DevMode = devMode
+	core.ShowDebugMessages = veryVerbose
 
 	//  _____ _ _     ___ ___
 	// |_   _|_| |___|_  | . |

@@ -9,7 +9,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/tidwall/geoengine/log"
+	"github.com/tidwall/geoengine/controller/log"
 )
 
 func (c *Controller) cmdMassInsert(line string) error {
