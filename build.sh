@@ -21,6 +21,7 @@ WD="$TMP/src/github.com/tidwall/geoengine"
 GOPATH="$TMP"
 
 for file in `find . -type f`; do
+	# TODO: use .gitignore to ignore, or possibly just use git to determine the file list.
 	if [[ "$file" != "." && "$file" != ./.git* && "$file" != ./data* && "$file" != ./geoengine-* ]]; then
 		mkdir -p "$WD/$(dirname "${file}")"
 		cp -P "$file" "$WD/$(dirname "${file}")"
@@ -32,5 +33,14 @@ cd $WD
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-server" cmd/geoengine-server/*.go
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-cli" cmd/geoengine-cli/*.go
 
-
+# test if requested
+if [ "$1" == "test" ]; then
+	$OD/geoengine-server -p 9876 -d "$TMP" -q &
+	PID=$!
+	function testend {
+	  	kill $PID &
+	}
+	trap testend EXIT
+	go test $(go list ./... | grep -v /vendor/)
+fi
 
