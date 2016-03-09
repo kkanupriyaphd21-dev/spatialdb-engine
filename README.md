@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://geoengine.com"><img 
+  <a href="http://geoengine.com"><img 
     src="/doc/logo1500.png" 
     width="200" height="200" border="0" alt="GeoEngine"></a>
 </p>
