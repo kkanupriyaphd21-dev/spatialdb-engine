@@ -4,6 +4,8 @@
     width="200" height="200" border="0" alt="GeoEngine"></a>
 </p>
 
+This README is quick start document. You can find detailed documentation at [http://geoengine.com](http://geoengine.com).
+
 GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofence. It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
 
 ## Features
