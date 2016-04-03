@@ -5,6 +5,8 @@ clean:
 	rm -f geoengine-cli
 test:
 	@./build.sh test
+cover:
+	@./build.sh cover
 install: all
 	cp geoengine-server /usr/local/bin
 	cp geoengine-cli /usr/local/bin
