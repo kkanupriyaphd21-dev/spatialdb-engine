@@ -24,7 +24,16 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 - `geoengine-server ` - The server
 - `geoengine-cli    ` - Command line interface tool
 
-## Building GeoEngine
+## Getting Started
+
+### Getting GeoEngine
+
+The easiest way to get GeoEngine is to use one of the pre-built release binaries which are available for OSX, Linux, and Windows. Instructions for using these binaries are on the GitHub [releases page](https://github.com/tidwall/geoengine/releases).
+
+If you want to try the latest version, you can build GeoEngine from the master branch.
+
+### Building GeoEngine 
+
 GeoEngine can be compiled and used on Linux, OSX, Windows, FreeBSD, and probably others since the codebase is 100% Go. We support both 32 bit and 64 bit systems. [Go](https://golang.org/dl/) must be installed on the build machine.
 
 To build everything simply:
