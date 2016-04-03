@@ -3,3 +3,4 @@ geoengine-*
 !cmd/geoengine-*
 data*/
 coverage.out 
+packages/

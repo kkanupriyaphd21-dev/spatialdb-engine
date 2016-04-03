@@ -13,3 +13,5 @@ install: all
 uninstall: 
 	rm -f /usr/local/bin/geoengine-server
 	rm -f /usr/local/bin/geoengine-cli
+package:
+	@./build.sh package
