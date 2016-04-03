@@ -72,7 +72,7 @@ OD="$(pwd)"
 
 package(){
 	echo Packaging $1 Binary
-	bdir=geoengine-v${VERSION}-$2-$3
+	bdir=geoengine-${VERSION}-$2-$3
 	rm -rf packages/$bdir && mkdir -p packages/$bdir
 	GOOS=$2 GOARCH=$3 ./build.sh
 	mv geoengine-server packages/$bdir
