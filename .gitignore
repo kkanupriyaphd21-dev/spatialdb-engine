@@ -4,3 +4,6 @@ geoengine-*
 data*/
 coverage.out 
 packages/
+
+# Ignore VS Code folder
+.vscode/
