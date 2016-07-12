@@ -8,6 +8,7 @@ import (
 
 	"github.com/tidwall/resp"
 	"github.com/tidwall/geoengine/controller/bing"
+	"github.com/tidwall/geoengine/controller/glob"
 	"github.com/tidwall/geoengine/controller/server"
 	"github.com/tidwall/geoengine/geojson"
 	"github.com/tidwall/geoengine/geojson/geohash"
@@ -230,7 +231,7 @@ func (c *Controller) cmdSearchArgs(cmd string, vs []resp.Value, types []string) 
 			err = errInvalidNumberOfArguments
 			return
 		}
-		s.roam.pattern = globIsGlob(s.roam.id)
+		s.roam.pattern = glob.IsGlob(s.roam.id)
 		var smeters string
 		if vs, smeters, ok = tokenval(vs); !ok || smeters == "" {
 			err = errInvalidNumberOfArguments
