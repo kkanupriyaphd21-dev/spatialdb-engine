@@ -20,6 +20,15 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 - Leader / follower [replication](#replication).
 - In-memory database that persists on disk.
 
+<br>
+<p align="center">
+<a href="#nearby"><img src="/doc/search-nearby.png" alt="Nearby" border="0" width="120" height="120"></a>
+<a href="#within"><img src="/doc/search-within.png" alt="Within" border="0" width="120" height="120"></a>
+<a href="#intersects"><img src="/doc/search-intersects.png" alt="Intersects" border="0" width="120" height="120"></a>
+<a href="#geofencing"><img src="/doc/geofence.gif" alt="Geofencing" border="0" width="120" height="120"></a>
+<a href="http://geoengine.com/topics/roaming-geofences"><img src="/doc/roaming.gif" alt="Roaming Geofences" border="0" width="120" height="120"></a>
+</p>
+
 ## Components
 - `geoengine-server ` - The server
 - `geoengine-cli    ` - Command line interface tool
