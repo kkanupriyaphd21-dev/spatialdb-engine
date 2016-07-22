@@ -75,8 +75,13 @@ package(){
 	bdir=geoengine-${VERSION}-$2-$3
 	rm -rf packages/$bdir && mkdir -p packages/$bdir
 	GOOS=$2 GOARCH=$3 ./build.sh
-	mv geoengine-server packages/$bdir
-	mv geoengine-cli packages/$bdir
+	if [ "$2" == "windows" ]; then
+		mv geoengine-server packages/$bdir/geoengine-server.exe
+		mv geoengine-cli packages/$bdir/geoengine-cli.exe
+	else
+		mv geoengine-server packages/$bdir
+		mv geoengine-cli packages/$bdir
+	fi
 	cp README.md packages/$bdir
 	cd packages
 	if [ "$2" == "linux" ]; then
