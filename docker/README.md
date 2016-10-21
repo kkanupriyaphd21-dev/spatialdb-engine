@@ -1,0 +1,24 @@
+![GeoEngine Logo](https://github.com/tidwall/geoengine/blob/master/doc/logo200.png)
+
+GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofence. It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
+
+*For more information visit: [http://geoengine.com](http://geoengine.com)*
+
+## Features
+
+- Spatial index with [search](#searching) methods such as Nearby, Within, and Intersects.
+- Realtime [geofencing](#geofencing) through persistent sockets or [webhooks](http://geoengine.com/commands/sethook).
+- Object types of [lat/lon](#latlon-point), [bbox](#bounding-box), [Geohash](#geohash), [GeoJSON](#geojson), [QuadKey](#quadkey), and [XYZ tile](#xyz-tile).
+- Support for lots of [Clients Libraries](#client-libraries) written in many different langauges.
+- Variety of protocols, including [http](#http) (curl), [websockets](#websockets), [telnet](#telnet), and the [Redis RESP](http://redis.io/topics/protocol).
+- Server responses are [RESP](http://redis.io/topics/protocol) or [JSON](http://www.json.org).
+- Full [command line interface](#cli).
+- Leader / follower [replication](#replication).
+- In-memory database that persists on disk.
+
+## Contact
+Josh Baker [@tidwall](http://twitter.com/tidwall)
+
+## License
+
+GeoEngine source code is available under the MIT [License](/LICENSE).
