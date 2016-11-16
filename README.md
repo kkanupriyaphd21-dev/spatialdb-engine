@@ -5,7 +5,7 @@
 </p>
 <p align="center">
 <a href="https://travis-ci.org/tidwall/geoengine"><img src="https://travis-ci.org/tidwall/geoengine.svg?branch=master" alt="Build Status"></a>
-<a href="https://github.com/tidwall/geoengine/releases"><img src="https://img.shields.io/badge/version-1.5.2-green.svg" alt="Version"></a>
+<a href="https://github.com/tidwall/geoengine/releases"><img src="https://img.shields.io/badge/version-1.5.3-green.svg" alt="Version"></a>
 </p>
 
 GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofence. It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
