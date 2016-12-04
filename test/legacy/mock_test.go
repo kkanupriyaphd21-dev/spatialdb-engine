@@ -14,6 +14,7 @@ import (
 	"github.com/garyburd/redigo/redis"
 	"github.com/tidwall/geoengine/controller"
 	tlog "github.com/tidwall/geoengine/controller/log"
+	"github.com/tidwall/geoengine/core"
 )
 
 var errTimeout = errors.New("timeout")
@@ -46,6 +47,7 @@ func mockOpenServer() (*mockServer, error) {
 	if os.Getenv("PRINTLOG") == "1" {
 		logOutput = os.Stderr
 	}
+	core.DevMode = true
 	s := &mockServer{port: port}
 	tlog.Default = tlog.New(logOutput, nil)
 	go func() {
