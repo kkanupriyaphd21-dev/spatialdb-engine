@@ -294,7 +294,7 @@ GeoEngine uses the [Redis RESP](http://redis.io/topics/protocol) protocol native
 - Go: [Redigo](https://github.com/garyburd/redigo)
 - Haskell: [hedis](https://github.com/informatikr/hedis)
 - Java: [lettuce](https://github.com/mp911de/lettuce)
-- Node.js: [node_redis](https://github.com/NodeRedis/node_redis) 
+- Node.js: [node_redis](https://github.com/NodeRedis/node_redis) >> [example code](https://github.com/tidwall/wiki/node_redis-example)
 - Perl: [perl-redis](https://github.com/PerlRedis/perl-redis)
 - PHP: [phpredis](https://github.com/phpredis/phpredis)
 - Python: [redis-py](https://github.com/andymccurdy/redis-py)
