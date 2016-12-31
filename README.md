@@ -41,11 +41,11 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 
 ### Getting GeoEngine
 
-The easiest way to get GeoEngine is to use one of the pre-built release binaries which are available for OSX, Linux, and Windows. Instructions for using these binaries are on the GitHub [releases page](https://github.com/tidwall/geoengine/releases).
+The easiest way to get the latest GeoEngine is to use one of the pre-built release binaries which are available for OSX, Linux, and Windows. Instructions for using these binaries are on the GitHub [releases page](https://github.com/tidwall/geoengine/releases).
+
+Mac users who use Homebrew can install with `brew install geoengine`.
 
 GeoEngine is also available as a [Docker image](https://hub.docker.com/r/geoengine/geoengine/) which is built on top of [Alpine Linux](https://alpinelinux.org/).
-
-If you want to try the latest version, you can build GeoEngine from the master branch.
 
 ### Building GeoEngine 
 
