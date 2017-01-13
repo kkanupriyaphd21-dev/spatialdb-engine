@@ -2,8 +2,9 @@
 geoengine-*
 !cmd/geoengine-*
 data*/
-coverage.out 
+coverage.out
 packages/
 
-# Ignore VS Code folder
+# Ignore IDE folders
+.idea/
 .vscode/
