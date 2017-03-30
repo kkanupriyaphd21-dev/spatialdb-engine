@@ -85,9 +85,11 @@ package(){
 	if [ "$2" == "windows" ]; then
 		mv geoengine-server packages/$bdir/geoengine-server.exe
 		mv geoengine-cli packages/$bdir/geoengine-cli.exe
+		mv geoengine-benchmark packages/$bdir/geoengine-benchmark.exe
 	else
 		mv geoengine-server packages/$bdir
 		mv geoengine-cli packages/$bdir
+		mv geoengine-benchmark packages/$bdir
 	fi
 	cp README.md packages/$bdir
 	cp CHANGELOG.md packages/$bdir
@@ -152,6 +154,7 @@ fi
 # build and store objects into original directory.
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-server" cmd/geoengine-server/*.go
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-cli" cmd/geoengine-cli/*.go
+go build -ldflags "$LDFLAGS" -o "$OD/geoengine-benchmark" cmd/geoengine-benchmark/*.go
 
 # test if requested
 if [ "$1" == "test" ]; then
