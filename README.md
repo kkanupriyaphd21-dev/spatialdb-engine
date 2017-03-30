@@ -35,8 +35,9 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 - All coordinates are in [WGS 84 Web Mercator / EPSG:3857](#coordinate-system)
 
 ## Components
-- `geoengine-server ` - The server
-- `geoengine-cli    ` - Command line interface tool
+- `geoengine-server    ` - The server
+- `geoengine-cli       ` - Command line interface tool
+- `geoengine-benchmark ` - Server benchmark tool
 
 ## Getting Started
 
