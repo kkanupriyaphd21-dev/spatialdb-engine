@@ -13,6 +13,7 @@ RUN apk update \
     && tar -xzvf geoengine.tar.gz \
     && rm -f geoengine.tar.gz \
     && mv geoengine-$GEOENGINE_VERSION-linux-amd64/geoengine-server /usr/local/bin \
+    && mv geoengine-$GEOENGINE_VERSION-linux-amd64/geoengine-cli /usr/local/bin \
     && rm -fR geoengine-$GEOENGINE_VERSION-linux-amd64
 
 RUN mkdir /data && chown geoengine:geoengine /data
