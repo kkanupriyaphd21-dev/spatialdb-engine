@@ -4,8 +4,9 @@
 Redbench is a Go package that allows for bootstrapping benchmarks
 for servers using a custom implementation of the Redis protocol. It provides
 the same inputs and outputs as the
-[redis-benchmark](https://redis.io/topics/benchmarks) tool. The purpose of
-this library is to provide benchmarking for 
+[redis-benchmark](https://redis.io/topics/benchmarks) tool. 
+
+The purpose of this library is to provide benchmarking for 
 [Redcon](https://github.com/tidwall/redcon) compatible servers such as
 [GeoEngine](https://github.com/tidwall/geoengine), but also works well for Redis
 operations that are not covered by the `redis-benchmark` tool such as the 
@@ -65,11 +66,13 @@ func main() {
 }
 ```
 
-The operations is like as executing, but without the `GEO*` commands.
+Which is similar to executing:
 
 ```
 $ redis-benchmark -t PING,SET,GET
 ```
+
+For a more complete example, check out [geoengine-benchmark](https://github.com/tidwall/geoengine/blob/master/cmd/geoengine-benchmark/main.go) from the [GeoEngine](https://github.com/tidwall/geoengine) project.
 
 ### Custom Options
 
