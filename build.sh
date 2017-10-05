@@ -132,6 +132,7 @@ fi
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-server" cmd/geoengine-server/*.go
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-cli" cmd/geoengine-cli/*.go
 go build -ldflags "$LDFLAGS" -o "$OD/geoengine-benchmark" cmd/geoengine-benchmark/*.go
+go build -ldflags "$LDFLAGS" -o "$OD/geoengine-luamemtest" cmd/geoengine-luamemtest/*.go
 
 # test if requested
 if [ "$1" == "test" ]; then

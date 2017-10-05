@@ -4,25 +4,27 @@ import (
 	"strings"
 	"time"
 
+	"github.com/tidwall/resp"
 	"github.com/tidwall/geoengine/controller/log"
 	"github.com/tidwall/geoengine/controller/server"
 )
 
-func (c *Controller) cmdReadOnly(msg *server.Message) (res string, err error) {
+func (c *Controller) cmdReadOnly(msg *server.Message) (res resp.Value, err error) {
 	start := time.Now()
 	vs := msg.Values[1:]
 	var arg string
 	var ok bool
+
 	if vs, arg, ok = tokenval(vs); !ok || arg == "" {
-		return "", errInvalidNumberOfArguments
+		return server.NOMessage, errInvalidNumberOfArguments
 	}
 	if len(vs) != 0 {
-		return "", errInvalidNumberOfArguments
+		return server.NOMessage, errInvalidNumberOfArguments
 	}
 	update := false
 	switch strings.ToLower(arg) {
 	default:
-		return "", errInvalidArgument(arg)
+		return server.NOMessage, errInvalidArgument(arg)
 	case "yes":
 		if !c.config.readOnly() {
 			update = true
