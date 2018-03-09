@@ -4,6 +4,7 @@ clean:
 	rm -f geoengine-server
 	rm -f geoengine-cli
 	rm -f geoengine-benchmark
+	rm -f geoengine-luamemtest
 test:
 	@./build.sh test
 cover:
