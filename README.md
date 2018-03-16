@@ -54,13 +54,6 @@ docker pull geoengine/geoengine
 docker run -p 9851:9851 geoengine/geoengine
 ```
 
-For the latest development version that tracks the Github master branch:
-
-```
-docker pull geoengine/geoengine:edge
-docker run -p 9851:9851 geoengine/geoengine:edge
-```
-
 Visit the [GeoEngine hub page](https://hub.docker.com/r/geoengine/geoengine/) for more information.
 
 ### Homebrew (macOS)
@@ -86,7 +79,7 @@ To test:
 $ make test
 ```
 
-## Running 
+### Running 
 For command line options invoke:
 ```
 $ ./geoengine-server -h
