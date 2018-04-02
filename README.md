@@ -22,9 +22,12 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 </p>
 
 ## Supporting GeoEngine
-GeoEngine is an independent project. Maintaining and developing new features takes a considerable amount of time.  
-[Please consider becoming a backer or sponsor on Patreon](https://www.patreon.com/tidwall)
 
+GeoEngine is an MIT-licensed open source project.
+It's an independent project with its ongoing development made possible thanks to the support by these awesome [backers](https://github.com/tidwall/geoengine/blob/master/BACKERS.md).
+If you'd like to join them, please consider:
+
+- [Become a backer or sponsor on Patreon](https://www.patreon.com/tidwall).
 
 
 ## Features
