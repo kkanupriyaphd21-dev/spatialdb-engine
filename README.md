@@ -4,7 +4,9 @@
     width="200" height="200" border="0" alt="GeoEngine"></a>
 </p>
 <p align="center">
-<a href="https://gitter.im/geoengine/geoengine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+
+
+<a href="https://geoengine.slack.com/join/shared_invite/enQtMzQ0OTEwMDUxMzc5LTc0NTJjZmM3YjFhOGZiZGU2NDNjOWEwM2Q5ZWE3MzFiYWZkZDIyN2U2ZmUzZDBmODU0MjI1ZjQ0N2Y1M2I1NTg"><img src="https://img.shields.io/badge/slack-channel-orange.svg" alt="Slack Channel"></a>
 <a href="https://github.com/tidwall/geoengine/releases"><img src="https://img.shields.io/badge/version-1.11.1-green.svg?" alt="Version"></a>
 <a href="https://travis-ci.org/tidwall/geoengine"><img src="https://travis-ci.org/tidwall/geoengine.svg?branch=master" alt="Build Status"></a>
 <a href="https://hub.docker.com/r/geoengine/geoengine"><img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker Ready"></a>
