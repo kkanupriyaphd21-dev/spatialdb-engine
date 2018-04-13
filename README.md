@@ -5,7 +5,7 @@
 </p>
 <p align="center">
 <a href="http://geoengine.com/slack"><img src="https://img.shields.io/badge/slack-channel-orange.svg" alt="Slack Channel"></a>
-<a href="https://github.com/tidwall/geoengine/releases"><img src="https://img.shields.io/badge/version-1.11.1-green.svg?" alt="Version"></a>
+<a href="https://github.com/tidwall/geoengine/releases"><img src="https://img.shields.io/badge/version-1.12.0-green.svg?" alt="Version"></a>
 <a href="https://travis-ci.org/tidwall/geoengine"><img src="https://travis-ci.org/tidwall/geoengine.svg?branch=master" alt="Build Status"></a>
 <a href="https://hub.docker.com/r/geoengine/geoengine"><img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker Ready"></a>
 </p>
