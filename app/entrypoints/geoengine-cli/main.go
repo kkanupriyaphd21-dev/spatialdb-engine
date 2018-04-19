@@ -15,8 +15,8 @@ import (
 
 	"github.com/peterh/liner"
 	"github.com/tidwall/resp"
-	"github.com/tidwall/geoengine/client"
-	"github.com/tidwall/geoengine/core"
+	"github.com/tidwall/geoengine/pkg/client"
+	"github.com/tidwall/geoengine/pkg/core"
 )
 
 func userHomeDir() string {

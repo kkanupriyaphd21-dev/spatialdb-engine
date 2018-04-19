@@ -1,4 +1,4 @@
-![GeoEngine Logo](https://raw.githubusercontent.com/tidwall/geoengine/master/doc/logo200.png)
+![GeoEngine Logo](https://raw.githubusercontent.com/tidwall/geoengine/master/res/logo200.png)
 
 GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofence. It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
 
@@ -17,6 +17,7 @@ GeoEngine is an open source (MIT licensed), in-memory geolocation data store, sp
 - In-memory database that persists on disk.
 
 ## Contact
+
 Josh Baker [@tidwall](http://twitter.com/tidwall)
 
 ## License

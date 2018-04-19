@@ -19,10 +19,10 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/tidwall/geoengine/controller"
-	"github.com/tidwall/geoengine/controller/log"
-	"github.com/tidwall/geoengine/core"
-	"github.com/tidwall/geoengine/hservice"
+	"github.com/tidwall/geoengine/pkg/controller"
+	"github.com/tidwall/geoengine/pkg/core"
+	"github.com/tidwall/geoengine/pkg/hservice"
+	"github.com/tidwall/geoengine/pkg/log"
 )
 
 var (

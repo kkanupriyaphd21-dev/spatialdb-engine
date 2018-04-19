@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/tidwall/geoengine/geojson"
+	"github.com/tidwall/geoengine/pkg/geojson"
 )
 
 type pointT struct {
