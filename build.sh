@@ -132,10 +132,10 @@ fi
 pkg/core/gen.sh
 
 # build and store objects into original directory.
-go build -ldflags "$LDFLAGS" -o "$OD/geoengine-server" cmd/geoengine-server/*.go
-go build -ldflags "$LDFLAGS" -o "$OD/geoengine-cli" cmd/geoengine-cli/*.go
-go build -ldflags "$LDFLAGS" -o "$OD/geoengine-benchmark" cmd/geoengine-benchmark/*.go
-go build -ldflags "$LDFLAGS" -o "$OD/geoengine-luamemtest" cmd/geoengine-luamemtest/*.go
+CGO_ENABLED=0 go build -ldflags "$LDFLAGS -extldflags '-static'" -o "$OD/geoengine-server" cmd/geoengine-server/*.go
+CGO_ENABLED=0 go build -ldflags "$LDFLAGS -extldflags '-static'" -o "$OD/geoengine-cli" cmd/geoengine-cli/*.go
+CGO_ENABLED=0 go build -ldflags "$LDFLAGS -extldflags '-static'" -o "$OD/geoengine-benchmark" cmd/geoengine-benchmark/*.go
+CGO_ENABLED=0 go build -ldflags "$LDFLAGS -extldflags '-static'" -o "$OD/geoengine-luamemtest" cmd/geoengine-luamemtest/*.go
 
 # test if requested
 if [ "$1" == "test" ]; then
