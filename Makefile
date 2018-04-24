@@ -18,5 +18,4 @@ uninstall:
 	rm -f /usr/local/bin/geoengine-cli
 	rm -f /usr/local/bin/geoengine-benchmark
 package:
-package:
 	@./build.sh package
