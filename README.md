@@ -315,7 +315,7 @@ GeoEngine uses the [Redis RESP](http://redis.io/topics/protocol) protocol native
 - Common Lisp: [CL-Redis](https://github.com/vseloved/cl-redis)
 - Erlang: [Eredis](https://github.com/wooga/eredis)
 - Go: [go-redis](https://github.com/go-redis/redis) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(go-redis)))
-- Go: [redigo](https://github.com/garyburd/redigo) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(redigo)))
+- Go: [redigo](https://github.com/gomodule/redigo) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(redigo)))
 - Haskell: [hedis](https://github.com/informatikr/hedis)
 - Java: [lettuce](https://github.com/mp911de/lettuce) ([example code](https://github.com/tidwall/geoengine/wiki/Java-example-(lettuce)))
 - Node.js: [node-geoengine](https://github.com/phulst/node-geoengine) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-geoengine)))
