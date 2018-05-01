@@ -1,7 +1,7 @@
 FROM alpine:3.4
 
-ADD ./geoengine-server /usr/local/bin
-ADD ./geoengine-cli /usr/local/bin
+ADD geoengine-server /usr/local/bin
+ADD geoengine-cli /usr/local/bin
 
 RUN addgroup -S geoengine && \
     adduser -S -G geoengine geoengine && \
