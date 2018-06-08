@@ -327,6 +327,7 @@ GeoEngine uses the [Redis RESP](http://redis.io/topics/protocol) protocol native
 - Node.js: [node-geoengine](https://github.com/phulst/node-geoengine) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-geoengine)))
 - Node.js: [node_redis](https://github.com/NodeRedis/node_redis) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-redis)))
 - Perl: [perl-redis](https://github.com/PerlRedis/perl-redis)
+- PHP: [tinyredisclient](https://github.com/ptrofimov/tinyredisclient) ([example code](https://github.com/tidwall/geoengine/wiki/PHP-example-(tinyredisclient)))
 - PHP: [phpredis](https://github.com/phpredis/phpredis)
 - Python: [redis-py](https://github.com/andymccurdy/redis-py) ([example code](https://github.com/tidwall/geoengine/wiki/Python-example))
 - Ruby: [redic](https://github.com/amakawa/redic) ([example code](https://github.com/tidwall/geoengine/wiki/Ruby-example-(redic)))
