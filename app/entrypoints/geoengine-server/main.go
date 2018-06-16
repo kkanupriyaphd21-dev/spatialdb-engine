@@ -282,7 +282,7 @@ Developer Options:
   |____   |   _   |   GeoEngine %s%s %d bit (%s/%s)
   |       |       |   %sPort: %d, PID: %d
   |____   |   _   | 
-  |       |       |   geoengine.com, patreon.com/tidwall
+  |       |       |   geoengine.com
   |_______|_______| 
 `+"\n", core.Version, gitsha, strconv.IntSize, runtime.GOARCH, runtime.GOOS, hostd, port, os.Getpid())
 	if pidferr != nil {
