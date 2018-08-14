@@ -22,6 +22,7 @@ import (
 	"github.com/tidwall/geoengine/pkg/collection"
 	"github.com/tidwall/geoengine/pkg/core"
 	"github.com/tidwall/geoengine/pkg/endpoint"
+	"github.com/tidwall/geoengine/pkg/expire"
 	"github.com/tidwall/geoengine/pkg/geojson"
 	"github.com/tidwall/geoengine/pkg/log"
 	"github.com/tidwall/geoengine/pkg/server"
@@ -113,6 +114,7 @@ type Controller struct {
 	luapool    *lStatePool
 
 	pubsub *pubsub
+	hookex expire.List
 }
 
 // ListenAndServe starts a new geoengine server
@@ -142,6 +144,12 @@ func ListenAndServeEx(host string, port int, dir string, ln *net.Listener, http 
 		conns:    make(map[*server.Conn]*clientConn),
 		http:     http,
 		pubsub:   newPubsub(),
+	}
+	c.hookex.Expired = func(item expire.Item) {
+		switch v := item.(type) {
+		case *Hook:
+			c.possiblyExpireHook(v)
+		}
 	}
 	c.epc = endpoint.NewManager(c)
 	c.luascripts = c.NewScriptMap()
