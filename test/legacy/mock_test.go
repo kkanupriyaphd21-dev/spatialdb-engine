@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/garyburd/redigo/redis"
-	"github.com/tidwall/geoengine/pkg/controller"
-	"github.com/tidwall/geoengine/pkg/core"
-	tlog "github.com/tidwall/geoengine/pkg/log"
+	"github.com/tidwall/geoengine/core"
+	"github.com/tidwall/geoengine/internal/controller"
+	tlog "github.com/tidwall/geoengine/internal/log"
 )
 
 var errTimeout = errors.New("timeout")
