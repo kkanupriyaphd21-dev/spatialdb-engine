@@ -13,8 +13,8 @@ import (
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/tidwall/geoengine/core"
-	"github.com/tidwall/geoengine/internal/controller"
 	tlog "github.com/tidwall/geoengine/internal/log"
+	"github.com/tidwall/geoengine/internal/server"
 )
 
 var errTimeout = errors.New("timeout")
@@ -51,7 +51,7 @@ func mockOpenServer() (*mockServer, error) {
 	s := &mockServer{port: port}
 	tlog.SetOutput(logOutput)
 	go func() {
-		if err := controller.ListenAndServe("localhost", port, dir, true); err != nil {
+		if err := server.Serve("localhost", port, dir, true); err != nil {
 			log.Fatal(err)
 		}
 	}()
