@@ -20,7 +20,7 @@ import (
 
 	"github.com/gomodule/redigo/redis"
 	"github.com/tidwall/gjson"
-	"github.com/tidwall/geoengine/controller"
+	"github.com/tidwall/geoengine/internal/server"
 )
 
 const geoenginePort = 9191
@@ -31,7 +31,6 @@ var geoengineAddr string
 var httpAddr string
 
 var wd string
-var server string
 
 var minX float64
 var minY float64
@@ -101,7 +100,7 @@ func main() {
 
 func startGeoEngineServer() {
 	log.Println("start geoengine server")
-	err := controller.ListenAndServe("localhost", geoenginePort, "data")
+	err := server.Serve("localhost", geoenginePort, "data", false)
 	if err != nil {
 		log.Fatal(err)
 	}
