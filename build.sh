@@ -8,13 +8,13 @@ VERSION=1.14.1
 PROTECTED_MODE="no"
 
 # Hardcode some values to the core package
-LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/pkg/core.Version=${VERSION}"
+LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/core.Version=${VERSION}"
 if [ -d ".git" ]; then
-	LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/pkg/core.GitSHA=$(git rev-parse --short HEAD)"
+	LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/core.GitSHA=$(git rev-parse --short HEAD)"
 fi
-LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/pkg/core.BuildTime=$(date +%FT%T%z)"
+LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/core.BuildTime=$(date +%FT%T%z)"
 if [ "$PROTECTED_MODE" == "no" ]; then
-	LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/pkg/core.ProtectedMode=no"
+	LDFLAGS="$LDFLAGS -X github.com/tidwall/geoengine/core.ProtectedMode=no"
 fi
 
 if [ "$1" == "update-version" ]; then
