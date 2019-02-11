@@ -13,8 +13,8 @@ import (
 	"github.com/tidwall/geojson/geometry"
 	"github.com/tidwall/resp"
 	"github.com/tidwall/geoengine/internal/collection"
-	"github.com/tidwall/geoengine/internal/ds"
 	"github.com/tidwall/geoengine/internal/glob"
+	"github.com/tidwall/tinybtree"
 )
 
 type fvt struct {
@@ -520,7 +520,7 @@ func (server *Server) cmdFlushDB(msg *Message) (res resp.Value, d commandDetails
 		err = errInvalidNumberOfArguments
 		return
 	}
-	server.cols = ds.BTree{}
+	server.cols = tinybtree.BTree{}
 	server.exlistmu.Lock()
 	server.exlist = nil
 	server.exlistmu.Unlock()
