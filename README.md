@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://geoengine.com"><img 
+  <a href="https://geoengine.com"><img 
     src="/internal/assets/logo.png" 
     width="315" height="120" border="0" alt="GeoEngine"></a>
 </p>
@@ -13,22 +13,22 @@
 GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofence. It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
 
 <p align="center">
-<i>This README is quick start document. You can find detailed documentation at <a href="http://geoengine.com">http://geoengine.com</a>.</i><br><br>
+<i>This README is quick start document. You can find detailed documentation at <a href="https://geoengine.com">https://geoengine.com</a>.</i><br><br>
 <a href="#searching"><img src="/internal/assets/search-nearby.png" alt="Nearby" border="0" width="120" height="120"></a>
 <a href="#searching"><img src="/internal/assets/search-within.png" alt="Within" border="0" width="120" height="120"></a>
 <a href="#searching"><img src="/internal/assets/search-intersects.png" alt="Intersects" border="0" width="120" height="120"></a>
-<a href="http://geoengine.com/topics/geofencing"><img src="/internal/assets/geofence.gif" alt="Geofencing" border="0" width="120" height="120"></a>
-<a href="http://geoengine.com/topics/roaming-geofences"><img src="/internal/assets/roaming.gif" alt="Roaming Geofences" border="0" width="120" height="120"></a>
+<a href="https://geoengine.com/topics/geofencing"><img src="/internal/assets/geofence.gif" alt="Geofencing" border="0" width="120" height="120"></a>
+<a href="https://geoengine.com/topics/roaming-geofences"><img src="/internal/assets/roaming.gif" alt="Roaming Geofences" border="0" width="120" height="120"></a>
 </p>
 
 ## Features
 
 - Spatial index with [search](#searching) methods such as Nearby, Within, and Intersects.
-- Realtime [geofencing](#geofencing) through [webhooks](http://geoengine.com/commands/sethook) or [pub/sub channels](#pubsub-channels).
+- Realtime [geofencing](#geofencing) through [webhooks](https://geoengine.com/commands/sethook) or [pub/sub channels](#pubsub-channels).
 - Object types of [lat/lon](#latlon-point), [bbox](#bounding-box), [Geohash](#geohash), [GeoJSON](#geojson), [QuadKey](#quadkey), and [XYZ tile](#xyz-tile).
 - Support for lots of [Clients Libraries](#client-libraries) written in many different languages.
-- Variety of protocols, including [http](#http) (curl), [websockets](#websockets), [telnet](#telnet), and the [Redis RESP](http://redis.io/topics/protocol).
-- Server responses are [RESP](http://redis.io/topics/protocol) or [JSON](http://www.json.org).
+- Variety of protocols, including [http](#http) (curl), [websockets](#websockets), [telnet](#telnet), and the [Redis RESP](https://redis.io/topics/protocol).
+- Server responses are [RESP](https://redis.io/topics/protocol) or [JSON](https://www.json.org).
 - Full [command line interface](#cli).
 - Leader / follower [replication](#replication).
 - In-memory database that persists on disk.
@@ -57,7 +57,7 @@ Visit the [GeoEngine hub page](https://hub.docker.com/r/geoengine/geoengine/) fo
 
 ### Homebrew (macOS)
 
-Install GeoEngine using [Homebrew](http://brew.sh/)
+Install GeoEngine using [Homebrew](https://brew.sh/)
 
 ```sh
 brew install geoengine
@@ -114,7 +114,7 @@ $ ./geoengine-cli
 > drop fleet                                 # removes all 
 ```
 
-GeoEngine has a ton of [great commands](http://geoengine.com/commands).
+GeoEngine has a ton of [great commands](https://geoengine.com/commands).
 
 ## Fields
 Fields are extra data that belongs to an object. A field is always a double precision floating point. There is no limit to the number of fields that an object can have. 
@@ -183,7 +183,7 @@ You can choose a value between 1 and 8. The value 1 will result in no more than 
 <img src="/internal/assets/geofence.gif" width="200" height="200" border="0" alt="Geofence animation" align="left">
 A <a href="https://en.wikipedia.org/wiki/Geo-fence">geofence</a> is a virtual boundary that can detect when an object enters or exits the area. This boundary can be a radius, bounding box, or a polygon. GeoEngine can turn any standard search into a geofence monitor by adding the FENCE keyword to the search. 
 
-*GeoEngine also allows for [Webhooks](http://geoengine.com/commands/sethook) to be assigned to Geofences.*
+*GeoEngine also allows for [Webhooks](https://geoengine.com/commands/sethook) to be assigned to Geofences.*
 
 <br clear="all">
 
@@ -260,7 +260,7 @@ set fleet truck1 hash 9tbnthxzr # this would be equivlent to 'point 33.5123 -112
 ```
 
 #### GeoJSON
-[GeoJSON](http://geojson.org/) is an industry standard format for representing a variety of object types including a point, multipoint, linestring, multilinestring, polygon, multipolygon, geometrycollection, feature, and featurecollection.
+[GeoJSON](https://tools.ietf.org/html/rfc7946) is an industry standard format for representing a variety of object types including a point, multipoint, linestring, multilinestring, polygon, multipolygon, geometrycollection, feature, and featurecollection.
 
 <i>* All ignored members will not persist.</i>
 
@@ -272,7 +272,7 @@ set city tempe object {"type":"Polygon","coordinates":[[[0,0],[10,10],[10,0],[0,
 
 #### XYZ Tile
 An XYZ tile is rectangle bounding area on earth that is represented by an X, Y coordinate and a Z (zoom) level.
-Check out [maptiler.org](http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/) for an interactive example.
+Check out [maptiler.org](https://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/) for an interactive example.
 
 #### QuadKey
 A QuadKey used the same coordinate system as an XYZ tile except that the string representation is a string characters composed of 0, 1, 2, or 3. For a detailed explanation checkout [The Bing Maps Tile System](https://msdn.microsoft.com/en-us/library/bb259689.aspx).
@@ -297,7 +297,7 @@ curl localhost:9851/set+fleet+truck3+point+33.4762+-112.10923
 Websockets can be used when you need to Geofence and keep the connection alive. It works just like the HTTP example above, with the exception that the connection stays alive and the data is sent from the server as text websocket messages.
 
 #### Telnet
-There is the option to use a plain telnet connection. The default output through telnet is [RESP](http://redis.io/topics/protocol).
+There is the option to use a plain telnet connection. The default output through telnet is [RESP](https://redis.io/topics/protocol).
 
 ```
 telnet localhost 9851
@@ -306,14 +306,14 @@ set fleet truck3 point 33.4762 -112.10923
 
 ```
 
-The server will respond in [JSON](http://json.org) or [RESP](http://redis.io/topics/protocol) depending on which protocol is used when initiating the first command.
+The server will respond in [JSON](https://json.org) or [RESP](https://redis.io/topics/protocol) depending on which protocol is used when initiating the first command.
 
 - HTTP and Websockets use JSON. 
 - Telnet and RESP clients use RESP.
 
 ## Client Libraries
 
-GeoEngine uses the [Redis RESP](http://redis.io/topics/protocol) protocol natively. Therefore most clients that support basic Redis commands will in turn support GeoEngine. Below are a few of the popular clients. 
+GeoEngine uses the [Redis RESP](https://redis.io/topics/protocol) protocol natively. Therefore most clients that support basic Redis commands will in turn support GeoEngine. Below are a few of the popular clients. 
 
 - C: [hiredis](https://github.com/redis/hiredis)
 - C#: [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)
@@ -339,7 +339,7 @@ GeoEngine uses the [Redis RESP](http://redis.io/topics/protocol) protocol native
 
 ## Contact
 
-Josh Baker [@tidwall](http://twitter.com/tidwall)
+Josh Baker [@tidwall](https://twitter.com/tidwall)
 
 ## License
 
