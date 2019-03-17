@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://geoengine.com"><img 
     src="/internal/assets/logo.png" 
-    width="315" height="120" border="0" alt="GeoEngine"></a>
+    width="284" height="108" border="0" alt="GeoEngine"></a>
 </p>
 <p align="center">
 <a href="https://join.slack.com/t/geoengine/shared_invite/enQtMzQ0OTEwMDUxMzc5LTc0NTJjZmM3YjFhOGZiZGU2NDNjOWEwM2Q5ZWE3MzFiYWZkZDIyN2U2ZmUzZDBmODU0MjI1ZjQ0N2Y1M2I1NTg"><img src="https://img.shields.io/badge/slack-channel-orange.svg" alt="Slack Channel"></a>
