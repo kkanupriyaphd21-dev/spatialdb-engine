@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
+	"github.com/tidwall/sjson"
 	"github.com/tidwall/geoengine/core"
 	tlog "github.com/tidwall/geoengine/internal/log"
 	"github.com/tidwall/geoengine/internal/server"
@@ -194,6 +195,12 @@ func (mc *mockServer) DoExpect(expect interface{}, commandName string, args ...i
 			}
 		}
 		return err
+	}
+	if b, ok := resp.([]byte); ok && len(b) > 1 && b[0] == '{' {
+		b, err = sjson.DeleteBytes(b, "elapsed")
+		if err == nil {
+			resp = b
+		}
 	}
 	oresp := resp
 	resp = normalize(resp)
