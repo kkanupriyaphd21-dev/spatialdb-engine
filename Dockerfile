@@ -3,6 +3,7 @@ RUN apk add --no-cache ca-certificates
 
 ADD geoengine-server /usr/local/bin
 ADD geoengine-cli /usr/local/bin
+ADD geoengine-benchmark /usr/local/bin
 
 RUN addgroup -S geoengine && \
     adduser -S -G geoengine geoengine && \
