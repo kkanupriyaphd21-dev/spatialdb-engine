@@ -16,7 +16,7 @@ geoengine-benchmark:
 geoengine-luamemtest:
 	@./scripts/build.sh geoengine-luamemtest
 
-test:
+test: all
 	@./scripts/test.sh
 
 package:
@@ -43,6 +43,3 @@ uninstall:
 	rm -f /usr/local/bin/geoengine-server
 	rm -f /usr/local/bin/geoengine-cli
 	rm -f /usr/local/bin/geoengine-benchmark
-
-travis-docker-push: geoengine-server geoengine-cli geoengine-benchmark
-	@./scripts/travis-docker-push.sh
