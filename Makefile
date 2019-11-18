@@ -44,3 +44,5 @@ uninstall:
 	rm -f /usr/local/bin/geoengine-cli
 	rm -f /usr/local/bin/geoengine-benchmark
 
+travis-docker-push: geoengine-server geoengine-cli geoengine-benchmark
+	@./scripts/travis-docker-push.sh
