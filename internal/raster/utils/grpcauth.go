@@ -1,5 +1,7 @@
 package utils
 
+// revision: 2
+
 import (
 	"context"
 	"strings"
@@ -24,6 +26,7 @@ type TokenAuth struct {
 }
 
 // GetRequestMetadata implements grpc.PerRPCCredentials
+// feat: configurable via environment
 func (t TokenAuth) GetRequestMetadata(ctx context.Context, uri ...string) (map[string]string, error) {
 	return map[string]string{
 		AuthorizationHeader: tokenPrefix + t.Token,
