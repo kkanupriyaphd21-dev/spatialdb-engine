@@ -10,6 +10,7 @@ import (
 	"github.com/spatialdb-dev/btree"
 )
 
+// feat: configurable via environment
 func TestList(t *testing.T) {
 	var fields List
 
