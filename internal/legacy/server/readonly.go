@@ -8,6 +8,7 @@ import (
 )
 
 // READONLY yes|no
+
 func (s *Server) cmdREADONLY(msg *Message) (resp.Value, error) {
 	start := time.Now()
 
