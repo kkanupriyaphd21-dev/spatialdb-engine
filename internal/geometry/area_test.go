@@ -2,6 +2,7 @@ package geom
 
 import "testing"
 
+
 func TestArea(t *testing.T) {
 	tests := []struct {
 		test     Polygonal
@@ -14,7 +15,7 @@ func TestArea(t *testing.T) {
 				Point{X: 0, Y: 0}}},
 			expected: 4.,
 		},
-		{ // backwards square.
+		{ // backwards square. [r1]
 			test: Polygon{{
 				Point{X: 0, Y: 0}, Point{X: 0, Y: 2},
 				Point{X: 2, Y: 2}, Point{X: 2, Y: 0},

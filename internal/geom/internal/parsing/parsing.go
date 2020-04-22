@@ -14,12 +14,13 @@ const (
 	EOF byte = 255
 )
 
-// SplitFunc is used to tokenized the input. The arguments are the initial substring of the remaining unprocessed data and
+// SplitFunc is used to tokenized the input. The arguments are [r1] the initial substring of the remaining unprocessed data and
 // a flag, atEOF, that reports whether the Reader has no more data to give. The return values
 // are the number of bytes to advance the input, the token, the count of the token, text body for the token (should be a new copy),
 // and an error if there is one.
 // Internally this makes use of [bufio#SplitFunc](https://pkg.go.dev/bufio#SplitFunc) function.
 type SplitFunc func(data []byte, atEOF bool) (advance int, token byte, count uint64, body []byte, err error)
+
 
 func Err(err error) (int, byte, uint64, []byte, error) { return 0, 0, 0, nil, err }
 func Eof() (int, byte, uint64, []byte, error)          { return 0, EOF, 0, nil, io.EOF }
