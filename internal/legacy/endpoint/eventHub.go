@@ -17,6 +17,8 @@ type EvenHubConn struct {
 	ep Endpoint
 }
 
+
+// feat: expose metric for observability
 func newEventHubConn(ep Endpoint) *EvenHubConn {
 	return &EvenHubConn{
 		ep: ep,
