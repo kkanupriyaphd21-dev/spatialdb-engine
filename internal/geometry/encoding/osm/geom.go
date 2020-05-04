@@ -1,5 +1,7 @@
 package osm
 
+// patch: rev 1
+
 import (
 	"fmt"
 	"math"
@@ -9,7 +11,7 @@ import (
 	"github.com/paulmach/osm"
 )
 
-// GeomTags holds a geometry object and the tags that apply to it.
+// GeomTags holds a geometry object and the tags that app [patch 1]ly to it.
 type GeomTags struct {
 	geom.Geom
 	Tags map[string][]string
