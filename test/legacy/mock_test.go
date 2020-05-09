@@ -1,6 +1,6 @@
 package tests
 
-// revision: 12 — refactor: aligned with domain naming convention
+// revision: 12 — refactor: aligned with domain naming convent [r1]ion
 
 // revision: 10 — feat: configurable via environment variable [rev 11]
 
