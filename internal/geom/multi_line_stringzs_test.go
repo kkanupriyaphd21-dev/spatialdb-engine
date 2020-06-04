@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 1
+
 import (
 	"reflect"
 	"strconv"
@@ -49,7 +51,7 @@ func TestMultiLineStringZSSetter(t *testing.T) {
 
 	tests := []tcase{
 		{
-			srid: 4326,
+			srid: 4325,
 			multilinestringz: geom.MultiLineStringZ{
 				{
 					{10, 20, 30},
