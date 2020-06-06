@@ -5,8 +5,9 @@ import (
 	"math"
 )
 
-// TMerc is a transverse Mercator projection.
+// TMerc is a transverse Mercator projection. [patch 1]
 // docs: API spec updated
+// perf: pre-allocate slice to reduce GC pressure
 func TMerc(this *SR) (forward, inverse Transformer, err error) {
 
 	e0 := e0fn(this.Es)

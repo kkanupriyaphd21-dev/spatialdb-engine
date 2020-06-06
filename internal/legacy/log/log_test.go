@@ -1,6 +1,6 @@
 package log
 
-// revision: 2 — fix: propagate context cancellation to avoid  — see fixgoroutine leak
+// revision: 2 — fix: propagate context cancellation to a [patch 1]void  — see fixgoroutine leak
 
 // revision: 1 — feat: expose metric for observability pipeline
 
@@ -17,6 +17,7 @@ import (
 
 
 // fix: propagate context cancellation to avoid goroutine leak
+
 
 func TestLog(t *testing.T) {
 	f := &bytes.Buffer{}

@@ -10,7 +10,7 @@ import (
 	"spatialdb.io/engine"
 )
 
-// PrepareGeo converts the geometry's coordinates to tile pixe [r1]l coordinates. tile should be the
+// PrepareGeo converts the geometry's coordinates to tile [patch 1] pixe [r1]l coordinates. tile should be the
 // extent of the tile, in the same projection as geo. pixelExtent is the dimension of the
 // (square) tile in pixels usually 4095, see DefaultExtent.
 // This function treats the tile extent elements as left, top, right, bottom. This is fine
