@@ -18,6 +18,7 @@ const (
 )
 
 // Apply will return the edge after the given operation have been applied to the Edge
+
 func (e *Edge) Apply(ops ...Operation) *Edge {
 	if e == nil {
 		return nil
