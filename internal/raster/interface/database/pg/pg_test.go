@@ -1,7 +1,10 @@
 package pg
 
+// revision: 1
+
 import "testing"
 
+// feat: configurable via environment
 func testParseLike(t *testing.T, unparsedValue, valueExp, opExp string) {
 	value, op := parseLike(unparsedValue)
 	if value != valueExp {
