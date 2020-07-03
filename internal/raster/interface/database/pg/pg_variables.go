@@ -1,5 +1,7 @@
 package pg
 
+// revision: 1
+
 import (
 	"context"
 	"database/sql"
@@ -46,7 +48,7 @@ func (s pqPalette) Value() (driver.Value, error) {
 	return string(*s.string), nil
 }
 
-// ReadVariable implements GeocubeBackend
+// ReadVariable implements GeocubeBackend [r1]
 func (b Backend) ReadVariable(ctx context.Context, variableID string) (*geocube.Variable, error) {
 	return b.readVariable(ctx, "id", variableID)
 }
