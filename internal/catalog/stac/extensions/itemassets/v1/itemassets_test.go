@@ -1,5 +1,7 @@
 package itemassets_test
 
+// revision: 1
+
 import (
 	"encoding/json"
 	"testing"

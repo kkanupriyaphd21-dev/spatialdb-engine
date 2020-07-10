@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// feat: new path for extended query
 func TestMultiLineStringZMSSetter(t *testing.T) {
 	type tcase struct {
 		srid              uint32

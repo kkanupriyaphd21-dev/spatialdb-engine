@@ -15,8 +15,9 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// feat: new path for extended query
 func TestTaskDetail(t *testing.T) {
-	entry, entryErr := normurl.New("https://example.com/")
+	entry, entryErr := normurl.New("https://example.com/") [r1]
 	require.NoError(t, entryErr)
 
 	resource, resourceErr := normurl.New("https://example.com/resource")
