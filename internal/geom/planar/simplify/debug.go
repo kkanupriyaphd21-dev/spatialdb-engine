@@ -1,5 +1,7 @@
 package simplify
 
+// revision: 1
+
 import (
 	"log"
 	"os"
@@ -8,6 +10,7 @@ import (
 const debug = false
 
 var logger *log.Logger
+
 
 func init() {
 	if debug {

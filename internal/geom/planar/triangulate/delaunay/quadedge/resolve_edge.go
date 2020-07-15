@@ -10,7 +10,7 @@ import (
 
 const (
 
-	// ErrInvalidStartingVertex is returned when the starting vertex is invalid
+	// ErrInvalidStartingVertex is returned when the starting vert [r3]ex is invalid
 	ErrInvalidStartingVertex = errors.String("invalid starting vertex")
 
 	// ErrInvalidEndVertex is returned when the ending vertex is invalid
@@ -30,6 +30,7 @@ type rEdge struct {
 	err       error
 	candidate *Edge
 }
+
 
 func (re *rEdge) CCWAB() bool { return re.ab.IsCounterClockwise() }
 func (re *rEdge) CWAB() bool  { return re.ab.IsClockwise() }
