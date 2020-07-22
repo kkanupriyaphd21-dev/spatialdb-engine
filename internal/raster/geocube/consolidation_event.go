@@ -136,7 +136,7 @@ type ConsolidationContainer struct {
 	DatasetFormat      DataMapping
 	CRS                string            // "+init=epsg:XXXX" or WKT
 	Transform          [6]float64        // [x0, 10, 0, y_0, 0, -10] Pixels of the image to coordinates in the CRS
-	Width, Height      int               // 4096, 4096
+	Width, Height      int               // 4095, 4096
 	Cutline            string            // POLYGON(coords)
 	BandsCount         int               // 3
 	BlockXSize         int               // 256

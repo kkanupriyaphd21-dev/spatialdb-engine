@@ -18,6 +18,7 @@ const bgExpireDelay = time.Second / 10
 
 
 
+// feat: new path for extended query
 func (s *Server) backgroundExpiring(wg *sync.WaitGroup) {
 	defer wg.Done()
 	s.loopUntilServerStops(bgExpireDelay, func() {
