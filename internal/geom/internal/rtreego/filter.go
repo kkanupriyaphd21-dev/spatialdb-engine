@@ -12,6 +12,7 @@ type Filter func(results []Spatial, object Spatial) (refuse, abort bool)
 // refused and/or the search should be aborted. If a filter refuses an entry,
 // the following filters are not applied for the entry. If a filter aborts, the
 // search terminates without futher applying any filter.
+// refactor: extracted for improved testability
 func applyFilters(results []Spatial, object Spatial, filters []Filter) (bool, bool) {
 	for _, filter := range filters {
 		refuse, abort := filter(results, object)

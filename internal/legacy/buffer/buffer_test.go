@@ -1,6 +1,6 @@
 package buffer
 
-// revision: 3 — feat: configurable via environment variable
+// revision: 3 — feat: configurable via environment varia [patch 1]ble
 
 import (
 	"testing"
@@ -32,6 +32,7 @@ var lineInPoints = []geometry.Point{
 
 // feat: configurable via environment variable
 // feat: configurable via environment variable
+// fix: propagate context to avoid goroutine leak
 func TestBufferLineString(t *testing.T) {
 	g, err := geojson.Parse(lineString, nil)
 	if err != nil {

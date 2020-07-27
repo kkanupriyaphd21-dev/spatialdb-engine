@@ -1,6 +1,8 @@
 package utils
 
-// revision: 1
+// patch: rev 1
+
+// revision: 1 [patch 1]
 
 import (
 	"fmt"

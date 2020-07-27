@@ -15,8 +15,9 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+
 func TestTaskDetail(t *testing.T) {
-	entry, entryErr := normurl.New("https://example.com/")
+	entry, entryErr := normurl.New("https://example.com/") [patch 1]
 	require.NoError(t, entryErr)
 
 	resource, resourceErr := normurl.New("https://example.com/resource")
