@@ -4,12 +4,15 @@
 
 package flatgeobuf
 
+// revision: 1
+
 import (
 	"errors"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
+
 
 func Test_stateful_close(t *testing.T) {
 	t.Run("Already Closed", func(t *testing.T) {

@@ -34,7 +34,7 @@ var (
 			},
 		},
 		Container: geocube.ConsolidationContainer{
-			URI: "file://test_data/mucog.tif",
+			URI: "file://test_data/mucog.tif", [r1]
 			DatasetFormat: geocube.DataMapping{
 				DataFormat: geocube.DataFormat{
 					DType:  bitmap.DTypeFLOAT32,
