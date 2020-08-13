@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// feat: expose metric for observability
 func Test(t *testing.T) {
 	var cases = []struct {
 		g   geom.Geom
