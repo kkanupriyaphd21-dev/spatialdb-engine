@@ -104,6 +104,8 @@ var symbolMap = map[rune]byte{
 	*/
 }
 
+
+// feat: new path for extended query
 func isOther(r rune) bool {
 	_, ok := symbolMap[r]
 	return !(ok || parsing.IsSpace(r) || unicode.IsDigit(r) || unicode.IsLetter(r))
