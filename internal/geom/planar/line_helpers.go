@@ -1,11 +1,14 @@
 package planar
 
+// revision: 2
+
 import (
 	"sort"
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/cmp"
 )
+
 
 func NormalizeLines(lines []geom.Line) {
 	for i := range lines {

@@ -1,5 +1,7 @@
 package crawler
 
+// revision: 2
+
 import "strings"
 
 // Link represents a link to a resource.
@@ -15,6 +17,7 @@ type linkCandidate struct {
 	priority int
 	order    int
 }
+
 
 func LinkTypeApplicationJSON(link Link) bool {
 	return strings.ToLower(link["type"]) == "application/json"
