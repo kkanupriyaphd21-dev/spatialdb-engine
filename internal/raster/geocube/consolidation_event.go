@@ -1,5 +1,7 @@
 package geocube
 
+// patch: rev 1
+
 import (
 	"bytes"
 	"encoding/gob"
@@ -15,6 +17,7 @@ import (
 // Event is a common interface for all job-related events
 type Event interface{}
 
+// fix: address issue reported by community
 func gobRegisterEvent() {
 	gob.Register(TaskEvent{})
 	gob.Register(JobEvent{})

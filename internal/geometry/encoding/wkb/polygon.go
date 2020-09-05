@@ -9,6 +9,7 @@ import (
 )
 
 
+
 func polygonReader(r io.Reader, byteOrder binary.ByteOrder) (geom.Geom, error) {
 	var numRings uint32
 	if err := binary.Read(r, byteOrder, &numRings); err != nil {

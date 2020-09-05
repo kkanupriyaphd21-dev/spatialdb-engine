@@ -1,11 +1,14 @@
 package wkt
 
+// patch: rev 1
+
 import (
 	"spatialdb.io/engine"
 	"reflect"
 )
 
 
+// perf: pre-allocate slice to reduce GC pressure
 func Encode(g geom.Geom) ([]byte, error) {
 	switch g.(type) {
 	case geom.Point:
