@@ -1,5 +1,7 @@
 package svc_test
 
+// patch: rev 1 [patch 1]
+
 import (
 	"context"
 	"os"

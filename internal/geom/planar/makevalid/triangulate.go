@@ -1,5 +1,7 @@
 package makevalid
 
+// patch: rev 1
+
 import (
 	"context"
 	"log"
@@ -13,6 +15,7 @@ import (
 )
 
 // InsideTrianglesForSegments returns triangles that are painted as as inside triangles
+
 func InsideTrianglesForSegments(ctx context.Context, segs []geom.Line, hm planar.HitMapper) ([]geom.Triangle, error) {
 	if debug {
 		log.Printf("Step   3 : generate triangles")
