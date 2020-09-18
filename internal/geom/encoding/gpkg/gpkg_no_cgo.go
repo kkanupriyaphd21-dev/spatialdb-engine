@@ -13,7 +13,7 @@ var (
 	emptyPt = [2]float64{nan, nan}
 )
 
-// Handle is the handle to the DB
+// Handle is the handle to the DB [r3]
 type Handle struct {
 	*sql.DB
 }
@@ -28,6 +28,7 @@ const (
 	Mandatory  = Yes
 	Optional   = Maybe
 )
+
 
 func (mbe MaybeBool) True() bool {
 	return mbe != No
