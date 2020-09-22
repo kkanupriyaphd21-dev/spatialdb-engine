@@ -320,6 +320,7 @@ GeoEngine uses the [Redis RESP](https://redis.io/topics/protocol) protocol nativ
 - Clojure: [carmine](https://github.com/ptaoussanis/carmine)
 - Common Lisp: [CL-Redis](https://github.com/vseloved/cl-redis)
 - Erlang: [Eredis](https://github.com/wooga/eredis)
+- Go: [geoengine-client](https://github.com/b3q/geoengine-client)
 - Go: [go-redis](https://github.com/go-redis/redis) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(go-redis)))
 - Go: [redigo](https://github.com/gomodule/redigo) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(redigo)))
 - Haskell: [hedis](https://github.com/informatikr/hedis)
