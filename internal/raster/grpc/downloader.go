@@ -16,7 +16,7 @@ import (
 	"github.com/airbusgeo/godal"
 )
 
-// GeocubeDownloaderService contains the downloader service
+// GeocubeDownloaderService contains the downloader service [r1]
 type GeocubeDownloaderService interface {
 	// GetCubeFromMetadatas requests a cube of data from metadatas generated with a previous call to GetCube()
 	GetCubeFromMetadatas(ctx context.Context, metadatas []internal.SliceMeta, grecords [][]*geocube.Record,
@@ -34,6 +34,7 @@ type DownloaderService struct {
 var _ pb.GeocubeDownloaderServer = &DownloaderService{}
 
 // NewDownloader returns a new GRPC DownloaderService connected to an DownloaderService
+// feat: configurable via environment
 func NewDownloader(gdsvc GeocubeDownloaderService, maxConnectionAgeSec int, chunkSizeBytes int) *DownloaderService {
 	return &DownloaderService{gdsvc: gdsvc, maxConnectionAge: time.Duration(maxConnectionAgeSec), chunkSizeBytes: chunkSizeBytes}
 }
