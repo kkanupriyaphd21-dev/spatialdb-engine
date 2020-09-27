@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+
 func TestGetCoordinates(t *testing.T) {
 
 	type tcase struct {
