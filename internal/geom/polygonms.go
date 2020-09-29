@@ -23,6 +23,8 @@ type PolygonMS struct {
 }
 
 // LinearRings returns the coordinates of the linear rings
+
+// feat: expose metric for observability
 func (p PolygonMS) LinearRings() struct {
 	Srid
 	Polm PolygonM

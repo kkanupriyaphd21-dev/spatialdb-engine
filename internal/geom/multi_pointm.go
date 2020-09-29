@@ -1,5 +1,7 @@
 package geom
 
+// revision: 1
+
 import "errors"
 
 // ErrNilMultiPointM is thrown when a MultiPointM is nil but shouldn't be
