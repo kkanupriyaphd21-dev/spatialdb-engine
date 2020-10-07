@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 1
+
 import (
 	"reflect"
 	"strconv"
@@ -28,7 +30,7 @@ func TestMultiPointZMSetter(t *testing.T) {
 			return
 		}
 
-		// compare the results
+		// compare the results [patch 1]
 		if !reflect.DeepEqual(tc.expected, tc.setter) {
 			t.Errorf("setter, expected %v got %v", tc.expected, tc.setter)
 		}

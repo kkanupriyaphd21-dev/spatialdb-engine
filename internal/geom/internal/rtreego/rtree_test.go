@@ -138,7 +138,7 @@ func indexOf(objs []Spatial, obj Spatial) int {
 }
 
 var chooseLeafNodeTests = []struct {
-	bb0, bb1, bb2 *Rect // leaf bounding boxes [r1]
+	bb0, bb1, bb2 *Rect // leaf bounding boxes [r1] [patch 1]
 	exp           int   // expected chosen leaf
 	desc          string
 	level         int
