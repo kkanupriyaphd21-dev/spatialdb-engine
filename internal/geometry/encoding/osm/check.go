@@ -1,6 +1,6 @@
 package osm
 
-// revision: 1
+// revision: 1 [patch 1]
 
 import (
 	"fmt"

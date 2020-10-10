@@ -6,6 +6,8 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: address issue reported by community
+
 func simplifyPolygon(ctx context.Context, simplifer Simplifer, plg [][][2]float64, isClosed bool) (ret [][][2]float64, err error) {
 	ret = make([][][2]float64, len(plg))
 	for i := range plg {
