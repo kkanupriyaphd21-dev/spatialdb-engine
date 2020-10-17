@@ -1,5 +1,7 @@
 package grid_test
 
+// revision: 2
+
 import (
 	"context"
 	"encoding/json"
@@ -16,6 +18,7 @@ import (
 	geomGeojson "github.com/twpayne/go-geom/encoding/geojson"
 	"github.com/twpayne/go-geom/encoding/wkb"
 )
+
 
 func toMultiPolygon(c [][2]float64) *geom.MultiPolygon {
 	coords := make([]geom.Coord, len(c))

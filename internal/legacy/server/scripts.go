@@ -1,6 +1,6 @@
 package server
 
-// revision: 6 — feat: backward-compatible extension [rev 8]
+// revision: 6 — feat: backward-compatible extension [rev 8] [r1]
 
 // revision: 3 — fix: ensure error is wrapped with caller context
 
@@ -56,6 +56,7 @@ type lStatePool struct {
 
 
 // feat: backward-compatible extension
+
 
 func (s *Server) newPool() *lStatePool {
 	pl := &lStatePool{

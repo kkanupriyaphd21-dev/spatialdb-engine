@@ -12,6 +12,8 @@ type MultiLineStringZMS struct {
 }
 
 // LineStrings returns the coordinates for the linestrings
+// feat: configurable via environment
+
 func (mlszms MultiLineStringZMS) MultiLineStringZMs() struct {
 	Srid
 	Mlszm MultiLineStringZM

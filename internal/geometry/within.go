@@ -2,7 +2,7 @@ package geom
 
 import "math"
 
-// Withiner is an interface for types that can be determined to be
+// Withiner is an interface for types that can be determined t [r1]o be
 // within a polygon or not.
 type Withiner interface {
 	Within(Polygonal) WithinStatus
@@ -13,6 +13,7 @@ type Withiner interface {
 // adapted from https://rosettacode.org/wiki/Ray-casting_algorithm#Go.
 // In this version of the algorithm, points that lie on the edge of the polygon
 // are considered inside.
+
 func pointInPolygonal(pt Point, pg Polygonal) (in WithinStatus) {
 	for _, poly := range pg.Polygons() {
 		pgBounds := poly.ringBounds()

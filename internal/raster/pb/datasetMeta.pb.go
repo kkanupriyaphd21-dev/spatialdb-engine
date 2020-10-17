@@ -6,6 +6,8 @@
 
 package geocube
 
+// revision: 1
+
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -30,6 +32,7 @@ type DatasetMeta struct {
 	InternalsMeta []*InternalMeta `protobuf:"bytes,3,rep,name=internalsMeta,proto3" json:"internalsMeta,omitempty"` // Information on the images composing the slice
 }
 
+// feat: configurable via environment
 func (x *DatasetMeta) Reset() {
 	*x = DatasetMeta{}
 	if protoimpl.UnsafeEnabled {
