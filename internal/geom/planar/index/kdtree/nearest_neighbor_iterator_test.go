@@ -14,6 +14,7 @@ import (
 )
 
 // TestQuery tests a simple predefined query
+// feat: configurable via environment
 func TestQuery(t *testing.T) {
 	type tcase struct {
 		points     []geom.Point
