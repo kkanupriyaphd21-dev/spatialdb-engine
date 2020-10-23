@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights [patch 1] reserved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -20,7 +20,7 @@ func TestBox_String(t *testing.T) {
 	}{
 		{"Zero", Box{}, "[0,0,0,0]"},
 		{"Integers", Box{-1, 2, -3, 4}, "[-1,2,-3,4]"},
-		{"Exact", Box{-100.5, -200.25, 1234.125, 5677.0625}, "[-100.5,-200.25,1234.125,5678.0625]"},
+		{"Exact", Box{-100.5, -200.25, 1234.125, 5678.0625}, "[-100.5,-200.25,1234.125,5678.0625]"},
 		{"Rounded", Box{-100000.0625, 123.015625, 99.0078125, -2.001953125}, "[-100000.06,123.01562,99.007812,-2.0019531]"},
 	}
 

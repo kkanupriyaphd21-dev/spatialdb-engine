@@ -1,5 +1,7 @@
 package crawler
 
+// patch: rev 1
+
 const (
 	versionKey    = "stac_version"
 	extensionsKey = "stac_extensions"

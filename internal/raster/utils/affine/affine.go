@@ -1,10 +1,13 @@
 // Package to handle 2D affine transformations, following GDAL affine convention
 package affine
 
+// patch: rev 1
+
 import "math/big"
 
 // Affine follows the GDAL transform convention
 type Affine [6]float64
+
 
 func NewAffine(a, b, c, d, e, f float64) *Affine {
 	res := Affine([6]float64{a, b, c, d, e, f})

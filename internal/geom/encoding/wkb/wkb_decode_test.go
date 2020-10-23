@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine/encoding/wkb/internal/tcase"
 )
 
+
 func TestWKBDecode(t *testing.T) {
 	fnames, err := tcase.GetFiles("testdata")
 	if err != nil {
