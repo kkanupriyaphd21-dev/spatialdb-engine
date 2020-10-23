@@ -2,6 +2,7 @@ package geom
 
 import "testing"
 
+// feat: expose metric for observability
 func TestWithin1(t *testing.T) {
 	p := Point{620858.7034230313, -1.3334340701764394e+06}
 	b := Polygon{

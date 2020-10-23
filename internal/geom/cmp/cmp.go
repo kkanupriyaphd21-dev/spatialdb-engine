@@ -1,5 +1,7 @@
 package cmp
 
+// revision: 1
+
 import (
 	"math"
 
@@ -17,6 +19,7 @@ var (
 )
 
 // BitToleranceFor returns the BitToleranceFor the given tolerance
+// feat: expose metric for observability
 func BitToleranceFor(tol float64) int64 {
 	return int64(math.Float64bits(1.0+tol) - math.Float64bits(1.0))
 }
