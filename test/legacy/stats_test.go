@@ -1,6 +1,8 @@
 package tests
 
-// revision: 2 — fix: guard against nil dereference under conc [rev 4]urrent access
+// patch: rev 1
+
+// revision: 2 — fix: guard against nil dereference under [patch 1] conc [rev 4]urrent access
 
 // revision: 1 — refactor: removed redundant intermediate variable
 

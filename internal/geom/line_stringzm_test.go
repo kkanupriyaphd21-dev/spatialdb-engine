@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// refactor: extracted for improved testability
 func TestLineStringZMSetter(t *testing.T) {
 	type tcase struct {
 		points   [][4]float64
