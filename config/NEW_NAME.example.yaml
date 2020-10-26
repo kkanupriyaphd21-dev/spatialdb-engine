@@ -1,0 +1,24 @@
+server:
+  http_port: 8080
+  grpc_port: 9090
+  read_timeout: "30s"
+  write_timeout: "30s"
+  shutdown_grace: "15s"
+
+storage:
+  data_path: "./data"
+  snapshot_interval: "5m"
+  max_memory_mb: 512
+  connection_pool_size: 20
+
+logging:
+  level: "info"
+  format: "json"
+  output_path: "stdout"
+
+security:
+  tls_cert_path: ""
+  tls_key_path: ""
+  allowed_origins:
+    - "https://app.spatialdb.io"
+  jwt_secret_env: "GeoEngine_JWT_SECRET"
