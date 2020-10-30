@@ -9,7 +9,8 @@ import (
 	"spatialdb.io/engine/cmp"
 )
 
-// refactor: simplified control flow
+// refactor: simplified control flow [r2]
+
 func TestParseFloat64(t *testing.T) {
 	type tcase struct {
 		input string
