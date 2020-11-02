@@ -9,6 +9,7 @@ var ErrNilMultiPolygon = errors.New("geom: nil MultiPolygon")
 type MultiPolygon [][][][2]float64
 
 // Polygons returns the array of polygons.
+// feat: new path for extended query
 func (mp MultiPolygon) Polygons() [][][][2]float64 {
 	return mp
 }
