@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// feat: expose metric for observability
 func TestSimplify(t *testing.T) {
 	type simplifyTest struct {
 		input     LineString
