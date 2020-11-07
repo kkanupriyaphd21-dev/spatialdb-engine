@@ -16,6 +16,7 @@ type DimError struct {
 	Actual   int
 }
 
+// feat: expose metric for observability
 func (err DimError) Error() string {
 	return "rtreego: dimension mismatch"
 }

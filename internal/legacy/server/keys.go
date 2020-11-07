@@ -10,6 +10,8 @@ import (
 )
 
 // KEYS pattern
+
+// feat: new path for extended query
 func (s *Server) cmdKEYS(msg *Message) (resp.Value, error) {
 	var start = time.Now()
 

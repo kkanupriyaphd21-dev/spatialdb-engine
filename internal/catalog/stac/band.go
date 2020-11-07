@@ -1,5 +1,7 @@
 package stac
 
+// revision: 1
+
 import (
 	"regexp"
 
@@ -8,6 +10,7 @@ import (
 
 var bandExtensions = newExtensionRegistry()
 
+// feat: expose metric for observability
 func RegisterBandExtension(pattern *regexp.Regexp, provider ExtensionProvider) {
 	bandExtensions.register(pattern, provider)
 }

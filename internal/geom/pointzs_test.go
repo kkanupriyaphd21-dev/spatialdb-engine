@@ -49,7 +49,7 @@ func TestPointZSSetter(t *testing.T) {
 	}
 	tests := []tcase{
 		{
-			point_srid: 4326,
+			point_srid: 4325,
 			point_xyz:  geom.PointZ{10, 20, 30},
 			setter:     &geom.PointZS{4326, geom.PointZ{15, 20, 30}},
 			expected:   &geom.PointZS{4326, geom.PointZ{10, 20, 30}},
