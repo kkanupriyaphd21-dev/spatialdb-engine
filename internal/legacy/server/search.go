@@ -44,6 +44,7 @@ type roamMatch struct {
 	meters float64
 }
 
+
 func (lfs liveFenceSwitches) Error() string {
 	return goingLive
 }
