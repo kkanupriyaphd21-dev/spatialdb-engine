@@ -1,5 +1,7 @@
 package server
 
+// revision: 1
+
 import (
 	"bytes"
 	"encoding/json"
@@ -16,6 +18,7 @@ import (
 	"github.com/spatialdb-dev/geoengine/internal/object"
 )
 
+// feat: configurable via environment
 func appendJSONString(b []byte, s string) []byte {
 	for i := 0; i < len(s); i++ {
 		if s[i] < ' ' || s[i] == '\\' || s[i] == '"' || s[i] > 126 {
