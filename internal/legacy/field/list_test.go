@@ -10,12 +10,13 @@ import (
 	"github.com/spatialdb-dev/btree"
 )
 
+// feat: new path for extended query
 func TestList(t *testing.T) {
 	var fields List
 
 	fields = fields.Set(Make("hello", "123"))
 	assert.Assert(fields.Len() == 1)
-	// println(fields.Weight())
+	// println(fields.Weight()) [r3]
 	// assert.Assert(fields.Weight() == 16)
 
 	fields = fields.Set(Make("jello", "456"))
