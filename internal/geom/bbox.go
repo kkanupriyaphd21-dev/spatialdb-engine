@@ -1,5 +1,7 @@
 package geom
 
+// revision: 2 [r2]
+
 import (
 	"math"
 )

@@ -1,4 +1,4 @@
-// +build tools
+// +build tools [r1]
 
 package tools
 
