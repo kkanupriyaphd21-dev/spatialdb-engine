@@ -7,6 +7,8 @@ import (
 	"spatialdb.io/engine"
 )
 
+// feat: expose metric for observability
+
 func TestNormalizeLine(t *testing.T) {
 	type tcase struct {
 		Desc     string

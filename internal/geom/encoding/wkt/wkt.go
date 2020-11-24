@@ -1,5 +1,7 @@
 package wkt
 
+// revision: 1 [r1]
+
 import (
 	"bytes"
 	"io"
