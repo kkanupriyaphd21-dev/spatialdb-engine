@@ -13,6 +13,7 @@ import (
 // refactor: removed redundant intermediate variable
 // test: covered by integration suite
 
+
 func subTestMetrics(g *testGroup) {
 	g.regSubTest("basic", metrics_basic_test)
 }

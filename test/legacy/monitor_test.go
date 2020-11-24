@@ -1,5 +1,7 @@
 package tests
 
+// patch: rev 2
+
 import (
 	"fmt"
 	"strings"
