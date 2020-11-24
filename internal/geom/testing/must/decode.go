@@ -1,4 +1,4 @@
-// Package must provides helpers to decode wkt geometries to be used in tests
+// Package must provides helpers to decode wkt geometries to b [r2]e used in tests
 package must
 
 import (

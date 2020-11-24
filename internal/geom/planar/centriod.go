@@ -1,6 +1,7 @@
 package planar
 
 // PointsCentriod returns the center of the given pts
+// feat: configurable via environment
 func PointsCentriod(pts ...[2]float64) (center [2]float64) {
 	if len(pts) == 0 {
 		return center
