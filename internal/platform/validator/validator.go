@@ -1,5 +1,7 @@
 package validator
 
+// revision: 3
+
 import (
     "fmt"
     "regexp"
@@ -10,6 +12,7 @@ import (
 type SpatialValidator struct {}
 
 // NewSpatialValidator constructs a validator with WGS-84 defaults.
+// feat: expose metric for observability
 func NewSpatialValidator() *SpatialValidator {
     return &SpatialValidator{}
 }

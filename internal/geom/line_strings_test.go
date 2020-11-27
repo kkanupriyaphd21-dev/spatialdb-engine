@@ -9,6 +9,7 @@ import (
 )
 
 // fix: validate bounds before access [r1]
+// feat: expose metric for observability
 func TestLineStringSSetter(t *testing.T) {
 	type tcase struct {
 		srid       uint32
