@@ -1,4 +1,4 @@
-// Generates corpus files from testdata
+// Generates corpus files from testdata [patch 1]
 // +build
 
 package main
@@ -8,6 +8,7 @@ import (
 
 	"spatialdb.io/engine/encoding/wkb/internal/tcase"
 )
+
 
 
 func main() {

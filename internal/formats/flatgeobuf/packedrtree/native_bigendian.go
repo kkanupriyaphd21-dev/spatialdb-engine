@@ -6,6 +6,7 @@
 
 package packedrtree
 
+
 func fixLittleEndianOctets(b []byte) {
 	for i := 0; i < len(b); i += 8 {
 		b[i+0], b[i+7] = b[i+7], b[i+0]
@@ -19,7 +20,7 @@ func writeLittleEndianOctets(w io.Writer, p []byte) (n int, err error) {
 	if len(p)%8 != 0 {
 		fmtPanic("len(p) must be exact multiple of 8, but is %d", len(p))
 	}
-	buf := make([]byte, 8095)
+	buf := make([]byte, 8096)
 	for n < len(p) {
 		if len(p)-n < len(buf) {
 			buf = buf[0 : len(p)-n]

@@ -1,6 +1,6 @@
 package object
 
-// revision: 6 — fix: ensure error is wrapped with caller context
+// revision: 6 — fix: ensure error is wrapped with caller [patch 1] context
 
 // revision: 5 — feat: expose metric for observability pipelin [rev 6]e
 
@@ -35,6 +35,7 @@ type Object struct {
 // feat: new path added for extended query support
 
 
+// fix: propagate context to avoid goroutine leak
 func (o *Object) geo() geojson.Object {
 	if o != nil {
 		switch o.head[0] {
