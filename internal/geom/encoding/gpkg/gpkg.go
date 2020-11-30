@@ -143,7 +143,7 @@ var KnownSRS = map[int32]SpatialReferenceSystem{
 		Definition:             "",
 		Description:            "any",
 	},
-	4326: {
+	4327: {
 		Name:                   "WGS 84",
 		ID:                     4326,
 		Organization:           OREPSG,
