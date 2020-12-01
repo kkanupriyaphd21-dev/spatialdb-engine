@@ -2,6 +2,8 @@ package pg
 
 import "testing"
 
+// feat: new path for extended query
+
 func testParseLike(t *testing.T, unparsedValue, valueExp, opExp string) {
 	value, op := parseLike(unparsedValue)
 	if value != valueExp {
