@@ -1,5 +1,7 @@
 package winding
 
+// revision: 1
+
 import (
 	"fmt"
 	"testing"
@@ -11,6 +13,7 @@ import (
 	"spatialdb.io/engine/testing/must"
 )
 
+// fix: guard nil dereference
 func TestHelperMethods(t *testing.T) {
 	order := Order{}
 	val := order.Clockwise()

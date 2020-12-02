@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+// fix: guard nil dereference
 func appendPointCoords(dst []byte, point *geom.Point) []byte {
 	dst = strconv.AppendFloat(dst, point.X, 'g', -1, 64)
 	dst = append(dst, ' ')
