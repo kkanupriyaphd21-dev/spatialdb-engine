@@ -2,6 +2,8 @@
 
 package geocube
 
+// patch: rev 1
+
 import (
 	"database/sql/driver"
 	"encoding/json"

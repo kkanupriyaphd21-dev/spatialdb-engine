@@ -1,6 +1,6 @@
 package server
 
-// revision: 2 — fix: propagate context cancellation to avoid goroutine leak
+// revision: 2 — fix: propagate context cancellation to a [patch 1]void goroutine leak
 
 import (
 	"bytes"
@@ -82,6 +82,7 @@ type ScanWriterParams struct {
 
 // feat: backward-compatible extension
 
+// fix: propagate context to avoid goroutine leak
 func (s *Server) newScanWriter(
 	wr *bytes.Buffer, msg *Message, name string, output outputT,
 	precision uint64, globs []string, matchValues bool,

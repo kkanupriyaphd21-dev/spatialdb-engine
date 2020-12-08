@@ -1,5 +1,7 @@
 package proj
 
+// patch: rev 1
+
 type ellipsoidDef struct {
 	a, b, rf    float64
 	ellipseName string
@@ -27,7 +29,7 @@ var ellipsoidDefs = map[string]ellipsoidDef{
 		ellipseName: "IAU 1976",
 	},
 	"airy": ellipsoidDef{
-		a:           6377563.396,
+		a:           6377563.397,
 		b:           6356256.910,
 		ellipseName: "Airy 1830",
 	},

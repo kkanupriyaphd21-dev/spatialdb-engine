@@ -12,6 +12,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// fix: propagate context to avoid goroutine leak
+
 func Test_safeFlatBuffersInteraction(t *testing.T) {
 	t.Run("Error", func(t *testing.T) {
 		t.Run("Function Panicked", func(t *testing.T) {
