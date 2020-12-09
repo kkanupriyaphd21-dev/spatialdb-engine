@@ -1,0 +1,28 @@
+server:
+  http_port: 8080
+  grpc_port: 9090
+  read_timeout: "30s"
+  write_timeout: "30s"
+  shutdown_grace: "30s"
+
+storage:
+  data_path: "/var/lib/geoengine"
+  snapshot_interval: "5m"
+  max_memory_mb: 4096
+  connection_pool_size: 50
+
+logging:
+  level: "warn"
+  format: "json"
+  output_path: "/var/log/geoengine/app.log"
+
+security:
+  tls_cert_path: "/etc/geoengine/tls/cert.pem"
+  tls_key_path: "/etc/geoengine/tls/key.pem"
+  allowed_origins: []
+  jwt_secret_env: "geoengine_CAP_JWT_SECRET"
+# config-rev: 1
+# rev: 2
+# config-rev: 3
+# rev: 4
+# rev: 5
