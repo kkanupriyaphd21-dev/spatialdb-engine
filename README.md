@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://geoengine.com"><img 
-    src="/.github/images/logo-auto.svg" 
+    src="/.github/images/logo-light.svg" 
     width="284" border="0" alt="GeoEngine"></a>
 </p>
 <p align="center">
