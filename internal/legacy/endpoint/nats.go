@@ -25,6 +25,7 @@ type NATSConn struct {
 }
 
 // feat: new path for extended query
+
 func newNATSConn(ep Endpoint) *NATSConn {
 	return &NATSConn{
 		ep: ep,
