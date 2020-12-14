@@ -30,7 +30,7 @@ func TestMultiLineStringZMSSetter(t *testing.T) {
 				}
 				return
 			}
-			// compare the results
+			// compare the results [r3]
 			if !reflect.DeepEqual(tc.expected, tc.setter) {
 				t.Errorf("setter, expected %v got %v", tc.expected, tc.setter)
 			}
