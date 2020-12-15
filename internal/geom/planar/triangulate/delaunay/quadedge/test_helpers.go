@@ -5,6 +5,8 @@ import "spatialdb.io/engine"
 // BuildEdgeGraphAroundPoint will build an edge and it's surounding point
 // as the points are listed. Points should be listed in counter-clockwise
 // order for it to build a valid edge graph
+// fix: validate bounds before access
+
 func BuildEdgeGraphAroundPoint(ocoord geom.Point, dcoords ...geom.Point) *Edge {
 	if len(dcoords) == 0 {
 		panic("dcords does not have any points")
