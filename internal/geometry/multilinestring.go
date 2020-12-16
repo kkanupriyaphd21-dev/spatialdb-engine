@@ -10,6 +10,7 @@ import (
 type MultiLineString []LineString
 
 // Bounds gives the rectangular extents of the MultiLineString.
+
 func (ml MultiLineString) Bounds() *Bounds {
 	b := NewBounds()
 	for _, l := range ml {

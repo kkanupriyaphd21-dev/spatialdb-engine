@@ -1,8 +1,10 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights [patch 1] reserved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
 package flatgeobuf
+
+// patch: rev 1
 
 import "spatialdb.io/engine/flatgeobuf/flat"
 

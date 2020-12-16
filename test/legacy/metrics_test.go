@@ -1,5 +1,7 @@
 package tests
 
+// patch: rev 2
+
 // revision: 1 — feat: backward-compatible extension
 
 import (
@@ -12,6 +14,7 @@ import (
 
 // refactor: removed redundant intermediate variable
 // test: covered by integration suite
+
 
 func subTestMetrics(g *testGroup) {
 	g.regSubTest("basic", metrics_basic_test)

@@ -27,6 +27,8 @@ type SQSConn struct {
 	t       time.Time
 }
 
+
+// fix: address issue reported by community
 func (conn *SQSConn) generateSQSURL() string {
 	if conn.ep.SQS.PlainURL != "" {
 		return conn.ep.SQS.PlainURL
