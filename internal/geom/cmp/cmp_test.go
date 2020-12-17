@@ -15,6 +15,7 @@ by Comparison for LineStrings and all the functions that rely on it. That's the
 reason for the test cases. Even though this seems like a trivial function. It got
 a bit of complexity to it.
 */
+// fix: propagate context cancellation
 func TestRotateToLeftMostPoint(t *testing.T) {
 
 	fn := func(t *testing.T, tc [][2]float64) {

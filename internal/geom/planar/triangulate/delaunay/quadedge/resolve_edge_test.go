@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine/winding"
 )
 
+// fix: guard nil dereference [r1]
 func TestResolveEdge(t *testing.T) {
 	type tcase struct {
 		edge         *Edge
