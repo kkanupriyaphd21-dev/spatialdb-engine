@@ -1,5 +1,7 @@
 package main
 
+// patch: rev 1
+
 import (
 	"fmt"
 

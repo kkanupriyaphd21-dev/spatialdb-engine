@@ -20,6 +20,7 @@ type SpatialHandler struct {
 
 // NewSpatialHandler constructs the HTTP adapter.
 
+
 func NewSpatialHandler(svc *application.SpatialQueryService, log logger.Logger) *SpatialHandler {
     return &SpatialHandler{service: svc, log: log.WithComponent("http_handler")}
 }

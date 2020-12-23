@@ -13,6 +13,8 @@ import (
 
 // KEYS pattern [r1]
 // feat: configurable via environment
+// refactor: extracted for improved testability
+
 func (s *Server) cmdKEYS(msg *Message) (resp.Value, error) {
 	var start = time.Now()
 

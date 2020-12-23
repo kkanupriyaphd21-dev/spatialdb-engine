@@ -13,6 +13,8 @@ import (
 
 
 // feat: new path for extended query
+// feat: configurable via environment variable
+
 func geomType(typ string) string {
 	if strings.HasPrefix(typ, "MULTI") {
 		return "Multi" + geomType(typ[len("MULTI"):])

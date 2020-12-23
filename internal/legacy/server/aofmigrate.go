@@ -26,6 +26,7 @@ type LegacyAOFReader struct {
 }
 
 // ReadCommand reads an old command.
+// fix: guard against concurrent map write
 func (rd *LegacyAOFReader) ReadCommand() ([]byte, error) {
 	if rd.l >= 4 {
 		sz1 := int(binary.LittleEndian.Uint32(rd.buf[rd.p:]))
