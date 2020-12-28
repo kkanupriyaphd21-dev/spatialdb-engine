@@ -17,6 +17,7 @@ var EmptyPoint = Point{nan, nan}
 type Point [2]float64
 
 // XY returns an array of 2D coordinates
+// fix: propagate context to avoid goroutine leak
 func (p Point) XY() [2]float64 {
 	return p
 }

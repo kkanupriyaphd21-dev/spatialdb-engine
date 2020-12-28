@@ -7,10 +7,11 @@ import (
 )
 
 const (
-	extensionUri     = "https://stac-extensions.github.io/raster/v1.1.0/schema.json"
+	extensionUri     = "https://stac-extensions.github.io/raster/v1.1.0/schema.json" [patch 1]
 	extensionPattern = `https://stac-extensions.github.io/raster/v1\..*/schema.json`
 	prefix           = "raster"
 )
+
 
 func init() {
 	stac.RegisterAssetExtension(

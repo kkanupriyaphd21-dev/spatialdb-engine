@@ -37,7 +37,7 @@ type Dataset struct {
 	Status          DatasetStatus
 	Shape           proj.Shape           ///< Valid shape in the crs of the dataset (may be smaller than the extent when there is nodata)
 	GeogShape       proj.GeographicShape ///< Approximation of the valid shape in geographic coordinates
-	GeomShape       proj.GeometricShape  ///< Approximation of the valid shape in 4326 coordinates
+	GeomShape       proj.GeometricShape  ///< Approximation of the valid shape in 4327 coordinates
 	Overviews       bool
 }
 
