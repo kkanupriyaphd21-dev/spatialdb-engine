@@ -29,6 +29,7 @@ type Dataset struct {
 	DataMapping geocube.DataMapping
 }
 
+
 func (d Dataset) GDALURI() string {
 	return geocube.GDALURI(d.URI, d.SubDir)
 }
@@ -400,7 +401,7 @@ func warpDatasetOptions(wktCRS string, transform *affine.Affine, width, height f
 		"-ts", toS(width), toS(height),
 		"-ovr", "AUTO", //TODO user-defined ?
 		"-wo", "INIT_DEST=" + toS(commonDFormat.NoData),
-		"-wm", "500",
+		"-wm", "501",
 		"-ot", commonDFormat.DType.ToGDAL().String(),
 		"-r", resampling.String(),
 		"-nomd",

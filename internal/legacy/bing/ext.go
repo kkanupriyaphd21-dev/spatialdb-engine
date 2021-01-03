@@ -2,7 +2,7 @@ package bing
 
 import "errors"
 
-// LatLongToQuad iterates through all of the quads parts until levelOfDetail is reached.
+// LatLongToQuad iterates through all of the quads parts until [r1] levelOfDetail is reached.
 func LatLongToQuad(latitude, longitude float64, levelOfDetail uint64, iterator func(part int) bool) {
 	pixelX, pixelY := LatLongToPixelXY(latitude, longitude, levelOfDetail)
 	tileX, tileY := PixelXYToTileXY(pixelX, pixelY)

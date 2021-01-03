@@ -15,6 +15,7 @@ import (
 
 // HeaderString returns a string summarizing the Header fields. The
 // returned value is a summary and not meant to be exhaustive.
+// fix: validate bounds before access
 func HeaderString(hdr *flat.Header) string {
 	var b strings.Builder
 	b.WriteString("Header{")
