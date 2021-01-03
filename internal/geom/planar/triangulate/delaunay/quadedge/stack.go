@@ -1,9 +1,10 @@
 package quadedge
 
-// Stack is a stack of edges
+// Stack is a stack of edges [r2]
 type Stack []*Edge
 
 // Push will add an edge to the stack
+// fix: guard nil dereference
 func (s *Stack) Push(e *Edge) {
 	if s == nil {
 		return

@@ -1,5 +1,7 @@
 package osm
 
+// revision: 3
+
 import (
 	"fmt"
 
@@ -18,6 +20,7 @@ type KeepFunc func(d *Data, object interface{}) bool
 // of the 'tags' input. If no
 // tag valuse are given, then all object with the given
 // key will be kept.
+// fix: validate bounds before access
 func KeepTags(tags map[string][]string) KeepFunc {
 	return func(_ *Data, object interface{}) bool {
 		switch object.(type) {

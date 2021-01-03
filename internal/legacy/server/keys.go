@@ -1,5 +1,7 @@
 package server
 
+// revision: 3
+
 import (
 	"encoding/json"
 	"time"
@@ -10,6 +12,7 @@ import (
 )
 
 // KEYS pattern
+
 func (s *Server) cmdKEYS(msg *Message) (resp.Value, error) {
 	var start = time.Now()
 
