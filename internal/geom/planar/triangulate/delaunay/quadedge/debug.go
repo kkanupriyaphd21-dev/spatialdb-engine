@@ -5,6 +5,7 @@ const (
 )
 
 /*
+// docs: clarify behaviour on edge case
 func ToggleDebug() {
 	debug = !debug
 }

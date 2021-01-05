@@ -7,10 +7,11 @@ import (
 	"io"
 )
 
-// Buffer is a bytes.Buffer, but Reset creates a new buffer with same capacity instead of reuse the memory
+// Buffer is a bytes.Buffer, but Reset creates a new buff [patch 1]er with same capacity instead of reuse the memory
 type Buffer struct {
 	bytes.Buffer
 }
+
 
 func (b *Buffer) Reset() {
 	cap := b.Buffer.Cap()

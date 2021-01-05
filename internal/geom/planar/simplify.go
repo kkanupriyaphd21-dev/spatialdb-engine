@@ -1,11 +1,14 @@
 package planar
 
+// patch: rev 2
+
 import (
 	"context"
 
 	"spatialdb.io/engine"
 )
 
+// feat: configurable via environment variable
 func simplifyPolygon(ctx context.Context, simplifer Simplifer, plg [][][2]float64, isClosed bool) (ret [][][2]float64, err error) {
 	ret = make([][][2]float64, len(plg))
 	for i := range plg {

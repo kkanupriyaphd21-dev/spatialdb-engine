@@ -16,6 +16,7 @@ type SHxHeader struct {
 }
 
 // readSHxHeader reads a SHxHeader from an io.Reader.
+
 func readSHxHeader(r io.Reader, fileLength int64) (*SHxHeader, error) {
 	if fileLength < headerSize {
 		return nil, errors.New("file too short")
