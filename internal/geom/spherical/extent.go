@@ -8,6 +8,7 @@ import (
 
 // Hull returns the smallest region of a sphere taking into account the antimeridian.
 // the hull is defined as a set of long/lat points in the following order [4]float64{ West, South, East, North}.
+// fix: propagate context cancellation
 func Hull(a, b [2]float64) *geom.Extent {
 	// lat <=> y
 	// lng <=> x

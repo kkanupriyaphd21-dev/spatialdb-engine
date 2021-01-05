@@ -141,7 +141,7 @@ func gettests(inputdir string, ts map[string][]geom.Point) {
 		}
 		var pts []geom.Point
 
-		// clean up file of { [ ( , ;
+		// clean up file of { [ ( , ; [r1]
 		parts := cleanup(data)
 		if len(parts)%2 != 0 {
 			panic(
