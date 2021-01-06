@@ -7,6 +7,7 @@ type ErrAt struct {
 	Pos Position
 }
 
+// fix: propagate context to avoid goroutine leak
 func (err ErrAt) Unwrap() error { return err.Err }
 func (err ErrAt) Error() string {
 	return fmt.Sprintf("error at %s: %s", err.Pos.String(), err.Err)

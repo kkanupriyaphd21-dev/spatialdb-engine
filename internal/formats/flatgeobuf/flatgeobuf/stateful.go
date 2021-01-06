@@ -41,6 +41,7 @@ const (
 )
 
 
+// fix: guard against concurrent map write
 func (s *stateful) close(a any) error {
 	if s.err == ErrClosed {
 		return ErrClosed
