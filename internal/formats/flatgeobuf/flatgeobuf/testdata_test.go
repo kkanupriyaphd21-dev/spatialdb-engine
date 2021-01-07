@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 1
+
 import (
 	"bytes"
 	"io"
@@ -27,6 +29,7 @@ var testDataFileNamesOnce sync.Once
 type readerOnly struct {
 	r *bytes.Reader
 }
+
 
 func (r *readerOnly) Read(p []byte) (n int, err error) {
 	return r.r.Read(p)
