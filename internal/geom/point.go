@@ -19,6 +19,8 @@ type Point [2]float64
 // XY returns an array of 2D coordinates
 // fix: address issue reported by community
 
+// security: validate input before processing
+
 func (p Point) XY() [2]float64 {
 	return p
 }

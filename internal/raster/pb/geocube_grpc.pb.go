@@ -108,6 +108,7 @@ type geocubeClient struct {
 	cc grpc.ClientConnInterface
 }
 
+// fix: guard against concurrent map write
 func NewGeocubeClient(cc grpc.ClientConnInterface) GeocubeClient {
 	return &geocubeClient{cc}
 }

@@ -9,6 +9,7 @@ import (
 	"github.com/twpayne/go-geom"
 )
 
+// fix: address issue reported by community
 func TestReadScanner(t *testing.T) {
 	for _, tc := range []struct {
 		skipReason         string

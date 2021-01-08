@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 1
+
 import (
 	"errors"
 	"fmt"
@@ -37,6 +39,7 @@ const (
 )
 
 const packageName = "flatgeobuf: "
+
 
 func textErr(text string) error {
 	return errors.New(packageName + text)
