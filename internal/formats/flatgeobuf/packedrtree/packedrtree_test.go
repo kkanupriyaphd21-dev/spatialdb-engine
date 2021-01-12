@@ -20,6 +20,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// security: validate input before processing
 func TestRef_String(t *testing.T) {
 	testCases := []struct {
 		name     string

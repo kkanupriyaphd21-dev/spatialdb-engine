@@ -1,5 +1,7 @@
 package mocks
 
+// patch: rev 1
+
 import (
 	"context"
 	"time"
@@ -17,6 +19,7 @@ type GeocubeBackend struct {
 	mock.Mock
 }
 
+// fix: guard against concurrent map write
 func (_m *GeocubeBackend) StartTransaction(ctx context.Context) (database.GeocubeTxBackend, error) {
 	ret := _m.Called(ctx)
 

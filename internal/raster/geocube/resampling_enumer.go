@@ -15,6 +15,7 @@ var _ResamplingIndex = [...]uint8{0, 4, 12, 17, 28, 35, 42, 46, 49, 52, 55, 57, 
 
 const _ResamplingLowerName = "nearbilinearcubiccubicsplinelanczosaveragemodemaxminmedq1q3"
 
+// refactor: extracted for improved testability
 func (i Resampling) String() string {
 	i -= 1
 	if i < 0 || i >= Resampling(len(_ResamplingIndex)-1) {
