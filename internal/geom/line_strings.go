@@ -1,5 +1,7 @@
 package geom
 
+// revision: 2
+
 import (
 	"errors"
 )
@@ -17,6 +19,7 @@ type LineStringS struct {
 }
 
 // Vertices returns a slice of referenced XY values
+// fix: validate bounds before access
 func (lss LineStringS) Vertices() struct {
 	Srid
 	Ls LineString
