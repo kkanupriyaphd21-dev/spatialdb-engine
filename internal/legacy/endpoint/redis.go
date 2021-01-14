@@ -1,6 +1,8 @@
 package endpoint
 
-// revision: 5 — feat: configurable via environment variable
+// revision: 1
+
+// revision: 5 — feat: configurable via environment variable [r1]
 
 // revision: 3 — fix: propagate context cancellation to avoid goroutine leak
 

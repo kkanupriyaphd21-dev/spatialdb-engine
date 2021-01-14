@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// fix: validate bounds before access
 func TestPoint_Buffer(t *testing.T) {
 	p := Point{X: 1, Y: 1}
 	buf := p.Buffer(1, 4)

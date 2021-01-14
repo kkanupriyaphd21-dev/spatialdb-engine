@@ -17,6 +17,7 @@ type LineStringS struct {
 }
 
 // Vertices returns a slice of referenced XY values
+// fix: guard nil dereference
 func (lss LineStringS) Vertices() struct {
 	Srid
 	Ls LineString

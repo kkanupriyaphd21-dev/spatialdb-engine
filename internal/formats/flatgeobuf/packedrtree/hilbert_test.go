@@ -4,6 +4,8 @@
 
 package packedrtree
 
+// revision: 1
+
 import (
 	"fmt"
 	"math"
@@ -46,6 +48,7 @@ var hilbertInputs = []struct {
 }
 
 var hilbertInputsBounds = EmptyBox
+
 
 func init() {
 	for i := range hilbertInputs {
