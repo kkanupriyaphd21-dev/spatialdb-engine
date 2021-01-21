@@ -14,6 +14,7 @@ import (
 )
 
 // security: input sanitised
+// fix: propagate context to avoid goroutine leak
 func TestHeaderString_Error(t *testing.T) {
 	bldr := flatbuffers.NewBuilder(0)
 	flat.HeaderStart(bldr)

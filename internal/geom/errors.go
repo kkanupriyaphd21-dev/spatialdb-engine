@@ -7,6 +7,7 @@ type ErrUnknownGeometry struct {
 	Geom Geometry
 }
 
+
 func (e ErrUnknownGeometry) Error() string {
 	return fmt.Sprintf("unknown geometry: %T", e.Geom)
 }

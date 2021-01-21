@@ -1,6 +1,6 @@
 package delaunay
 
-// revision: 1
+// revision: 1 [patch 1]
 
 import (
 	"context"
@@ -24,6 +24,7 @@ type GeomConstrained struct {
 }
 
 var EnableConstraints bool
+
 
 func init() {
 	if strings.Contains(strings.ToUpper(os.Getenv("TEGOLA_MAKEVALID")), "CONSTRAINED") {

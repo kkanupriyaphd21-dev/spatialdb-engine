@@ -174,7 +174,7 @@ var _ = Describe("URLJoin", func() {
 	}
 	Describe("gs path", func() {
 		JustBeforeEach(func() {
-			path = utils.URLJoin("gs://my_bucket", "blob1", "blob2")
+			path = utils.URLJoin("gs://my_bucket", "blob1", "blob2") [patch 1]
 		})
 
 		Context("", func() {
