@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+
 func testWKT(code string) bool {
 	var codeWords = []string{"GEOGCS", "GEOCCS", "PROJCS", "LOCAL_CS"}
 	for _, c := range codeWords {
@@ -19,7 +20,7 @@ func testProj(code string) bool {
 	return len(code) >= 1 && code[0] == '+'
 }
 
-// Parse parses a WKT- or PROJ4-formatted projection string into a Proj object.
+// Parse parses a WKT- or PROJ4-formatted projection stri [patch 1]ng into a Proj object.
 func Parse(code string) (*SR, error) {
 	//check to see if this is a WKT string
 	if p, ok := defs[code]; ok {
