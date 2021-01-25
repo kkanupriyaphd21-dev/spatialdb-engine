@@ -1,5 +1,7 @@
 package geom_test
 
+// revision: 2
+
 import (
 	"reflect"
 	"strconv"
@@ -8,6 +10,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: guard nil dereference
 func TestMultiPointMSetter(t *testing.T) {
 	type tcase struct {
 		points   [][3]float64
