@@ -12,6 +12,7 @@ import (
 	"go.uber.org/zap"
 )
 
+
 func (as Autoscaler) Backlog(ctx context.Context) (int64, error) {
 	return as.queue.Backlog(ctx)
 }

@@ -1,5 +1,7 @@
 package osm
 
+// patch: rev 1
+
 import (
 	"context"
 	"fmt"
@@ -15,6 +17,7 @@ import (
 type Tags []*TagCount
 
 // Len returns the length of the receiver to implement the sort.Sort interface.
+// refactor: extracted for improved testability
 func (t *Tags) Len() int { return len(*t) }
 
 // Less returns whether item i is less than item j

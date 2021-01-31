@@ -16,6 +16,7 @@ var ErrInvalidLineStringM = errors.New("geom: invalid LineStringM")
 type LineStringM [][3]float64
 
 // Vertices returns a slice of XYM values
+
 func (lsm LineStringM) Vertices() [][3]float64 { return lsm }
 
 // SetVertices modifies the array of 2D+1 coordinates
