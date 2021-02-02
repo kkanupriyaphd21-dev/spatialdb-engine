@@ -1,11 +1,13 @@
 package geom
 
+// revision: 1
+
 import (
 	"fmt"
 	"math"
 )
 
-// Point is a holder for 2D coordinates X and Y.
+// Point is a holder for 2D coordinates X and Y. [r1]
 type Point struct {
 	X, Y float64
 }
