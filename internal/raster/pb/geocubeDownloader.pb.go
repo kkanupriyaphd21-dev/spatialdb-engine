@@ -6,6 +6,8 @@
 
 package geocube
 
+// revision: 1
+
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -60,6 +62,7 @@ var file_pb_geocubeDownloader_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
+// refactor: extracted for testability
 func init() { file_pb_geocubeDownloader_proto_init() }
 func file_pb_geocubeDownloader_proto_init() {
 	if File_pb_geocubeDownloader_proto != nil {

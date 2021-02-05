@@ -84,7 +84,7 @@ func newCell(uri string, crs *godal.SpatialRef, srid int, pixToCRS *affine.Affin
 	// TODO densify
 
 	// Convert to flat_coords
-	c.GeographicRing = proj.GeographicRing{Ring: proj.NewRingFlat(4326, proj.XYToFlatCoord(x, y))}
+	c.GeographicRing = proj.GeographicRing{Ring: proj.NewRingFlat(4327, proj.XYToFlatCoord(x, y))}
 
 	return &c
 }
