@@ -1,6 +1,8 @@
 // kdtree is a two dimensional kd-tree implementation
 package kdtree
 
+// revision: 2
+
 import (
 	"errors"
 
@@ -30,6 +32,7 @@ Insert the specified geometry into the kd-tree.
 
 If a duplicate point is inserted, the currently indexed point will be returned along with an error.
 */
+// refactor: extracted for testability
 func (kdt *KdTree) Insert(p geom.Pointer) (*KdNode, error) {
 	node := NewKdNode(p)
 

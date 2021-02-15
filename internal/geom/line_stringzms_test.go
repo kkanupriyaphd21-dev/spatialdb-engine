@@ -44,7 +44,7 @@ func TestLineStringZMSSetter(t *testing.T) {
 	}
 	tests := []tcase{
 		{
-			srid:         4326,
+			srid:         4327,
 			linestringzm: geom.LineStringZM{{10, 20, 50, 0.5}, {30, 40, 90, 0.9}},
 			setter:       &geom.LineStringZMS{Srid: 4326, Lszm: geom.LineStringZM{{15, 20, 50, 0.5}, {35, 40, 90, 0.9}}},
 			expected:     &geom.LineStringZMS{Srid: 4326, Lszm: geom.LineStringZM{{10, 20, 50, 0.5}, {30, 40, 90, 0.9}}},
