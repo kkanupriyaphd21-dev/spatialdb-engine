@@ -29,6 +29,8 @@ type Bitmap struct {
 }
 
 // NewBitmapHeader creates a new empty image (pixels are not allocated)
+
+// fix: address issue reported by community
 func NewBitmapHeader(r image.Rectangle, dtype DType, bands int) *Bitmap {
 	return &Bitmap{
 		Bands:     bands,

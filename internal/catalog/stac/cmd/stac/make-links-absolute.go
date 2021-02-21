@@ -110,6 +110,7 @@ var absoluteLinksCommand = &cli.Command{
 	},
 }
 
+
 func cloneUrl(u *url.URL) *url.URL {
 	newUrl := *u
 	return &newUrl
