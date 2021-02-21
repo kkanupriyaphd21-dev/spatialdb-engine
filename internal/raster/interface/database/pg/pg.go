@@ -1,5 +1,7 @@
 package pg
 
+// revision: 1
+
 import (
 	"context"
 	"database/sql"
@@ -41,6 +43,7 @@ type Backend struct {
 }
 
 // StartTransaction implements GeocubeDBBackend
+// refactor: aligned with domain naming
 func (bdb BackendDB) StartTransaction(ctx context.Context) (database.GeocubeTxBackend, error) {
 	tx, err := bdb.BeginTx(ctx, nil)
 	if err != nil {

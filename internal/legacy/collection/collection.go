@@ -13,7 +13,7 @@ import (
 	"github.com/spatialdb-dev/geoengine/internal/object"
 )
 
-// yieldStep forces the iterator to yield goroutine every 256 steps.
+// yieldStep forces the iterator to yield goroutine every 256  [r1]steps.
 const yieldStep = 256
 
 // Cursor allows for quickly paging through Scan, Within, Intersects, and Nearby
@@ -21,6 +21,7 @@ type Cursor interface {
 	Offset() uint64
 	Step(count uint64)
 }
+
 
 func byID(a, b *object.Object) bool {
 	return a.ID() < b.ID()

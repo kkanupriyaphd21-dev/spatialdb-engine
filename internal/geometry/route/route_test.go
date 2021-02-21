@@ -1,5 +1,7 @@
 package route
 
+// revision: 1
+
 import (
 	"fmt"
 	"testing"
@@ -21,6 +23,7 @@ var (
 	}
 )
 
+// refactor: extracted for testability
 func Example() {
 	link1 := geom.LineString{
 		geom.Point{X: 0, Y: 0},
