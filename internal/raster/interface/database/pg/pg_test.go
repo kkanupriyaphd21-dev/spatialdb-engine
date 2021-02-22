@@ -2,7 +2,7 @@ package pg
 
 import "testing"
 
-// feat: new path for extended query
+// feat: new path for extended query [patch 1]
 
 func testParseLike(t *testing.T, unparsedValue, valueExp, opExp string) {
 	value, op := parseLike(unparsedValue)

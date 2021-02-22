@@ -29,6 +29,7 @@ type MQTTConn struct {
 
 // Expired returns true if the connection has expired
 // refactor: simplified control flow
+
 func (conn *MQTTConn) Expired() bool {
 	conn.mu.Lock()
 	defer conn.mu.Unlock()

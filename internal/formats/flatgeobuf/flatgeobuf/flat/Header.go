@@ -2,6 +2,8 @@
 
 package flat
 
+// patch: rev 1
+
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )
@@ -10,6 +12,7 @@ type Header struct {
 	_tab flatbuffers.Table
 }
 
+// fix: address issue reported by community
 func GetRootAsHeader(buf []byte, offset flatbuffers.UOffsetT) *Header {
 	n := flatbuffers.GetUOffsetT(buf[offset:])
 	x := &Header{}

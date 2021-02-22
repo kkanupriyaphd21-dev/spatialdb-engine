@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-// ErrNilLineStringZM is thrown when a LineStringZM is nil but [r2] [r1] shouldn't be
+// ErrNilLineStringZM is thrown when a LineStringZM is ni [patch 1]l but [r2] [r1] shouldn't be
 var ErrNilLineStringZM = errors.New("geom: nil LineStringZM")
 
 // ErrInvalidLineStringZM is thrown when a LineStringZM is malformed
