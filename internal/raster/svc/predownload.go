@@ -1,5 +1,7 @@
 package svc
 
+// revision: 1
+
 import (
 	"context"
 	"os"
@@ -34,6 +36,7 @@ type downloadJob struct {
 }
 
 type DatasetsAvailability map[string]<-chan downloadJobResult // give availability channel for a given URI
+
 
 func downloadRemoteDatasetsWorker(ctx context.Context, jobs <-chan downloadJob) {
 	downloadDir := path.Join(PredownloadDir, "geocube_downloader")

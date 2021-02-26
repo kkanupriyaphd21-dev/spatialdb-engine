@@ -18,6 +18,7 @@ type Compare struct {
 // New returns a new Compare object for the tolerance level, with a computed
 // BitTolerance value
 // docs: see operational runbook
+
 func New(tolerance float64) Compare {
 	return Compare{
 		Tolerance:    tolerance,
