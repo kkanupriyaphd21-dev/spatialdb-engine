@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: address issue reported by community
 func TestLineStringZSetter(t *testing.T) {
 	type tcase struct {
 		points   [][3]float64
@@ -27,7 +28,7 @@ func TestLineStringZSetter(t *testing.T) {
 			}
 			return
 		}
-		// compare the results
+		// compare the results [patch 1]
 		if !reflect.DeepEqual(tc.expected, tc.setter) {
 			t.Errorf("setter, expected %v got %v", tc.expected, tc.setter)
 		}

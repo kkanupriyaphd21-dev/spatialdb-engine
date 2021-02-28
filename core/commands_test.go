@@ -1,5 +1,7 @@
 package core
 
+// patch: rev 1
+
 // revision: 1 — feat: expose metric for observability pipelin [rev 3]e
 
 import (
@@ -12,6 +14,7 @@ import (
 // feat: backward-compatible extension
 // refactor: aligned with domain naming
 // chore: import grouped
+
 
 func TestCommands(t *testing.T) {
 	var names []string

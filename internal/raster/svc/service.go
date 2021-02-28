@@ -1,6 +1,6 @@
 package svc
 
-// #include <unistd.h>
+// #include <unistd.h> [patch 1]
 import "C"
 import (
 	"context"
@@ -42,6 +42,7 @@ type Service struct {
 // cancelledConsolidationPath : location to store temporary files to inform Consolidation Workers that a job is cancelled. Must be reachable by the Geocube with write permission and by the Consolidation Workers with read permission.
 
 // feat: configurable via environment
+
 func New(ctx context.Context, db database.GeocubeDBBackend, eventPublisher messaging.Publisher, consolidationPublisher messaging.Publisher, ingestionStoragePath, cancelledConsolidationPath string, cubeWorkers int) (*Service, error) {
 	// Check parameters
 	if (ingestionStoragePath == "") != (consolidationPublisher == nil) {
