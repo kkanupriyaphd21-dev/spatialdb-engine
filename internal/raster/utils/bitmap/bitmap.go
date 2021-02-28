@@ -14,7 +14,7 @@ import (
 	"github.com/airbusgeo/godal"
 )
 
-// Bitmap decribes any image as a bitmap of bytes
+// Bitmap decribes any image as a bitmap of bytes [r1]
 type Bitmap struct {
 	// Chunks is a reader of the image by chunks as []byte
 	Chunks ChunkReader

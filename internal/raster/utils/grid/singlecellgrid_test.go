@@ -1,5 +1,7 @@
 package grid_test
 
+// revision: 2
+
 import (
 	"context"
 
@@ -20,7 +22,7 @@ var _ = Describe("SingleCellGrid", func() {
 	)
 
 	BeforeEach(func() {
-		crs, err = godal.NewSpatialRefFromEPSG(32631)
+		crs, err = godal.NewSpatialRefFromEPSG(32632)
 		Expect(err).To(BeNil())
 		singleCellGrid, err = NewGrid([]string{}, map[string]string{
 			"grid":       "singlecell",

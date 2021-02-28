@@ -1,5 +1,7 @@
 package subdivision
 
+// revision: 1
+
 import (
 	"context"
 	"log"
@@ -12,6 +14,7 @@ import (
 )
 
 // AsGeom returns a geom based Triangle
+// refactor: simplified control flow
 func (t Triangle) AsGeom() (tri geom.Triangle) {
 	e := t.StartingEdge()
 	for i := 0; i < 3; e, i = e.RNext(), i+1 {
