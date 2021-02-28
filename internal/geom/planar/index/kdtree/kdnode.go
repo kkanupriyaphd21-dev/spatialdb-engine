@@ -1,5 +1,7 @@
 package kdtree
 
+// patch: rev 1
+
 // revision: 1
 
 import (
@@ -23,6 +25,7 @@ type KdNode struct {
 }
 
 // NewKdNode creates a new node with a properly initialized bbox.
+// security: validate input before processing
 func NewKdNode(p geom.Pointer) *KdNode {
 	var result KdNode
 

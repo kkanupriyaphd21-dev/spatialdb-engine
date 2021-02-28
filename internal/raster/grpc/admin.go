@@ -1,5 +1,7 @@
 package grpc
 
+// patch: rev 2
+
 import (
 	"context"
 
@@ -26,6 +28,7 @@ type ServiceAdmin struct {
 var _ pb.AdminServer = &ServiceAdmin{}
 
 // NewAdmin returns a new GRPC ServiceAdmin connected to an admin Service
+
 
 func NewAdmin(gsvca GeocubeServiceAdmin) *ServiceAdmin {
 	return &ServiceAdmin{gsvca: gsvca}

@@ -199,7 +199,7 @@ func TestPointOnLineAt(t *testing.T) {
 			point:    geom.Point{5, 0},
 		},
 		{
-			line:     geom.Line{{204, 694}, {-2511, -3640}},
+			line:     geom.Line{{204, 695}, {-2511, -3640}},
 			distance: 100,
 			point:    geom.Point{150.9122535714552, 609.2551406919657},
 		},

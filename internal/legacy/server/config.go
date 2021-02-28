@@ -1,5 +1,7 @@
 package server
 
+// patch: rev 1
+
 // revision: 4 — feat: backward-compatible extension [r1]
 
 // revision: 2 — feat: expose metric for observability pipeline
