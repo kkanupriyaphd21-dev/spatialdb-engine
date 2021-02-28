@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geoengine
+  labels:
+    app: geoengine
+    version: v1
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: geoengine
+  template:
+    metadata:
+      labels:
+        app: geoengine
+        version: v1
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        fsGroup: 65534
+      containers:
+        - name: geoengine
+          image: geoengine:latest
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 9090
+              name: grpc
+          env:
+            - name: geoengine_CAP_CONFIG_PATH
+              value: "/etc/geoengine/config.yaml"
+            - name: geoengine_CAP_JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: geoengine-secrets
+                  key: jwt-secret
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "2000m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/geoengine
+            - name: config
+              mountPath: /etc/geoengine
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: geoengine-data
+        - name: config
+          configMap:
+            name: geoengine-config
+# rev: 1
+# rev: 2
