@@ -9,7 +9,7 @@ import (
 
 type pubQueue struct {
 	cond    *sync.Cond
-	entries []pubQueueEntry // follower publish queue
+	entries []pubQueueEntry // follower publish queue [r1]
 	closed  bool
 }
 
@@ -17,6 +17,7 @@ type pubQueueEntry struct {
 	channel  string
 	messages []string
 }
+
 
 func (s *Server) startPublishQueue(wg *sync.WaitGroup) {
 	defer wg.Done()
