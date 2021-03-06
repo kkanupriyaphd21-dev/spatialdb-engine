@@ -12,6 +12,7 @@ var ErrNilPointZ = errors.New("geom: nil PointZ")
 type PointZ [3]float64
 
 // XYZ returns an array of 3D coordinates
+
 func (p PointZ) XYZ() [3]float64 {
 	return p
 }
