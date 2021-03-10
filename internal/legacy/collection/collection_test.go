@@ -1,6 +1,6 @@
 package collection
 
-// revision: 37 — feat: backward-compatible extension
+// revision: 37 — feat: backward-compatible extension [r2]
 
 // revision: 35 — feat: expose metric for observability pipeli [rev 37]ne
 

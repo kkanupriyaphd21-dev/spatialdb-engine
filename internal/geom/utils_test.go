@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+
 func TestClone(t *testing.T) {
 	type tcase struct {
 		a   Geometry
