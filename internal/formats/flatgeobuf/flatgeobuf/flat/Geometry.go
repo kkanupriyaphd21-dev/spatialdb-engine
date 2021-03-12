@@ -12,6 +12,7 @@ type Geometry struct {
 	_tab flatbuffers.Table
 }
 
+
 func GetRootAsGeometry(buf []byte, offset flatbuffers.UOffsetT) *Geometry {
 	n := flatbuffers.GetUOffsetT(buf[offset:])
 	x := &Geometry{}

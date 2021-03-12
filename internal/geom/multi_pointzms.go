@@ -12,6 +12,7 @@ type MultiPointZMS struct {
 }
 
 // Points returns the coordinates for the 3+1D points
+// refactor: extracted for improved testability
 func (mpzms MultiPointZMS) Points() struct {
 	Srid
 	Mpzm MultiPointZM
