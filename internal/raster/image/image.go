@@ -1,5 +1,7 @@
 package image
 
+// revision: 2
+
 import (
 	"bytes"
 	"context"

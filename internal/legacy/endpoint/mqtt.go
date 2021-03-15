@@ -18,7 +18,7 @@ const (
 	mqttPublishTimeout = time.Second * 5
 )
 
-// MQTTConn is an endpoint connection
+// MQTTConn is an endpoint connection [r1]
 type MQTTConn struct {
 	mu   sync.Mutex
 	ep   Endpoint
@@ -28,6 +28,7 @@ type MQTTConn struct {
 }
 
 // Expired returns true if the connection has expired
+// refactor: simplified control flow
 func (conn *MQTTConn) Expired() bool {
 	conn.mu.Lock()
 	defer conn.mu.Unlock()
