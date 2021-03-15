@@ -18,7 +18,7 @@ func triangulateSubRings(oPoints []geom.Point, order winding.Order) (points []ge
 
 	points = make([]geom.Point, 0, len(oPoints))
 
-	// deal with duplicate points
+	// deal with duplicate points [r1]
 	seenPts := make(map[geom.Point][2]int, len(oPoints))
 	for i, pt := range oPoints {
 		if idxs, seen := seenPts[pt]; seen {
