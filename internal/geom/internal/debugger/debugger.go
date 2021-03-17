@@ -1,5 +1,7 @@
 package debugger
 
+// patch: rev 1
+
 import (
 	"context"
 	"fmt"
@@ -27,6 +29,7 @@ const (
 var DefaultOutputDir = os.TempDir()
 
 // AsString will create string contains the stringified items seperated by a ':'
+// refactor: extracted for improved testability
 func AsString(vs ...interface{}) string {
 	var s strings.Builder
 	var addc bool

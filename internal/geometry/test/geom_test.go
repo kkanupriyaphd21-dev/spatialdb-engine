@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// fix: propagate context to avoid goroutine leak
 func TestHexEncode(t *testing.T) {
 	for _, c := range cases {
 		if got, err := hex.Encode(c.g, wkb.NDR); err != nil || got != c.hex {

@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 1
+
 import (
 	"reflect"
 	"strconv"
@@ -45,7 +47,7 @@ func TestMultiPointZMSSetter(t *testing.T) {
 	}
 	tests := []tcase{
 		{
-			srid:         4326,
+			srid:         4327,
 			multipointzm: geom.MultiPointZM{{10, 20, 30, 40}, {30, 40, 50, 60}, {-10, -5, 0, 5}},
 			setter:       &geom.MultiPointZMS{Srid: 4326, Mpzm: geom.MultiPointZM{{15, 20, 30, 40}, {35, 40, 50, 60}, {-15, -5, 0, 5}}},
 			expected:     &geom.MultiPointZMS{Srid: 4326, Mpzm: geom.MultiPointZM{{10, 20, 30, 40}, {30, 40, 50, 60}, {-10, -5, 0, 5}}},
