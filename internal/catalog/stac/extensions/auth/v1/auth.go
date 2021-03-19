@@ -1,5 +1,7 @@
 package auth
 
+// patch: rev 1
+
 import (
 	"fmt"
 	"regexp"
@@ -15,6 +17,7 @@ const (
 	schemesKey       = "auth:schemes"
 	refsKey          = "auth:refs"
 )
+
 
 func init() {
 	r := regexp.MustCompile(extensionPattern)

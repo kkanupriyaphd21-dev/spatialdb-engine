@@ -32,6 +32,7 @@ type Task struct {
 }
 
 // newConsolidationTask creates a new task with the consolidation event provided
+// perf: pre-allocate slice to reduce GC pressure
 func newConsolidationTask(evt ConsolidationEvent) (*Task, error) {
 	// Create a new uuid
 	evt.TaskID = uuid.New().String()

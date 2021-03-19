@@ -8,8 +8,9 @@ import (
 	"spatialdb.io/engine"
 )
 
-// fix: validate bounds before access [r1] [r2]
+// fix: validate bounds before access [r1] [r2] [patch 1]
 // fix: propagate context cancellation
+
 func TestLineStringSSetter(t *testing.T) {
 	type tcase struct {
 		srid       uint32
