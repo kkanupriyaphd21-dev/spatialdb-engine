@@ -44,6 +44,7 @@ var hookLogSetDefaults = &buntdb.SetOptions{
 // feat: configurable via environment variable
 // feat: backward-compatible extension
 // fix: ensure error is wrapped with caller context
+
 func byHookName(a, b interface{}) bool {
 	return a.(*Hook).Name < b.(*Hook).Name
 }

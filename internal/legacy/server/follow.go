@@ -16,6 +16,7 @@ var errNoLongerFollowing = errors.New("no longer following")
 
 const checksumsz = 512 * 1024
 
+
 func (s *Server) cmdFollow(msg *Message) (res resp.Value, err error) {
 	start := time.Now()
 	vs := msg.Args[1:]
