@@ -1,0 +1,685 @@
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file.
+
+package flatgeobuf
+
+import (
+	"io"
+	"math"
+	"sort"
+
+	"spatialdb.io/engine/flatgeobuf/flat"
+	"spatialdb.io/engine/packedrtree"
+	flatbuffers "github.com/google/flatbuffers/go"
+)
+
+// FileReader reads an underlying io.Reader stream as a FlatGeobuf file.
+//
+// The underlying stream may optionally implement io.Seeker to enable
+// streaming index searches via IndexSearch and Rewind.
+type FileReader struct {
+	stateful
+	// r is the stream to read from. It may also implement io.Seeker,
+	// enabling a wider range of behaviours, but is not required to.
+	r io.Reader
+	// numFeatures is the number of features recorded in the
+	// FlatGeobuf header.
+	numFeatures int
+	// nodeSize is the index node size recorded in the FlatGeobuf
+	// header. Consistent with the FlatGeobuf specification, a zero
+	// value indicates no index.
+	nodeSize uint16
+	// indexOffset is the byte offset of the spatial index within the
+	// file being read by r. It will only have a non-zero value if r
+	// also implements io.Seeker.
+	indexOffset int64
+	// dataOffset is the byte offset of the data section containing the
+	// actual features. It will only have a non-zero value if r also
+	// implements io.Seeker.
+	dataOffset int64
+	// cachedIndex is a cached reference to the loaded spatial index.
+	// It will only have a non-zero value if the index was explicitly
+	// unmarshalled via the Index() method, or implicitly unmarshalled
+	// via the DataSearch() method.
+	cachedIndex *packedrtree.PackedRTree
+	// featureIndex is the index of the next feature to read, a number
+	// in the range [0, numFeatures].
+	featureIndex int
+	// featureOffset is the offset into the data section of the next
+	// feature to read, a non-negative integer.
+	featureOffset int64
+}
+
+// NewFileReader creates a new FlatGeobuf file reader based on an
+// underlying input stream.
+//
+// The underlying reader must be positioned at the beginning of the
+// file, i.e. right before the FlatGeobuf magic number.
+//
+// If the underlying reader implements the io.Seeker interface and the
+// underlying FlatGeobuf file has an index, the index can be searched
+// in a streaming manner using the new FileReader's IndexSearch method.
+func NewFileReader(r io.Reader) *FileReader {
+	if r == nil {
+		textPanic("nil reader")
+	}
+	return &FileReader{r: r}
+}
+
+// Header reads and returns the FlatBuffer table containing the
+// FlatGeobuf file's header table.
+//
+// This method may only be called once, immediately after creating the
+// FileReader via NewFileReader. Once the reader has advanced past the
+// header, it cannot be read again.
+//
+// If the header table cannot be read, the return value is a nil pointer
+// and an error. If the header table was successfully read and contains
+// usable values, the return value is  a non-nil pointer and a nil
+// error. Lastly, if the header table was successfully read, but the
+// feature count or index node size values it contains are unusable, the
+// return value is a non-nil pointer and an error, in which case this
+// reader will transition to a permanent error state from which only the
+// Close() method will work without further error.
+func (r *FileReader) Header() (*flat.Header, error) {
+	// Transition into state for reading magic number.
+	if err := r.toState(uninitialized, beforeMagic, outside); err == errUnexpectedState {
+		return nil, textErr(errHeaderAlreadyCalled)
+	} else if err != nil {
+		return nil, err
+	}
+
+	// Verify the magic number.
+	v, err := Magic(r.r)
+	if err != nil {
+		return nil, r.toErr(wrapErr("failed to read magic number", err))
+	}
+	if v.Major < MinSpecMajorVersion || v.Major > MaxSpecMajorVersion {
+		return nil, r.toErr(fmtErr("magic number has unsupported major version %d", v.Major))
+	}
+
+	// Transition into state for reading header.
+	_ = r.toState(beforeMagic, beforeHeader, inside)
+
+	// Read the header length, which is a little-endian 4-byte unsigned
+	// integer.
+	b := make([]byte, flatbuffers.SizeUint32)
+	if _, err = io.ReadFull(r.r, b); err != nil {
+		return nil, r.toErr(wrapErr("header length read error", err))
+	}
+	headerLen := flatbuffers.GetUint32(b)
+	if headerLen < flatbuffers.SizeUOffsetT {
+		return nil, r.toErr(fmtErr("header length %d not big enough for FlatBuffer uoffset_t", headerLen))
+	} else if headerLen > headerMaxLen {
+		return nil, r.toErr(fmtErr("header length %d exceeds limit of %d bytes", headerLen, headerMaxLen))
+	}
+
+	// Read the header bytes.
+	tbl := make([]byte, flatbuffers.SizeUint32+headerLen)
+	copy(tbl, b)
+	if _, err = io.ReadFull(r.r, tbl[flatbuffers.SizeUint32:]); err != nil {
+		return nil, r.toErr(wrapErr("failed to read header table (len=%d)", err, headerLen))
+	}
+
+	// Convert to FlatBuffer-based Header structure and get number of
+	// features and size of index tree nodes.
+	var hdr *flat.Header
+	var numFeatures uint64
+	var nodeSize uint16
+	if err = safeFlatBuffersInteraction(func() error {
+		hdr = flat.GetSizePrefixedRootAsHeader(tbl, 0)
+		numFeatures = hdr.FeaturesCount()
+		nodeSize = hdr.IndexNodeSize()
+		return nil
+	}); err != nil {
+		return nil, err
+	}
+
+	// Avoid overflow on feature count, because we interact with it
+	// as a signed integer with platform-specific bit size. If there's
+	// an error here, we still return the header in case caller still
+	// wants to interact with it.
+	if numFeatures > math.MaxInt {
+		return hdr, r.toErr(fmtErr("header feature count %d overflows limit of %d features", numFeatures, math.MaxInt))
+	}
+
+	// Check for an invalid index node size. If there's an error here,
+	// we still return the header in case caller wants to interact with
+	// it.
+	if nodeSize == 1 {
+		return hdr, r.toErr(textErr("header index node size 1 not allowed"))
+	}
+
+	// Store feature count and node size.
+	r.numFeatures = int(numFeatures)
+	r.nodeSize = nodeSize
+
+	// If the underlying reader is seekable and the index exists, store
+	// the index offset for future rewinds. If the underlying reader is
+	// seekable and there is no index, store the data offset.
+	if s, ok := r.r.(io.Seeker); ok {
+		if err = r.saveIndexOffset(s); err != nil {
+			return nil, err
+		}
+		if nodeSize == 0 || numFeatures == 0 {
+			if err = r.saveDataOffset(s); err != nil {
+				return nil, err
+			}
+		}
+	}
+
+	// Transition into state for reading index.
+	_ = r.toState(beforeHeader, afterHeader, inside)
+
+	// Return the header.
+	return hdr, nil
+}
+
+// Index reads and returns an in-memory implementation of the FlatGeobuf
+// file's index data structure. If the FlatGeobuf file has no index, the
+// error ErrNoIndex is returned.
+//
+// This method may only be called immediately after a successful call to
+// Header or Rewind.
+//
+// As an alternative to calling Index, consider IndexSearch, which
+// combines reading the index data structure, searching it, and
+// returning the features for each qualified match in the search
+// results.
+func (r *FileReader) Index() (*packedrtree.PackedRTree, error) {
+	// Transition into state for reading index.
+	if err := r.toState(afterHeader, beforeIndex, outside); err == errUnexpectedState {
+		return nil, r.indexStateErr(r.state)
+	} else if err != nil {
+		return nil, err
+	}
+
+	// If the node size is zero, there is no index and the reader is
+	// already pointing at the data section. If the feature count is
+	// zero, the number of features is unknown and there can't be an
+	// index.
+	if r.nodeSize == 0 || r.numFeatures == 0 {
+		_ = r.toState(beforeIndex, afterIndex, inside)
+		return nil, ErrNoIndex
+	}
+
+	// This Index() read might occur after a Rewind() call, which itself
+	// happened after a prior Index() call both read and cached the
+	// index. In this case, we can seek the read cursor forward to the
+	// data section and return the cached index.
+	if r.cachedIndex != nil {
+		s := r.r.(io.Seeker)
+		if _, err := s.Seek(r.dataOffset, io.SeekStart); err != nil {
+			return nil, r.toErr(wrapErr("failed to seek past cached index", err))
+		}
+		_ = r.toState(beforeIndex, afterIndex, inside)
+		return r.cachedIndex, nil
+	}
+
+	// Read and cache the index.
+	prt, err := r.index()
+	if err != nil {
+		return nil, err
+	}
+
+	// Transition into state for reading feature data.
+	_ = r.toState(beforeIndex, afterIndex, inside)
+
+	// Return the index.
+	return prt, nil
+}
+
+func (r *FileReader) index() (*packedrtree.PackedRTree, error) {
+	// Read the actual index.
+	prt, err := packedrtree.Unmarshal(r.r, r.numFeatures, r.nodeSize)
+	if err != nil {
+		return nil, r.toErr(wrapErr("failed to read index", err))
+	}
+
+	// Cache the index for use after future Rewind().
+	r.cachedIndex = prt
+
+	// Save the data offset, if it is not already saved.
+	if r.dataOffset == 0 {
+		if s, ok := r.r.(io.Seeker); ok {
+			if err = r.saveDataOffset(s); err != nil {
+				return nil, err
+			}
+		}
+	}
+
+	// Return the index
+	return prt, nil
+}
+
+// IndexSearch searches the FlatGeobuf file's index and returns the
+// FlatBuffer table corresponding to each data section feature whose
+// bounding box intersects the query box. If the FlatGeobuf file has
+// no index, the error ErrNoIndex is returned.
+//
+// This method may only be called immediately after a successful call to
+// Header or Rewind.
+//
+// If the underlying stream passed to NewFileReader implements the
+// io.Seeker interface, IndexSearch will perform a streaming search of
+// the index without needing to read the whole index into memory. This
+// allows efficient searches of random access capable streams, including
+// HTTP streams using HTTP range requests. Again if io.Seeker is
+// implemented, repeated streaming searches are enabled by calling
+// Rewind after each call to IndexSearch.
+func (r *FileReader) IndexSearch(b packedrtree.Box) ([]flat.Feature, error) {
+	// Searches are only allowed if the reader is positioned immediately
+	// after the header, either as a result of a Rewind(), or because of
+	// a successful call to Header() immediately before.
+	if err := r.toState(afterHeader, beforeIndex, outside); err == errUnexpectedState {
+		return nil, r.indexStateErr(r.state)
+	} else if err != nil {
+		return nil, err
+	} else if r.nodeSize == 0 || r.numFeatures == 0 {
+		r.state = afterIndex
+		return nil, ErrNoIndex
+	}
+
+	// Search the index.
+	var sr packedrtree.Results
+	var rs io.ReadSeeker
+	if rs, _ = r.r.(io.ReadSeeker); rs != nil {
+		if r.cachedIndex != nil {
+			// If the index was cached by a prior call to Index(), reuse
+			// it and seek past the index.
+			sr = r.cachedIndex.Search(b)
+			if _, err := rs.Seek(r.dataOffset, io.SeekStart); err != nil {
+				return nil, r.toErr(wrapErr("failed to seek past index", err))
+			}
+		} else {
+			// If we've already saved the index offset, which is only
+			// set if the underlying reader is seekable, seek to the
+			// index offset.
+			if r.indexOffset > 0 {
+				if _, err := rs.Seek(r.indexOffset, io.SeekStart); err != nil {
+					return nil, r.toErr(wrapErr("failed to seek to index start", err))
+				}
+			}
+			// Attempt an efficient streaming search without reading the
+			// whole index into memory. If the seek search succeeds, the
+			// reader will be positioned at the first byte of the data
+			// section.
+			var err error
+			if sr, err = packedrtree.Seek(rs, r.numFeatures, r.nodeSize, b); err != nil {
+				return nil, r.toErr(wrapErr("failed to seek-search index", err))
+			}
+		}
+	} else if r.cachedIndex == nil {
+		// Force caching the index.
+		if _, err := r.index(); err != nil {
+			return nil, err
+		}
+		sr = r.cachedIndex.Search(b)
+	} else {
+		// In this branch, we don't have a seeker; yet we also know that
+		// Index() cannot have been called because otherwise we would
+		// not be in the afterHeader state.
+		textPanic("logic error: index should not be cached")
+	}
+
+	// If the search results did not come from streaming search, sort
+	// them so their offsets are in file order. This is needed because
+	// for the cached index search, the order of search results is not
+	// defined, but for the streaming search, results are provided in
+	// ascending order of offset.
+	if r.cachedIndex != nil {
+		sort.Sort(sr)
+	}
+
+	// The reader's read cursor is now past the index and at the
+	// start of the data section.
+	_ = r.toState(beforeIndex, afterIndex, inside)
+	if r.dataOffset == 0 {
+		if err := r.saveDataOffset(rs); err != nil {
+			return nil, err
+		}
+	}
+	_ = r.toState(afterIndex, inData, inside)
+
+	// Create a helper function to skip over unnecessary features.
+	type skipFunc func(n int64) error
+	var skip skipFunc
+	if rs != nil {
+		skip = func(n int64) error {
+			_, err := rs.Seek(n, io.SeekCurrent)
+			return err
+		}
+	} else {
+		buf := make([]byte, discardBufferSize)
+		skip = func(n int64) error {
+			return discard(r.r, buf, n)
+		}
+	}
+
+	// Traverse the data section collecting all the features included
+	// in the search results.
+	fs := make([]flat.Feature, len(sr))
+	for i := range sr {
+		if sr[i].Offset > r.featureOffset {
+			if err := skip(sr[i].Offset - r.featureOffset); err != nil {
+				return nil, r.toErr(wrapErr("failed to skip to feature %d (data offset %d) for search result %d", err, sr[i].RefIndex, sr[i].Offset, i))
+			}
+		}
+		r.featureIndex = sr[i].RefIndex
+		r.featureOffset = sr[i].Offset
+		err := r.readFeature(&fs[i])
+		if err == errEndOfData {
+			return nil, r.toErr(wrapErr("data section ends before feature[%d]", io.ErrUnexpectedEOF, r.featureIndex))
+		} else if err != nil {
+			return nil, err
+		}
+	}
+
+	// Put the reader into EOF state so that it is not possible to make
+	// weird residual calls to Data() or DataRem() from the position of
+	// the last feature read.
+	_ = r.toState(inData, eof, inside)
+
+	// All search results are mapped to data features.
+	return fs, nil
+}
+
+// Data reads up to len(p) feature structures from the FlatGeobuf data
+// section into p. If fewer than len(p) features remain to be read then
+// only the remaining features are read into p. The number of features
+// (not bytes!) actually read is returned.
+//
+// This method may only be called once Header has been called. If a
+// previous call to Data has not been made since the last successful
+// Header or Rewind call, Data starts reading from the beginning of the
+// data section. Otherwise, it resumes reading from the position that
+// the last Data call left off.
+//
+// If no features remain to be read, the return value is a count of 0
+// and the error io.EOF. This method will never return io.EOF if the
+// count returned is positive; but any other I/O error maybe returned
+// with a positive count, for example io.ErrUnexpectedEOF.
+func (r *FileReader) Data(p []flat.Feature) (int, error) {
+	if r.err != nil {
+		return 0, r.err
+	}
+
+	if r.state == afterHeader {
+		if err := r.skipIndex(); err != nil {
+			return 0, err
+		}
+		r.state = inData
+	}
+
+	if r.state == afterIndex {
+		r.state = inData
+	}
+
+	if r.state == eof {
+		return 0, io.EOF
+	}
+
+	if r.state == uninitialized {
+		return 0, textErr(errHeaderNotCalled)
+	}
+
+	_ = r.toState(inData, inData, inside) // Assert correct state.
+
+	n := len(p)
+	var rem int
+	if r.numFeatures > 0 {
+		rem = r.numFeatures - r.featureIndex
+		if n > rem {
+			n = rem
+		}
+	}
+
+	for i := 0; i < n; i++ {
+		err := r.readFeature(&p[i])
+		if err == errEndOfData && i == 0 {
+			_ = r.toState(inData, eof, inside)
+			return 0, io.EOF
+		} else if err == errEndOfData {
+			_ = r.toState(inData, eof, inside)
+			return i, nil
+		} else if err != nil {
+			return i, err
+		}
+	}
+
+	if n == rem {
+		_ = r.toState(inData, eof, inside)
+	}
+
+	return n, nil
+}
+
+// dataRemBufferSize is the suggested buffer size to use when reading
+// an unknown number of features using the DataRem function.
+const dataRemBufferSize = 1024
+
+// DataRem reads and returns all remaining unread features from the
+// FlatGeobuf data section.
+//
+// This method may only be called once Header has been called. If a
+// previous call to Data has not been made since the last successful
+// Header or Rewind call, DataRem reads all features from the data
+// section. Otherwise, it reads all features remaining after the last
+// Data call left off.
+func (r *FileReader) DataRem() ([]flat.Feature, error) {
+	if r.err != nil {
+		return nil, r.err
+	} else if r.state == eof {
+		return nil, io.EOF
+	} else if r.numFeatures > 0 {
+		rem := r.numFeatures - r.featureIndex
+		p := make([]flat.Feature, rem)
+		n, err := r.Data(p)
+		p = p[0:n]
+		if err != nil && err != io.EOF {
+			return p, err
+		}
+		if n != rem {
+			return p, r.toErr(wrapErr("expected to read %d features but read %d", io.ErrUnexpectedEOF, rem, n))
+		}
+		return p, nil
+	} else {
+		p := make([]flat.Feature, dataRemBufferSize)
+		n, err := r.Data(p)
+		if err != nil && err != io.EOF {
+			return p[0:n], err
+		} else if err == io.EOF {
+			return p[0:n], nil
+		}
+		q := make([]flat.Feature, 0, 2*len(p))
+		q = append(q, p[0:n]...)
+		for {
+			n, err = r.Data(p)
+			q = append(q, p[0:n]...)
+			if err != nil && err != io.EOF {
+				return q, err
+			} else if err == io.EOF {
+				return q, nil
+			}
+		}
+	}
+}
+
+// Rewind seeks the read position of the underlying stream to the
+// position directly after the FlatGeobuf header buffer, enabling
+// repeat calls to IndexSearch, Index, Data, or DataRem. Returns
+// ErrNotSeekable if the underlying stream does not implement io.Seeker.
+//
+// This method may only be called once Header has been called.
+func (r *FileReader) Rewind() error {
+	if r.err != nil {
+		return r.err
+	} else if r.state < afterHeader {
+		return textErr(errHeaderNotCalled)
+	} else if r.indexOffset == 0 {
+		return ErrNotSeekable
+	} else if r.state == afterHeader {
+		return nil // No-Op
+	}
+
+	s := r.r.(io.Seeker)
+	if _, err := s.Seek(r.indexOffset, io.SeekStart); err != nil {
+		return r.toErr(wrapErr("failed to seek to end of header", err))
+	}
+	r.state = afterHeader
+	r.featureIndex = 0
+	r.featureOffset = 0
+	return nil
+}
+
+// Close closes the FileReader. All subsequent calls to any method will
+// return ErrClosed.
+//
+// If the underlying stream implements io.Closer, this method invokes
+// Close on the underlying stream and returns the result.
+func (r *FileReader) Close() error {
+	return r.close(r.r)
+}
+
+func (r *FileReader) indexStateErr(state state) error {
+	switch state {
+	case uninitialized:
+		return textErr(errHeaderNotCalled)
+	case afterIndex, inData, eof:
+		if r.indexOffset > 0 {
+			return textErr(errReadPastIndex + " (reader is an io.Seeker though, try Rewind)")
+		} else {
+			return textErr(errReadPastIndex)
+		}
+	default:
+		fmtPanic("logic error: unexpected state 0x%x looking to read index", state)
+		return nil
+	}
+}
+
+func (r *FileReader) skipIndex() error {
+	// Transition into state for working with index.
+	_ = r.toState(afterHeader, beforeIndex, inside)
+
+	// Seek or read to the correct position.
+	if r.dataOffset > 0 { // If we already know the data offset, seek to it.
+		s := r.r.(io.Seeker)
+		if _, err := s.Seek(r.dataOffset, io.SeekStart); err != nil {
+			return r.toErr(wrapErr(errSeekingData, err))
+		}
+	} else if r.indexOffset > 0 { // If we can seek past the index, do so.
+		indexSize, err := packedrtree.Size(r.numFeatures, r.nodeSize)
+		if err != nil {
+			return r.toErr(wrapErr(errIndexSize, err))
+		}
+		r.dataOffset = r.indexOffset + int64(indexSize)
+		s := r.r.(io.Seeker)
+		if _, err = s.Seek(r.dataOffset, io.SeekStart); err != nil {
+			return r.toErr(wrapErr(errSeekingData, err))
+		}
+	} else if r.nodeSize > 0 && r.numFeatures > 0 { // Our only choice is to read past the index.
+		indexSize, err := packedrtree.Size(r.numFeatures, r.nodeSize)
+		if err != nil {
+			return r.toErr(wrapErr(errIndexSize, err))
+		}
+		bufSize := discardBufferSize
+		if indexSize < bufSize {
+			bufSize = indexSize
+		}
+		if err = discard(r.r, make([]byte, bufSize), int64(indexSize)); err != nil {
+			return r.toErr(wrapErr(errDiscardIndex, err))
+		}
+	}
+
+	// We're now in the correct position.
+	_ = r.toState(beforeIndex, afterIndex, inside)
+	return nil
+}
+
+func (r *FileReader) saveIndexOffset(s io.Seeker) error {
+	return r.saveGenericOffset(s, &r.indexOffset, "index")
+}
+
+func (r *FileReader) saveDataOffset(s io.Seeker) error {
+	return r.saveGenericOffset(s, &r.dataOffset, "data")
+}
+
+func (r *FileReader) saveGenericOffset(s io.Seeker, offsetPtr *int64, name string) error {
+	if *offsetPtr == 0 {
+		if s == nil {
+			if s, _ = r.r.(io.Seeker); s == nil {
+				return nil
+			}
+		}
+		offset, err := s.Seek(0, io.SeekCurrent)
+		if err != nil {
+			return r.toErr(wrapErr("failed to query %s offset", err, name))
+		}
+		*offsetPtr = offset
+	}
+	return nil
+}
+
+func (r *FileReader) readFeature(f *flat.Feature) (err error) {
+	// Read the feature length, which is a little-endian unsigned 32-bit
+	// integer.
+	b := make([]byte, flatbuffers.SizeUint32)
+	var n int
+	n, err = io.ReadFull(r.r, b)
+	if err == io.EOF && n == 0 {
+		return errEndOfData
+	} else if err != nil {
+		return r.toErr(wrapErr("feature[%d] length read error (offset %d)", err, r.featureIndex, r.featureOffset))
+	}
+	featureLen := flatbuffers.GetUint32(b)
+	if featureLen < flatbuffers.SizeUOffsetT {
+		return r.toErr(fmtErr("feature[%d] length %d not big enough for FlatBuffer uoffset_t (offset %d)", r.featureIndex, featureLen, r.featureOffset))
+	}
+
+	// Read the feature table bytes.
+	tbl := make([]byte, flatbuffers.SizeUint32+featureLen)
+	copy(tbl, b)
+	if _, err = io.ReadFull(r.r, tbl[flatbuffers.SizeUint32:]); err != nil {
+		return r.toErr(wrapErr("failed to read feature[%d] (offset=%d, len=%d)", err, r.featureIndex, r.featureOffset, featureLen))
+	}
+
+	// Read the uoffset_t that prefixes the tables bytes and tells us
+	// where the data starts.
+	tblOffset := flatbuffers.GetUOffsetT(tbl[flatbuffers.SizeUint32:])
+
+	// Convert the feature table into a size-prefixed FlatBuffer which
+	// is a table of type Feature.
+	f.Init(tbl, flatbuffers.SizeUint32+tblOffset)
+
+	// Advance the feature index and feature offset.
+	r.featureIndex++
+	r.featureOffset += 4 + int64(featureLen)
+
+	// Successful read of a feature.
+	return nil
+}
+
+// discardBufferSize is the suggested buffer size to use with the
+// discard function.
+const discardBufferSize = 8096
+
+// discard reads and discards n bytes from a reader using the given
+// temporary buffer as a scratch space to read into. At the end of this
+// function, the contents of the buffer are undefined.
+func discard(r io.Reader, buf []byte, n int64) error {
+	for n > 0 {
+		var a int
+		var err error
+		if int(n) < len(buf) {
+			a, err = r.Read(buf[0:n])
+		} else {
+			a, err = r.Read(buf)
+		}
+		if err != nil {
+			return err
+		}
+		n -= int64(a)
+	}
+	return nil
+}
