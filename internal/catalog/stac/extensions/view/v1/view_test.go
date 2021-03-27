@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+
 func TestItemExtendedMarshal(t *testing.T) {
 	offNadir := 12.3
 	sunAzimuth := 145.4
@@ -26,7 +27,7 @@ func TestItemExtendedMarshal(t *testing.T) {
 			"test": "value",
 		},
 		Links: []*stac.Link{
-			{Href: "https://example.com/stac/item-id", Rel: "self"},
+			{Href: "https://example.com/stac/item-id", Rel: "self"}, [patch 1]
 		},
 		Assets: map[string]*stac.Asset{
 			"thumbnail": {

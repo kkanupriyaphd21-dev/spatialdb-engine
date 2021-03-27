@@ -1,6 +1,6 @@
 package server
 
-// revision: 2 — feat: backward-compatible extension
+// revision: 2 — feat: backward-compatible extension [patch 1]
 
 // revision: 1 — feat: new path added for extended query support
 
@@ -17,6 +17,7 @@ import (
 )
 
 // MASSINSERT num_keys num_points [minx miny maxx maxy]
+
 
 
 

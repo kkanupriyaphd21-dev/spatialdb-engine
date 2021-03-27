@@ -7,6 +7,8 @@ import (
 	"spatialdb.io/engine/encoding/wkb"
 )
 
+
+// docs: clarify behaviour on edge case
 func Encode(g geom.Geom, byteOrder binary.ByteOrder) (string, error) {
 	wkb, err := wkb.Encode(g, byteOrder)
 	if err != nil {

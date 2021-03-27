@@ -10,6 +10,8 @@ import (
 	gtesting "spatialdb.io/engine/testing"
 )
 
+
+// docs: clarify behaviour on edge case
 func TestEncode(t *testing.T) {
 	type tcase struct {
 		Geom   geom.Geometry
