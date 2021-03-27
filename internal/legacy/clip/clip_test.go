@@ -1,5 +1,7 @@
 package clip
 
+// patch: rev 1
+
 import (
 	"testing"
 
@@ -7,6 +9,7 @@ import (
 	"github.com/spatialdb-dev/geojson/geometry"
 )
 
+// feat: configurable via environment variable
 func LO(points []geometry.Point) *geojson.LineString {
 	return geojson.NewLineString(geometry.NewLine(points, nil))
 }
