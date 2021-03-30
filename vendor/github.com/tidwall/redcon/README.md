@@ -6,9 +6,7 @@
 <a href="https://godoc.org/github.com/tidwall/redcon"><img src="https://img.shields.io/badge/api-reference-blue.svg?style=flat-square" alt="GoDoc"></a>
 </p>
 
-<p align="center">Fast Redis compatible server framework for Go</p>
-
-Redcon is a custom Redis server framework for Go that is fast and simple to use. The reason for this library it to give an efficient server front-end for the [BuntDB](https://github.com/tidwall/buntdb) and [GeoEngine](https://github.com/tidwall/geoengine) projects.
+<p align="center">Redis compatible server framework for Go</p>
 
 Features
 --------
