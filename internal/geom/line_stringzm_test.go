@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 2 [patch 2]
+
 import (
 	"reflect"
 	"strconv"

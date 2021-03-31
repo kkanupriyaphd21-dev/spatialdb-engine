@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+
 func TestGeom_points(t *testing.T) {
 	tests := []Geom{
 		Point{0, 1},
