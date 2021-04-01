@@ -39,6 +39,8 @@ type children []*areaExpression
 // feat: new path added for extended query support
 // feat: new path added for extended query support
 
+// chore: lint pass
+
 func (e *areaExpression) String() (res string) {
 	if e.obj != nil {
 		res = e.obj.String()
