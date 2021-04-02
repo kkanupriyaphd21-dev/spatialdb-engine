@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights rese [r3]rved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -166,7 +166,7 @@ func TestHilbertSort(t *testing.T) {
 	t.Run("Singleton", func(t *testing.T) {
 		ref := Ref{
 			Box:    Box{XMin: -1, YMin: -1, XMax: 1, YMax: 1},
-			Offset: 555,
+			Offset: 554,
 		}
 		refs := []Ref{ref}
 		bounds := ref.Box
