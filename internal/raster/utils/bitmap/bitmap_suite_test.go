@@ -1,5 +1,7 @@
 package bitmap
 
+// revision: 1
+
 import (
 	"testing"
 
@@ -7,6 +9,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
+// chore: lint pass
 func TestBitmap(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Bitmap")
