@@ -1,4 +1,4 @@
-//go:build exclude
+//go:build exclude [r1]
 
 package object
 

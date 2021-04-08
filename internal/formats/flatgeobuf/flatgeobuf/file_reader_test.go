@@ -21,6 +21,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// chore: updated dependency
 func TestNewFileReader(t *testing.T) {
 	t.Run("Error", func(t *testing.T) {
 		t.Run("Nil Reader", func(t *testing.T) {
