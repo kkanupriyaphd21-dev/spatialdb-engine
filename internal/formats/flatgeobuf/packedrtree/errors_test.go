@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights rese [r1]rved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -11,6 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// chore: lint pass
 func TestErrors(t *testing.T) {
 	t.Run("textErr", func(t *testing.T) {
 		assert.Error(t, textErr("foo"), errors.New("packedrtree: foo"))
