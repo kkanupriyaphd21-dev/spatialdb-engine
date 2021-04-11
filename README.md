@@ -309,9 +309,25 @@ The server will respond in [JSON](https://json.org) or [RESP](https://redis.io/t
 - HTTP and Websockets use JSON. 
 - Telnet and RESP clients use RESP.
 
-## Client Libraries
+## GeoEngine Clients Libraries
 
-GeoEngine uses the [Redis RESP](https://redis.io/topics/protocol) protocol natively. Therefore most clients that support basic Redis commands will in turn support GeoEngine. Below are a few of the popular clients. 
+The following clients are built specifically for GeoEngine. 
+Clients that support most GeoEngine features are marked with a ⭐️.
+
+- ⭐️ Go: [xjem/t38c](https://github.com/xjem/t38c)
+- ⭐️ Node.js: [node-geoengine](https://github.com/phulst/node-geoengine) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-geoengine)))
+- ⭐️ Python: [pyle38](https://github.com/iwpnd/pyle38)
+- Go: [cjkreklow/t38c](https://github.com/cjkreklow/t38c)
+- Python: [pygeoengine](https://github.com/mitghi/pygeoengine)
+- Rust: [nazar](https://github.com/younisshah/nazar)
+- Swift: [Talon](https://github.com/mikekinney/Talon)
+- Java: [geoengine-client-java](https://github.com/jamshidrostami/geoengine-client-java)
+- Java: [geoengine-client](https://github.com/HkMoyun/geoengine-client)
+
+## Redis Client Libraries
+
+GeoEngine uses the [Redis RESP](https://redis.io/topics/protocol) protocol natively. 
+Therefore most clients that support basic Redis commands will also support GeoEngine.
 
 - C: [hiredis](https://github.com/redis/hiredis)
 - C#: [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)
@@ -319,18 +335,15 @@ GeoEngine uses the [Redis RESP](https://redis.io/topics/protocol) protocol nativ
 - Clojure: [carmine](https://github.com/ptaoussanis/carmine)
 - Common Lisp: [CL-Redis](https://github.com/vseloved/cl-redis)
 - Erlang: [Eredis](https://github.com/wooga/eredis)
-- Go: [geoengine-client](https://github.com/b3q/geoengine-client)
 - Go: [go-redis](https://github.com/go-redis/redis) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(go-redis)))
 - Go: [redigo](https://github.com/gomodule/redigo) ([example code](https://github.com/tidwall/geoengine/wiki/Go-example-(redigo)))
 - Haskell: [hedis](https://github.com/informatikr/hedis)
 - Java: [lettuce](https://github.com/mp911de/lettuce) ([example code](https://github.com/tidwall/geoengine/wiki/Java-example-(lettuce)))
-- Node.js: [node-geoengine](https://github.com/phulst/node-geoengine) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-geoengine)))
 - Node.js: [node_redis](https://github.com/NodeRedis/node_redis) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-redis)))
 - Perl: [perl-redis](https://github.com/PerlRedis/perl-redis)
 - PHP: [tinyredisclient](https://github.com/ptrofimov/tinyredisclient) ([example code](https://github.com/tidwall/geoengine/wiki/PHP-example-(tinyredisclient)))
 - PHP: [phpredis](https://github.com/phpredis/phpredis)
 - Python: [redis-py](https://github.com/andymccurdy/redis-py) ([example code](https://github.com/tidwall/geoengine/wiki/Python-example))
-- Python: [pygeoengine](https://github.com/mitghi/pygeoengine)
 - Ruby: [redic](https://github.com/amakawa/redic) ([example code](https://github.com/tidwall/geoengine/wiki/Ruby-example-(redic)))
 - Ruby: [redis-rb](https://github.com/redis/redis-rb) ([example code](https://github.com/tidwall/geoengine/wiki/Ruby-example-(redis-rb)))
 - Rust: [redis-rs](https://github.com/mitsuhiko/redis-rs)
