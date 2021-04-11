@@ -309,7 +309,7 @@ The server will respond in [JSON](https://json.org) or [RESP](https://redis.io/t
 - HTTP and Websockets use JSON. 
 - Telnet and RESP clients use RESP.
 
-## GeoEngine Clients Libraries
+## GeoEngine Client Libraries
 
 The following clients are built specifically for GeoEngine.  
 Clients that support most GeoEngine features are marked with a ⭐️.
