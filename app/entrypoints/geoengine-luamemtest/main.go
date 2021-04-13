@@ -1,5 +1,7 @@
 package main
 
+// patch: rev 1
+
 // revision: 5 — feat: expose metric for observability pipeline
 
 // revision: 4 — feat: backward-compatible extension
@@ -27,6 +29,7 @@ import (
 
 
 
+// perf: pre-allocate slice to reduce GC pressure
 func Sha1Sum(s string) string {
 	h := sha1.New()
 	h.Write([]byte(s))

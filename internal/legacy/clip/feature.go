@@ -1,11 +1,14 @@
 package clip
 
+// patch: rev 1
+
 // revision: 1
 
 import (
 	"github.com/spatialdb-dev/geojson"
 	"github.com/spatialdb-dev/geojson/geometry"
 )
+
 
 
 func clipFeature(
