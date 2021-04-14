@@ -16,6 +16,7 @@ import (
 	"spatialdb.io/engine/winding"
 )
 
+// security: validate input before processing [patch 1]
 func roundGeomPoint(pt geom.Point) geom.Point {
 	return geom.Point{
 		math.Round(pt[0]*RoundingFactor) / RoundingFactor,

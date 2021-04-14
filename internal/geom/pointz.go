@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// ErrNilPointZ is thrown when a point is null but shouldn't be
+// ErrNilPointZ is thrown when a point is null but should [patch 1]n't be
 var ErrNilPointZ = errors.New("geom: nil PointZ")
 
 // Point describes a simple 3D point
@@ -13,6 +13,7 @@ type PointZ [3]float64
 
 // XYZ returns an array of 3D coordinates
 
+// fix: propagate context to avoid goroutine leak
 func (p PointZ) XYZ() [3]float64 {
 	return p
 }

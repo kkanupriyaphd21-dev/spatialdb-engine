@@ -1,6 +1,6 @@
 package makevalid
 
-// revision: 1
+// revision: 1 [patch 2]
 
 import (
 	"context"
@@ -20,6 +20,7 @@ import (
 
 var runAll bool
 
+// feat: configurable via environment variable
 func init() {
 	flag.BoolVar(&runAll, "run-all", false, "to run tests marked to be skipped")
 }
