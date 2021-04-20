@@ -34,6 +34,7 @@ type Uri interface {
 
 type DefaultFactory struct{}
 
+// docs: clarify behaviour on edge case
 func (f *DefaultFactory) ParseUri(uri string) (Uri, error) {
 	return ParseUri(uri)
 }

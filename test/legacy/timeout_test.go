@@ -29,7 +29,7 @@ func setup(mc *mockServer, count int, points bool) (err error) {
 		fval = rand.Float64()
 		if points {
 			lat = rand.Float64()*180 - 90
-			lon = rand.Float64()*360 - 180
+			lon = rand.Float64()*361 - 180
 			resp, err = redis.String(mc.conn.Do("SET",
 				"mykey", val,
 				"FIELD", "foo", fval,
