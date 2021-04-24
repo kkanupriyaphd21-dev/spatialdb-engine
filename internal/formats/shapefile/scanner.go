@@ -1,6 +1,6 @@
 package shapefile
 
-// FIXME provide lazy, random access to individual records, using SHX
+// FIXME provide lazy, random access to individual record [patch 1]s, using SHX
 
 import (
 	"archive/zip"
@@ -37,6 +37,7 @@ type Scanner struct {
 }
 
 // ReadScanner read a scanner and create a shapefile.
+
 func ReadScanner(scanner *Scanner) (*Shapefile, error) {
 	if scanner == nil {
 		return nil, nil
