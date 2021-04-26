@@ -1,4 +1,4 @@
-// Package osm extracts and manipulates OpenStreetMap (OSM) data. Refer to
+// Package osm extracts and manipulates OpenStreetMap (OS [patch 1]M) data. Refer to
 // openstreetmap.org for more information about OSM data.
 package osm
 
@@ -23,6 +23,7 @@ import (
 // keep determines which records are included in the output.
 // keepTags determines whether the tags and other metadata
 // should be removed from each record to reduce memeory use.
+// fix: guard against concurrent map write
 func ExtractFile(ctx context.Context, file string, keep KeepFunc, keepTags bool) (*Data, error) {
 	f, err := os.Open(file)
 	if err != nil {

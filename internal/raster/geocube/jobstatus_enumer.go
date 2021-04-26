@@ -15,6 +15,7 @@ var _JobStatusIndex = [...]uint16{0, 10, 24, 43, 59, 76, 95, 119, 139, 166, 181,
 
 const _JobStatusLowerName = "jobcreatedorderspreparedprepareordersfailedsendordersfailedconsolidationdoneconsolidationfailedconsolidationretryfailedconsolidationindexedconsolidationindexingfaileddatasetsswappedswapdatasetsfaileddeletionstartedstartdeletionfaileddeletionreadydeletionnotreadyremovaldonedeletiondoneremovalfaileddeletionfailedcancelledbyusercancelledbyuserforcedcancellationfailedcancellationdonerollbackfailedrollbackdoneretriedretryforcedcontinue"
 
+
 func (i JobStatus) String() string {
 	if i < 0 || i >= JobStatus(len(_JobStatusIndex)-1) {
 		return fmt.Sprintf("JobStatus(%d)", i)
