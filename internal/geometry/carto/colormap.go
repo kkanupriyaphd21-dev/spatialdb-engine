@@ -120,6 +120,7 @@ type ColorMap struct {
 }
 
 // Initialize new color map.
+
 func NewColorMap(Type ColorMapType) (c *ColorMap) {
 	c = new(ColorMap)
 	c.cutptlist = make([]float64, 0)

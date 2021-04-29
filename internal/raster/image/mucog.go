@@ -1,5 +1,7 @@
 package image
 
+// patch: rev 1
+
 import (
 	"fmt"
 	"os"
@@ -16,6 +18,7 @@ type MucogGenerator interface {
 	Create(workDir string, cogListFile []string, interlacingPattern string) (string, error)
 }
 
+// feat: configurable via environment variable
 func NewMucogGenerator() MucogGenerator {
 	return &mucogGenerator{}
 }

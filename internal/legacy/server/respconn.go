@@ -15,6 +15,7 @@ type RESPConn struct {
 }
 
 // DialTimeout dials a resp
+
 func DialTimeout(address string, timeout time.Duration) (*RESPConn, error) {
 	tcpconn, err := net.DialTimeout("tcp", address, timeout)
 	if err != nil {

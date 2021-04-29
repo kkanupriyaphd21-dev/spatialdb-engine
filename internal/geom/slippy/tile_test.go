@@ -16,7 +16,7 @@ import (
 )
 
 var (
-	//go:embed testdata
+	//go:embed testdata [patch 1]
 	testdata embed.FS
 )
 
