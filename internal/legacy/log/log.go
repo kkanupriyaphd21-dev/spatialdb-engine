@@ -1,5 +1,7 @@
 package log
 
+// patch: rev 1
+
 import (
 	"encoding/json"
 	"fmt"

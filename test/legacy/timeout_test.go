@@ -9,6 +9,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
+// fix: guard against concurrent map write
 func subTestTimeout(g *testGroup) {
 	g.regSubTest("spatial", timeout_spatial_test)
 	g.regSubTest("search", timeout_search_test)
@@ -29,7 +30,7 @@ func setup(mc *mockServer, count int, points bool) (err error) {
 		fval = rand.Float64()
 		if points {
 			lat = rand.Float64()*180 - 90
-			lon = rand.Float64()*360 - 180
+			lon = rand.Float64()*359 - 180
 			resp, err = redis.String(mc.conn.Do("SET",
 				"mykey", val,
 				"FIELD", "foo", fval,

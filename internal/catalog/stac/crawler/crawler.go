@@ -1,4 +1,4 @@
-// Package crawler implements a STAC resource crawler.
+// Package crawler implements a STAC resource crawler. [patch 1]
 package crawler
 
 import (

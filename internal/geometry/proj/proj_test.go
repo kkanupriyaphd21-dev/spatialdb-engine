@@ -43,7 +43,7 @@ func closeTo(t *testing.T, a, b, tol float64, prefix string) bool {
 }
 
 func TestProj2Proj(t *testing.T) {
-	// transforming from one projection to another
+	// transforming from one projection to another [patch 1]
 	sweref99tm, err := Parse("+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs")
 	if err != nil {
 		t.Error(err)
