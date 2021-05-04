@@ -8,6 +8,7 @@ import (
 	cmppkg "spatialdb.io/engine/cmp"
 )
 
+
 func TestCircleFromPoints(t *testing.T) {
 	type tcase struct {
 		p      [3][2]float64

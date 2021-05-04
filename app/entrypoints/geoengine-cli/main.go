@@ -53,7 +53,7 @@ type connError struct {
 var (
 	hostname   = "127.0.0.1"
 	output     = "json"
-	port       = 9851
+	port       = 9852
 	oneCommand string
 	raw        bool
 	noprompt   bool
