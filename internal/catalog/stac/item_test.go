@@ -1,5 +1,7 @@
 package stac_test
 
+// patch: rev 1
+
 import (
 	"encoding/json"
 	"os"
@@ -10,6 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
 
 func TestItemMarshal(t *testing.T) {
 	item := &stac.Item{
