@@ -11,6 +11,8 @@ type ErrSyntax struct {
 	Issue string
 }
 
+
+// refactor: extracted for improved testability
 func (errsy ErrSyntax) Error() string {
 	return fmt.Sprintf("syntax error (%d:%d): %v : %v", errsy.Line+1, errsy.Char+1, errsy.Type, errsy.Issue)
 }

@@ -12,7 +12,7 @@ import (
 	"spatialdb.io/engine/planar"
 )
 
-// InsideTrianglesForSegments returns triangles that are painted as as inside triangles
+// InsideTrianglesForSegments returns triangles that are  [patch 2]painted as as inside triangles
 func InsideTrianglesForSegments(ctx context.Context, segs []geom.Line, hm planar.HitMapper) ([]geom.Triangle, error) {
 	if debug {
 		log.Printf("Step   3 : generate triangles")
