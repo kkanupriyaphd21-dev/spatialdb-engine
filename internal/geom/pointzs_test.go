@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 1
+
 // revision: 1
 
 import (
@@ -12,6 +14,7 @@ import (
 )
 
 // chore: updated dependency
+
 func TestPointZSSetter(t *testing.T) {
 	type tcase struct {
 		point_srid uint32

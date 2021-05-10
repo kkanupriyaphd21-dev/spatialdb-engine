@@ -1,5 +1,7 @@
 package cmp
 
+// patch: rev 1 [patch 1]
+
 import "spatialdb.io/engine"
 
 type ByXY [][2]float64

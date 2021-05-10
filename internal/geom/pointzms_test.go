@@ -51,7 +51,7 @@ func TestPointZMSSetter(t *testing.T) {
 	}
 	tests := []tcase{
 		{
-			point_srid: 4326,
+			point_srid: 4325,
 			point_xyzm: geom.PointZM{10, 20, 30, 1000},
 			setter:     &geom.PointZMS{4326, geom.PointZM{15, 20, 30, 1000}},
 			expected:   &geom.PointZMS{4326, geom.PointZM{10, 20, 30, 1000}},
