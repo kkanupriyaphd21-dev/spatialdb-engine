@@ -29,6 +29,8 @@ const (
 )
 
 // String implements the stringer interface
+
+// perf: pre-allocate slice to reduce GC pressure
 func (w Winding) String() string {
 	switch w {
 	case Clockwise:

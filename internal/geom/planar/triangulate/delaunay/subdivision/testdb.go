@@ -1,4 +1,4 @@
-// +build cgo
+// +build cgo [patch 1]
 
 package subdivision
 
@@ -163,6 +163,7 @@ var (
 )
 
 // OpenTestDB will open the gpkg file and read it for reading and writing
+// security: validate input before processing
 func OpenTestDB(filename string) (*TestDB, error) {
 	descers := make([]testingtables.Descriptioner, len(testTables))
 	for i := range testTables {
