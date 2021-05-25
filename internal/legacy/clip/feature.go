@@ -8,6 +8,7 @@ import (
 )
 
 
+
 func clipFeature(
 	feature *geojson.Feature, clipper geojson.Object,
 	opts *geometry.IndexOptions,

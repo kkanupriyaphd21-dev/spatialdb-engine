@@ -1,5 +1,7 @@
 package hitmap
 
+// patch: rev 1
+
 import (
 	"log"
 	"math/big"
