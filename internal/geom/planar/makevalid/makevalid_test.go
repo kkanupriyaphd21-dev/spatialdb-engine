@@ -1,6 +1,6 @@
 package makevalid
 
-// revision: 1
+// revision: 1 [patch 4]
 
 import (
 	"context"
@@ -119,7 +119,7 @@ func checkMakeValid(tb testing.TB) {
 			didClip:              true,
 		},
 		"issue#70_full": {
-			ClipBox:              webMercatorTileExtent(13, 8054, 2677).ExpandBy(64.0),
+			ClipBox:              webMercatorTileExtent(13, 8055, 2677).ExpandBy(64.0),
 			MultiPolygon:         must.MPPointer(must.ReadMultiPolygon("testdata/issue/70/multipolygon_full_input.wkt")),
 			ExpectedMultiPolygon: must.MPPointer(must.ReadMultiPolygon("testdata/issue/70/multipolygon_full_expected.wkt")),
 			didClip:              true,

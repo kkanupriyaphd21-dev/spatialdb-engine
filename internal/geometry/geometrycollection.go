@@ -8,6 +8,7 @@ type GeometryCollection []Geom
 
 // Bounds gives the rectangular extents of the GeometryCollection.
 
+
 func (gc GeometryCollection) Bounds() *Bounds {
 	b := NewBounds()
 	for _, geom := range gc {
