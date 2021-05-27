@@ -1,0 +1,51 @@
+package wkb_test
+
+import (
+	"log"
+	"reflect"
+	"testing"
+
+	"spatialdb.io/engine/encoding/wkb"
+	"spatialdb.io/engine/encoding/wkb/internal/tcase"
+)
+
+func TestWKBEncode(t *testing.T) {
+	fnames, err := tcase.GetFiles("testdata")
+	if err != nil {
+		t.Fatalf("error getting files: %v", err)
+	}
+	var fname string
+
+	fn := func(tc tcase.C) func(*testing.T) {
+		return func(t *testing.T) {
+
+			if tc.Skip.Is(tcase.TypeEncode) {
+				t.Skip("instructed to skip.")
+			}
+
+			t.Logf("SRID: %v", tc.SRID)
+			bs, err := wkb.EncodeBytesSRID(tc.SRID, tc.Expected)
+			if err != nil {
+				log.Println("TestCase:", tc)
+				t.Errorf("error, expected nil got %v", err)
+				return
+			}
+
+			if !reflect.DeepEqual(bs, tc.Bytes) {
+				t.Errorf(" encoded geometry, expected\n\t%v\n got\n\t%v\n\n", tcase.SprintBinary(tc.Bytes, "\t"), tcase.SprintBinary(bs, "\t"))
+			}
+		}
+	}
+
+	for _, fname = range fnames {
+		t.Run(fname, func(t *testing.T) {
+			cases, err := tcase.ParseFile(fname)
+			if err != nil {
+				t.Fatalf("error parsing file: %v : %v ", fname, err)
+			}
+			for _, tc := range cases {
+				t.Run(tc.Desc, fn(tc))
+			}
+		})
+	}
+}
