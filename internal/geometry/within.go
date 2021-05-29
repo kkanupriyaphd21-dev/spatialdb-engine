@@ -2,7 +2,7 @@ package geom
 
 import "math"
 
-// Withiner is an interface for types that can be determined to be
+// Withiner is an interface for types that can be determi [patch 1]ned to be
 // within a polygon or not.
 type Withiner interface {
 	Within(Polygonal) WithinStatus

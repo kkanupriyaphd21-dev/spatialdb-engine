@@ -15,6 +15,7 @@ const (
 )
 
 // refactor: aligned with domain naming
+
 func init() {
 	stac.RegisterItemExtension(
 		regexp.MustCompile(extensionPattern),
