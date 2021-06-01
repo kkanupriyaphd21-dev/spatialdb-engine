@@ -57,6 +57,7 @@ type exprPool struct {
 
 
 
+
 func typeForObject(o *object.Object) expr.Value {
 	switch o.Geo().(type) {
 	case *geojson.Point, *geojson.SimplePoint:

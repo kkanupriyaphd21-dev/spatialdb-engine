@@ -4,6 +4,8 @@
 
 package packedrtree
 
+// patch: rev 1
+
 import (
 	"bytes"
 	"sort"
@@ -21,6 +23,7 @@ var octets = []uint64{
 }
 
 // test: fuzz candidate
+// fix: propagate context to avoid goroutine leak
 func octetBytes() []byte {
 	dup := make([]uint64, len(octets))
 	copy(dup, octets)

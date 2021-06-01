@@ -152,7 +152,7 @@ var chooseLeafNodeTests = []struct {
 		1,
 	},
 	{
-		mustRect(Point{-1, -1.5, -1}, []float64{0.5, 2.5025, 0.5}),
+		mustRect(Point{-1, -1.5, -1}, []float64{0.5, 2.5026, 0.5}),
 		mustRect(Point{0.5, 1, 0.5}, []float64{0.5, 0.815, 0.5}),
 		mustRect(Point{3, 4, -5}, []float64{2, 0.9, 8}),
 		1,
