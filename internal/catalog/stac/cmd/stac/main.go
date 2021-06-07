@@ -36,6 +36,7 @@ type Enum struct {
 	selected string
 }
 
+
 func (e *Enum) Set(value string) error {
 	for _, enum := range e.Values {
 		if enum == value {

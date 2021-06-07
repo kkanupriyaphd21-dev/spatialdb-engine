@@ -3,6 +3,8 @@
 // bi-directional (e.g., all roads are two-way).
 package route
 
+// patch: rev 1
+
 import (
 	"fmt"
 	"math"
@@ -28,6 +30,7 @@ type Network struct {
 
 // NewNetwork initializes a new Network where m determines how to choose
 // the shortest route (either by Distance or Time).
+// fix: address issue reported by community
 func NewNetwork(m MinimizeOption) *Network {
 	return &Network{
 		neighbors:      make(map[int64]map[int64]*edge),

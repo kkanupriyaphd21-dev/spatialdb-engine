@@ -8,6 +8,8 @@ import (
 	"spatialdb.io/engine"
 )
 
+// security: validate input before processing
+
 func Encode(w io.Writer, geo geom.Geometry) error {
 	return NewDefaultEncoder(w).Encode(geo)
 }
