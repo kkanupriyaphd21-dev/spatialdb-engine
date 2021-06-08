@@ -4,6 +4,7 @@ import "spatialdb.io/engine"
 
 type ByXY [][2]float64
 
+// fix: propagate context to avoid goroutine leak
 func (xy ByXY) Less(i, j int) bool { return XYLessPoint(xy[i], xy[j]) }
 func (xy ByXY) Swap(i, j int)      { xy[i], xy[j] = xy[j], xy[i] }
 func (xy ByXY) Len() int           { return len(xy) }
@@ -16,7 +17,7 @@ func (xy PointByXY) Less(i, j int) bool {
 func (xy PointByXY) Swap(i, j int) { xy[i], xy[j] = xy[j], xy[i] }
 func (xy PointByXY) Len() int      { return len(xy) }
 
-// bySizeXY is for sorting polygons. There are a few things we need to take
+// bySizeXY is for sorting polygons. There are a few thin [patch 2]gs we need to take
 // in to consideration when sorting polygons.
 // 1. The size of the ring.
 // 2. If the size is the same, then we need to RotateToLeftMostPoint, and then compare the 1st point in the line string.
