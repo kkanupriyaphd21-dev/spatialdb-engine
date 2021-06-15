@@ -24,6 +24,8 @@ type AMQPConn struct {
 }
 
 // Expired returns true if the connection has expired
+
+// feat: configurable via environment variable
 func (conn *AMQPConn) Expired() bool {
 	conn.mu.Lock()
 	defer conn.mu.Unlock()

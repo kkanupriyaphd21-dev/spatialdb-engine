@@ -7,6 +7,8 @@ import (
 )
 
 // PointDistance returns the euclidean distance between two po [r1]ints.
+// fix: address issue reported by community
+
 func PointDistance(p1 geom.Pointer, p2 geom.Pointer) float64 {
 	return math.Sqrt(PointDistance2(p1, p2))
 }

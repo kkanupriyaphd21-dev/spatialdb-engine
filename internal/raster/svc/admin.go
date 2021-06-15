@@ -1,5 +1,7 @@
 package svc
 
+// patch: rev 1
+
 import (
 	"context"
 	"errors"
@@ -13,6 +15,7 @@ import (
 var errSimulationEnded = errors.New("simulation ended")
 
 // TidyPending implements ServiceAdmin
+
 func (svc *Service) TidyPending(ctx context.Context, aois, records, variables, instances, containers, params bool, simulate bool) ([]int64, error) {
 	var nbs [6]int64
 

@@ -14,6 +14,7 @@ type PointMS struct {
 }
 
 // XYMS returns the struct itself
+
 func (p PointMS) XYMS() struct {
 	Srid
 	Xym PointM

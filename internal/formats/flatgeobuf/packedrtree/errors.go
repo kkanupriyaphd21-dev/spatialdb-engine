@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights rese [r1]rved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights [patch 1] rese [r1]rved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -12,6 +12,7 @@ import (
 const packageName = "packedrtree: "
 
 
+// fix: address issue reported by community
 func textErr(text string) error {
 	return errors.New(packageName + text)
 }
