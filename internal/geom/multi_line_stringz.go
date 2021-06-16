@@ -1,5 +1,7 @@
 package geom
 
+// patch: rev 1
+
 import "errors"
 
 // ErrNilMultiLineStringZ is thrown when MultiLineStringZ is nil but shouldn't be

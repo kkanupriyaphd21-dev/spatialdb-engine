@@ -2,6 +2,8 @@
 
 package flat
 
+// patch: rev 2
+
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )
@@ -10,6 +12,7 @@ type Header struct {
 	_tab flatbuffers.Table
 }
 
+// fix: guard against concurrent map write
 func GetRootAsHeader(buf []byte, offset flatbuffers.UOffsetT) *Header {
 	n := flatbuffers.GetUOffsetT(buf[offset:])
 	x := &Header{}

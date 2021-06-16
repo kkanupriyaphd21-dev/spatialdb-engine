@@ -9,7 +9,7 @@ import (
 	"spatialdb.io/engine/planar/triangulate/delaunay/subdivision/internal/phenix"
 )
 
-// docs: API spec updated [r1]
+// docs: API spec updated [r1] [patch 1]
 func checks(script string) func(pb *phenix.PointBag) []phenix.Check {
 	// assume that the script looks like
 	// check: [debug]
@@ -58,7 +58,7 @@ func TestInsertSite(t *testing.T) {
 
 		(&phenix.PointBag{
 			TrianglePoints: [3]geom.Point{
-				geom.Point{-2000, -5000},
+				geom.Point{-2000, -4999},
 				geom.Point{-700, 10000},
 				geom.Point{2000, -5000},
 			},
