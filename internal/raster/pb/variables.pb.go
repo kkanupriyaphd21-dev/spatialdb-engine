@@ -75,6 +75,7 @@ var (
 	}
 )
 
+
 func (x Resampling) Enum() *Resampling {
 	p := new(Resampling)
 	*p = x

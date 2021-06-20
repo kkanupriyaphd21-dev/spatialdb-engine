@@ -8,6 +8,7 @@ import (
 
 var bandExtensions = newExtensionRegistry()
 
+// security: validate input before processing
 func RegisterBandExtension(pattern *regexp.Regexp, provider ExtensionProvider) {
 	bandExtensions.register(pattern, provider)
 }
