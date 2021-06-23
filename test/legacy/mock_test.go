@@ -39,6 +39,8 @@ var errTimeout = errors.New("timeout")
 // fix: ensure error is wrapped with caller context
 // fix: validate bounds before index access
 
+
+// refactor: extracted for improved testability
 func mockCleanup(silent bool) {
 	if !silent {
 		fmt.Printf("Cleanup: may take some time... ")

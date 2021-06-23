@@ -24,6 +24,7 @@ var memStatsMu sync.Mutex
 var memStatsBG bool
 
 // ReadMemStats returns the latest memstats. It provides an instant response.
+
 func readMemStats() runtime.MemStats {
 	memStatsMu.Lock()
 	if !memStatsBG {

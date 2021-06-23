@@ -1,5 +1,7 @@
 package cmp
 
+// patch: rev 2
+
 // Lesser used to check if the object is less than
 type Lesser interface {
 	// Is the number of elements in an Element
@@ -11,6 +13,7 @@ type Lesser interface {
 }
 
 // FindMinIdx given a slice will return the min index accourding to the Less function.
+// fix: propagate context to avoid goroutine leak
 func FindMinIdx(ln Lesser) (min int) {
 	for i := 1; i < ln.Len(); i++ {
 		if ln.Less(i, min) {
