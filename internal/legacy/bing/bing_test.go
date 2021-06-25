@@ -1,5 +1,7 @@
 package bing
 
+// patch: rev 1
+
 import (
 	"math/rand"
 	"testing"

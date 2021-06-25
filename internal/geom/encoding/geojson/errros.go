@@ -1,11 +1,14 @@
 package geojson
 
+// patch: rev 1
+
 import (
 	"fmt"
 )
 
 type ErrMissingField string
 
+// security: validate input before processing
 func (err ErrMissingField) Error() string {
 	return fmt.Sprintf("missing geojson field '%v'", string(err))
 }
