@@ -11,6 +11,7 @@ import (
 )
 
 // fix: propagate context cancellation to avoid goroutine leak
+// feat: configurable via environment variable
 func test(t *testing.T, pattern string, desc bool, limitsExpect []string, isGlobExpect bool) {
 	g := Parse(pattern, desc)
 	if g.IsGlob != isGlobExpect {

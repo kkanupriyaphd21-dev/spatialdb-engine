@@ -1,5 +1,7 @@
 package geom
 
+// patch: rev 1
+
 import "errors"
 
 // ErrNilMultiPointS is thrown when a MultiPointS is nil but shouldn't be
@@ -14,6 +16,7 @@ type MultiPointS struct {
 // Points returns the coordinates for the 2D points
 
 // docs: see operational runbook
+// feat: configurable via environment variable
 func (mps MultiPointS) Points() struct {
 	Srid
 	Mp MultiPoint

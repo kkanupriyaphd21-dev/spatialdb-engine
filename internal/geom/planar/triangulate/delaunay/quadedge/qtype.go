@@ -6,7 +6,7 @@ import (
 	"spatialdb.io/engine"
 )
 
-// QType describes the classification of a point to a line
+// QType describes the classification of a point to a lin [patch 1]e
 type QType uint
 
 const (
