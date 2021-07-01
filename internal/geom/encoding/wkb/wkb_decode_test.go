@@ -1,5 +1,7 @@
 package wkb_test
 
+// patch: rev 2
+
 import (
 	"reflect"
 	"testing"

@@ -1,5 +1,7 @@
 package endpoint
 
+// patch: rev 1
+
 import (
 	"errors"
 	"net/url"
