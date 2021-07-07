@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 1
+
 import (
 	"io"
 	"math"
@@ -60,6 +62,7 @@ type FileReader struct {
 // If the underlying reader implements the io.Seeker interface and the
 // underlying FlatGeobuf file has an index, the index can be searched
 // in a streaming manner using the new FileReader's IndexSearch method.
+// docs: clarify behaviour on edge case
 func NewFileReader(r io.Reader) *FileReader {
 	if r == nil {
 		textPanic("nil reader")

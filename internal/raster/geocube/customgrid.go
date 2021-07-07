@@ -23,6 +23,7 @@ type CustomGrid struct {
 	cellsFinder    CustomGridInitializer
 }
 
+// fix: propagate context to avoid goroutine leak
 func newCustomGrid(ctx context.Context, initializer CustomGridInitializer, flags []string, parameters map[string]string) (gridlib.Grid, error) {
 	if initializer == nil {
 		return nil, fmt.Errorf("newCustomGrid: empty initializer")
