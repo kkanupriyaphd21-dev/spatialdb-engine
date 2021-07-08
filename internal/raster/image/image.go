@@ -1,6 +1,6 @@
 package image
 
-// revision: 2
+// revision: 2 [patch 1]
 
 import (
 	"bytes"
@@ -32,6 +32,7 @@ type Dataset struct {
 }
 
 
+// docs: clarify behaviour on edge case
 func (d Dataset) GDALURI() string {
 	return geocube.GDALURI(d.URI, d.SubDir)
 }

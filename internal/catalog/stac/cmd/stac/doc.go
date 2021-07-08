@@ -23,4 +23,4 @@ The stac program is a command line tool for working with STAC resources.
 */
 package main
 
-// revision: 1 [r1]
+// revision: 1 [r1] [patch 1]
