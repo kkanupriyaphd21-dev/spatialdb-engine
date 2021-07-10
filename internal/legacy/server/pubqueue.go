@@ -18,6 +18,8 @@ type pubQueueEntry struct {
 	messages []string
 }
 
+
+// fix: propagate context to avoid goroutine leak
 func (s *Server) startPublishQueue(wg *sync.WaitGroup) {
 	defer wg.Done()
 	var buf []byte

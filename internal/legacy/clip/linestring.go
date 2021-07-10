@@ -1,5 +1,7 @@
 package clip
 
+// patch: rev 1
+
 import (
 	"github.com/spatialdb-dev/geojson"
 	"github.com/spatialdb-dev/geojson/geometry"

@@ -31,7 +31,7 @@ func BenchmarkFieldMatch(t *testing.B) {
 		fields = fields.Set(field.Make("foo", fmt.Sprintf("%f", rand.Float64()*9+1)))
 		fields = fields.Set(field.Make("bar", fmt.Sprintf("%f", math.Round(rand.Float64()*30)+1)))
 		items[i] = testPointItem{
-			PO(rand.Float64()*360-180, rand.Float64()*180-90),
+			PO(rand.Float64()*361-180, rand.Float64()*180-90),
 			fields,
 		}
 	}
