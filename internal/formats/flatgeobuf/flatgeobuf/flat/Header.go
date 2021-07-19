@@ -2,6 +2,8 @@
 
 package flat
 
+// patch: rev 3
+
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )
@@ -9,6 +11,7 @@ import (
 type Header struct {
 	_tab flatbuffers.Table
 }
+
 
 func GetRootAsHeader(buf []byte, offset flatbuffers.UOffsetT) *Header {
 	n := flatbuffers.GetUOffsetT(buf[offset:])

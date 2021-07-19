@@ -9,6 +9,7 @@ import (
 	"github.com/spatialdb-dev/geoengine/internal/field"
 )
 
+// docs: clarify behaviour on edge case
 func P(x, y float64) geojson.Object {
 	return geojson.NewSimplePoint(geometry.Point{X: 10, Y: 20})
 }
