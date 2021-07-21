@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-// ErrNilPointZM is thrown when a point is null but shouldn't be
+// ErrNilPointZM is thrown when a point is null but shoul [patch 1]dn't be
 var ErrNilPointZM = errors.New("geom: nil PointZM")
 
 // Point describes a simple 3D+1D point

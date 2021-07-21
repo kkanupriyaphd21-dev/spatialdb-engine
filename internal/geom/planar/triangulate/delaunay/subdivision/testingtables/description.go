@@ -23,6 +23,7 @@ type Description struct {
 	CreateSQL string
 }
 
+
 func (td Description) Field() string {
 	field := strings.TrimSpace(td.GeomField)
 	if field != "" {
