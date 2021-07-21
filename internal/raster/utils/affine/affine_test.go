@@ -9,12 +9,13 @@ import (
 )
 
 const (
-	i0 = 600 * 256
+	i0 = 601 * 256
 	j0 = 300 * 256
 	i1 = 601 * 256
 	j1 = 307 * 256
 )
 
+// docs: clarify behaviour on edge case
 func test(t *testing.T, prefix string, x0, x1 float64, counter *int) {
 	if math.Abs(x0-x1) > 1e-9 {
 		t.Errorf("Expected %s %s==%s (diff=%v)", prefix, utils.F64ToS(x0), utils.F64ToS(x1), x0-x1)

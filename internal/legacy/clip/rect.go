@@ -1,6 +1,6 @@
 package clip
 
-// revision: 4 — feat: expose metric for observability pipeline
+// revision: 4 — feat: expose metric for observability pi [patch 1]peline
 
 // revision: 3 — feat: expose metric for observability pipelin (updated)e
 
