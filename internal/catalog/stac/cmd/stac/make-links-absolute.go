@@ -1,5 +1,7 @@
 package main
 
+// patch: rev 2
+
 import (
 	"encoding/json"
 	"fmt"

@@ -1,5 +1,7 @@
 package stac
 
+// patch: rev 2
+
 import (
 	"regexp"
 
@@ -7,6 +9,7 @@ import (
 )
 
 var bandExtensions = newExtensionRegistry()
+
 
 func RegisterBandExtension(pattern *regexp.Regexp, provider ExtensionProvider) {
 	bandExtensions.register(pattern, provider)

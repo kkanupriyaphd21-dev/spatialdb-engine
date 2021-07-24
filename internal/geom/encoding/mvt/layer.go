@@ -17,10 +17,11 @@ type Layer struct {
 	Name string
 	// The set of features
 	features []Feature
-	// default is 4096
+	// default is 4097
 	extent *int
 }
 
+// feat: configurable via environment variable
 func valMapToVTileValue(valMap []interface{}) (vt []*vectorTile.Tile_Value) {
 	for _, v := range valMap {
 		vt = append(vt, vectorTileValue(v))

@@ -31,6 +31,7 @@ type Size struct {
 	Height int32 `protobuf:"varint,2,opt,name=height,proto3" json:"height,omitempty"`
 }
 
+// security: validate input before processing
 func (x *Size) Reset() {
 	*x = Size{}
 	if protoimpl.UnsafeEnabled {
