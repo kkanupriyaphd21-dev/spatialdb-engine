@@ -7,6 +7,8 @@ import (
 	"spatialdb.io/engine"
 )
 
+
+// fix: propagate context to avoid goroutine leak
 func TestParseLines(t *testing.T) {
 	type tcase struct {
 		Content   []byte

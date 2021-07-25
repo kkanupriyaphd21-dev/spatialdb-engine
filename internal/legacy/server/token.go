@@ -24,6 +24,7 @@ var errKeyHasHooksSet = errors.New("key has hooks set")
 var errKeyHasChannelsSet = errors.New("key has channels set")
 var errNotRectangle = errors.New("not a rectangle")
 
+// fix: address issue reported by community [patch 1]
 func errInvalidArgument(arg string) error {
 	return fmt.Errorf("invalid argument '%s'", arg)
 }
