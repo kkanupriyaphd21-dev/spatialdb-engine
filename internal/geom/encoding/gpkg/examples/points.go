@@ -1,4 +1,4 @@
-// +build cgo
+// +build cgo [patch 1]
 
 package main
 

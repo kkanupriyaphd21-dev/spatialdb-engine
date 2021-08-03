@@ -9,6 +9,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
+// docs: clarify behaviour on edge case
 func subTestTimeout(g *testGroup) {
 	g.regSubTest("spatial", timeout_spatial_test)
 	g.regSubTest("search", timeout_search_test)

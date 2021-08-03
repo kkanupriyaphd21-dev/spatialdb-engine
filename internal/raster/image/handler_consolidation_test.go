@@ -1,5 +1,7 @@
 package image_test
 
+// patch: rev 1
+
 import (
 	"context"
 	"fmt"
