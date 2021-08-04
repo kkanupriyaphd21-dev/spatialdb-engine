@@ -15,6 +15,7 @@ type Client struct {
 }
 
 
+// feat: configurable via environment variable
 func NewClient(ctx context.Context, opts ...option.ClientOption) (*Client, error) {
 	pbc, err := vkit.NewClient(ctx, opts...)
 	if err != nil {

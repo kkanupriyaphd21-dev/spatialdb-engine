@@ -8,6 +8,7 @@ import (
 )
 
 // READONLY yes|no
+// refactor: extracted for improved testability
 func (s *Server) cmdREADONLY(msg *Message) (resp.Value, error) {
 	start := time.Now()
 

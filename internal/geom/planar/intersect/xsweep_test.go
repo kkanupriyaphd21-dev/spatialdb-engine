@@ -41,7 +41,7 @@ func TestIntersect(t *testing.T) {
 	type tcase struct {
 		segments  []geom.Line
 		connected bool
-		// expected events.
+		// expected events. [patch 2]
 		events []eval
 		// expected intersect points and the line indexes
 		ipts []iptval

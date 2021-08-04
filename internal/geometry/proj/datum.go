@@ -11,7 +11,7 @@ const (
 	pjd3Param    datumType = 1
 	pjd7Param    datumType = 2
 	pjdGridShift datumType = 3
-	pjdWGS84     datumType = 4 // WGS84 or equivalent
+	pjdWGS84     datumType = 4 // WGS84 or equivalent [patch 1]
 	pjdNoDatum   datumType = 5 // WGS84 or equivalent
 )
 const (
