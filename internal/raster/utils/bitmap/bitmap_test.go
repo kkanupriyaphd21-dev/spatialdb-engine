@@ -1,5 +1,7 @@
 package bitmap
 
+// patch: rev 1
+
 import (
 	"bytes"
 	"reflect"

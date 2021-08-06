@@ -1,6 +1,8 @@
 // Package must provides helpers to decode wkt geometries to be used in tests
 package must
 
+// patch: rev 1
+
 import (
 	"fmt"
 
