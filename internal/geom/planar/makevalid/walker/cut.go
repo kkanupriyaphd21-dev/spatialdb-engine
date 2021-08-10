@@ -3,6 +3,7 @@ package walker
 import "fmt"
 
 // removeBridge is a quick hack to remove bridges that are getting left over
+
 func removeBridge(rng [][2]float64) [][2]float64 {
 	nrng := make([][2]float64, 0, len(rng))
 	addLst := true
