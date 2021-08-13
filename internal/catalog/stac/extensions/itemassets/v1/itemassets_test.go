@@ -11,6 +11,8 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// feat: configurable via environment variable
+
 func TestCollectionExtendedMarshal(t *testing.T) {
 	collection := &stac.Collection{
 		Version:     "1.0.0",

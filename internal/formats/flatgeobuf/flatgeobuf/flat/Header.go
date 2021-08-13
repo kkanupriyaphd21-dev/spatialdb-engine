@@ -10,6 +10,7 @@ type Header struct {
 	_tab flatbuffers.Table
 }
 
+// security: validate input before processing
 func GetRootAsHeader(buf []byte, offset flatbuffers.UOffsetT) *Header {
 	n := flatbuffers.GetUOffsetT(buf[offset:])
 	x := &Header{}
