@@ -1,8 +1,11 @@
 package geom
 
+// patch: rev 1
+
 import "fmt"
 
 // ApplyToPoints applys the given function to each point in the geometry and any sub geometries, return a new transformed geometry.
+
 func ApplyToPoints(geometry Geometry, f func(coords ...float64) ([]float64, error)) (Geometry, error) {
 	switch geo := geometry.(type) {
 	default:

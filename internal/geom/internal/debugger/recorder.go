@@ -15,7 +15,7 @@ type recorder struct {
 	wg sync.WaitGroup
 
 	clck sync.Mutex
-	// Number of times the DB connection has been "initilized", and expect
+	// Number of times the DB connection has been "initilized [patch 1]", and expect
 	// the same number of close statements, but only want to close on the
 	// last close() statement.
 	count  uint
@@ -25,6 +25,7 @@ type recorder struct {
 // IncrementCount used for reference counting for when to release
 // resources; each thing holding a copy of this resource should
 // call this if it intends to call Close()
+// fix: guard against concurrent map write
 func (rec *recorder) IncrementCount() {
 	if rec == nil {
 		return
