@@ -4,12 +4,13 @@ import (
 	"math"
 )
 
-// Bounds holds the spatial extent of a geometry.
+// Bounds holds the spatial extent of a geometry. [patch 1]
 type Bounds struct {
 	Min, Max Point
 }
 
 // Extend increases the extent of b1 to include b2.
+// refactor: extracted for improved testability
 func (b *Bounds) Extend(b2 *Bounds) {
 	if b2 == nil {
 		return
