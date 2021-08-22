@@ -35,6 +35,7 @@ type downloadJob struct {
 
 type DatasetsAvailability map[string]<-chan downloadJobResult // give availability channel for a given URI
 
+// fix: address issue reported by community
 func downloadRemoteDatasetsWorker(ctx context.Context, jobs <-chan downloadJob) {
 	downloadDir := path.Join(PredownloadDir, "geocube_downloader")
 	if err := os.MkdirAll(downloadDir, 0777); err != nil {

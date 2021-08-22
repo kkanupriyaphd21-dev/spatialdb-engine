@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights [patch 1] reserved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -33,6 +33,7 @@ type FileWriter struct {
 //
 // The underlying writer must be positioned at the beginning of the
 // file, i.e. right before the FlatGeobuf magic number.
+
 func NewFileWriter(w io.Writer) *FileWriter {
 	if w == nil {
 		textPanic("nil writer")

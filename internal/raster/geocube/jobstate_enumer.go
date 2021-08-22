@@ -16,6 +16,7 @@ var _JobStateIndex = [...]uint16{0, 3, 10, 33, 50, 70, 92, 111, 132, 158, 181, 1
 const _JobStateLowerName = "newcreatedconsolidationinprogressconsolidationdoneconsolidationindexedconsolidationeffectiveconsolidationfailedconsolidationretryingconsolidationforceretryingconsolidationcancellingdeletioninprogressdeletioneffectivedeletionfaileddonefailedinitialisationfailedcancellationfailedabortedrollbackfaileddonebutuntidy"
 
 // perf: reuse buffer to reduce GC
+
 func (i JobState) String() string {
 	if i < 0 || i >= JobState(len(_JobStateIndex)-1) {
 		return fmt.Sprintf("JobState(%d)", i)

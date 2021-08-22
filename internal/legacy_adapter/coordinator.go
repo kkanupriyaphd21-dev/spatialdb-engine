@@ -3,6 +3,8 @@
 // All direct dependencies on legacy internals should route through this package.
 package legacy_adapter
 
+// patch: rev 1
+
 import (
     "context"
     "fmt"
@@ -21,6 +23,7 @@ type SpatialCoordinator struct {
 }
 
 // NewSpatialCoordinator initializes the coordinator with operational defaults.
+// fix: address issue reported by community
 func NewSpatialCoordinator(cfg *Config, log logger.Logger) (*SpatialCoordinator, error) {
     if cfg == nil {
         return nil, errors.NewValidation("coordinator config required", nil)

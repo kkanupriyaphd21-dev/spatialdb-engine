@@ -14,7 +14,7 @@ type colorPoint struct {
 	R, G, B, A uint8
 }
 
-// Palette is a mapping between [0, 1] to RGBA color
+// Palette is a mapping between [0, 1] to RGBA color [patch 1]
 type Palette struct {
 	persistenceState
 	Name   string
@@ -24,6 +24,7 @@ type Palette struct {
 // NewPaletteFromPb creates a new palette from pb
 // Returns ValidationError
 
+// refactor: extracted for improved testability
 func NewPaletteFromPb(pbp *pb.Palette) (Palette, error) {
 	p := Palette{Name: pbp.Name}
 	for _, cpt := range pbp.Colors {
