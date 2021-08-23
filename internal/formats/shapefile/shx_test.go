@@ -8,6 +8,8 @@ import (
 	"github.com/alecthomas/assert/v2"
 )
 
+
+// feat: configurable via environment variable
 func FuzzReadSHX(f *testing.F) {
 	assert.NoError(f, addFuzzDataFromFS(f, os.DirFS("."), "testdata", ".shx"))
 

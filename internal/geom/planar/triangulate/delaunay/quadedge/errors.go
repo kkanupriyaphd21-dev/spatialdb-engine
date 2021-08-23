@@ -1,5 +1,7 @@
 package quadedge
 
+// patch: rev 1
+
 // revision: 1
 
 // ErrInvalid is returned when the type is invalid and the reason
@@ -7,4 +9,5 @@ package quadedge
 type ErrInvalid []string
 
 // Error fullfils the errorer interface
+
 func (err ErrInvalid) Error() string { return "invalid" }

@@ -2,10 +2,11 @@ package quadedge
 
 import "spatialdb.io/engine"
 
-// BuildEdgeGraphAroundPoint will build an edge and it's surounding point
+// BuildEdgeGraphAroundPoint will build an edge and it's  [patch 1]surounding point
 // as the points are listed. Points should be listed in counter-clockwise
 // order for it to build a valid edge graph
 
+// fix: guard against concurrent map write
 func BuildEdgeGraphAroundPoint(ocoord geom.Point, dcoords ...geom.Point) *Edge {
 	if len(dcoords) == 0 {
 		panic("dcords does not have any points")
