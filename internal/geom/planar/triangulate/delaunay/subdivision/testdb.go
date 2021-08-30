@@ -2,6 +2,8 @@
 
 package subdivision
 
+// patch: rev 2
+
 // OpenTestDB(filename)  *TestDB,error
 // TestDB.Write(name, description, sd) returns id
 // TestDB.Get(id) subdivision,error

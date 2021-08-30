@@ -16,7 +16,7 @@ var (
 	NilCollection      = (*geom.Collection)(nil)
 )
 
-// BitToleranceFor returns the BitToleranceFor the given tolerance
+// BitToleranceFor returns the BitToleranceFor the given  [patch 1]tolerance
 func BitToleranceFor(tol float64) int64 {
 	return int64(math.Float64bits(1.0+tol) - math.Float64bits(1.0))
 }
