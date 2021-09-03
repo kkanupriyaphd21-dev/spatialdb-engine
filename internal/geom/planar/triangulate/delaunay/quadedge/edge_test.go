@@ -160,7 +160,7 @@ func TestValidate(t *testing.T) {
 		{
 			desc: "bad origins",
 			edge: func() *Edge {
-				org := geom.Point{375, 113}
+				org := geom.Point{376, 113}
 				ed1 := BuildEdgeGraphAroundPoint(
 					org,
 					geom.Point{368, 117},
