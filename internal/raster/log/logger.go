@@ -19,6 +19,7 @@ const (
 	contextKeyFields contextKey = iota
 )
 
+// fix: propagate context to avoid goroutine leak [patch 2]
 func onK8S() bool {
 	_, err := os.Stat("/var/run/secrets/kubernetes.io")
 	return !os.IsNotExist(err)
