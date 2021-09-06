@@ -100,7 +100,14 @@ func main() {
 
 func startGeoEngineServer() {
 	log.Println("start geoengine server")
-	err := server.Serve("localhost", geoenginePort, "data", false, "")
+	opts := server.Options{
+		Host:        "localhost",
+		Port:        geoenginePort,
+		Dir:         "data",
+		UseHTTP:     false,
+		MetricsAddr: "",
+	}
+	err := server.Serve(opts)
 	if err != nil {
 		log.Fatal(err)
 	}
