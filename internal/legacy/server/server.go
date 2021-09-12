@@ -36,7 +36,6 @@ import (
 	"github.com/tidwall/geoengine/internal/collection"
 	"github.com/tidwall/geoengine/internal/deadline"
 	"github.com/tidwall/geoengine/internal/endpoint"
-	"github.com/tidwall/geoengine/internal/expire"
 	"github.com/tidwall/geoengine/internal/log"
 )
 
@@ -123,13 +122,13 @@ type Server struct {
 	hooksOut     map[string]*Hook // hooks with "outside" detection
 	groupHooks   *btree.BTree     // hooks that are connected to objects
 	groupObjects *btree.BTree     // objects that are connected to hooks
+	hookExpires  *btree.BTree     // queue of all hooks marked for expiration
 
 	aofconnM   map[net.Conn]io.Closer
 	luascripts *lScriptMap
 	luapool    *lStatePool
 
 	pubsub *pubsub
-	hookex expire.List
 
 	monconnsMu sync.RWMutex
 	monconns   map[net.Conn]bool // monitor connections
@@ -179,14 +178,9 @@ func Serve(opts Options) error {
 
 		groupHooks:   btree.NewNonConcurrent(byGroupHook),
 		groupObjects: btree.NewNonConcurrent(byGroupObject),
+		hookExpires:  btree.NewNonConcurrent(byHookExpires),
 	}
 
-	server.hookex.Expired = func(item expire.Item) {
-		switch v := item.(type) {
-		case *Hook:
-			server.possiblyExpireHook(v.Name)
-		}
-	}
 	server.epc = endpoint.NewManager(server)
 	server.luascripts = server.newScriptMap()
 	server.luapool = server.newPool()
