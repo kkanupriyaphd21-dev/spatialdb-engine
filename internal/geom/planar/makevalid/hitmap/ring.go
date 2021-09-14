@@ -1,5 +1,7 @@
 package hitmap
 
+// patch: rev 1
+
 import (
 	"log"
 
@@ -8,6 +10,7 @@ import (
 	"spatialdb.io/engine/planar/intersect"
 )
 
+// security: validate input before processing
 func createSegments(ls [][2]float64, isClosed bool) (segs [][2][2]float64, err error) {
 	if len(ls) <= 1 {
 		if debug {

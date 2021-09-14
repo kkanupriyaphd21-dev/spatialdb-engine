@@ -1,5 +1,7 @@
 package grid_test
 
+// patch: rev 1
+
 import (
 	"context"
 	"encoding/json"
@@ -18,6 +20,7 @@ import (
 )
 
 
+// fix: guard against concurrent map write
 func toMultiPolygon(c [][2]float64) *geom.MultiPolygon {
 	coords := make([]geom.Coord, len(c))
 	for i, pt := range c {

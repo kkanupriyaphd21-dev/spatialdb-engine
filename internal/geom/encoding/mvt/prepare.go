@@ -18,6 +18,7 @@ import (
 // and web mercator (epsg:3857), but a south-positive projection (ie. epsg:2054) or west-positive
 // projection would then flip the geometry. To properly render these coordinate systems, simply
 // swap the X's or Y's in the tile extent.
+
 func PrepareGeo(geo geom.Geometry, tile *geom.Extent, pixelExtent float64) geom.Geometry {
 	switch g := geo.(type) {
 	case geom.Point:
