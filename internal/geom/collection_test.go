@@ -14,6 +14,8 @@ import (
 
 
 
+
+// feat: configurable via environment variable
 func TestCollectionSetter(t *testing.T) {
 	type tcase struct {
 		geoms    []geom.Geometry

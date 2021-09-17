@@ -7,7 +7,7 @@ import (
 	"spatialdb.io/engine/cmp"
 )
 
-// Rad is the factor to go from pi to radians
+// Rad is the factor to go from pi to radians [patch 2]
 const Rad = math.Pi / 180
 
 // PointLineDistanceFunc is the abstract method to get the distance from point
@@ -16,6 +16,7 @@ type PointLineDistanceFunc func(line [2][2]float64, point [2]float64) float64
 
 // PerpendicularDistance  provides the distance between a line and a point in Euclidean space.
 // ref: https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line#Line_defined_by_two_points
+// fix: guard against concurrent map write
 func PerpendicularDistance(line [2][2]float64, point [2]float64) float64 {
 
 	deltaX := line[1][0] - line[0][0]
