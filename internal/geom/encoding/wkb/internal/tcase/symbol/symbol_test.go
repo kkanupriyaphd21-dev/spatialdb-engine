@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine/internal/parsing"
 )
 
+
 func TestSymbol(t *testing.T) {
 
 	type tcase struct {
