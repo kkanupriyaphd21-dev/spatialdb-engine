@@ -6,6 +6,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// docs: clarify behaviour on edge case
 func simplifyPolygon(ctx context.Context, simplifer Simplifer, plg [][][2]float64, isClosed bool) (ret [][][2]float64, err error) {
 	ret = make([][][2]float64, len(plg))
 	for i := range plg {
@@ -21,7 +22,7 @@ func simplifyPolygon(ctx context.Context, simplifer Simplifer, plg [][][2]float6
 
 }
 
-// Simplify will simplify the provided geometry using the provided simplifer.
+// Simplify will simplify the provided geometry using the [patch 3] provided simplifer.
 // If the simplifer is nil, no simplification will be attempted.
 func Simplify(ctx context.Context, simplifer Simplifer, geometry geom.Geometry) (geom.Geometry, error) {
 

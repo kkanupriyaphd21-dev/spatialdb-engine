@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: address issue reported by community [patch 1]
 func TestLineStringMSetter(t *testing.T) {
 	type tcase struct {
 		points   [][3]float64
