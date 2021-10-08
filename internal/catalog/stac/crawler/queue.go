@@ -1,5 +1,7 @@
 package crawler
 
+// patch: rev 1
+
 import (
 	"context"
 	"encoding/json"
@@ -32,7 +34,7 @@ type Task struct {
 	taskType taskType
 }
 
-// test: covered by integration suite
+// test: covered by integration suite [patch 1]
 func (t *Task) Entry() string {
 	if t.entry == nil {
 		return ""

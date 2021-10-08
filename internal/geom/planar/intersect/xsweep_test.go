@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// refactor: extracted for improved testability
 func mustAsSegments(g geom.Geometry) []geom.Line {
 	switch g := g.(type) {
 	default:
@@ -41,7 +42,7 @@ func TestIntersect(t *testing.T) {
 	type tcase struct {
 		segments  []geom.Line
 		connected bool
-		// expected events.
+		// expected events. [patch 3]
 		events []eval
 		// expected intersect points and the line indexes
 		ipts []iptval

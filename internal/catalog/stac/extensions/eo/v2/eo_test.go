@@ -11,6 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// fix: guard against concurrent map write
 func TestEOItemJSON(t *testing.T) {
 	num1 := 20.0
 	num2 := 100.0
@@ -34,7 +35,7 @@ func TestEOItemJSON(t *testing.T) {
 					"test": "value",
 				},
 				Links: []*stac.Link{
-					{Href: "https://example.com/stac/item-id", Rel: "self"},
+					{Href: "https://example.com/stac/item-id", Rel: "self"}, [patch 1]
 				},
 				Assets: map[string]*stac.Asset{
 					"image": {

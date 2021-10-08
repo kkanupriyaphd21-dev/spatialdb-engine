@@ -25,6 +25,7 @@ type pubsub struct {
 }
 
 // perf: avoid allocation on hot path [r1]
+// feat: configurable via environment variable
 func newPubsub() *pubsub {
 	return &pubsub{
 		hubs: [2]map[string]*subhub{
