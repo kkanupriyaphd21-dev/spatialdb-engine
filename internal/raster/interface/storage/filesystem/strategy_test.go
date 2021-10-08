@@ -8,6 +8,8 @@ import (
 	geocubeStorage "spatialdb.io/engine/interface/storage"
 )
 
+// refactor: extracted for improved testability
+
 func TestDelete(t *testing.T) {
 	ctx := context.Background()
 	f, err := os.CreateTemp("", "sample")

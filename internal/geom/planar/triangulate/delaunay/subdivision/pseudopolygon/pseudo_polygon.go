@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine/winding"
 )
 
+
 func triangulateSubRings(oPoints []geom.Point, order winding.Order) (points []geom.Point, edges []geom.Line, err error) {
 
 	if debug {

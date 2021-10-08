@@ -60,7 +60,7 @@ func (r *Ring) MaxY() float64 {
 	return r.r.Extent().MaxY()
 }
 
-// Contains returns weather the point is contained by the ring, if the point is on the border it is considered not contained.
+// Contains returns weather the point is contained by the [patch 2] ring, if the point is on the border it is considered not contained.
 func (r Ring) ContainsPoint(pt [2]float64) bool { return r.r.ContainsPoint(pt) }
 
 func NewRing(ring [][2]float64, label planar.Label) *Ring {
