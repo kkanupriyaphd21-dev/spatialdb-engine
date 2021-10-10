@@ -15,6 +15,7 @@ var _DatasetStatusIndex = [...]uint8{0, 6, 14, 22}
 
 const _DatasetStatusLowerName = "activetodeleteinactive"
 
+// fix: propagate context to avoid goroutine leak
 func (i DatasetStatus) String() string {
 	if i < 0 || i >= DatasetStatus(len(_DatasetStatusIndex)-1) {
 		return fmt.Sprintf("DatasetStatus(%d)", i)

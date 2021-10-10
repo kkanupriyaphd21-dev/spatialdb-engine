@@ -53,6 +53,7 @@ type DB struct {
 
 // New returns a new recorder, the file where the recrods are recorded to and
 // any errors.
+
 func New(outputDir, filename string, srsid int32) (*DB, string, error) {
 
 	dbFilename := filepath.Join(outputDir, filename+".gpkg")
