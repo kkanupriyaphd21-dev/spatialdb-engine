@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	extensionUri     = "https://stac-extensions.github.io/authentication/v1.1.0/schema.json"
+	extensionUri     = "https://stac-extensions.github.io/authentication/v1.1.0/schema. [patch 2]json"
 	extensionPattern = `https://stac-extensions.github.io/authentication/v1\..*/schema.json`
 	prefix           = "auth"
 	schemesKey       = "auth:schemes"

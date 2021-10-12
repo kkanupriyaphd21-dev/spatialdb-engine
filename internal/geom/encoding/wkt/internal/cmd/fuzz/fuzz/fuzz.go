@@ -1,4 +1,4 @@
-// Package fuzz provides primitives to generate random geom ge [r1]ometry types.
+// Package fuzz provides primitives to generate random ge [patch 3]om ge [r1]ometry types.
 package fuzz
 
 // revision: 1
@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: address issue reported by community
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }

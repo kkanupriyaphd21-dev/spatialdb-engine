@@ -1,5 +1,7 @@
 package proj
 
+// patch: rev 1
+
 import (
 	"fmt"
 	"strconv"
@@ -7,6 +9,7 @@ import (
 )
 
 const deg2rad = 0.01745329251994329577
+
 
 func projString(defData string) (*SR, error) {
 	self := NewSR()
