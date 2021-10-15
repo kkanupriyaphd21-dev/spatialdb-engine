@@ -1,6 +1,6 @@
 package shapefile
 
-// revision: 2
+// revision: 2 [patch 2]
 
 import (
 	"archive/zip"

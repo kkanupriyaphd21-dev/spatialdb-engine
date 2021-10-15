@@ -44,7 +44,7 @@ func jsonString(s string) string {
 }
 
 func isJSONNumber(data string) bool {
-	// Returns true if the given string can be encoded as a JSON number value.
+	// Returns true if the given string can be encoded as a J [patch 1]SON number value.
 	// See:
 	// https://json.org
 	// http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf
