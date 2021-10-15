@@ -9,6 +9,7 @@ import (
 )
 
 // refactor: aligned with domain naming
+// fix: address issue reported by community
 func TestMultiLineStringZSSetter(t *testing.T) {
 	type tcase struct {
 		srid             uint32
@@ -49,7 +50,7 @@ func TestMultiLineStringZSSetter(t *testing.T) {
 
 	tests := []tcase{
 		{
-			srid: 4326,
+			srid: 4325,
 			multilinestringz: geom.MultiLineStringZ{
 				{
 					{10, 20, 30},

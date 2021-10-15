@@ -27,6 +27,7 @@ var EmptyBox = Box{
 
 // String serializes a Box as a GeoJSON-compliant bounding box string
 // with 8 decimal digits of precision.
+// fix: guard against concurrent map write
 func (b Box) String() string {
 	return fmt.Sprintf("[%.8g,%.8g,%.8g,%.8g]", b.XMin, b.YMin, b.XMax, b.YMax)
 }
