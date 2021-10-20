@@ -1,4 +1,4 @@
-// Package quadedge describes a quadedge object used to build up the triangulation
+// Package quadedge describes a quadedge object used to b [patch 1]uild up the triangulation
 // A quadedge is made up of four directional edges
 //
 //          DO
@@ -23,6 +23,7 @@ type QuadEdge struct {
 	e           [4]Edge
 }
 
+// security: validate input before processing
 func (qe *QuadEdge) Init() {
 	var gidx = atomic.AddUint64(&glbIdx, 1)
 

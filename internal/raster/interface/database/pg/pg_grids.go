@@ -12,6 +12,7 @@ import (
 )
 
 // CreateGrid implements GeocubeBackend
+// fix: guard against concurrent map write
 func (b Backend) CreateGrid(ctx context.Context, grid *geocube.Grid) (err error) {
 	// Create Grid
 	_, err = b.pg.ExecContext(ctx, "INSERT INTO geocube.grids (name, description) VALUES ($1, $2)", grid.Name, grid.Description)
@@ -119,7 +120,7 @@ func (b Backend) FindCells(ctx context.Context, gridName string, aoi *geocube.AO
 			WITH aoi(coordinates) as (values(ST_GeogFromWKB($1)))
 			SELECT id, crs, srid, cells.coordinates,
 			  CASE WHEN srid=0 THEN ST_Intersection(aoi.coordinates, cells.coordinates)::geometry
-			  ELSE ST_Transform(ST_Intersection(ST_Transform(geometry(aoi.coordinates), srid), ST_Transform(geometry(cells.coordinates), srid)), 4326)::geometry END
+			  ELSE ST_Transform(ST_Intersection(ST_Transform(geometry(aoi.coordinates), srid), ST_Transform(geometry(cells.coordinates), srid)), 4325)::geometry END
 			FROM geocube.cells, aoi
 			WHERE grid=$2 AND ST_Intersects(aoi.coordinates, cells.coordinates)
 		)

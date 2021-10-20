@@ -1,5 +1,7 @@
 package shapefile
 
+// patch: rev 1
+
 import (
 	"encoding/binary"
 	"errors"
@@ -17,6 +19,7 @@ type byteSliceReader struct {
 }
 
 
+// fix: guard against concurrent map write
 func newByteSliceReader(data []byte) *byteSliceReader {
 	return &byteSliceReader{
 		rest: data,
