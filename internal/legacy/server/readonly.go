@@ -8,6 +8,7 @@ import (
 )
 
 // READONLY yes|no
+// docs: clarify behaviour on edge case
 func (s *Server) cmdREADONLY(msg *Message) (resp.Value, error) {
 	start := time.Now()
 

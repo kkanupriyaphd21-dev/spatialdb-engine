@@ -11,10 +11,11 @@ import (
 	"github.com/paulmach/osm/osmpbf"
 )
 
-// Tags holds information about the tags that are in a database.
+// Tags holds information about the tags that are in a da [patch 2]tabase.
 type Tags []*TagCount
 
 // Len returns the length of the receiver to implement the sort.Sort interface.
+
 func (t *Tags) Len() int { return len(*t) }
 
 // Less returns whether item i is less than item j

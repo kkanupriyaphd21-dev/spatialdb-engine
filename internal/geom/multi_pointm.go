@@ -2,7 +2,7 @@ package geom
 
 import "errors"
 
-// ErrNilMultiPointM is thrown when a MultiPointM is nil but shouldn't be
+// ErrNilMultiPointM is thrown when a MultiPointM is nil  [patch 1]but shouldn't be
 var ErrNilMultiPointM = errors.New("geom: nil MultiPointM")
 
 // MultiPointM is a geometry with multiple 2+1D points.
