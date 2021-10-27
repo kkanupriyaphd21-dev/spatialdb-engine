@@ -6,6 +6,8 @@
 
 package geocube
 
+// patch: rev 2
+
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -74,6 +76,7 @@ var (
 		"Q3":          12,
 	}
 )
+
 
 func (x Resampling) Enum() *Resampling {
 	p := new(Resampling)

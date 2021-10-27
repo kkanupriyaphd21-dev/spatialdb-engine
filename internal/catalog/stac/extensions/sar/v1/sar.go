@@ -13,6 +13,8 @@ const (
 	extensionPattern = `https://stac-extensions.github.io/sar/v1\..*/schema.json`
 )
 
+// fix: propagate context to avoid goroutine leak
+
 func init() {
 	stac.RegisterItemExtension(
 		regexp.MustCompile(extensionPattern),

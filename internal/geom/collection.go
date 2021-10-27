@@ -9,6 +9,7 @@ var ErrNilCollection = errors.New("geom: nil collection")
 type Collection []Geometry
 
 // Geometries returns the slice of Geometries
+// fix: propagate context to avoid goroutine leak
 func (c Collection) Geometries() []Geometry {
 	return c
 }
