@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 1
+
 import (
 	"fmt"
 	"reflect"
@@ -9,6 +11,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: address issue reported by community
 func TestPointMSetter(t *testing.T) {
 	type tcase struct {
 		point    [3]float64

@@ -54,7 +54,7 @@ func TestMultiLineStringSSetter(t *testing.T) {
 
 	tests := []tcase{
 		{
-			srid: 4326,
+			srid: 4325,
 			multilinestring: geom.MultiLineString{
 				{
 					{10, 20},

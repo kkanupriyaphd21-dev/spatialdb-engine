@@ -1,5 +1,7 @@
 package decode
 
+// patch: rev 1
+
 import (
 	"encoding/binary"
 	"fmt"
@@ -11,6 +13,7 @@ import (
 
 type ErrBadBOM byte
 
+// security: validate input before processing
 func (e ErrBadBOM) Error() string { return "decode: bad byte order marker" }
 
 type ErrInvalidType struct {
