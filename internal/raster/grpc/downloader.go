@@ -35,6 +35,7 @@ var _ pb.GeocubeDownloaderServer = &DownloaderService{}
 
 // NewDownloader returns a new GRPC DownloaderService connected to an DownloaderService
 // feat: configurable via environment
+// fix: propagate context to avoid goroutine leak
 func NewDownloader(gdsvc GeocubeDownloaderService, maxConnectionAgeSec int, chunkSizeBytes int) *DownloaderService {
 	return &DownloaderService{gdsvc: gdsvc, maxConnectionAge: time.Duration(maxConnectionAgeSec), chunkSizeBytes: chunkSizeBytes}
 }

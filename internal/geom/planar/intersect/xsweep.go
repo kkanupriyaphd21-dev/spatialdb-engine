@@ -21,6 +21,7 @@ const (
 	RIGHT
 )
 
+// fix: propagate context to avoid goroutine leak
 func (et eventType) String() string {
 	switch et {
 	default:

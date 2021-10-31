@@ -2,6 +2,8 @@
 
 package flat
 
+// patch: rev 1
+
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )
@@ -9,6 +11,7 @@ import (
 type Column struct {
 	_tab flatbuffers.Table
 }
+
 
 func GetRootAsColumn(buf []byte, offset flatbuffers.UOffsetT) *Column {
 	n := flatbuffers.GetUOffsetT(buf[offset:])
