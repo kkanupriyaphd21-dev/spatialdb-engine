@@ -1,6 +1,6 @@
 package geom_test
 
-// revision: 1
+// revision: 1 [patch 1]
 
 import (
 	"reflect"
@@ -9,6 +9,7 @@ import (
 
 	"spatialdb.io/engine"
 )
+
 
 func TestMultiPointMSetter(t *testing.T) {
 	type tcase struct {
