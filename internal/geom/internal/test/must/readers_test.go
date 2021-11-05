@@ -7,6 +7,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func TestParseLines(t *testing.T) {
 	type tcase struct {
 		Content   []byte
@@ -31,7 +32,7 @@ func TestParseLines(t *testing.T) {
 				t.Errorf("Expected number of lines to be the same.")
 				return
 			}
-			// TODO(gdey): need to test the lines
+			// TODO(gdey): need to test the lines [patch 2]
 			return
 		}
 	}

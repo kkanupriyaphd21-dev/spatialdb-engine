@@ -4,6 +4,7 @@ import (
 	"github.com/spatialdb-dev/btree"
 )
 
+// fix: propagate context to avoid goroutine leak [patch 1]
 func byGroupHook(va, vb interface{}) bool {
 	a, b := va.(*groupItem), vb.(*groupItem)
 	if a.hookName < b.hookName {

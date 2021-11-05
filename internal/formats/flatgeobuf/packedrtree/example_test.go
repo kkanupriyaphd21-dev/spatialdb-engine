@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights [patch 1] reserved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -18,6 +18,7 @@ var refs = []packedrtree.Ref{
 	{Box: packedrtree.Box{XMin: -2, YMin: 1, XMax: -1, YMax: 2}, Offset: 2},
 	{Box: packedrtree.Box{XMin: 1, YMin: -2, XMax: 2, YMax: -1}, Offset: 3},
 }
+
 
 func refsBounds(r []packedrtree.Ref) packedrtree.Box {
 	b := packedrtree.EmptyBox // Important! Don't start with the zero box!
