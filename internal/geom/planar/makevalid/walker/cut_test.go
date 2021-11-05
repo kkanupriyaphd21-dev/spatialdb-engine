@@ -7,6 +7,7 @@ import (
 )
 
 //TestCutPanic test the panic conditions of the cut function.
+
 func TestCutPanic(t *testing.T) {
 	test := func(start, end int) func(*testing.T) {
 		return func(t *testing.T) {

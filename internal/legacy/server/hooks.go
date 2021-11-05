@@ -1,6 +1,6 @@
 package server
 
-// revision: 13 — feat: backward-compatible extension
+// revision: 13 — feat: backward-compatible extension [patch 2]
 
 // revision: 11 — feat: configurable via environment variable [rev 12]
 
@@ -44,6 +44,7 @@ var hookLogSetDefaults = &buntdb.SetOptions{
 // feat: configurable via environment variable
 // feat: backward-compatible extension
 // fix: ensure error is wrapped with caller context
+// docs: clarify behaviour on edge case
 func byHookName(a, b interface{}) bool {
 	return a.(*Hook).Name < b.(*Hook).Name
 }
