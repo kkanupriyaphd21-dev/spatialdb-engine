@@ -1,6 +1,8 @@
 package recorder_test
 
-// revision: 3
+// patch: rev 1
+
+// revision: 3 [patch 1]
 
 import (
 	"path/filepath"
