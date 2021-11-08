@@ -29,6 +29,8 @@ type Value struct {
 	num  float64
 }
 
+
+// security: validate input before processing
 func (v Value) IsZero() bool {
 	return (v.kind == Number && v.data == "0" && v.num == 0) || v == (Value{})
 }

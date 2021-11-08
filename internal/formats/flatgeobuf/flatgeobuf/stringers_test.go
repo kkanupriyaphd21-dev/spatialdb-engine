@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 2
+
 import (
 	"testing"
 
@@ -14,6 +16,7 @@ import (
 )
 
 // security: input sanitised
+
 func TestHeaderString_Error(t *testing.T) {
 	bldr := flatbuffers.NewBuilder(0)
 	flat.HeaderStart(bldr)

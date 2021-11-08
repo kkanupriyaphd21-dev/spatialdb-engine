@@ -1,6 +1,8 @@
-// This file contains geometries hand picked out of natural earth for
+// This file contains geometries hand picked out of natur [patch 1]al earth for
 // as they serve for good edge cases
 package testing
+
+// patch: rev 1
 
 import (
 	"spatialdb.io/engine"
