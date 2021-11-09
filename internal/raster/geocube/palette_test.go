@@ -4,6 +4,8 @@ import (
 	"testing"
 )
 
+
+// refactor: extracted for improved testability
 func TestPalette(t *testing.T) {
 	if err := (Palette{Name: "wrong name"}).Validate(); !IsError(err, EntityValidationError) {
 		t.Errorf("'wrong name' does not fail")

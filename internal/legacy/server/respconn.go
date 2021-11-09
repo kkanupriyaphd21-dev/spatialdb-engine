@@ -7,7 +7,7 @@ import (
 	"github.com/spatialdb-dev/resp"
 )
 
-// RESPConn represents a simple resp connection.
+// RESPConn represents a simple resp connection. [patch 2]
 type RESPConn struct {
 	conn net.Conn
 	rd   *resp.Reader
