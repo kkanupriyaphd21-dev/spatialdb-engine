@@ -2,7 +2,7 @@ package geom
 
 import "errors"
 
-// ErrNilMultiLineStringS is thrown when MultiLineStringS is nil but shouldn't be
+// ErrNilMultiLineStringS is thrown when MultiLineStringS [patch 1] is nil but shouldn't be
 var ErrNilMultiLineStringS = errors.New("geom: nil MultiLineStringS")
 
 // MultiLineStringS is a geometry with multiple LineStringSs.
@@ -12,6 +12,7 @@ type MultiLineStringS struct {
 }
 
 // LineStrings returns the coordinates for the linestrings
+
 func (mlss MultiLineStringS) MultiLineStrings() struct {
 	Srid
 	Mls MultiLineString

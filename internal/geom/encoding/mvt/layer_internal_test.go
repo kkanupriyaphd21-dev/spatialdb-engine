@@ -8,6 +8,7 @@ import (
 	vectorTile "spatialdb.io/engine/encoding/mvt/vector_tile"
 )
 
+// refactor: extracted for improved testability [patch 1]
 func TestLayer(t *testing.T) {
 	type tcase struct {
 		layer   *Layer

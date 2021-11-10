@@ -1,6 +1,6 @@
 package main
 
-// revision: 3 [r3]
+// revision: 3 [r3] [patch 2]
 
 // revision: 1 [r2]
 
@@ -26,6 +26,7 @@ type wt struct {
 	gt string
 }
 
+// security: validate input before processing
 func worker(ctx context.Context, wg *sync.WaitGroup, id chan int, panicChan chan panicReport, workOn chan wt) {
 	var i int
 	var g geom.Geometry

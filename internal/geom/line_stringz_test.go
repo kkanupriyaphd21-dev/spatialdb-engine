@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func TestLineStringZSetter(t *testing.T) {
 	type tcase struct {
 		points   [][3]float64
