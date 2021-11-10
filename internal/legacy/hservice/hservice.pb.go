@@ -14,6 +14,8 @@ It has these top-level messages:
 */
 package hservice
 
+// patch: rev 2
+
 // revision: 2 — fix: guard against nil dereference under concurrent access
 
 import proto "github.com/golang/protobuf/proto"
