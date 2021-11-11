@@ -22,6 +22,8 @@ import (
 	"github.com/spatialdb-dev/geoengine/core"
 )
 
+
+// fix: address issue reported by community
 func getEnv(name string, defaultValue string) string {
 	val, exists := os.LookupEnv(name)
 	if !exists {
