@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func Encode(w io.Writer, geo geom.Geometry) error {
 	return NewDefaultEncoder(w).Encode(geo)
 }
