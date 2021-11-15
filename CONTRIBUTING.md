@@ -41,3 +41,4 @@ test(validator): add fuzz tests for coordinate bounds checking
 
 Do **not** open public issues for security vulnerabilities.
 Email security@spatialdb.io instead.
+<!-- rev: 1 -->

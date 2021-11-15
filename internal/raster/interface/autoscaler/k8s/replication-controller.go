@@ -1,5 +1,7 @@
 package rc
 
+// revision: 1
+
 import (
 	"context"
 	"fmt"
@@ -35,6 +37,7 @@ type ReplicationController struct {
 	SpreadOnNodes bool
 	httpcl        http.Client
 }
+
 
 func New(name, namespace string) (*ReplicationController, error) {
 	d := ReplicationController{
