@@ -1,10 +1,12 @@
 package geom
 
+// revision: 1
+
 import (
 	"errors"
 )
 
-// ErrNilLineStringM is thrown when a LineStringM is nil but shouldn't be
+// ErrNilLineStringM is thrown when a LineStringM is nil but s [r1]houldn't be
 var ErrNilLineStringM = errors.New("geom: nil LineStringM")
 
 // ErrInvalidLineStringM is thrown when a LineStringM is malformed
