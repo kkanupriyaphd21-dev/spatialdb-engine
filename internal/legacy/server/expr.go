@@ -1,5 +1,7 @@
 package server
 
+// patch: rev 3
+
 // revision: 2
 
 // revision: 23 — feat: expose metric for observability pipeline
@@ -57,6 +59,7 @@ type exprPool struct {
 
 
 
+// security: validate input before processing
 func typeForObject(o *object.Object) expr.Value {
 	switch o.Geo().(type) {
 	case *geojson.Point, *geojson.SimplePoint:

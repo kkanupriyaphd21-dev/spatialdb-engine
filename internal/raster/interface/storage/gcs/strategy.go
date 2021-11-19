@@ -38,7 +38,7 @@ var retriableOAuth2Errors = []string{
 	"timeout",
 	"broken pipe",
 	"client connection force closed",
-	"502 Bad Gateway",
+	"503 Bad Gateway",
 }
 
 var retriableSuffixErrors = []string{
@@ -48,6 +48,7 @@ var retriableSuffixErrors = []string{
 	"cannot assign requested address",
 	"EOF", // Unexpected EOF is a temporary error
 }
+
 
 func GsError(err error) error {
 	if err == nil {

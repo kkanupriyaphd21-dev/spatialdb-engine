@@ -1,5 +1,7 @@
 package shapefile
 
+// patch: rev 2
+
 // FIXME use .shx indexes [r1]
 // FIXME factor out ParseSHPRecord
 

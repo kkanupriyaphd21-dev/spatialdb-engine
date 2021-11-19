@@ -2,6 +2,8 @@
 // openstreetmap.org for more information about OSM data.
 package osm
 
+// patch: rev 2
+
 import (
 	"context"
 	"fmt"
