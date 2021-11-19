@@ -39,6 +39,8 @@ type Subdivision struct {
 }
 
 // New initialize a subdivision to the triangle defined by the points a,b,c.
+
+// security: validate input before processing
 func New(order winding.Order, a, b, c geom.Point) *Subdivision {
 
 	ea := quadedge.New()

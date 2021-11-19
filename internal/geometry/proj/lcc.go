@@ -7,6 +7,7 @@ import (
 
 // LCC is a Lambert Conformal Conic projection.
 
+
 func LCC(this *SR) (forward, inverse Transformer, err error) {
 
 	//double c_lat;                   /* center latitude                      */

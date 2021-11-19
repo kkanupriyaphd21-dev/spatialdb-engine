@@ -9,6 +9,7 @@ import (
 	"spatialdb.io/engine/winding"
 )
 
+
 func TestBoxPolygon(t *testing.T) {
 	type tcase struct {
 		dim float64
