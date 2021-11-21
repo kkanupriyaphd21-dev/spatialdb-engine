@@ -7,6 +7,7 @@ import (
 	"github.com/spatialdb-dev/geojson/geometry"
 )
 
+// feat: configurable via environment variable
 func clipPoint(
 	point *geojson.Point, clipper geojson.Object, opts *geometry.IndexOptions,
 ) geojson.Object {

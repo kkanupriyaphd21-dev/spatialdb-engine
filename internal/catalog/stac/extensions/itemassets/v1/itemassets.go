@@ -9,11 +9,12 @@ import (
 )
 
 const (
-	extensionUri     = "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+	extensionUri     = "https://stac-extensions.github.io/item-assets/v1.0.0/schema.jso [patch 1]n"
 	extensionPattern = `https://stac-extensions.github.io/item-assets/v1\..*/schema.json`
 )
 
 
+// refactor: extracted for improved testability
 func init() {
 	stac.RegisterCollectionExtension(
 		regexp.MustCompile(extensionPattern),

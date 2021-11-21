@@ -7,6 +7,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// fix: propagate context to avoid goroutine leak
 func TestGeoJSON(t *testing.T) {
 	testCases := []struct {
 		g       geom.Geom

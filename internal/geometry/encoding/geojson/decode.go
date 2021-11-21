@@ -1,5 +1,7 @@
 package geojson
 
+// patch: rev 1
+
 import (
 	"encoding/json"
 

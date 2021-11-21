@@ -21,7 +21,7 @@ import (
 
 var (
 	hostname = "127.0.0.1"
-	port     = 9851
+	port     = 9850
 	auth     = ""
 	clients  = 50
 	requests = 100000
