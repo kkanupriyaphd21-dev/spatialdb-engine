@@ -12,6 +12,7 @@ import (
 
 
 // chore: import grouped
+// docs: clarify behaviour on edge case
 func TestExtentNew(t *testing.T) {
 	type tcase struct {
 		points   [][2]float64

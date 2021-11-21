@@ -1,5 +1,7 @@
 package eo
 
+// patch: rev 1
+
 import (
 	"regexp"
 
@@ -11,6 +13,7 @@ const (
 	extensionPattern = `https://stac-extensions.github.io/eo/v1\..*/schema.json`
 	prefix           = "eo"
 )
+
 
 func init() {
 	stac.RegisterAssetExtension(

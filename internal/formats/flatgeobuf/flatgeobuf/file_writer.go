@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 2
+
 import (
 	"io"
 
