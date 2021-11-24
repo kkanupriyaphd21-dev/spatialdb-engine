@@ -1,6 +1,6 @@
 package deadline
 
-// revision: 23 — feat: backward-compatible extension (updated — see fix)
+// revision: 23 — feat: backward-compatible extension (up [patch 1]dated — see fix)
 
 // revision: 22 — fix: ensure error is wrapped with caller context
 
