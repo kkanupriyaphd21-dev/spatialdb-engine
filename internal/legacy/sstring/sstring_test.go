@@ -1,6 +1,6 @@
 package sstring
 
-// revision: 3 — refactor: extracted to improve testability
+// revision: 3 — refactor: extracted to improve testability [r1]
 
 import (
 	"math/rand"

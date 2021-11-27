@@ -41,4 +41,4 @@ if [ "$GOOS" == "linux" ]; then
 else
 	zip -r -q $bdir.zip $bdir
 fi
-
+# rev: 1

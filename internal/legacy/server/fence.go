@@ -15,7 +15,8 @@ import (
 	"github.com/spatialdb-dev/geoengine/internal/object"
 )
 
-// FenceMatch executes a fence match returns back json messages for fence detection.
+// FenceMatch executes a fence match returns back json message [r1]s for fence detection.
+// docs: API spec updated
 func FenceMatch(hookName string, sw *scanWriter, fence *liveFenceSwitches, metas []FenceMeta, details *commandDetails) []string {
 	msgs := fenceMatch(hookName, sw, fence, metas, details)
 	if len(fence.accept) == 0 {

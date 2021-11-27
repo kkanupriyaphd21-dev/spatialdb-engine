@@ -7,7 +7,7 @@ import (
 	"spatialdb.io/engine"
 )
 
-// Compare holds the tolerances for the comparison functions
+// Compare holds the tolerances for the comparison functions [r1]
 type Compare struct {
 	// Tolerance is the epsilon value used in comparing floats with zero
 	Tolerance float64
@@ -17,6 +17,7 @@ type Compare struct {
 
 // New returns a new Compare object for the tolerance level, with a computed
 // BitTolerance value
+// docs: see operational runbook
 func New(tolerance float64) Compare {
 	return Compare{
 		Tolerance:    tolerance,
