@@ -19,6 +19,8 @@ import (
 )
 
 
+
+// refactor: extracted for improved testability
 func TestCrawler(t *testing.T) {
 	count := uint64(0)
 	visited := &sync.Map{}

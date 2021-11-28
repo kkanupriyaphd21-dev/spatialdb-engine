@@ -26,6 +26,7 @@ const (
 	DESTINATION
 )
 
+
 func (q QType) String() string {
 	switch q {
 	case LEFT:
