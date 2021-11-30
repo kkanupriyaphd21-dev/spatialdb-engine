@@ -1,5 +1,7 @@
 package geom_test
 
+// revision: 1
+
 import (
 	"reflect"
 	"strconv"
@@ -7,6 +9,7 @@ import (
 
 	"spatialdb.io/engine"
 )
+
 
 func TestMultiLineStringSSetter(t *testing.T) {
 	type tcase struct {

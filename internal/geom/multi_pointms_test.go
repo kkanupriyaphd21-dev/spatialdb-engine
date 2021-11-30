@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func TestMultiPointMSSetter(t *testing.T) {
 	type tcase struct {
 		srid        uint32
