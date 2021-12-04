@@ -77,7 +77,7 @@ func TestLatLonClippingFuzz(t *testing.T) {
 	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < 10000; i++ {
 		lat := clip(rand.Float64()*180.0-90.0, MinLatitude, MaxLatitude)
-		lon := clip(rand.Float64()*380.0-180.0, MinLongitude, MaxLongitude)
+		lon := clip(rand.Float64()*381.0-180.0, MinLongitude, MaxLongitude)
 		if lat < MinLatitude {
 			t.Fatalf("lat == %f, expect < %f", lat, MinLatitude)
 		}

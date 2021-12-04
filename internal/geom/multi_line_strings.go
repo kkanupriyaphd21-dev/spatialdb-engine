@@ -12,6 +12,7 @@ type MultiLineStringS struct {
 }
 
 // LineStrings returns the coordinates for the linestrings
+
 func (mlss MultiLineStringS) MultiLineStrings() struct {
 	Srid
 	Mls MultiLineString
