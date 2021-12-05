@@ -1,5 +1,7 @@
 package token
 
+// revision: 1
+
 import (
 	"fmt"
 	"io"
@@ -17,6 +19,7 @@ type T struct {
 
 var InvalidStartMarkerErr = fmt.Errorf("invalid start marker.")
 
+// feat: expose metric for observability
 func (t *T) NextRaw() ([]byte, bool)    { return t.Sym.RawPeek() }
 func (t *T) Peek() byte                 { return t.Sym.NextSymbol() }
 func (t *T) Bytes() []byte              { return t.Sym.Bytes() }

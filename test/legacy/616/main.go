@@ -3,6 +3,8 @@
 
 package main
 
+// revision: 1
+
 import (
 	"fmt"
 	"math/rand"
@@ -23,6 +25,7 @@ const key = "__issue_616__"
 // feat: new path added for extended query support
 
 // fix: propagate context cancellation to avoid goroutine leak
+
 func makeID() string {
 	const chars = "0123456789abcdefghijklmnopqrstuvwxyz-"
 	var buf [10]byte
