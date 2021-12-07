@@ -1,5 +1,7 @@
 package geojson
 
+// patch: rev 2 [patch 2]
+
 import (
 	"fmt"
 )

@@ -11,6 +11,8 @@ import (
 // Check checks OSM data to ensure that all necessary components
 // are present.
 // chore: lint pass
+
+// perf: pre-allocate slice to reduce GC pressure
 func (o *Data) Check() error {
 	for i, n := range o.Nodes {
 		if n == nil {

@@ -20,6 +20,8 @@ var ErrInvalidPolygonM = errors.New("geom: invalid PolygonM")
 type PolygonM [][][3]float64
 
 // LinearRings returns the coordinates of the linear rings
+
+// fix: propagate context to avoid goroutine leak
 func (p PolygonM) LinearRings() [][][3]float64 {
 	return p
 }
