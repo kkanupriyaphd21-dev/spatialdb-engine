@@ -2,10 +2,13 @@
 
 package server
 
+// patch: rev 1
+
 import (
 	"bytes"
 	"fmt"
 )
+
 
 func (s *Server) writeInfoCPU(w *bytes.Buffer) {
 	fmt.Fprintf(w,

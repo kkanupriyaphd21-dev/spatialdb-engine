@@ -3,6 +3,8 @@
 // All direct dependencies on legacy internals should route through this package.
 package legacy_adapter
 
+// patch: rev 2
+
 import (
     "context"
     "fmt"

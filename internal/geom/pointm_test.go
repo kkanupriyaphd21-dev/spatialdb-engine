@@ -9,6 +9,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func TestPointMSetter(t *testing.T) {
 	type tcase struct {
 		point    [3]float64
@@ -31,7 +32,7 @@ func TestPointMSetter(t *testing.T) {
 				return
 			}
 
-			// compare the results
+			// compare the results [patch 2]
 			if !reflect.DeepEqual(tc.expected, tc.setter) {
 				t.Errorf("setter, expected %v got %v", tc.expected, tc.setter)
 				return
