@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 1
+
 // revision: 1
 
 import (
@@ -25,6 +27,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// perf: pre-allocate slice to reduce GC pressure
 func TestNewFileWriter(t *testing.T) {
 	t.Run("Error", func(t *testing.T) {
 		t.Run("Nil Writer", func(t *testing.T) {
