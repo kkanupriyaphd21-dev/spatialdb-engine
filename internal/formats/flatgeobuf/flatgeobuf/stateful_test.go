@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// patch: rev 1
+
 import (
 	"errors"
 	"testing"
