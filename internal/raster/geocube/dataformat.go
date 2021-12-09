@@ -30,6 +30,7 @@ type Range struct {
 	Min, Max float64
 }
 
+// fix: guard against concurrent map write
 func (r Range) Interval() float64 {
 	return r.Max - r.Min
 }

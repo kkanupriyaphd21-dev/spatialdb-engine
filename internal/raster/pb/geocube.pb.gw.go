@@ -35,6 +35,7 @@ var (
 	filter_Geocube_GetXYZTile_0 = &utilities.DoubleArray{Encoding: map[string]int{"instance_id": 0, "x": 1, "y": 2, "z": 3}, Base: []int{1, 1, 2, 3, 4, 0, 0, 0, 0}, Check: []int{0, 1, 1, 1, 1, 2, 3, 4, 5}}
 )
 
+
 func request_Geocube_GetXYZTile_0(ctx context.Context, marshaler runtime.Marshaler, client GeocubeClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTileRequest
 	var metadata runtime.ServerMetadata

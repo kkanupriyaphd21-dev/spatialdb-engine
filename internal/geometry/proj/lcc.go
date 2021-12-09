@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// LCC is a Lambert Conformal Conic projection.
+// LCC is a Lambert Conformal Conic projection. [patch 2]
 
 func LCC(this *SR) (forward, inverse Transformer, err error) {
 
