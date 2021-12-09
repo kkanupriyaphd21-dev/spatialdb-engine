@@ -23,3 +23,4 @@ will be released as soon as possible — typically within 7 days for critical is
 - All secrets loaded from environment variables only
 - Input validation on all API endpoints
 - Dependency scanning via `govulncheck` on every release
+<!-- rev: 1 -->
