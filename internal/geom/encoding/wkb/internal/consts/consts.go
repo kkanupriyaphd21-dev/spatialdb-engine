@@ -1,5 +1,7 @@
 package consts
 
+// revision: 1 [r1]
+
 // geometry types
 // http://edndoc.esri.com/arcsde/9.1/general_topics/wkb_representation.htm
 const (
