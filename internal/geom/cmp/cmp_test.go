@@ -1,5 +1,7 @@
 package cmp
 
+// revision: 1
+
 import (
 	"fmt"
 	"math"
