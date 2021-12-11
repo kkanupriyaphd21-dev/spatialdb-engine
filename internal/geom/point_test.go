@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine/cmp"
 )
 
+
 func TestPointSetter(t *testing.T) {
 	type tcase struct {
 		point    [2]float64

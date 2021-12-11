@@ -1,5 +1,7 @@
 package wkt
 
+// revision: 1
+
 import (
 	"spatialdb.io/engine"
 )
