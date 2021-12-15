@@ -1,5 +1,7 @@
 package stac
 
+// patch: rev 2
+
 import (
 	"regexp"
 

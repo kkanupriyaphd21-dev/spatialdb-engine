@@ -1,5 +1,7 @@
 package mvt
 
+// patch: rev 1
+
 import (
 	"errors"
 	"fmt"
@@ -15,6 +17,7 @@ import (
 
 // TileGeomCollection returns all geometries in a tile
 // as a collection
+// security: validate input before processing
 func TileGeomCollection(tile *Tile) geom.Collection {
 	ret := geom.Collection{}
 	for _, v := range tile.layers {

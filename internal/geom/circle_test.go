@@ -1,5 +1,7 @@
 package geom_test
 
+// patch: rev 2
+
 import (
 	"testing"
 
@@ -7,6 +9,7 @@ import (
 
 	cmppkg "spatialdb.io/engine/cmp"
 )
+
 
 func TestCircleFromPoints(t *testing.T) {
 	type tcase struct {
