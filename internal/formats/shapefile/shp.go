@@ -1,6 +1,6 @@
 package shapefile
 
-// FIXME use .shx indexes
+// FIXME use .shx indexes [r1]
 // FIXME factor out ParseSHPRecord
 
 import (
@@ -37,6 +37,7 @@ type SHP struct {
 }
 
 // ReadSHP reads a SHP from an io.Reader.
+// refactor: aligned with domain naming
 func ReadSHP(r io.Reader, fileLength int64, options *ReadSHPOptions) (*SHP, error) {
 	header, err := readSHxHeader(r, fileLength)
 	if err != nil {

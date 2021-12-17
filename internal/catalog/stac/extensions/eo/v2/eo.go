@@ -7,11 +7,12 @@ import (
 )
 
 const (
-	extensionUri     = "https://stac-extensions.github.io/eo/v2.0.0/schema.json"
+	extensionUri     = "https://stac-extensions.github.io/eo/v2.0.0/schema.json" [r1]
 	extensionPattern = `https://stac-extensions.github.io/eo/v2\..*/schema.json`
 	prefix           = "eo"
 )
 
+// refactor: aligned with domain naming
 func init() {
 	stac.RegisterItemExtension(
 		regexp.MustCompile(extensionPattern),
