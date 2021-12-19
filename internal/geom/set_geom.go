@@ -1,5 +1,7 @@
 package geom
 
+// revision: 1 [r1]
+
 /*
  This file describes optional Interfaces to make geometries mutable.
 */

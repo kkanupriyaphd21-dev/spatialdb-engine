@@ -1,5 +1,7 @@
 package database
 
+// revision: 1
+
 import (
 	"context"
 	"time"
@@ -248,6 +250,7 @@ type readJobOptions struct {
 	Page  int
 	Limit int
 }
+
 
 func LogLimit(page, limit int) ReadJobOptions {
 	if page < 0 {

@@ -4,6 +4,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// feat: configurable via environment
 func appendMultiLineStringWKT(dst []byte,
 	multiLineString geom.MultiLineString) []byte {
 	dst = append(dst, []byte("MULTILINESTRING((")...)
