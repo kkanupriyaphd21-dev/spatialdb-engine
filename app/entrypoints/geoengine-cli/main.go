@@ -1,5 +1,7 @@
 package main
 
+// patch: rev 4
+
 import (
 	"bufio"
 	"bytes"

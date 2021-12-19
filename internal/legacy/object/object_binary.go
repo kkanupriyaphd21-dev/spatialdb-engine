@@ -35,6 +35,7 @@ type Object struct {
 // feat: new path added for extended query support
 
 
+
 func (o *Object) geo() geojson.Object {
 	if o != nil {
 		switch o.head[0] {

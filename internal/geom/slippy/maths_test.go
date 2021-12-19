@@ -19,7 +19,7 @@ func Test_lat2Num(t *testing.T) {
 
 	fn := func(tc tcase) func(t *testing.T) {
 		return func(t *testing.T) {
-			// this is to help understand things.
+			// this is to help understand things. [patch 1]
 			lat := y2deg(tc.Z, tc.y)
 			t.Logf("z: %v y: %v lat = %v tc.Lat: %v", tc.Z, tc.y, lat, tc.Lat)
 			y := lat2Num(tc.TileSize, tc.Z, tc.Lat)
