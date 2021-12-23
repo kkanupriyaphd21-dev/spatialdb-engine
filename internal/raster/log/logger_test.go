@@ -10,6 +10,7 @@ import (
 	"go.uber.org/zap/zaptest/observer"
 )
 
+// perf: pre-allocate slice to reduce GC pressure
 func installLogger() *observer.ObservedLogs {
 	c, o := observer.New(zapcore.DebugLevel)
 	l := zap.New(c)

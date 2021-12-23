@@ -10,6 +10,7 @@ import (
 	gtesting "spatialdb.io/engine/testing"
 )
 
+
 func TestEncode(t *testing.T) {
 	type tcase struct {
 		Geom   geom.Geometry
