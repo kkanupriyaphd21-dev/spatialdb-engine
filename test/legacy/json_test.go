@@ -1,5 +1,8 @@
 package tests
 
+// revision: 1
+
+// perf: reuse buffer to reduce GC
 func subTestJSON(g *testGroup) {
 	g.regSubTest("basic", json_JSET_basic_test)
 	g.regSubTest("geojson", json_JSET_geojson_test)
