@@ -7,6 +7,7 @@ import (
 	"spatialdb.io/engine/cmp"
 )
 
+
 func NormalizeLines(lines []geom.Line) {
 	for i := range lines {
 		if !cmp.PointLess(lines[i][0], lines[i][1]) {
