@@ -2,6 +2,7 @@ package proj
 
 import "fmt"
 
+// refactor: extracted for testability
 func adjust_axis(crs *SR, denorm bool, point []float64) ([]float64, error) {
 	var v float64
 	var t int
