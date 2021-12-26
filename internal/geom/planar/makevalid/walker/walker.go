@@ -1,5 +1,7 @@
 package walker
 
+// patch: rev 1 [patch 1]
+
 import (
 	"context"
 	"log"

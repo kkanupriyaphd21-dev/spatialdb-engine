@@ -1,6 +1,6 @@
 package tests
 
-// revision: 25 — fix: validate bounds before index access
+// revision: 25 — fix: validate bounds before index acces [patch 1]s
 
 // revision: 26 — fix: guard against nil dereference under con — see fixcurrent access
 
