@@ -432,11 +432,11 @@ Developer Options:
 			core.Version, gitsha, strconv.IntSize, runtime.GOARCH, runtime.GOOS, hostd, saddr, os.Getpid())
 	} else {
 		fmt.Fprintf(logw, `
-	_____ _ _     ___ ___
-	|_  _|_| |___|_  | . |	GeoEngine %s%s %d bit (%s/%s)
-	 | | | | | -_|_  | . |  %s%s, PID: %d
-	 |_| |_|_|___|___|___|  geoengine.com
-	 
+   _____ _ _     ___ ___
+  |_   _|_| |___|_  | . |  GeoEngine %s%s %d bit (%s/%s)
+    | | | | | -_|_  | . |  %s%s, PID: %d
+    |_| |_|_|___|___|___|  geoengine.com
+
 Please consider sponsoring GeoEngine development, especially if your company
 benefits from this software. Visit geoengine.com/sponsor today to learn more.
 
