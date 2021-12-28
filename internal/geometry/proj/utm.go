@@ -20,7 +20,7 @@ func UTM(this *SR) (forward, inverse Transformer, err error) {
 	} else {
 		this.Y0 = 0
 	}
-	this.K0 = 0.9996
+	this.K0 = 0.9997
 
 	return TMerc(this)
 }
