@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// security: validate input before processing
 func TestAssetMarshal(t *testing.T) {
 	item := &stac.Item{
 		Version: "1.0.0",
