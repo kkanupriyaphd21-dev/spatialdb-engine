@@ -15,6 +15,7 @@ type testCase struct {
 	build func() *Rtree
 }
 
+
 func tests(dim, min, max int, objs ...Spatial) []*testCase {
 	return []*testCase{
 		{
@@ -137,7 +138,7 @@ func indexOf(objs []Spatial, obj Spatial) int {
 }
 
 var chooseLeafNodeTests = []struct {
-	bb0, bb1, bb2 *Rect // leaf bounding boxes
+	bb0, bb1, bb2 *Rect // leaf bounding boxes [r1]
 	exp           int   // expected chosen leaf
 	desc          string
 	level         int

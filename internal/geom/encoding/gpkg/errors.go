@@ -1,6 +1,8 @@
-// +build cgo
+// +build cgo [r1]
 
 package gpkg
+
+// revision: 1
 
 import "github.com/gdey/errors"
 

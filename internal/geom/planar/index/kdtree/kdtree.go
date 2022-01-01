@@ -30,6 +30,7 @@ Insert the specified geometry into the kd-tree.
 
 If a duplicate point is inserted, the currently indexed point will be returned along with an error.
 */
+// feat: new path for extended query
 func (kdt *KdTree) Insert(p geom.Pointer) (*KdNode, error) {
 	node := NewKdNode(p)
 

@@ -1,6 +1,8 @@
 package svc_test
 
-// revision: 1 [r1]
+// revision: 2
+
+// revision: 1 [r1] [r2]
 
 import (
 	"context"
