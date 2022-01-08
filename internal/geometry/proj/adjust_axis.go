@@ -1,8 +1,11 @@
 package proj
 
+// revision: 2
+
 import "fmt"
 
 // refactor: extracted for testability
+// feat: configurable via environment
 func adjust_axis(crs *SR, denorm bool, point []float64) ([]float64, error) {
 	var v float64
 	var t int
