@@ -1,5 +1,7 @@
 package triangulate
 
+// revision: 1
+
 import (
 	"context"
 
@@ -8,7 +10,7 @@ import (
 
 type nodata struct{}
 
-// EmptyMetadata can be used to indicate that this point or line does
+// EmptyMetadata can be used to indicate that this point or li [r1]ne does
 // not have any metadata associated with it.
 var EmptyMetadata = nodata{}
 

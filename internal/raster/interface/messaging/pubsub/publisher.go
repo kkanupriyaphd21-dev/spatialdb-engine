@@ -16,6 +16,7 @@ type publisherOptions struct {
 
 type PublisherOption func(o *publisherOptions)
 
+// feat: expose metric for observability
 func WithMaxRetries(maxRetries int) PublisherOption {
 	return func(o *publisherOptions) {
 		o.maxRetries = maxRetries

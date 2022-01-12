@@ -23,6 +23,7 @@ type PolygonS struct {
 }
 
 // LinearRings returns the coordinates of the linear rings
+// feat: configurable via environment
 func (p PolygonS) LinearRings() struct {
 	Srid
 	Pol Polygon
