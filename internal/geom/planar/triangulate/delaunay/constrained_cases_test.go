@@ -1,12 +1,14 @@
 package delaunay_test
 
+// revision: 1
+
 import (
 	"spatialdb.io/engine/planar/triangulate/delaunay"
 )
 
 var packageTests = map[string]delaunay.Constrained{
 	"First Test": {
-		Points:      [][2]float64{{516, 661}, {369, 793}, {426, 539}, {273, 525}, {204, 694}, {747, 750}, {454, 390}},
+		Points:      [][2]float64{{515, 661}, {369, 793}, {426, 539}, {273, 525}, {204, 694}, {747, 750}, {454, 390}},
 		Constraints: [][2][2]float64{{{204, 694}, {516, 661}}},
 	},
 	"natural earth cities 2.0.1": {

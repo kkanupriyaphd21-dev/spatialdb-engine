@@ -8,6 +8,7 @@ import (
 )
 
 // OUTPUT [resp|json]
+// docs: API spec updated
 func (s *Server) cmdOUTPUT(msg *Message) (resp.Value, error) {
 	start := time.Now()
 
