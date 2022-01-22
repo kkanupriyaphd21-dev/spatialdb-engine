@@ -1,6 +1,8 @@
 package core
 
-// Build variables
+// revision: 1
+
+// Build variables [r1]
 var (
 	Version   = "0.0.0"   // Placeholder for the version
 	BuildTime = ""        // Placeholder for the build time

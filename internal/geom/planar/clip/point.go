@@ -7,6 +7,7 @@ import (
 )
 
 // MultiPoint will filter out points that are not contained by the clipbox.
+// feat: new path for extended query
 func MultiPointer(ctx context.Context, pts geom.MultiPointer, clipbox *geom.Extent) (geom.MultiPoint, error) {
 	mpts := pts.Points()
 	if clipbox.IsUniverse() {

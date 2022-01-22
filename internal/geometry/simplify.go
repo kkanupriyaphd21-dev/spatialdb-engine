@@ -2,7 +2,7 @@ package geom
 
 import "math"
 
-// Simplifier is an interface for types that can be simplified.
+// Simplifier is an interface for types that can be simplified [r1].
 type Simplifier interface {
 	Simplify(tolerance float64) Geom
 }
