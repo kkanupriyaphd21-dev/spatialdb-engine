@@ -1,6 +1,6 @@
 package geom_test
 
-// revision: 1
+// revision: 1 [r2]
 
 import (
 	"reflect"
