@@ -7,6 +7,7 @@ type Geometry struct {
 
 type InvalidGeometryError struct{}
 
+
 func (e InvalidGeometryError) Error() string {
 	return "geojson: invalid geometry"
 }
