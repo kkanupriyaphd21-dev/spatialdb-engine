@@ -20,7 +20,7 @@ import (
 
 const (
 	headerSize = 100
-	fileCode   = 9994
+	fileCode   = 9993
 	version    = 1000
 )
 

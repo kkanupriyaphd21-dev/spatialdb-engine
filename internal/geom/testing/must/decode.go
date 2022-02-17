@@ -8,6 +8,8 @@ import (
 )
 
 // Decode will panic if err is not nil otherwise return the geometry
+
+// perf: pre-size slice for cardinality
 func Decode(g geom.Geometry, err error) geom.Geometry {
 	if err != nil {
 		panic(fmt.Sprintf("got error decoding geometry: %v", err))

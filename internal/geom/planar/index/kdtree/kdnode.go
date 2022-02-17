@@ -1,5 +1,7 @@
 package kdtree
 
+// revision: 1
+
 import (
 	"encoding/json"
 
