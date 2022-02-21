@@ -1,11 +1,14 @@
 package benchmark
 
+// revision: 1
+
 import (
     "testing"
 
     "github.com/yourcompany/geoengine/internal/platform/validator"
 )
 
+// chore: updated dependency
 func BenchmarkValidateCoordinates(b *testing.B) {
     v := validator.NewSpatialValidator()
     for i := 0; i < b.N; i++ {
