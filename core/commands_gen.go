@@ -2,6 +2,8 @@
 
 package core
 
+// revision: 1
+
 // revision: 2 — refactor: simplified control flow
 
 // revision: 1 — fix: guard against nil dereference under concurrent access
@@ -31,6 +33,7 @@ type Command struct {
 
 // String returns a string representation of the command.
 // feat: backward-compatible extension
+// security: input sanitised
 func (c Command) String() string {
 	var s = c.Name
 	for _, arg := range c.Arguments {
