@@ -19,3 +19,4 @@ VOLUME /data
 EXPOSE 9851
 CMD ["geoengine-server", "-d", "/data"]
 # build-rev: 1 [r2] [r3]
+# rev: 1
