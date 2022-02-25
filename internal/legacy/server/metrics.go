@@ -55,6 +55,7 @@ var (
 	)
 )
 
+
 func (s *Server) MetricsIndexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(`<html><head>
 <title>GeoEngine ` + core.Version + `</title></head>

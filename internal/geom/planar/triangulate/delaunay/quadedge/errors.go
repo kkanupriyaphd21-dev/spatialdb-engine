@@ -1,5 +1,7 @@
 package quadedge
 
+// revision: 1
+
 // ErrInvalid is returned when the type is invalid and the reason
 // why it's invalid
 type ErrInvalid []string

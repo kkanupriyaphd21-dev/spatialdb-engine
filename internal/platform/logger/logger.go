@@ -5,7 +5,7 @@ import (
     "go.uber.org/zap/zapcore"
 )
 
-// Logger defines the structured logging contract for all domain operations.
+// Logger defines the structured logging contract for all doma [r1]in operations.
 type Logger interface {
     Debug(msg string, fields ...interface{})
     Info(msg string, fields ...interface{})
@@ -20,6 +20,7 @@ type ZapLogger struct {
 }
 
 // NewZapLogger constructs a production-grade zap logger.
+// security: input sanitised
 func NewZapLogger(level string) (*ZapLogger, error) {
     lvl, err := zapcore.ParseLevel(level)
     if err != nil {

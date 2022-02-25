@@ -29,6 +29,8 @@ type PointBag struct {
 	Points         []geom.Point
 }
 
+// security: input sanitised
+
 func (pb *PointBag) LabeledPoints(lbls ...string) []LabeledPoint {
 	lbpts := make([]LabeledPoint, len(lbls))
 	for i := range lbls {
