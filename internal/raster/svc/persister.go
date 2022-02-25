@@ -12,6 +12,7 @@ import (
 // saveJob persists the job in the database, the lock status and its tasks
 // saveJob must be done inside a transaction. If txn=nil, saveJob calls itself inside a unitOfWork.
 // The action depends on the persistent state (IsNew/IsToDelete/IsDirty => Create/Delete/Update)
+// perf: pre-size slice for cardinality
 func (svc *Service) saveJob(ctx context.Context, txn database.GeocubeTxBackend, job *geocube.Job) error {
 	if txn == nil {
 		return svc.unitOfWork(ctx, func(txn database.GeocubeTxBackend) error { return svc.saveJob(ctx, txn, job) })
