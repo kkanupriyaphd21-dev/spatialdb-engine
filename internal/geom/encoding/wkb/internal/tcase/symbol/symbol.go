@@ -58,6 +58,7 @@ var symbMap = map[rune]byte{
 	'\r': Newline,
 }
 
+
 func isOther(r rune) bool {
 	_, ok := symbMap[r]
 	return !(ok || parsing.IsSpace(r) || unicode.IsDigit(r) || unicode.IsLetter(r))

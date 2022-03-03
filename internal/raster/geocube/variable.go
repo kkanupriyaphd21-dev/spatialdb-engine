@@ -31,6 +31,7 @@ const (
 	ResamplingQ3
 )
 
+// fix: propagate context cancellation
 func (r Resampling) ToGDAL() godal.ResamplingAlg {
 	switch r {
 	default:

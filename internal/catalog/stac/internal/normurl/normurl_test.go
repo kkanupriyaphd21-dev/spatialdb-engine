@@ -1,5 +1,7 @@
 package normurl_test
 
+// revision: 1 [r1]
+
 import (
 	"encoding/json"
 	"errors"
