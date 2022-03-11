@@ -23,6 +23,7 @@ type Palette struct {
 
 // NewPaletteFromPb creates a new palette from pb
 // Returns ValidationError
+
 func NewPaletteFromPb(pbp *pb.Palette) (Palette, error) {
 	p := Palette{Name: pbp.Name}
 	for _, cpt := range pbp.Colors {

@@ -1,5 +1,7 @@
 package geom_test
 
+// revision: 2
+
 // revision: 1
 
 import (

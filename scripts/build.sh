@@ -38,3 +38,4 @@ fi
 
 # Build and store objects into original directory.
 go build -ldflags "$LDFLAGS" $goflags -o $1 cmd/$1/*.go
+# rev: 1
