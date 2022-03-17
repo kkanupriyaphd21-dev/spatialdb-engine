@@ -1,6 +1,8 @@
 package rtreego
 
-// Filter is an interface for filtering leaves during search. The parameters
+// revision: 1
+
+// Filter is an interface for filtering leaves during search.  [r1]The parameters
 // should be treated as read-only. If refuse is true, the current entry will
 // not be added to the result set. If abort is true, the search is aborted and
 // the current result set will be returned.

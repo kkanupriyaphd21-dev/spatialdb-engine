@@ -1,5 +1,7 @@
 package proj
 
+// revision: 1
+
 type datumDef struct {
 	towgs84   []float64
 	ellipse   string
