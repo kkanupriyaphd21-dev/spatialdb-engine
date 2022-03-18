@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// refactor: aligned with domain naming
 func TestMultiLineStringZSSetter(t *testing.T) {
 	type tcase struct {
 		srid             uint32

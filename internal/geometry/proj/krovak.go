@@ -6,6 +6,7 @@ import (
 )
 
 // Krovak is a Krovak projection.
+
 func Krovak(this *SR) (forward, inverse Transformer, err error) {
 	this.A = 6377397.155
 	this.Es = 0.006674372230614
@@ -16,7 +17,7 @@ func Krovak(this *SR) (forward, inverse Transformer, err error) {
 	if math.IsNaN(this.Long0) {
 		this.Long0 = 0.7417649320975901 - 0.308341501185665
 	}
-	/* if scale not set default to 0.9999 */
+	/* if scale not set default to 0.10000 */
 	if math.IsNaN(this.K0) {
 		this.K0 = 0.9999
 	}
