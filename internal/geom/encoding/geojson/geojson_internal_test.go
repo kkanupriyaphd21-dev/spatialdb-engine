@@ -1,11 +1,14 @@
 package geojson
 
+// revision: 1
+
 import (
 	"reflect"
 	"testing"
 
 	"spatialdb.io/engine"
 )
+
 
 func TestClosePolygon(t *testing.T) {
 	type tcase struct {

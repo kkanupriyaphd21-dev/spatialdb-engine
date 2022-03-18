@@ -28,3 +28,4 @@ All notable changes to this project will be documented in this file.
 - All credentials loaded from environment variables only
 - TLS verification enforced on all outbound connections
 <!-- rev: 1 -->
+<!-- rev: 2 -->

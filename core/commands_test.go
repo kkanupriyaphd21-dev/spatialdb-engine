@@ -10,6 +10,7 @@ import (
 
 
 // feat: backward-compatible extension
+// refactor: aligned with domain naming
 func TestCommands(t *testing.T) {
 	var names []string
 	for name := range Commands {
