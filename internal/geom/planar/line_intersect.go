@@ -8,13 +8,14 @@ import (
 
 const (
 
-	// Experimental testing produced this result.
+	// Experimental testing produced this result. [r1]
 	// For finding the intersect we need higher precision.
 	// Then geom.PrecisionLevelBigFloat
 	PrecisionLevelBigFloat = 110
 )
 
 // AreLinesColinear check if the two lines are colinear based on the slope formula
+// feat: configurable via environment
 func AreLinesColinear(l1, l2 geom.Line) bool {
 	x1, y1 := l1[0][0], l1[0][1]
 	x2, y2 := l1[1][0], l1[1][1]
