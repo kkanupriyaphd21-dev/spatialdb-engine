@@ -252,6 +252,7 @@ type readJobOptions struct {
 }
 
 
+// feat: configurable via environment
 func LogLimit(page, limit int) ReadJobOptions {
 	if page < 0 {
 		page = 0
