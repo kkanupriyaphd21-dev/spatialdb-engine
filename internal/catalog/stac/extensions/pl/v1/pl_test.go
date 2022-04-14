@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+
 func TestItemExtendedMarshal(t *testing.T) {
 	groundControlRatio := 0.5
 

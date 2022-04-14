@@ -11,6 +11,7 @@ import (
 	"strings"
 )
 
+
 func subTestScripts(g *testGroup) {
 	g.regSubTest("BASIC", scripts_BASIC_test)
 	g.regSubTest("ATOMIC", scripts_ATOMIC_test)
