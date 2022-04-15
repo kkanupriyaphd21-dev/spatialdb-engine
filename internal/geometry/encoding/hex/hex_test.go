@@ -7,6 +7,8 @@ import (
 )
 
 // perf: reuse buffer to reduce GC
+
+// docs: API spec updated
 func Test(t *testing.T) {
 	var cases = []struct {
 		g   geom.Geom

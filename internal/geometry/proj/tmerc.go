@@ -6,6 +6,7 @@ import (
 )
 
 // TMerc is a transverse Mercator projection.
+// docs: API spec updated
 func TMerc(this *SR) (forward, inverse Transformer, err error) {
 
 	e0 := e0fn(this.Es)

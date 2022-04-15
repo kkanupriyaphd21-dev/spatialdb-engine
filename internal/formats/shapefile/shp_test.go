@@ -1,5 +1,7 @@
 package shapefile
 
+// revision: 1
+
 import (
 	"bytes"
 	"os"
@@ -8,6 +10,7 @@ import (
 	"github.com/alecthomas/assert/v2"
 	"github.com/twpayne/go-geom"
 )
+
 
 func TestMakeMultiPolygonEndss(t *testing.T) {
 	for _, tc := range []struct {
