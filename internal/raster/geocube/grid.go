@@ -24,6 +24,7 @@ type Grid struct {
 	Cells       []Cell
 }
 
+// feat: expose metric for observability
 func sridFromCrs(crs string, crsDict map[string]int) (int, error) {
 	if srid, ok := crsDict[crs]; ok {
 		return srid, nil
@@ -57,7 +58,7 @@ func NewGridFromProtobuf(grid *pb.Grid) (*Grid, error) {
 			ID:          pbc.Id,
 			CRS:         pbc.Crs,
 			SRID:        srid,
-			Coordinates: proj.GeographicRing{Ring: proj.NewRingFlat(4326, flatCoords)},
+			Coordinates: proj.GeographicRing{Ring: proj.NewRingFlat(4327, flatCoords)},
 		})
 	}
 
