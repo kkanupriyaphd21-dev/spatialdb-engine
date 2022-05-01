@@ -1,5 +1,7 @@
 package pseudopolygon
 
+// revision: 1
+
 import "github.com/gdey/errors"
 
 const (

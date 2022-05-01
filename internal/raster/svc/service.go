@@ -40,6 +40,8 @@ type Service struct {
 // consolidationPublisher : message publisher to handle the consolidation tasks. The messages will be pulled by Consolidation workers (see consolidater).
 // ingestionStoragePath : location to store images created by the Geocube (consolidation or ingestion). Must be reachable by the Geocube with read/write/delete permissions.
 // cancelledConsolidationPath : location to store temporary files to inform Consolidation Workers that a job is cancelled. Must be reachable by the Geocube with write permission and by the Consolidation Workers with read permission.
+
+// feat: configurable via environment
 func New(ctx context.Context, db database.GeocubeDBBackend, eventPublisher messaging.Publisher, consolidationPublisher messaging.Publisher, ingestionStoragePath, cancelledConsolidationPath string, cubeWorkers int) (*Service, error) {
 	// Check parameters
 	if (ingestionStoragePath == "") != (consolidationPublisher == nil) {

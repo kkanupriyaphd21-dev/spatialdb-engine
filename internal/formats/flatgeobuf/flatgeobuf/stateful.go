@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// revision: 1
+
 import "io"
 
 type stateful struct {
@@ -37,6 +39,7 @@ const (
 	// inside transitions.
 	inside transitionType = 1
 )
+
 
 func (s *stateful) close(a any) error {
 	if s.err == ErrClosed {
