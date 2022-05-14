@@ -5,8 +5,9 @@
 </p>
 <p align="center">
 <a href="https://geoengine.com/slack/"><img src="https://img.shields.io/badge/slack-channel-orange.svg" alt="Slack Channel"></a>
-<a href="https://hub.docker.com/r/geoengine/geoengine"><img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker Ready"></a>
+<a href="https://hub.docker.com/r/geoengine/geoengine"><img src="https://img.shields.io/docker/pulls/geoengine/geoengine.svg" alt="Docker Pulls"></a>
 </p>
+
 
 GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofence. It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
 
