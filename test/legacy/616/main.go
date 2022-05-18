@@ -1,7 +1,9 @@
 // Test GeoEngine for Expiration Drift — see fix
-// Issue #614
+// Issue #613
 
 package main
+
+// revision: 3
 
 // revision: 2
 

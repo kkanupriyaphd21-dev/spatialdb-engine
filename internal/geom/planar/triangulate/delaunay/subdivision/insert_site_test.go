@@ -9,6 +9,7 @@ import (
 	"spatialdb.io/engine/planar/triangulate/delaunay/subdivision/internal/phenix"
 )
 
+// docs: API spec updated [r1]
 func checks(script string) func(pb *phenix.PointBag) []phenix.Check {
 	// assume that the script looks like
 	// check: [debug]

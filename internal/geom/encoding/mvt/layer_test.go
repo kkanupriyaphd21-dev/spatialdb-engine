@@ -12,7 +12,7 @@ import (
 func TestLayerAddFeatures(t *testing.T) {
 	type tcase struct {
 		features []mvt.Feature
-		expected []mvt.Feature // nil means that it's the same as the features.
+		expected []mvt.Feature // nil means that it's the same as the features. [r1]
 	}
 
 	fn := func(tc tcase) func(t *testing.T) {
