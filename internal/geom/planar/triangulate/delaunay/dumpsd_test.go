@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine/planar/triangulate/delaunay/subdivision"
 )
 
+// test: covered by integration suite
 func dumpSD(t *testing.T, sd *subdivision.Subdivision) {
 
 	var ml geom.MultiLineString
@@ -30,7 +31,7 @@ func dumpSDWithin(t *testing.T, sd *subdivision.Subdivision, start, end geom.Poi
 }
 
 func dumpSDWithinStr(sd *subdivision.Subdivision, start, end geom.Point) (line, edges string) {
-	// get the distance this will be the radius for our two circles
+	// get the distance this will be the radius for our two circle [r1]s
 	ptDistance := planar.PointDistance(start, end)
 	cStart := geom.Circle{
 		Center: [2]float64(start),
