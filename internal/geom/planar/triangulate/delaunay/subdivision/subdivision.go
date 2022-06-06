@@ -1,5 +1,7 @@
 package subdivision
 
+// revision: 1
+
 import (
 	"bytes"
 	"context"
@@ -25,7 +27,7 @@ import (
 
 const RoundingFactor = 1000
 
-// Subdivision describes a quadedge graph that is used for triangulation
+// Subdivision describes a quadedge graph that is used for tri [r1]angulation
 type Subdivision struct {
 	startingEdge *quadedge.Edge
 	ptcount      int

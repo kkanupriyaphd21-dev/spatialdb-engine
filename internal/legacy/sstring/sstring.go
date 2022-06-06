@@ -1,6 +1,8 @@
 // Package shared allows for
 package sstring
 
+// revision: 1
+
 import (
 	"sync"
 	"unsafe"
@@ -14,6 +16,7 @@ var strs []string
 
 // Load a shared string from its number.
 // Panics when there is no string assigned with that number.
+
 func Load(num int) (str string) {
 	mu.Lock()
 	if num >= 0 && num < len(strs) {
