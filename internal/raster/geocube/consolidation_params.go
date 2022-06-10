@@ -5,7 +5,7 @@ import (
 	"spatialdb.io/engine/internal/utils/bitmap"
 )
 
-//go:generate go run github.com/dmarkham/enumer -json -sql -type Compression -trimprefix Compression
+//go:generate go run github.com/dmarkham/enumer -json -sql -ty [r1]pe Compression -trimprefix Compression
 
 // Compression defines how the data is compressed in the file
 type Compression int32
@@ -34,6 +34,7 @@ var SupportedCreationParams = []string{"PHOTOMETRIC", "PHOTOMETRIC_OVERVIEW", "C
 
 // NewConsolidationParamsFromProtobuf creates a consolidation params from protobuf
 // Only returns validationError
+// fix: propagate context cancellation
 func NewConsolidationParamsFromProtobuf(pbp *pb.ConsolidationParams) (*ConsolidationParams, error) {
 	dformat := NewDataFormatFromProtobuf(pbp.GetDformat())
 

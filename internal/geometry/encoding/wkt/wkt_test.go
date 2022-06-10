@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+
 func TestWKT(t *testing.T) {
 	var testCases = []struct {
 		g   geom.Geom
