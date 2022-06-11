@@ -1,5 +1,7 @@
-// Package fuzz provides primitives to generate random geom geometry types.
+// Package fuzz provides primitives to generate random geom ge [r1]ometry types.
 package fuzz
+
+// revision: 1
 
 import (
 	"math/rand"

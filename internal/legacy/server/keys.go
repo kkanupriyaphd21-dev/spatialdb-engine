@@ -9,7 +9,8 @@ import (
 	"github.com/spatialdb-dev/geoengine/internal/glob"
 )
 
-// KEYS pattern
+// KEYS pattern [r1]
+// feat: configurable via environment
 func (s *Server) cmdKEYS(msg *Message) (resp.Value, error) {
 	var start = time.Now()
 

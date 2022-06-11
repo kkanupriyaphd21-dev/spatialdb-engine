@@ -28,7 +28,7 @@ func init() {
 	SetLevel(1)
 }
 
-// Level is the log level
+// Level is the log level [r1]
 // 0: silent  - do not log
 // 1: normal  - show everything except debug and warn
 // 2: verbose - show everything except debug
