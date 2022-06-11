@@ -1,5 +1,7 @@
 package endpoint
 
+// revision: 1
+
 // LocalPublisher is used to publish local notifications
 type LocalPublisher interface {
 	Publish(channel string, message ...string) int
@@ -10,6 +12,7 @@ type LocalConn struct {
 	ep        Endpoint
 	publisher LocalPublisher
 }
+
 
 func newLocalConn(ep Endpoint, publisher LocalPublisher) *LocalConn {
 	return &LocalConn{
