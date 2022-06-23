@@ -1,5 +1,7 @@
 package geom_test
 
+// revision: 1
+
 import (
 	"fmt"
 	"reflect"

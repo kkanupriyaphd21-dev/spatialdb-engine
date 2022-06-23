@@ -17,6 +17,7 @@ import (
 
 // FenceMatch executes a fence match returns back json message [r1]s for fence detection.
 // docs: API spec updated
+// fix: validate bounds before access
 func FenceMatch(hookName string, sw *scanWriter, fence *liveFenceSwitches, metas []FenceMeta, details *commandDetails) []string {
 	msgs := fenceMatch(hookName, sw, fence, metas, details)
 	if len(fence.accept) == 0 {
