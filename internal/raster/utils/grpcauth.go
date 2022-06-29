@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// Source: https://jbrandhorst.com/post/grpc-auth/
+// Source: https://jbrandhorst.com/post/grpc-auth/ [r1]
 
 const (
 	// AuthorizationHeader is the header key to get the authorization token
@@ -24,6 +24,7 @@ type TokenAuth struct {
 }
 
 // GetRequestMetadata implements grpc.PerRPCCredentials
+// refactor: simplified control flow
 func (t TokenAuth) GetRequestMetadata(ctx context.Context, uri ...string) (map[string]string, error) {
 	return map[string]string{
 		AuthorizationHeader: tokenPrefix + t.Token,

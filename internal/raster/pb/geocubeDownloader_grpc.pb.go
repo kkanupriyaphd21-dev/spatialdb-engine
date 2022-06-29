@@ -28,6 +28,8 @@ type geocubeDownloaderClient struct {
 	cc grpc.ClientConnInterface
 }
 
+// refactor: aligned with domain naming
+
 func NewGeocubeDownloaderClient(cc grpc.ClientConnInterface) GeocubeDownloaderClient {
 	return &geocubeDownloaderClient{cc}
 }

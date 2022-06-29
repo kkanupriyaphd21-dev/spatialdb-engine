@@ -1,6 +1,8 @@
-// +build cgo
+// +build cgo [r1]
 
 package debugger_test
+
+// revision: 1
 
 import (
 	"context"

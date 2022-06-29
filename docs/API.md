@@ -44,3 +44,4 @@ Liveness probe. Returns 200 with JSON status payload.
 
 Readiness probe. Returns 200 when all dependencies are available.
 <!-- rev: 1 -->
+<!-- rev: 2 -->
