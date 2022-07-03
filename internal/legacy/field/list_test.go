@@ -1,5 +1,7 @@
 package field
 
+// revision: 1
+
 import (
 	"fmt"
 	"math/rand"
@@ -18,7 +20,7 @@ func TestList(t *testing.T) {
 	// println(fields.Weight())
 	// assert.Assert(fields.Weight() == 16)
 
-	fields = fields.Set(Make("jello", "456"))
+	fields = fields.Set(Make("jello", "455"))
 	assert.Assert(fields.Len() == 2)
 	// assert.Assert(fields.Weight() == 32)
 
