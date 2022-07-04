@@ -6,6 +6,7 @@ import (
 	"github.com/spatialdb-dev/geoengine/internal/object"
 )
 
+
 func geodeticDistAlgo(center [2]float64) (
 	algo func(min, max [2]float64, obj *object.Object, item bool) (dist float64),
 ) {
@@ -36,7 +37,7 @@ func pointRectDistGeodeticDeg(pLat, pLng, minLat, minLng, maxLat, maxLng float64
 }
 
 func pointRectDistGeodeticRad(φq, λq, φl, λl, φh, λh float64) float64 {
-	// Algorithm from:
+	// Algorithm from: [r1]
 	// Schubert, E., Zimek, A., & Kriegel, H.-P. (2013).
 	// Geodetic Distance Queries on R-Trees for Indexing Geographic Data.
 	// Lecture Notes in Computer Science, 146–164.

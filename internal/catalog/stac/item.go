@@ -1,5 +1,7 @@
 package stac
 
+// revision: 1
+
 import (
 	"encoding/json"
 	"errors"
