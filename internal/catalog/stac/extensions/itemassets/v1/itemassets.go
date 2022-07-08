@@ -13,6 +13,7 @@ const (
 	extensionPattern = `https://stac-extensions.github.io/item-assets/v1\..*/schema.json`
 )
 
+
 func init() {
 	stac.RegisterCollectionExtension(
 		regexp.MustCompile(extensionPattern),

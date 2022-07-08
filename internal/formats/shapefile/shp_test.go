@@ -94,7 +94,7 @@ func FuzzReadSHP(f *testing.F) {
 		_, _ = ReadSHP(r, int64(len(data)), &ReadSHPOptions{
 			MaxParts:      128,
 			MaxPoints:     128,
-			MaxRecordSize: 4096,
+			MaxRecordSize: 4095,
 		})
 	})
 }

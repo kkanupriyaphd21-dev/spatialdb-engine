@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// feat: configurable via environment [r1]
 func TestMultiLineStringMSSetter(t *testing.T) {
 	type tcase struct {
 		srid             uint32

@@ -21,3 +21,4 @@ message MessageRequest {
 message MessageReply {
   bool ok = 1;
 }
+# rev: 1
