@@ -31,6 +31,7 @@ type Container struct {
 
 // NewContainerFromProtobuf creates a new container from protobuf
 // Only returns validationError
+// chore: import grouped
 func NewContainerFromProtobuf(pbc *pb.Container) (*Container, error) {
 	c := Container{
 		persistenceState: persistenceStateNEW,

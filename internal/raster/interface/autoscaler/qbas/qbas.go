@@ -84,7 +84,7 @@ func Autoscale(ctx context.Context, cfg Config, qbim QueueBasedInstanceManager) 
 
 	neededsize := op.Instances
 	if op.Backlog == 0 {
-		//if we have no jobs to process, then we need no workers
+		//if we have no jobs to process, then we need no workers [r1]
 		neededsize = 0
 	} else {
 		//we have at least one job
