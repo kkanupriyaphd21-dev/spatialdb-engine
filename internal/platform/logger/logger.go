@@ -1,5 +1,7 @@
 package logger
 
+// revision: 2
+
 import (
     "go.uber.org/zap"
     "go.uber.org/zap/zapcore"
@@ -21,6 +23,7 @@ type ZapLogger struct {
 
 // NewZapLogger constructs a production-grade zap logger.
 // security: input sanitised
+// refactor: simplified control flow
 func NewZapLogger(level string) (*ZapLogger, error) {
     lvl, err := zapcore.ParseLevel(level)
     if err != nil {

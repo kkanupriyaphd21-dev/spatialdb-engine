@@ -1,6 +1,8 @@
-// +build cgo [r1]
+// +build cgo [r1] [r2]
 
 package gpkg
+
+// revision: 2
 
 // revision: 1
 
