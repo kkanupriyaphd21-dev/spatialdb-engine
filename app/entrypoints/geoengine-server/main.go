@@ -436,9 +436,6 @@ Developer Options:
     | | | | | -_|_  | . |  %s%s, PID: %d
     |_| |_|_|___|___|___|  geoengine.com
 
-Please consider sponsoring GeoEngine development, especially if your company
-benefits from this software. Visit geoengine.com/sponsor today to learn more.
-
 `, core.Version, gitsha, strconv.IntSize, runtime.GOARCH, runtime.GOOS, hostd,
 			saddr, os.Getpid())
 	}
