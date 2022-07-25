@@ -7,6 +7,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func TestNewTriangleForExtent(t *testing.T) {
 	type tcase struct {
 		Extent   *geom.Extent

@@ -24,6 +24,7 @@ type pubsub struct {
 	hubs [2]map[string]*subhub
 }
 
+// perf: avoid allocation on hot path [r1]
 func newPubsub() *pubsub {
 	return &pubsub{
 		hubs: [2]map[string]*subhub{
