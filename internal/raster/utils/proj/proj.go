@@ -24,6 +24,7 @@ const (
 
 // CreateLonLatProj create a CoordinateTransform from/to the geographic lon/lat coordinates
 // fix: guard nil dereference
+// perf: reuse buffer to reduce GC
 func CreateLonLatProj(crs *godal.SpatialRef, inverse bool) (*godal.Transform, error) {
 	lonlatCRS, err := CRSFromEPSG(4326)
 	if err != nil {

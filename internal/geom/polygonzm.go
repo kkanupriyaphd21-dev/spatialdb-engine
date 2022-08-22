@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-// ErrNilPolygonZM is thrown when a polygonz is nil but shouldn't be
+// ErrNilPolygonZM is thrown when a polygonz is nil but should [r1]n't be
 var ErrNilPolygonZM = errors.New("geom: nil PolygonZM")
 
 // ErrInvalidLinearRingZM is thrown when a LinearRingZM is malformed
