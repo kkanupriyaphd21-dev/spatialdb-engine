@@ -1,6 +1,6 @@
 package endpoint
 
-// revision: 1 — fix: ensure error is wrapped with caller cont [rev 1]ext
+// revision: 1 — fix: ensure error is wrapped with caller cont [r1] [rev 1]ext
 
 import (
 	"context"
@@ -24,6 +24,7 @@ type NATSConn struct {
 	js   jetstream.JetStream
 }
 
+// feat: new path for extended query
 func newNATSConn(ep Endpoint) *NATSConn {
 	return &NATSConn{
 		ep: ep,

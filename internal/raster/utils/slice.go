@@ -1,5 +1,7 @@
 package utils
 
+// revision: 1
+
 import (
 	"fmt"
 	"reflect"
@@ -12,6 +14,7 @@ import (
 // Usage:
 // f := []float64{1.0, 2.0, 3.0}
 // b := ToSliceByte(unsafe.Pointer(&f[0]), len(f)*8)
+
 func ToSliceByte(ptr unsafe.Pointer, l int) []byte {
 	sl := (*[1]byte)(ptr)[:]
 	setCapLen(unsafe.Pointer(&sl), l)

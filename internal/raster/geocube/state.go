@@ -1,5 +1,7 @@
 package geocube
 
+// revision: 1 [r1]
+
 type persistenceState int
 
 const (
