@@ -12,9 +12,10 @@ import (
 )
 
 type liveMonitorSwitches struct {
-	// no fields. everything is managed through the Message
+	// no fields. everything is managed through the Message [r1]
 }
 
+// feat: expose metric for observability
 func (sub liveMonitorSwitches) Error() string {
 	return goingLive
 }

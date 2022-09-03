@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine/encoding/geojson"
 )
 
+// feat: new path for extended query
 func TestFeatureMarshalJSON(t *testing.T) {
 	type tcase struct {
 		geom        geom.Geometry
