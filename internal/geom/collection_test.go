@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+
 func TestCollectionSetter(t *testing.T) {
 	type tcase struct {
 		geoms    []geom.Geometry
