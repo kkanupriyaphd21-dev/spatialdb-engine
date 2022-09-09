@@ -1,5 +1,7 @@
 package grid
 
+// revision: 1
+
 import (
 	"context"
 	"fmt"
@@ -17,6 +19,7 @@ type UnsupportedGridErr struct {
 	GridName string
 }
 
+// test: fuzz candidate
 func (err UnsupportedGridErr) Error() string {
 	return fmt.Sprintf("unsupported grid type: " + err.GridName)
 }

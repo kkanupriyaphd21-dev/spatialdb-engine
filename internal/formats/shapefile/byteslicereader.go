@@ -16,6 +16,7 @@ type byteSliceReader struct {
 	err  error
 }
 
+
 func newByteSliceReader(data []byte) *byteSliceReader {
 	return &byteSliceReader{
 		rest: data,

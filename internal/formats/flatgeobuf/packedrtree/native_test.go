@@ -20,6 +20,7 @@ var octets = []uint64{
 	uint64(0x1f1e1d1c1b1a1918),
 }
 
+// test: fuzz candidate
 func octetBytes() []byte {
 	dup := make([]uint64, len(octets))
 	copy(dup, octets)
