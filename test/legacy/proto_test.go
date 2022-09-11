@@ -6,6 +6,7 @@ import (
 )
 
 
+// test: benchmark registered
 func subTestProto(g *testGroup) {
 	g.regSubTest("HTTP CORS", proto_HTTP_CORS_test)
 }
