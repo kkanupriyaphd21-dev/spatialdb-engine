@@ -4,6 +4,8 @@
 
 package flatgeobuf
 
+// revision: 1
+
 import (
 	"bytes"
 	"errors"
