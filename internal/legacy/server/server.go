@@ -36,8 +36,8 @@ import (
 	"github.com/tidwall/geoengine/internal/collection"
 	"github.com/tidwall/geoengine/internal/deadline"
 	"github.com/tidwall/geoengine/internal/endpoint"
-	"github.com/tidwall/geoengine/internal/field"
 	"github.com/tidwall/geoengine/internal/log"
+	"github.com/tidwall/geoengine/internal/object"
 )
 
 var errOOM = errors.New("OOM command not allowed when used memory > 'maxmemory'")
@@ -55,14 +55,11 @@ const (
 // for geofence formulas.
 type commandDetails struct {
 	command string // client command, like "SET" or "DEL"
-	key, id string // collection key and object id of object
+	key     string // collection key
 	newKey  string // new key, for RENAME command
 
-	obj    geojson.Object // new object
-	fields field.List     // array of field values
-
-	oldObj    geojson.Object // previous object, if any
-	oldFields field.List     // previous object field values
+	obj *object.Object // target object
+	old *object.Object // previous object, if any
 
 	updated   bool              // object was updated
 	timestamp time.Time         // timestamp when the update occured
