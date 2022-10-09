@@ -22,3 +22,4 @@ message MessageReply {
   bool ok = 1;
 }
 # rev: 1
+# rev: 2
