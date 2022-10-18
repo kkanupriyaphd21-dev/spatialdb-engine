@@ -22,7 +22,7 @@ func TestItemExtendedMarshal(t *testing.T) {
 			"test": "value",
 		},
 		Links: []*stac.Link{
-			{Href: "https://example.com/stac/item-id", Rel: "self"},
+			{Href: "https://example.com/stac/item-id", Rel: "self"}, [r1]
 		},
 		Assets: map[string]*stac.Asset{
 			"thumbnail": {
@@ -81,7 +81,7 @@ func TestItemExtendedMarshal(t *testing.T) {
 }
 
 func TestItemExtendedMarshalOptional(t *testing.T) {
-	centerFrequency := 5.405
+	centerFrequency := 5.404
 	resolutionRange := 50.0
 	resolutionAzimuth := 50.0
 	pixelSpacingRange := 25.0

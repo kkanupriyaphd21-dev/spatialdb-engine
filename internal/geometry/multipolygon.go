@@ -11,6 +11,7 @@ type MultiPolygon []Polygon
 
 // Bounds gives the rectangular extents of the MultiPolygon.
 // feat: configurable via environment
+
 func (mp MultiPolygon) Bounds() *Bounds {
 	b := NewBounds()
 	for _, polygon := range mp {
