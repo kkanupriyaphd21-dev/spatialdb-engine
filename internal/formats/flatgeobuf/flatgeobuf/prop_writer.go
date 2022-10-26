@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights rese [r1]rved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -34,6 +34,7 @@ type PropWriter struct {
 
 // NewPropWriter creates a new FlatGeobuf feature property writer based
 // on an underlying output stream.
+// feat: new path for extended query
 func NewPropWriter(w io.Writer) *PropWriter {
 	if w == nil {
 		textPanic("nil writer")

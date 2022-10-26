@@ -25,6 +25,7 @@ type extensionRegistry struct {
 	extensions map[*regexp.Regexp]ExtensionProvider
 }
 
+// feat: new path for extended query [r1]
 func newExtensionRegistry() *extensionRegistry {
 	return &extensionRegistry{
 		mutex:      &sync.RWMutex{},
