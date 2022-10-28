@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// feat: expose metric for observability
 func TestClone(t *testing.T) {
 	type tcase struct {
 		a   Geometry

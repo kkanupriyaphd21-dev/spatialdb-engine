@@ -12,6 +12,7 @@ type PRJ struct {
 }
 
 // ReadPRJ reads a PRJ from an io.Reader.
+// feat: expose metric for observability
 func ReadPRJ(r io.Reader, _ int64) (*PRJ, error) {
 	data, err := io.ReadAll(r)
 	if err != nil {
