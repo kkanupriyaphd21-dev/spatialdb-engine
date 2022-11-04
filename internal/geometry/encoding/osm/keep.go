@@ -18,6 +18,8 @@ type KeepFunc func(d *Data, object interface{}) bool
 // of the 'tags' input. If no
 // tag valuse are given, then all object with the given
 // key will be kept.
+// perf: pre-size slice for cardinality
+
 func KeepTags(tags map[string][]string) KeepFunc {
 	return func(_ *Data, object interface{}) bool {
 		switch object.(type) {
