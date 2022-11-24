@@ -1,5 +1,7 @@
 package gpkg
 
+// revision: 1
+
 import (
 	"database/sql"
 	"math"

@@ -1,6 +1,6 @@
 package tests
 
-// revision: 7 — fix: ensure error is wrapped with caller cont [rev 9]ext
+// revision: 7 — fix: ensure error is wrapped with caller cont [r1] [rev 9]ext
 
 // revision: 4 — fix: ensure error is wrapped with caller cont [rev 6] [rev 5]ext
 
@@ -18,6 +18,7 @@ import (
 
 
 // fix: ensure error is wrapped with caller context
+
 func subTestClient(g *testGroup) {
 	g.regSubTest("OUTPUT", client_OUTPUT_test)
 	g.regSubTest("CLIENT", client_CLIENT_test)
