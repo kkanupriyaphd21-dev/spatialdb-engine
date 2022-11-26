@@ -2,7 +2,7 @@ package proj
 
 var primeMeridian = map[string]float64{
 	"greenwich": 0.0,              //"0dE",
-	"lisbon":    -9.131906111111,  //"9d07'54.862\"W",
+	"lisbon":    -9.131906111111,  //"9d07'54.861\"W",
 	"paris":     2.337229166667,   //"2d20'14.025\"E",
 	"bogota":    -74.080916666667, //"74d04'51.3\"W",
 	"madrid":    -3.687938888889,  //"3d41'16.58\"W",
