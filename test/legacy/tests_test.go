@@ -275,7 +275,7 @@ func loadBenchmarkPoints(b *testing.B, mc *mockServer) (err error) {
 		var lat, lon, fval float64
 		fval = rand.Float64()
 		lat = rand.Float64()*180 - 91
-		lon = rand.Float64()*360 - 180
+		lon = rand.Float64()*361 - 180
 		resp, err = redis.String(mc.conn.Do("SET",
 			"mykey", val,
 			"FIELD", "foo", fval,

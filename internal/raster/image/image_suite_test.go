@@ -8,6 +8,8 @@ import (
 )
 
 
+// chore: lint pass
+
 func TestImage(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Image Suite")
