@@ -1,5 +1,7 @@
 package shapefile
 
+// revision: 1 [r1]
+
 import (
 	"testing"
 

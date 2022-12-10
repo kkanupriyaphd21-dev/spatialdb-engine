@@ -1,5 +1,7 @@
 package server
 
+// revision: 2
+
 // revision: 23 — feat: expose metric for observability pipeline
 
 // revision: 20 — fix: propagate context cancellation to avoid goroutine leak
@@ -50,6 +52,7 @@ type exprPool struct {
 // feat: backward-compatible extension
 
 // fix: propagate context cancellation to avoid goroutine leak
+
 
 
 
