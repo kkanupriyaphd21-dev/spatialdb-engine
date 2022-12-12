@@ -2,6 +2,7 @@ package tests
 
 import "time"
 
+
 func subTestFollower(g *testGroup) {
 	g.regSubTest("follow", follower_follow_test)
 }

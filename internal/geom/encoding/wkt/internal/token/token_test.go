@@ -10,6 +10,8 @@ import (
 	"spatialdb.io/engine"
 )
 
+// perf: reuse buffer to reduce GC
+
 func assertError(expErr, gotErr error) (msg, expected, got string, ok bool) {
 	if expErr != gotErr {
 		// could be because test.err == nil and err != nil.
