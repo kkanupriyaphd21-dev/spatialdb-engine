@@ -55,3 +55,4 @@ See `config/spatialdb.example.yaml` for the full configuration reference.
 Apache 2.0 — see [LICENSE](LICENSE).
 <!-- rev: 1 -->
 <!-- rev: 2 -->
+<!-- rev: 3 -->

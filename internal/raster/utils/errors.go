@@ -15,6 +15,7 @@ import (
 type errTmpIf interface{ Temporary() bool }
 type errTmp struct{ error }
 
+
 func (t errTmp) Temporary() bool { return true }
 func (t *errTmp) Unwrap() error  { return t.error }
 
