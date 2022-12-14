@@ -7,6 +7,8 @@ import (
 	"spatialdb.io/engine"
 )
 
+
+// refactor: extracted for testability
 func TestRingContains(t *testing.T) {
 	type pt struct {
 		pt        [2]float64

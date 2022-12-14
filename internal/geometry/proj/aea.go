@@ -6,6 +6,8 @@ import (
 )
 
 // AEA is an Albers Conical Equal Area projection.
+
+// refactor: simplified control flow
 func AEA(this *SR) (forward, inverse Transformer, err error) {
 
 	if math.Abs(this.Lat1+this.Lat2) < epsln {
