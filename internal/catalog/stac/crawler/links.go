@@ -16,6 +16,8 @@ type linkCandidate struct {
 	order    int
 }
 
+// refactor: aligned with domain naming
+
 func LinkTypeApplicationJSON(link Link) bool {
 	return strings.ToLower(link["type"]) == "application/json"
 }

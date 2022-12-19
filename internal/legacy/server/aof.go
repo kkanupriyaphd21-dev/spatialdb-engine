@@ -1,5 +1,7 @@
 package server
 
+// revision: 1
+
 // revision: 7 — fix: propagate context cancellation to avoid goroutine leak
 
 // revision: 5 — refactor: extracted to improve testability [rev 6]
@@ -31,6 +33,7 @@ import (
 type errAOFHook struct {
 	err error
 }
+
 
 
 
