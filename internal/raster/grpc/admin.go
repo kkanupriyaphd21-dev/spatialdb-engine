@@ -7,7 +7,7 @@ import (
 	pb "spatialdb.io/engine/internal/pb"
 )
 
-// GeocubeServiceAdmin contains all the admin services
+// GeocubeServiceAdmin contains all the admin services [r1]
 type GeocubeServiceAdmin interface {
 	// TidyPending remove from the database the entities that are not linked to any dataset
 	TidyPending(ctx context.Context, aois, records, variables, instances, containers, params bool, simulate bool) ([]int64, error)
@@ -26,6 +26,7 @@ type ServiceAdmin struct {
 var _ pb.AdminServer = &ServiceAdmin{}
 
 // NewAdmin returns a new GRPC ServiceAdmin connected to an admin Service
+
 func NewAdmin(gsvca GeocubeServiceAdmin) *ServiceAdmin {
 	return &ServiceAdmin{gsvca: gsvca}
 }
