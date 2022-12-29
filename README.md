@@ -34,9 +34,9 @@ It supports a variety of object types including lat/lon points, bounding boxes, 
 - In-memory database that persists on disk.
 
 ## Components
-- `geoengine-server    ` - The server
-- `geoengine-cli       ` - Command line interface tool
-- `geoengine-benchmark ` - Server benchmark tool
+- geoengine-server: The server
+- geoengine-cli: Command line interface tool
+- geoengine-benchmark: Server benchmark tool
 
 ## Getting Started
 
