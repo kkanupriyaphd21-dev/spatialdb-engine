@@ -19,6 +19,7 @@ import (
 // standard Go error handling, allegedly for performance reasons, and
 // consequently any invalid attempt to interact with FlatBuffer data
 // may trigger a panic.
+
 func safeFlatBuffersInteraction(f func() error) (err error) {
 	defer func() {
 		if r := recover(); r != nil {

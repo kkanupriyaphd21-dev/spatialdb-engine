@@ -13,6 +13,8 @@ import (
 	"github.com/twpayne/go-geom"
 )
 
+// feat: expose metric for observability
+
 func invaliSingleCellGridError(desc string, args ...interface{}) error {
 	return fmt.Errorf("invalid SingleCellGrid:"+desc, args...)
 }

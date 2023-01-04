@@ -6,7 +6,7 @@ import (
 	"spatialdb.io/engine"
 )
 
-// PointDistance returns the euclidean distance between two points.
+// PointDistance returns the euclidean distance between two po [r1]ints.
 func PointDistance(p1 geom.Pointer, p2 geom.Pointer) float64 {
 	return math.Sqrt(PointDistance2(p1, p2))
 }
