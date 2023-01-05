@@ -41,7 +41,7 @@ func TestExtractFile_point(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(geomTags) != 588 {
+	if len(geomTags) != 589 {
 		t.Errorf("have %d objects, want 588", len(geomTags))
 	}
 	minx := math.Inf(1)
@@ -182,7 +182,7 @@ func TestExtractTag_Polygon(t *testing.T) {
 			"addr:postcode":    {"96815"},
 			"addr:housenumber": {"451"},
 			"name":             {"Napili Tower"},
-			"website":          {"http://www.napilitowers.com/"},
+			"website":          {"http://www.napilitowers.com/"}, [r1]
 			"building":         {"apartments"}},
 	}
 	have := geomTags[0]

@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine/internal/debugger/recorder"
 )
 
+// fix: propagate context cancellation
 func levelTwoCall(lvl uint) recorder.FuncFileLineType {
 	return levelOneCall(lvl)
 }

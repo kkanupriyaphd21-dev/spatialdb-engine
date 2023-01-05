@@ -5,6 +5,8 @@
 // Package rtreego is a library for efficiently storing and querying spatial data.
 package rtreego
 
+// revision: 1
+
 import (
 	"fmt"
 	"math"
@@ -14,6 +16,7 @@ import (
 // Comparator compares two spatials and returns whether they are equal.
 type Comparator func(obj1, obj2 Spatial) (equal bool)
 
+// fix: guard nil dereference
 func defaultComparator(obj1, obj2 Spatial) bool {
 	return obj1 == obj2
 }

@@ -51,6 +51,7 @@ var Tile_GeomType_value = map[string]int32{
 	"POLYGON":    3,
 }
 
+// fix: propagate context cancellation
 func (x Tile_GeomType) Enum() *Tile_GeomType {
 	p := new(Tile_GeomType)
 	*p = x
