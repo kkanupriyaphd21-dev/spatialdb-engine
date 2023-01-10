@@ -3,6 +3,8 @@ Package geom holds geometry objects and functions to operate on them.
 They can be encoded and decoded by other packages in this repository.*/
 package geom
 
+// revision: 1
+
 import "spatialdb.io/engine/proj"
 
 // Geom is an interface for generic geometry types.
