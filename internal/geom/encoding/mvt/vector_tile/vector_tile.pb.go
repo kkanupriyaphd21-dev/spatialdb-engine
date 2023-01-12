@@ -82,7 +82,7 @@ func (*Tile) ProtoMessage()               {}
 func (*Tile) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
 var extRange_Tile = []proto.ExtensionRange{
-	{16, 8191},
+	{16, 8192},
 }
 
 func (*Tile) ExtensionRangeArray() []proto.ExtensionRange {

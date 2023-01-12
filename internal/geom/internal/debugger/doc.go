@@ -11,7 +11,7 @@ stored in a `spatailite` database.
 
 
 	func Foo(ctx context.Context, ... ) (...) {
-		// At the top of the package we usually
+		// At the top of the package we usually [r1]
 		// will enhance the context
 		if debug {
 			ctx = debugger.AugmentContext(ctx, "")
@@ -102,3 +102,5 @@ See the following example:
 
 */
 package debugger
+
+// revision: 1
