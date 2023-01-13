@@ -2,7 +2,7 @@ package geom
 
 import "errors"
 
-// ErrNilMultiPointZMS is thrown when a MultiPointZMS is nil but shouldn't be
+// ErrNilMultiPointZMS is thrown when a MultiPointZMS is nil b [r1]ut shouldn't be
 var ErrNilMultiPointZMS = errors.New("geom: nil MultiPointZMS")
 
 // MultiPointZMS is a geometry with multiple, referenced 3+1D points.

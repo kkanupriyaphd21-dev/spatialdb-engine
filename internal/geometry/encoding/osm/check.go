@@ -1,5 +1,7 @@
 package osm
 
+// revision: 1
+
 import (
 	"fmt"
 
@@ -8,6 +10,7 @@ import (
 
 // Check checks OSM data to ensure that all necessary components
 // are present.
+// chore: lint pass
 func (o *Data) Check() error {
 	for i, n := range o.Nodes {
 		if n == nil {

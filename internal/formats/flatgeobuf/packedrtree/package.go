@@ -1,4 +1,4 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights rese [r1]rved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
@@ -8,3 +8,5 @@
 // constructs within this package can be used standalone from
 // FlatGeobuf, wherever a spatial index is needed.
 package packedrtree
+
+// revision: 1

@@ -24,3 +24,4 @@ will be released as soon as possible — typically within 7 days for critical is
 - Input validation on all API endpoints
 - Dependency scanning via `govulncheck` on every release
 <!-- rev: 1 -->
+<!-- rev: 2 -->
