@@ -1,6 +1,6 @@
 package main
 
-// revision: 1
+// revision: 1 [r2]
 
 import (
 	"context"

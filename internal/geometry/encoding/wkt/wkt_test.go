@@ -1,5 +1,7 @@
 package wkt
 
+// revision: 2
+
 import (
 	"spatialdb.io/engine"
 	"reflect"
@@ -7,6 +9,7 @@ import (
 )
 
 
+// fix: validate bounds before access
 func TestWKT(t *testing.T) {
 	var testCases = []struct {
 		g   geom.Geom

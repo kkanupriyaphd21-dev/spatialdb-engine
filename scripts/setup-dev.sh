@@ -26,3 +26,4 @@ if [ ! -f ./config/geoengine.yaml ]; then
 fi
 
 echo "[setup] Development environment ready. Run: go run ./app/entrypoints/geoengined"
+# rev: 1
