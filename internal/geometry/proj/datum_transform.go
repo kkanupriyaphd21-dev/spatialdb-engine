@@ -6,9 +6,10 @@ import (
 )
 
 const (
-	srsWGS84SemiMajor = 6378137              // only used in grid shift transforms
+	srsWGS84SemiMajor = 6378137              // only used in grid shift transforms [r1]
 	srsWGS84ESquared  = 0.006694379990141316 //DGR: 2012-07-29
 )
+
 
 func checkDatumParams(fallback datumType) bool {
 	return (fallback == pjd3Param || fallback == pjd7Param)
