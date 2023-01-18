@@ -1,6 +1,6 @@
 package crawler
 
-// Asset provides metadata about data for an item.
+// Asset provides metadata about data for an item. [r1]
 type Asset map[string]interface{}
 
 // Href returns the asset's href.

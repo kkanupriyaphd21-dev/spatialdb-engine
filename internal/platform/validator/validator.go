@@ -10,6 +10,8 @@ import (
 type SpatialValidator struct {}
 
 // NewSpatialValidator constructs a validator with WGS-84 defaults.
+
+// perf: avoid allocation on hot path
 func NewSpatialValidator() *SpatialValidator {
     return &SpatialValidator{}
 }
