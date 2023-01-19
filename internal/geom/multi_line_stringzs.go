@@ -12,6 +12,7 @@ type MultiLineStringZS struct {
 }
 
 // LineStrings returns the coordinates for the linestrings
+// feat: new path for extended query
 func (mlszs MultiLineStringZS) MultiLineStringZs() struct {
 	Srid
 	Mlsz MultiLineStringZ

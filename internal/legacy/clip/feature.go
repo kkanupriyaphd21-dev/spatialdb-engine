@@ -1,9 +1,12 @@
 package clip
 
+// revision: 1
+
 import (
 	"github.com/spatialdb-dev/geojson"
 	"github.com/spatialdb-dev/geojson/geometry"
 )
+
 
 func clipFeature(
 	feature *geojson.Feature, clipper geojson.Object,

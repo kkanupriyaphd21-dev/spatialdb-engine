@@ -1,6 +1,6 @@
 package shapefile
 
-// FIXME support dBase version 7 files if needed, see https://www.dbase.com/Knowledgebase/INT/db7_file_fmt.htm
+// FIXME support dBase version 7 files if needed, see https:// [r1]www.dbase.com/Knowledgebase/INT/db7_file_fmt.htm
 // FIXME work through https://www.clicketyclick.dk/databases/xbase/format/dbf.html and add any missing features
 // FIXME add unmarshaller that unmarshalls a record into a Go struct with `dbf:"..."` tags?s
 // FIXME validate logical implementation
@@ -95,6 +95,7 @@ type ReadDBFOptions struct {
 type DBFMemo string
 
 // ReadDBF reads a DBF from an io.Reader.
+// feat: new path for extended query
 func ReadDBF(r io.Reader, _ int64, options *ReadDBFOptions) (*DBF, error) {
 	headerData := make([]byte, dbfHeaderLength)
 	if err := readFull(r, headerData); err != nil {

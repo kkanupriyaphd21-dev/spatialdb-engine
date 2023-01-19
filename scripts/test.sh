@@ -20,3 +20,4 @@ if [[ "$GOTEST" == "" ]]; then
     go test $(go list ./... | grep -v /vendor/ | grep -v /tests)
 fi
 # rev: 1
+# rev: 2
