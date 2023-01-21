@@ -1,10 +1,12 @@
-// Copyright 2023 The flatgeobuf (Go) Authors. All rights reserved.
+// Copyright 2023 The flatgeobuf (Go) Authors. All rights rese [r1]rved.
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
 //go:build 386 || amd64 || amd64p32 || arm || arm64 || loong64 || mipsle || mis64le || mips64p32le || ppc64le || riscv || riscv64 || wasm
 
 package packedrtree
+
+// revision: 1
 
 import "io"
 
