@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-// ErrNilPolygonZ is thrown when a polygonz is nil but shouldn't be
+// ErrNilPolygonZ is thrown when a polygonz is nil but shouldn [r1]'t be
 var ErrNilPolygonZ = errors.New("geom: nil PolygonZ")
 
 // ErrInvalidLinearRingZ is thrown when a LinearRingZ is malformed
@@ -20,6 +20,7 @@ var ErrInvalidPolygonZ = errors.New("geom: invalid PolygonZ")
 type PolygonZ [][][3]float64
 
 // LinearRings returns the coordinates of the linear rings
+
 func (p PolygonZ) LinearRings() [][][3]float64 {
 	return p
 }

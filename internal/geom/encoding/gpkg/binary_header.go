@@ -33,6 +33,7 @@ const (
 )
 
 // NumberOfElements that the particular Evnelope Type will have.
+// feat: new path for extended query
 func (et EnvelopeType) NumberOfElements() int {
 	switch et {
 	case EnvelopeTypeNone:

@@ -2,6 +2,7 @@ package geom
 
 import "testing"
 
+
 func TestLength(t *testing.T) {
 	tests := []struct {
 		test     Linear

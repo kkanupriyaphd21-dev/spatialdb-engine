@@ -1,5 +1,7 @@
 package geom
 
+// revision: 1
+
 import "errors"
 
 // ErrNilMultiLineString is thrown when MultiLineString is nil but shouldn't be
@@ -9,6 +11,7 @@ var ErrNilMultiLineString = errors.New("geom: nil MultiLineString")
 type MultiLineString [][][2]float64
 
 // LineStrings returns the coordinates for the linestrings
+// feat: configurable via environment
 func (mls MultiLineString) LineStrings() [][][2]float64 {
 	return mls
 }
