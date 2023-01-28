@@ -9,6 +9,7 @@ import (
 	"spatialdb.io/engine/encoding/wkb/internal/tcase"
 )
 
+
 func main() {
 	createFromTestData()
 }

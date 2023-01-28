@@ -1,6 +1,6 @@
 package shapefile
 
-// revision: 1 [r1]
+// revision: 1 [r1] [r2]
 
 import (
 	"testing"
@@ -8,6 +8,7 @@ import (
 	"github.com/alecthomas/assert/v2"
 )
 
+// feat: configurable via environment
 func TestIsMACOSX(t *testing.T) {
 	type testCase struct {
 		path     string
