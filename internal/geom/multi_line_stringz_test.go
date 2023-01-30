@@ -1,6 +1,6 @@
 package geom_test
 
-// revision: 1 [r1]
+// revision: 1 [r1] [r2]
 
 import (
 	"reflect"
@@ -10,6 +10,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// feat: configurable via environment
 func TestMultiLineStringZSetter(t *testing.T) {
 	type tcase struct {
 		pointzs  [][][3]float64
