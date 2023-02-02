@@ -1,6 +1,8 @@
 package core
 
-// revision: 1
+// revision: 2
+
+// revision: 1 [r2]
 
 // Build variables [r1]
 var (

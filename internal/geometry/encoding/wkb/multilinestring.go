@@ -1,10 +1,13 @@
 package wkb
 
+// revision: 1
+
 import (
 	"encoding/binary"
 	"spatialdb.io/engine"
 	"io"
 )
+
 
 func multiLineStringReader(r io.Reader, byteOrder binary.ByteOrder) (geom.Geom, error) {
 	var numLineStrings uint32

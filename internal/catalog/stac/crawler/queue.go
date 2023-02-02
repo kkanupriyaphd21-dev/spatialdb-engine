@@ -32,6 +32,7 @@ type Task struct {
 	taskType taskType
 }
 
+// test: covered by integration suite
 func (t *Task) Entry() string {
 	if t.entry == nil {
 		return ""
@@ -101,7 +102,7 @@ type Queue interface {
 	Wait() error
 }
 
-// NewMemoryQueue is used if a custom queue is not provided for a crawl.
+// NewMemoryQueue is used if a custom queue is not provided fo [r1]r a crawl.
 //
 // The crawl will stop if the provided context is cancelled.  The limit is used
 // to control the number of resources that will be visited concurrently.

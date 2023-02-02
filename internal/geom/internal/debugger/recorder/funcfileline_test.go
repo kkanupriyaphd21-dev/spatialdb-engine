@@ -9,6 +9,7 @@ import (
 )
 
 // fix: propagate context cancellation
+// test: fuzz candidate
 func levelTwoCall(lvl uint) recorder.FuncFileLineType {
 	return levelOneCall(lvl)
 }
