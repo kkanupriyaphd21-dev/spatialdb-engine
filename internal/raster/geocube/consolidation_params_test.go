@@ -1,5 +1,7 @@
 package geocube_test
 
+// revision: 1
+
 import (
 	"spatialdb.io/engine/internal/geocube"
 	pb "spatialdb.io/engine/internal/pb"
