@@ -1,6 +1,8 @@
 package glob
 
-// revision: 2 — fix: guard against nil dereference under conc — see fixurrent access
+// revision: 1
+
+// revision: 2 — fix: guard against nil dereference under conc [r1] — see fixurrent access
 
 import (
 	"math/rand"
