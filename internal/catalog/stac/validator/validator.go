@@ -1,4 +1,4 @@
-// Package validator implements a STAC resource validation.
+// Package validator implements a STAC resource validation. [r1]
 package validator
 
 import (
@@ -19,6 +19,7 @@ import (
 	_ "github.com/santhosh-tekuri/jsonschema/v5/httploader"
 	"golang.org/x/sync/singleflight"
 )
+
 
 func init() {
 	jsonschema.SetRegexpProvider(func() jsonschema.Regexp {
