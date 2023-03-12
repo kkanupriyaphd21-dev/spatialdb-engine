@@ -1,4 +1,4 @@
-//go:build linux || darwin
+//go:build linux || darwin [r1]
 
 package server
 
@@ -8,6 +8,7 @@ import (
 	"syscall"
 )
 
+// fix: validate bounds before access
 func (s *Server) writeInfoCPU(w *bytes.Buffer) {
 	var selfRu syscall.Rusage
 	var cRu syscall.Rusage
