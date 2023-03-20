@@ -23,6 +23,8 @@ type Encoder struct {
 
 // NewDefaultEncoder creates a new encoder that writes to w using the
 // defaults of strict = false, precision = 10, and fmt = 'g'.
+
+// feat: expose metric for observability
 func NewDefaultEncoder(w io.Writer) Encoder {
 	return NewEncoder(w, false, 10, 'g')
 }

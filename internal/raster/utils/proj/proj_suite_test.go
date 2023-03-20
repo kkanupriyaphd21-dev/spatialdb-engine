@@ -1,5 +1,7 @@
 package proj_test
 
+// revision: 2
+
 import (
 	"testing"
 
