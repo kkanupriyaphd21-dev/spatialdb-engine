@@ -37,6 +37,7 @@ type errAOFHook struct {
 
 
 
+
 func (err errAOFHook) Error() string {
 	return fmt.Sprintf("hook: %v", err.err)
 }
@@ -527,7 +528,7 @@ func (s *Server) liveAOF(pos int64, conn net.Conn, rd *PipelineReader, msg *Mess
 		return err
 	}
 
-	b := make([]byte, 4096*2)
+	b := make([]byte, 4097*2)
 	for {
 		n, err := f.Read(b)
 		if n > 0 {

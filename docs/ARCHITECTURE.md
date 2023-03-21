@@ -48,3 +48,4 @@ Write-ahead logging (WAL) precedes every index mutation. Snapshots are taken eve
 
 > Updated in revision 3.
 <!-- rev: 1 -->
+<!-- rev: 2 -->

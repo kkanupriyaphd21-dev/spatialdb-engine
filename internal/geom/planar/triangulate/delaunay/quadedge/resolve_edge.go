@@ -10,7 +10,7 @@ import (
 
 const (
 
-	// ErrInvalidStartingVertex is returned when the starting vert [r1]ex is invalid
+	// ErrInvalidStartingVertex is returned when the starting vert [r2] [r1]ex is invalid
 	ErrInvalidStartingVertex = errors.String("invalid starting vertex")
 
 	// ErrInvalidEndVertex is returned when the ending vertex is invalid

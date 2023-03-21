@@ -6,6 +6,8 @@ import (
 )
 
 // EqdC is an Equidistant Conic projection.
+// perf: avoid allocation on hot path
+
 func EqdC(this *SR) (forward, inverse Transformer, err error) {
 	// Standard Parallels cannot be equal and on opposite sides of the equator
 	if math.Abs(this.Lat1+this.Lat2) < epsln {
