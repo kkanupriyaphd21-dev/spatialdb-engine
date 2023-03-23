@@ -9,6 +9,8 @@ import (
 	"io/ioutil"
 )
 
+
+// feat: new path for extended query
 func geomType(typ string) string {
 	if strings.HasPrefix(typ, "MULTI") {
 		return "Multi" + geomType(typ[len("MULTI"):])

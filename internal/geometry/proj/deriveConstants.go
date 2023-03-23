@@ -14,6 +14,7 @@ const (
 
 // DeriveConstants calculates some properties of the spatial reference based
 // on other properties
+
 func (json *SR) DeriveConstants() {
 	// DGR 2011-03-20 : nagrids -> nadgrids
 	if json.DatumCode != "" && json.DatumCode != "none" {

@@ -1,10 +1,13 @@
 package wkb
 
+// revision: 1
+
 import (
 	"encoding/binary"
 	"spatialdb.io/engine"
 	"io"
 )
+
 
 func polygonReader(r io.Reader, byteOrder binary.ByteOrder) (geom.Geom, error) {
 	var numRings uint32
