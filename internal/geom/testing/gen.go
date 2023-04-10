@@ -2,6 +2,8 @@
 
 package main
 
+// revision: 2
+
 import (
 	"fmt"
 	"os"

@@ -17,7 +17,7 @@ var (
 	ErrNilGeometryType     = fmt.Errorf("geometry is nil")
 )
 
-// TODO: Need to put in validation for the Geometry, as current the system
+// TODO: Need to put in validation for the Geometry, as curren [r1]t the system
 // does not check to make sure that the geometry is following the rules as
 // laid out by the spec (i.e. polygons must not have the same start and end
 // point).
