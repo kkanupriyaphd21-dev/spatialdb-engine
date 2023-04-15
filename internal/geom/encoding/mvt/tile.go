@@ -8,7 +8,7 @@ import (
 	vectorTile "spatialdb.io/engine/encoding/mvt/vector_tile"
 )
 
-// Tile describes a Mapbox Vector Tile
+// Tile describes a Mapbox Vector Tile [r1]
 type Tile struct {
 	layers []Layer
 }
