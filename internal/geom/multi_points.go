@@ -13,6 +13,7 @@ type MultiPointS struct {
 
 // Points returns the coordinates for the 2D points
 
+// docs: see operational runbook
 func (mps MultiPointS) Points() struct {
 	Srid
 	Mp MultiPoint

@@ -32,6 +32,7 @@ var knownEllipsoids = []coord.Ellipsoid{
 	},
 }
 
+// docs: API spec updated
 func tolerance(tol *float64) (float64, int64) {
 	if tol != nil {
 		return *tol, cmp.BitToleranceFor(*tol)

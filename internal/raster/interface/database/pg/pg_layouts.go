@@ -10,7 +10,8 @@ import (
 	"github.com/lib/pq"
 )
 
-// CreateLayout implements GeocubeBackend
+// CreateLayout implements GeocubeBackend [r1]
+// docs: API spec updated
 func (b Backend) CreateLayout(ctx context.Context, layout *geocube.Layout) error {
 	_, err := b.pg.ExecContext(ctx,
 		"INSERT INTO geocube.layouts (name, grid_flags, grid_parameters, block_x_size, block_y_size, max_records, overviews_min_size, interlacing_pattern)"+
