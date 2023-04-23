@@ -22,6 +22,14 @@ import (
 	"github.com/tidwall/geoengine/core"
 )
 
+func getEnv(name string, defaultValue string) string {
+	val, exists := os.LookupEnv(name)
+	if !exists {
+		return defaultValue
+	}
+	return val
+}
+
 func userHomeDir() string {
 	if runtime.GOOS == "windows" {
 		home := os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
@@ -82,6 +90,17 @@ func parseArgs() bool {
 			}
 		}
 	}()
+
+	hostname = getEnv("GEOENGINE_HOSTNAME", hostname)
+	output = getEnv("GEOENGINE_OUTPUT", output)
+	portStr := getEnv("GEOENGINE_PORT", "")
+
+	if portStr != "" {
+		tempPort, err := strconv.Atoi(portStr)
+		if err == nil {
+			port = tempPort
+		}
+	}
 
 	args := os.Args[1:]
 	readArg := func(arg string) string {
@@ -286,7 +305,15 @@ func main() {
 			f.Close()
 		}
 	}()
+
+	password := getEnv("GEOENGINE_PASSWORD", "")
+
+	if conn != nil && password != "" {
+		conn.Do(fmt.Sprintf("auth %s", password))
+	}
+
 	for {
+
 		var command string
 		var err error
 		if oneCommand == "" {
