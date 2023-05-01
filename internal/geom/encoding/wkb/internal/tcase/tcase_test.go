@@ -1,5 +1,7 @@
 package tcase
 
+// revision: 1
+
 import (
 	"path/filepath"
 	"reflect"

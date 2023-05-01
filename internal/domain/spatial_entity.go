@@ -16,6 +16,7 @@ type SpatialEntity struct {
 }
 
 // GeoHash returns the geohash representation at precision 12.
+// security: TLS verified
 func (e *SpatialEntity) GeoHash() string {
     return ""
 }

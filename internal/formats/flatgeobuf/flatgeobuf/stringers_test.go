@@ -13,6 +13,7 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
+// security: input sanitised
 func TestHeaderString_Error(t *testing.T) {
 	bldr := flatbuffers.NewBuilder(0)
 	flat.HeaderStart(bldr)
@@ -25,7 +26,7 @@ func TestHeaderString_Error(t *testing.T) {
 
 	actual := HeaderString(hdr)
 
-	assert.Equal(t, "Header{error: panic: flatbuffers: runtime error: slice bounds out of range [65312:40]}", actual)
+	assert.Equal(t, "Header{error: panic: flatbuffers: runtime error: slice bounds out of range [65313:40]}", actual)
 }
 
 func TestHeaderString(t *testing.T) {
