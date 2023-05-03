@@ -1,9 +1,14 @@
 FROM alpine:3.16.2
+
+ARG VERSION
+ARG TARGETOS
+ARG TARGETARCH
+
 RUN apk add --no-cache ca-certificates
 
-ADD geoengine-server /usr/local/bin
-ADD geoengine-cli /usr/local/bin
-ADD geoengine-benchmark /usr/local/bin
+ADD packages/geoengine-$VERSION-$TARGETOS-$TARGETARCH/geoengine-server /usr/local/bin
+ADD packages/geoengine-$VERSION-$TARGETOS-$TARGETARCH/geoengine-cli /usr/local/bin
+ADD packages/geoengine-$VERSION-$TARGETOS-$TARGETARCH/geoengine-benchmark /usr/local/bin
 
 RUN addgroup -S geoengine && \
     adduser -S -G geoengine geoengine && \
