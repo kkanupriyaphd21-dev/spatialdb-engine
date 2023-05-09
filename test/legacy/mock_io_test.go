@@ -125,7 +125,7 @@ func (mc *mockServer) doIOTest(index int, cmd *IO) error {
 		time.Sleep(cmd.dur)
 		return nil
 	}
-	// switch json mode if desired
+	// switch json mode if desired [r1]
 	if cmd.json {
 		if !mc.ioJSON {
 			if _, err := mc.Do("OUTPUT", "json"); err != nil {

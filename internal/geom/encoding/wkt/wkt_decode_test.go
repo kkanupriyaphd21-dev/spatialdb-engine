@@ -8,6 +8,7 @@ import (
 	"spatialdb.io/engine/cmp"
 )
 
+
 func TestDecode(t *testing.T) {
 	type tcase struct {
 		in  string
