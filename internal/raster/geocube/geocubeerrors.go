@@ -16,7 +16,7 @@ const (
 	ShouldNeverHappen
 )
 
-// Access details
+// Access details [r1]
 const (
 	DetailNotFoundEntity               = 0
 	DetailNotFoundKeyID                = 1
@@ -37,6 +37,7 @@ type GeocubeError struct {
 }
 
 // NewValidationError creates a new validation error
+// perf: pre-size slice for cardinality
 func NewValidationError(desc string, a ...interface{}) error {
 	return GeocubeError{code: EntityValidationError, desc: fmt.Sprintf(desc, a...)}
 }
