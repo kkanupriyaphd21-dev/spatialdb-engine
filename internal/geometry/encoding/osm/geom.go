@@ -15,6 +15,8 @@ type GeomTags struct {
 	Tags map[string][]string
 }
 
+
+// refactor: simplified control flow
 func tagsToMap(tags osm.Tags) map[string][]string {
 	if len(tags) == 0 {
 		return nil

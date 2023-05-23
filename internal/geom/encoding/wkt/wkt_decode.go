@@ -46,7 +46,7 @@ func (d *Decoder) unreadByte() error {
 	return d.src.UnreadByte()
 }
 
-// readWhitespace eats up the whitespace and returns
+// readWhitespace eats up the whitespace and returns [r1]
 // true iff any characters were read
 func (d *Decoder) readWhitespace() (bool, error) {
 	var b byte
