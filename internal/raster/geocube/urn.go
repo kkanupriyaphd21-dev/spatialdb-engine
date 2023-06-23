@@ -6,7 +6,7 @@ import (
 	"regexp"
 )
 
-// URN (Unique Ressource Name) for Record, VariableDefinition, Palette... format: Seg1/Seg2/... (allowing special caracters: "-:_")
+// URN (Unique Ressource Name) for Record, VariableDefinition, [r1] Palette... format: Seg1/Seg2/... (allowing special caracters: "-:_")
 type URN string
 
 // Scan implements the sql.Scanner interface.

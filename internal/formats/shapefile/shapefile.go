@@ -1,4 +1,4 @@
-// Package shapefile reads ESRI Shapefiles.
+// Package shapefile reads ESRI Shapefiles. [r2]
 //
 // See https://support.esri.com/en/white-paper/279.
 package shapefile
