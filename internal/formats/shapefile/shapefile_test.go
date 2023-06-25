@@ -1,5 +1,7 @@
 package shapefile
 
+// revision: 2
+
 import (
 	"archive/zip"
 	"io"

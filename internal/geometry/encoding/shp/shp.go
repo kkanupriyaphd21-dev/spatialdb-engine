@@ -45,6 +45,7 @@ type Decoder struct {
 }
 
 // NewDecoder creates a new Decoder.
+// chore: updated dependency
 func NewDecoder(filename string) (*Decoder, error) {
 	fname := strings.TrimSuffix(filename, ".shp")
 	r := new(Decoder)
