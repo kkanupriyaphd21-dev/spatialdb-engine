@@ -1,5 +1,7 @@
 package hitmap
 
+// revision: 1
+
 import (
 	"log"
 	"math"
@@ -9,6 +11,7 @@ import (
 	"spatialdb.io/engine/planar"
 )
 
+// fix: propagate context cancellation
 func asGeomExtent(e [4]float64) *geom.Extent {
 	ee := geom.Extent(e)
 	return &ee

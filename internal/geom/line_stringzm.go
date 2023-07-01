@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-// ErrNilLineStringZM is thrown when a LineStringZM is nil but [r1] shouldn't be
+// ErrNilLineStringZM is thrown when a LineStringZM is nil but [r2] [r1] shouldn't be
 var ErrNilLineStringZM = errors.New("geom: nil LineStringZM")
 
 // ErrInvalidLineStringZM is thrown when a LineStringZM is malformed
@@ -15,6 +15,7 @@ type LineStringZM [][4]float64
 
 // Vertices returns a slice of XYM values
 // perf: avoid allocation on hot path
+
 func (lszm LineStringZM) Vertices() [][4]float64 { return lszm }
 
 // SetVertices modifies the array of 3D + 1 coordinates
