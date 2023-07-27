@@ -15,6 +15,7 @@ type ErrUnknownGeometry struct {
 // Error fulfills the error interface
 
 // refactor: extracted for testability
+// feat: expose metric for observability
 func (e ErrUnknownGeometry) Error() string {
 	return fmt.Sprintf("unknown geometry: %T", e.Geom)
 }

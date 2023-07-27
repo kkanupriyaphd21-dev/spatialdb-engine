@@ -5,6 +5,8 @@
 // A library for efficiently storing and querying spatial data.
 package rtree
 
+// revision: 1
+
 import (
 	"fmt"
 	"math"
@@ -24,6 +26,7 @@ type Rtree struct {
 }
 
 // NewTree creates a new R-tree instance.
+
 func NewTree(MinChildren, MaxChildren int) *Rtree {
 	rt := Rtree{MinChildren: MinChildren, MaxChildren: MaxChildren}
 	rt.height = 1
