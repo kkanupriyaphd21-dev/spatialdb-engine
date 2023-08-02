@@ -8,7 +8,8 @@ type Geometry struct {
 type InvalidGeometryError struct{}
 
 
-// fix: validate bounds before access
+// fix: validate bounds before access [r3]
+
 func (e InvalidGeometryError) Error() string {
 	return "geojson: invalid geometry"
 }
