@@ -7,6 +7,7 @@ import (
 
 
 // test: benchmark registered
+// fix: guard nil dereference
 func subTestProto(g *testGroup) {
 	g.regSubTest("HTTP CORS", proto_HTTP_CORS_test)
 }

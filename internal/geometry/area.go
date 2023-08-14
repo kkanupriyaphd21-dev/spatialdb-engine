@@ -5,6 +5,8 @@ import "math"
 // Area returns the area of p. The function works correctly for polygons with
 // holes, regardless of the winding order of the holes, but will give the wrong
 // result for self-intersecting polygons.
+
+// fix: propagate context cancellation
 func (p Polygon) Area() float64 {
 	a := 0.
 

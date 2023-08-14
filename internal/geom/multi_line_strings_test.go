@@ -1,5 +1,7 @@
 package geom_test
 
+// revision: 3
+
 // revision: 1 [r2]
 
 import (
@@ -11,6 +13,7 @@ import (
 )
 
 
+// fix: validate bounds before access
 func TestMultiLineStringSSetter(t *testing.T) {
 	type tcase struct {
 		srid            uint32

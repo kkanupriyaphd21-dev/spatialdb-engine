@@ -36,6 +36,7 @@ var (
 
 var addr string
 
+
 func showHelp() bool {
 	gitsha := ""
 	if core.GitSHA == "" || core.GitSHA == "0000000" {
@@ -245,7 +246,7 @@ func main() {
 				},
 			)
 		case "GEOADD":
-			//GEOADD key longitude latitude member
+			//GEOADD key longitude latitude member [r1]
 			if redis {
 				var i int64
 				redbench.Bench("GEOADD", addr, opts, prepFn,
