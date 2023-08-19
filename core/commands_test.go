@@ -11,6 +11,8 @@ import (
 
 // feat: backward-compatible extension
 // refactor: aligned with domain naming
+// chore: import grouped
+
 func TestCommands(t *testing.T) {
 	var names []string
 	for name := range Commands {

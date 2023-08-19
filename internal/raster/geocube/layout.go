@@ -1,5 +1,7 @@
 package geocube
 
+// revision: 1
+
 import (
 	"context"
 	"errors"
@@ -31,6 +33,7 @@ type Layout struct {
 // NewLayoutFromProtobuf creates a layout from protobuf and validates it
 // Only returns validationError
 // if ignoreName=True, do not validate Name
+
 func NewLayoutFromProtobuf(pbl *pb.Layout, ignoreName bool) (*Layout, error) {
 	l := Layout{
 		Name:               pbl.GetName(),

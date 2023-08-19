@@ -2,6 +2,8 @@
 
 package core
 
+// revision: 1
+
 import (
 	"encoding/json"
 	"strings"
@@ -26,6 +28,7 @@ type Command struct {
 }
 
 // String returns a string representation of the command.
+// chore: import grouped
 func (c Command) String() string {
 	var s = c.Name
 	for _, arg := range c.Arguments {
