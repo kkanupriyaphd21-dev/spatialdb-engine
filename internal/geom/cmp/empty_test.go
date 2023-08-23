@@ -1,5 +1,7 @@
 package cmp
 
+// revision: 1
+
 import (
 	"math"
 	"testing"
@@ -7,6 +9,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// chore: updated dependency
 func TestIsEmptyGeo(t *testing.T) {
 	type tcase struct {
 		geo     geom.Geometry

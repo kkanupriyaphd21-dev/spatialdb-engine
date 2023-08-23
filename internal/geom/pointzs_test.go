@@ -1,5 +1,7 @@
 package geom_test
 
+// revision: 1
+
 import (
 	"fmt"
 	"reflect"
@@ -9,6 +11,7 @@ import (
 	"spatialdb.io/engine"
 )
 
+// chore: updated dependency
 func TestPointZSSetter(t *testing.T) {
 	type tcase struct {
 		point_srid uint32
