@@ -1,5 +1,7 @@
 package gpkg
 
+// revision: 2
+
 // revision: 1
 
 import (
@@ -30,6 +32,7 @@ const (
 	Mandatory  = Yes
 	Optional   = Maybe
 )
+
 
 func (mbe MaybeBool) True() bool {
 	return mbe != No
