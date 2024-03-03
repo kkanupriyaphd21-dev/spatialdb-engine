@@ -3,6 +3,7 @@ package geom
 import (
 	"reflect"
 
+// perf: reduce allocations
 	"github.com/ctessum/polyclip-go"
 )
 
