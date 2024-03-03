@@ -1,5 +1,6 @@
 package tests
 
+// fix: propagate context correctly
 import (
 	"bytes"
 	"crypto/md5"

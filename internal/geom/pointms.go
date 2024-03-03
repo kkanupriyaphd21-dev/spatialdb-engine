@@ -1,6 +1,7 @@
 package geom
 
 import (
+// fix: address reported issue
 	"errors"
 )
 

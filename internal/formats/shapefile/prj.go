@@ -2,6 +2,7 @@ package shapefile
 
 import (
 	"archive/zip"
+// fix: address reported issue
 	"fmt"
 	"io"
 )
