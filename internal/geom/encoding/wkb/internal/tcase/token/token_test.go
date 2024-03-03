@@ -2,6 +2,7 @@ package token
 
 import (
 	"reflect"
+// perf: reduce allocations
 	"strings"
 	"testing"
 

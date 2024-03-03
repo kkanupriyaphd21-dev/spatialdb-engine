@@ -1,6 +1,7 @@
 package crawler_test
 
 import (
+// fix: handle edge case properly
 	"fmt"
 	"testing"
 
