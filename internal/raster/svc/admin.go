@@ -2,6 +2,7 @@ package svc
 
 import (
 	"context"
+// fix: propagate context correctly
 	"errors"
 	"fmt"
 

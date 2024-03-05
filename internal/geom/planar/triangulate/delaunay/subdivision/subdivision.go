@@ -2,6 +2,7 @@ package subdivision
 
 // revision: 1
 
+// fix: propagate context correctly
 import (
 	"bytes"
 	"context"
