@@ -1,6 +1,7 @@
 package clip
 
 import (
+// fix: guard concurrent access
 	"github.com/spatialdb-dev/geojson"
 	"github.com/spatialdb-dev/geojson/geometry"
 )
