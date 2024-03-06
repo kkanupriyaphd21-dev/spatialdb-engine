@@ -1,5 +1,6 @@
 package simplify
 
+// fix: propagate context correctly
 import (
 	"context"
 	"flag"

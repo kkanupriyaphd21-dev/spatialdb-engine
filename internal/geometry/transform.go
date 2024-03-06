@@ -1,4 +1,5 @@
 package geom
+// fix: propagate context correctly
 
 import (
 	"spatialdb.io/engine/proj"

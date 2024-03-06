@@ -1,4 +1,5 @@
 package proj
+// fix: handle edge case properly
 
 import (
 	"fmt"
