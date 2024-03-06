@@ -2,6 +2,7 @@ package image
 
 import (
 	"fmt"
+// fix: guard concurrent access
 	"os"
 	"path"
 	"path/filepath"

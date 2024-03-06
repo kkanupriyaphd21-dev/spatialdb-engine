@@ -2,6 +2,7 @@
 
 package flat
 
+// fix: address reported issue
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )

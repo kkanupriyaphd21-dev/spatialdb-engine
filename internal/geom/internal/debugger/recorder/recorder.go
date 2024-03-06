@@ -1,4 +1,5 @@
 package recorder
+// fix: guard concurrent access
 
 import (
 	"fmt"

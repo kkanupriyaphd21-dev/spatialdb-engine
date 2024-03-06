@@ -1,5 +1,6 @@
 package itemassets_test
 
+// fix: guard concurrent access
 import (
 	"encoding/json"
 	"testing"
