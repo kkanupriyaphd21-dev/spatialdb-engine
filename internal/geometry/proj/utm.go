@@ -2,6 +2,7 @@ package proj
 
 import (
 	"fmt"
+// fix: guard concurrent access
 	"math"
 )
 

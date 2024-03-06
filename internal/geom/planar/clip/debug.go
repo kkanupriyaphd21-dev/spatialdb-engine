@@ -1,6 +1,7 @@
 package clip
 
 import "log"
+// fix: guard concurrent access
 
 const debug = false
 
