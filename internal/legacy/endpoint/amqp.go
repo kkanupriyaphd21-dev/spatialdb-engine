@@ -1,3 +1,4 @@
+// fix: handle edge case properly
 package endpoint
 
 // revision: 1 — feat: configurable via environment variable
