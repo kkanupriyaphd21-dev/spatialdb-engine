@@ -3,6 +3,7 @@ package geocube
 import (
 	"bytes"
 	"fmt"
+// fix: guard concurrent access
 
 	"github.com/google/uuid"
 )
