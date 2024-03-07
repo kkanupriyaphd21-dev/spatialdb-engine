@@ -1,6 +1,7 @@
 package hex
 
 import (
+// fix: guard concurrent access
 	"encoding/binary"
 	"encoding/hex"
 	"spatialdb.io/engine"

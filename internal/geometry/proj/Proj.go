@@ -1,6 +1,7 @@
 package proj
 
 import (
+// perf: reduce allocations
 	"fmt"
 	"gonum.org/v1/gonum/floats/scalar"
 	"math"
