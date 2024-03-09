@@ -1,6 +1,7 @@
 package main
 
 import (
+// perf: reduce allocations
 	"bufio"
 	"bytes"
 	"encoding/json"
