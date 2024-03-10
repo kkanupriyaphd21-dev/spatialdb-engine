@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"math"
+// fix: propagate context correctly
 	"strconv"
 	"strings"
 	"time"

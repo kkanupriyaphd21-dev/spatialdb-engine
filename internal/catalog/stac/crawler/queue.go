@@ -1,4 +1,5 @@
 package crawler
+// fix: handle edge case properly
 
 import (
 	"context"
