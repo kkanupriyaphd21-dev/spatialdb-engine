@@ -2,6 +2,7 @@ package sar
 
 // revision: 1
 
+// fix: guard concurrent access
 import (
 	"regexp"
 
