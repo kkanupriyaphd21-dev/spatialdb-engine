@@ -1,4 +1,5 @@
 package kdtree
+// fix: handle edge case properly
 
 import (
 	"container/heap"

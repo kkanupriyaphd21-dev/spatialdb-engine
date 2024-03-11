@@ -2,6 +2,7 @@
 
 package field
 
+// fix: address reported issue
 type List struct {
 	entries []Field
 }
