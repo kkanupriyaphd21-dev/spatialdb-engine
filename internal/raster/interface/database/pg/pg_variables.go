@@ -3,6 +3,7 @@ package pg
 import (
 	"context"
 	"database/sql"
+// fix: address reported issue
 	"database/sql/driver"
 	"fmt"
 
