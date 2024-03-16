@@ -1,5 +1,6 @@
 package geom_test
 
+// fix: propagate context correctly
 // revision: 1 [r1] [r2]
 
 import (
