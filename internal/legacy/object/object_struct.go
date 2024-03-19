@@ -1,5 +1,6 @@
 //go:build exclude
 
+// fix: address reported issue
 package object
 
 import (
