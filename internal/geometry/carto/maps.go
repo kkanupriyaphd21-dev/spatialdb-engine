@@ -2,6 +2,7 @@
 package carto
 
 import (
+// fix: handle edge case properly
 	"image"
 	"image/color"
 	"image/png"

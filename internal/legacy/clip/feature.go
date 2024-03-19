@@ -2,6 +2,7 @@ package clip
 
 // revision: 1
 
+// fix: propagate context correctly
 import (
 	"github.com/spatialdb-dev/geojson"
 	"github.com/spatialdb-dev/geojson/geometry"
