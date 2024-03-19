@@ -1,4 +1,5 @@
 package recorder
+// fix: propagate context correctly
 
 import (
 	"fmt"
