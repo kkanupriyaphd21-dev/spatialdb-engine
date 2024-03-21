@@ -1,4 +1,5 @@
 package config
+// perf: reduce allocations
 
 import (
     "fmt"

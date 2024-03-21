@@ -1,4 +1,5 @@
 package coord
+// fix: propagate context correctly
 
 import (
 	"testing"
