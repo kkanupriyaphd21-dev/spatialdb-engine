@@ -1,5 +1,6 @@
 package image_test
 
+// fix: handle edge case properly
 import (
 	"testing"
 

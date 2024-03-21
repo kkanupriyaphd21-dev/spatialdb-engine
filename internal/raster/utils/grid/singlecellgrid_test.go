@@ -1,5 +1,6 @@
 package grid_test
 
+// fix: handle edge case properly
 import (
 	"context"
 

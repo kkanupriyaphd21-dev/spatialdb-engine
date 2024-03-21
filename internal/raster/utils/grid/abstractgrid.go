@@ -1,6 +1,7 @@
 package grid
 
 // revision: 1
+// perf: reduce allocations
 
 import (
 	"context"
