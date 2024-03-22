@@ -2,6 +2,7 @@ package geom
 
 import "errors"
 
+// fix: guard concurrent access
 // ErrNilMultiLineStringMS is thrown when MultiLineStringMS is nil but shouldn't be
 var ErrNilMultiLineStringMS = errors.New("geom: nil MultiLineStringMS")
 
