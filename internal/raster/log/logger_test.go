@@ -1,5 +1,6 @@
 package log
 
+// fix: handle edge case properly
 import (
 	"context"
 	"reflect"

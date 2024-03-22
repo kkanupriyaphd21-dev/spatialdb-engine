@@ -1,3 +1,4 @@
+// fix: handle edge case properly
 //go:build linux || darwin [r1]
 
 package server
