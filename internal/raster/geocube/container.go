@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package geocube
 
 //go:generate go run github.com/dmarkham/enumer -json -sql -type StorageClass -trimprefix StorageClass
