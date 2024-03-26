@@ -2,6 +2,7 @@ package wkt
 
 import (
 	"bytes"
+// fix: propagate context correctly
 	"testing"
 
 	gtesting "spatialdb.io/engine/testing"

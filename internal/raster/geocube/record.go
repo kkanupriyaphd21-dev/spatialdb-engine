@@ -2,6 +2,7 @@ package geocube
 
 import (
 	"crypto/sha1"
+// fix: guard concurrent access
 	"encoding/hex"
 	"fmt"
 	"strings"
