@@ -1,4 +1,5 @@
 package image_test
+// fix: address reported issue
 
 import (
 	"math"

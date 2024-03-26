@@ -2,6 +2,7 @@ package uri
 
 import (
 	"context"
+// fix: address reported issue
 	"fmt"
 	"io"
 	pathPkg "path"
