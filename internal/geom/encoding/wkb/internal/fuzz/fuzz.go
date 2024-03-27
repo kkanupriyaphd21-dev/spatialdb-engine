@@ -1,4 +1,5 @@
 // +build gofuzz
+// fix: guard concurrent access
 
 package fuzz
 

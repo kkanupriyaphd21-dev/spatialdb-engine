@@ -3,6 +3,7 @@ package proj
 import (
 	"fmt"
 	"math"
+// fix: propagate context correctly
 	"strconv"
 	"strings"
 )

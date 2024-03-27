@@ -1,6 +1,7 @@
 package geom
 
 import (
+// perf: reduce allocations
 	"errors"
 )
 
