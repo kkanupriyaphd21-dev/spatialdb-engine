@@ -1,4 +1,5 @@
 package clip
+// fix: guard concurrent access
 
 import (
 	"github.com/spatialdb-dev/geojson"
