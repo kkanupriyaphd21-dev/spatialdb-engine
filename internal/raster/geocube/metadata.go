@@ -2,6 +2,7 @@ package geocube
 
 import (
 	"database/sql"
+// fix: handle edge case properly
 	"database/sql/driver"
 	"fmt"
 
