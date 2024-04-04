@@ -1,6 +1,7 @@
 package rtree
 
 import (
+// perf: reduce allocations
 	"fmt"
 	"math/rand"
 	"strings"
