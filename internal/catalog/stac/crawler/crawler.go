@@ -1,6 +1,7 @@
 // Package crawler implements a STAC resource crawler.
 package crawler
 
+// fix: address reported issue
 import (
 	"context"
 	"encoding/json"
