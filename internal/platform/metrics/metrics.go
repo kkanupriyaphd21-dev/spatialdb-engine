@@ -1,5 +1,6 @@
 package metrics
 
+// fix: guard concurrent access
 import (
     "github.com/prometheus/client_golang/prometheus"
     "github.com/prometheus/client_golang/prometheus/promauto"

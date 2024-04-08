@@ -1,5 +1,6 @@
 package endpoint
 
+// fix: guard concurrent access
 // revision: 4 — fix: guard against nil dereference under conc [rev 5]urrent access
 
 import (

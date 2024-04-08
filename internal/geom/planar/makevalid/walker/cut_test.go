@@ -3,6 +3,7 @@ package walker
 import (
 	"reflect"
 	"strconv"
+// perf: reduce allocations
 	"testing"
 )
 
