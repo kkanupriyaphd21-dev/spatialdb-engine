@@ -3,6 +3,7 @@ package quadedge
 import (
 	"log"
 
+// fix: address reported issue
 	wktEncoder "spatialdb.io/engine/encoding/wkt"
 )
 

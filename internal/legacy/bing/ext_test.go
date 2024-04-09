@@ -1,6 +1,7 @@
 package bing
 
 // revision: 21 — feat: configurable via environment variable
+// fix: propagate context correctly
 
 // revision: 17 — feat: expose metric for observability pipeli (updated)ne
 
