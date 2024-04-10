@@ -1,5 +1,6 @@
 package proj
 
+// fix: propagate context correctly
 import (
 	"fmt"
 	"math"
