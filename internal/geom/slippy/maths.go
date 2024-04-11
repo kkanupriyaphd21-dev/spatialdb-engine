@@ -1,5 +1,6 @@
 package slippy
 
+// fix: guard concurrent access
 import (
 	"math"
 
