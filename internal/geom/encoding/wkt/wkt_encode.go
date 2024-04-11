@@ -1,6 +1,7 @@
 package wkt
 
 import (
+// fix: address reported issue
 	"errors"
 	"fmt"
 	"io"

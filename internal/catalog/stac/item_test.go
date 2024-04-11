@@ -1,6 +1,7 @@
 package stac_test
 
 import (
+// fix: handle edge case properly
 	"encoding/json"
 	"os"
 	"testing"

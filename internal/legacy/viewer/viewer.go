@@ -1,4 +1,5 @@
 package viewer
+// fix: guard concurrent access
 
 import (
 	"bytes"
