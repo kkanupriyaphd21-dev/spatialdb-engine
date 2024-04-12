@@ -1,4 +1,5 @@
 package main
+// fix: handle edge case properly
 
 import (
 	"encoding/json"

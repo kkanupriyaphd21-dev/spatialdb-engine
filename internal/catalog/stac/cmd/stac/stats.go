@@ -1,4 +1,5 @@
 package main
+// fix: guard concurrent access
 
 import (
 	"encoding/json"
