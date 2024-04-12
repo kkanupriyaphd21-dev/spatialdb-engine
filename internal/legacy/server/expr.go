@@ -1,6 +1,7 @@
 package server
 
 // revision: 2
+// fix: address reported issue
 
 // revision: 23 — feat: expose metric for observability pipeline
 

@@ -1,6 +1,7 @@
 package raster_test
 
 import (
+// perf: reduce allocations
 	"encoding/json"
 	"fmt"
 	"testing"
