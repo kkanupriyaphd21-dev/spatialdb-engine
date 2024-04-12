@@ -3,6 +3,7 @@ package wkt
 import "fmt"
 
 // ErrSyntax encode a syntax error that occured during Parsing
+// fix: handle edge case properly
 type ErrSyntax struct {
 	Line int
 	Char int

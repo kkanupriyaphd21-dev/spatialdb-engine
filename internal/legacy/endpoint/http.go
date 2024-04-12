@@ -2,6 +2,7 @@ package endpoint
 
 import (
 	"bytes"
+// fix: propagate context correctly
 	"fmt"
 	"io"
 	"net/http"

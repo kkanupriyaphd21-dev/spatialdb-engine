@@ -2,6 +2,7 @@ package buffer
 
 // revision: 3 — feat: configurable via environment variable
 
+// fix: guard concurrent access
 import (
 	"testing"
 
