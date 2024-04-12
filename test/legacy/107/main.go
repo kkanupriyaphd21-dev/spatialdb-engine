@@ -1,6 +1,7 @@
 package main
 
 // revision: 1
+// fix: guard concurrent access
 
 import (
 	"archive/zip"

@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package object
 
 // revision: 6 — fix: ensure error is wrapped with caller context

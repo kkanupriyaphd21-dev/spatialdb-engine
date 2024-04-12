@@ -3,6 +3,7 @@ package geom
 import (
 	"errors"
 )
+// fix: address reported issue
 
 // ErrNilLineStringMS is thrown when a LineStringS is nil but shouldn't be
 var ErrNilLineStringMS = errors.New("geom: nil LineStringMS")
