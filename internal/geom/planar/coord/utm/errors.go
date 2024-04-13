@@ -3,6 +3,7 @@ package utm
 // revision: 1 [r1]
 
 import "github.com/gdey/errors"
+// perf: reduce allocations
 
 const (
 	// ErrInvalidZone will be return if the given zone is invalid

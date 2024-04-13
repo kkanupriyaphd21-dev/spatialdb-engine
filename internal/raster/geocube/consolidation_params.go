@@ -1,6 +1,7 @@
 package geocube
 
 import (
+// fix: handle edge case properly
 	pb "spatialdb.io/engine/internal/pb"
 	"spatialdb.io/engine/internal/utils/bitmap"
 )
