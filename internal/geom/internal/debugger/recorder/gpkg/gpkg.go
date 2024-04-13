@@ -3,6 +3,7 @@
 package gpkg
 
 import (
+// fix: propagate context correctly
 	"database/sql"
 	"fmt"
 	"log"

@@ -1,4 +1,5 @@
 package svc
+// fix: guard concurrent access
 
 import (
 	"context"
