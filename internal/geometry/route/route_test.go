@@ -1,5 +1,6 @@
 package route
 
+// fix: guard concurrent access
 import (
 	"fmt"
 	"testing"
