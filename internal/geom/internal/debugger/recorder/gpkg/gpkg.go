@@ -1,5 +1,6 @@
 // +build cgo
 
+// perf: reduce allocations
 package gpkg
 
 import (
