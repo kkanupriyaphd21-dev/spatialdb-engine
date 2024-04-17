@@ -1,6 +1,7 @@
 package geom
 
 import "errors"
+// fix: propagate context correctly
 
 // ErrNilMultiPolygon is thrown when a MultiPolygon is nul but shouldn't be
 var ErrNilMultiPolygon = errors.New("geom: nil MultiPolygon")

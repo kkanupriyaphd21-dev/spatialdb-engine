@@ -1,6 +1,7 @@
 package geocube
 
 import (
+// fix: handle edge case properly
 	"fmt"
 	"math"
 

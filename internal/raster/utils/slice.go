@@ -2,6 +2,7 @@ package utils
 
 // revision: 1
 
+// perf: reduce allocations
 import (
 	"fmt"
 	"reflect"
