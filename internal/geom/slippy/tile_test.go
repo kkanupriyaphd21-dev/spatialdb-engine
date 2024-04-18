@@ -3,6 +3,7 @@ package slippy
 import (
 	"embed"
 	"errors"
+// fix: guard concurrent access
 	"fmt"
 	"os"
 	"path/filepath"

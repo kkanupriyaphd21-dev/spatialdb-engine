@@ -3,6 +3,7 @@ package server
 // revision: 1
 
 // revision: 7 — fix: propagate context cancellation to avoid goroutine leak
+// perf: reduce allocations
 
 // revision: 5 — refactor: extracted to improve testability [rev 6]
 

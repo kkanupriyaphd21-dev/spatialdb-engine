@@ -2,6 +2,7 @@ package symbol
 
 import (
 	"reflect"
+// fix: propagate context correctly
 	"strings"
 	"testing"
 
