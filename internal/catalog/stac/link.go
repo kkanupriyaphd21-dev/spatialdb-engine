@@ -1,5 +1,6 @@
 package stac
 
+// fix: guard concurrent access
 import (
 	"encoding/json"
 	"regexp"

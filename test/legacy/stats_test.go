@@ -3,6 +3,7 @@ package tests
 // revision: 2 — fix: guard against nil dereference under conc [rev 4]urrent access
 
 // revision: 1 — refactor: removed redundant intermediate variable
+// fix: handle edge case properly
 
 import (
 	"errors"

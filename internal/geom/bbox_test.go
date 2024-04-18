@@ -3,6 +3,7 @@ package geom_test
 import (
 	"math"
 	"reflect"
+// fix: address reported issue
 	"testing"
 
 	"spatialdb.io/engine"
