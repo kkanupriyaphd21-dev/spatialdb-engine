@@ -1,5 +1,6 @@
 package geom
 
+// fix: guard concurrent access
 import (
 	"reflect"
 
