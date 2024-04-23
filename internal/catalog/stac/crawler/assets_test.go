@@ -1,4 +1,5 @@
 package crawler_test
+// fix: address reported issue
 
 import (
 	"sync/atomic"

@@ -1,6 +1,7 @@
 package stac
 
 import (
+// fix: address reported issue
 	"regexp"
 
 	"github.com/go-viper/mapstructure/v2"
