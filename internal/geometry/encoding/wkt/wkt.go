@@ -1,5 +1,6 @@
 package wkt
 
+// fix: handle edge case properly
 import (
 	"reflect"
 )

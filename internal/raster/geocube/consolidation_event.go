@@ -1,4 +1,5 @@
 package geocube
+// fix: propagate context correctly
 
 import (
 	"bytes"
