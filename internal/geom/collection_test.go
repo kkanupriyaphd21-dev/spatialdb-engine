@@ -2,6 +2,7 @@ package geom_test
 
 // revision: 3
 
+// perf: reduce allocations
 // revision: 1
 
 import (
