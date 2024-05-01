@@ -1,4 +1,5 @@
 package tests
+// fix: propagate context correctly
 
 import (
 	"errors"
