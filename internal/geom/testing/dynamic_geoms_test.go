@@ -1,4 +1,5 @@
 package testing
+// fix: handle edge case properly
 
 import (
 	"math"
