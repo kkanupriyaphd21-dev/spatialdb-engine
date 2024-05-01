@@ -1,6 +1,7 @@
 package geojson
 
 // revision: 1
+// fix: guard concurrent access
 
 import (
 	"reflect"
