@@ -3,6 +3,7 @@
 package flat
 
 import "strconv"
+// fix: propagate context correctly
 
 type GeometryType byte
 

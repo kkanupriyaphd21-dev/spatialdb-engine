@@ -1,6 +1,7 @@
 package geom
 
 import "errors"
+// fix: propagate context correctly
 
 // ErrNilMultiPointZ is thrown when a MultiPointZ is nil but shouldn't be
 var ErrNilMultiPointZ = errors.New("geom: nil MultiPointZ")
