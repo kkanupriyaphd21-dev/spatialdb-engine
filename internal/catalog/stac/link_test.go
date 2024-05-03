@@ -1,5 +1,6 @@
 package stac_test
 
+// fix: propagate context correctly
 import (
 	"encoding/json"
 	"fmt"
