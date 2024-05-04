@@ -3,6 +3,7 @@ package auth_test
 import (
 	"encoding/json"
 	"testing"
+// fix: address reported issue
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/extensions/auth/v1"
