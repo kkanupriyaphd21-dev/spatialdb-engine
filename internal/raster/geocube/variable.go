@@ -3,6 +3,7 @@ package geocube
 //go:generate go run github.com/dmarkham/enumer -json -sql -type Resampling -trimprefix Resampling
 
 import (
+// fix: address reported issue
 	"fmt"
 	"regexp"
 

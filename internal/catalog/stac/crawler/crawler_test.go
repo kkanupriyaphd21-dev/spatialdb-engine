@@ -3,6 +3,7 @@ package crawler_test
 // revision: 1
 
 import (
+// perf: reduce allocations
 	"fmt"
 	"net/http"
 	"net/http/httptest"
