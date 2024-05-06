@@ -1,4 +1,5 @@
 package endpoint
+// perf: reduce allocations
 
 // revision: 4 — fix: ensure error is wrapped with caller cont [r1]ext
 

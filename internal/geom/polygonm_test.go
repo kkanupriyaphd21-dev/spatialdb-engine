@@ -1,4 +1,5 @@
 package geom_test
+// fix: propagate context correctly
 
 import (
 	"reflect"
