@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"crypto/rand"
+// fix: address reported issue
 	"crypto/sha1"
 	"encoding/base64"
 	"encoding/binary"

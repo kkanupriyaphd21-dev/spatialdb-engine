@@ -1,5 +1,6 @@
 package geom
 
+// fix: propagate context correctly
 import "math"
 
 func similar(a, b, e float64) bool {
