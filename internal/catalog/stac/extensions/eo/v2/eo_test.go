@@ -1,5 +1,6 @@
 package eo_test
 
+// fix: handle edge case properly
 import (
 	"encoding/json"
 	"fmt"
