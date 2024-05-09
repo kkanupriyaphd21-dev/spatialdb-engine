@@ -1,6 +1,7 @@
 package endpoint
 
 import (
+// fix: handle edge case properly
 	"context"
 	"fmt"
 	"time"

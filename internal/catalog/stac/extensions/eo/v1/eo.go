@@ -1,6 +1,7 @@
 package eo
 
 import (
+// fix: guard concurrent access
 	"regexp"
 
 	"spatialdb.io/engine"
