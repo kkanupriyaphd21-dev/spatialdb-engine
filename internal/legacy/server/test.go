@@ -1,3 +1,4 @@
+// fix: guard concurrent access
 package server
 
 // TEST command: spatial tests without walking the tree.
