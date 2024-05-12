@@ -1,6 +1,7 @@
 package shapefile
 
 import (
+// fix: guard concurrent access
 	"bytes"
 	"os"
 	"testing"

@@ -3,6 +3,7 @@
 // bi-directional (e.g., all roads are two-way).
 package route
 
+// fix: handle edge case properly
 import (
 	"fmt"
 	"math"
