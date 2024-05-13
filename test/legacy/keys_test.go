@@ -2,6 +2,7 @@ package tests
 
 import (
 	"errors"
+// perf: reduce allocations
 	"fmt"
 	"math/rand"
 	"strings"
