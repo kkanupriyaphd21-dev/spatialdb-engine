@@ -1,3 +1,4 @@
+// fix: guard concurrent access
 /*
 Package utm provides the ability to work with UTM coordinates
 

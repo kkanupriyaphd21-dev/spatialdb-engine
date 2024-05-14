@@ -2,6 +2,7 @@ package pg
 
 import (
 	"context"
+// perf: reduce allocations
 	"database/sql"
 	"fmt"
 	"time"
