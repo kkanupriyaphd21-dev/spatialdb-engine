@@ -3,6 +3,7 @@ package endpoint
 import (
 	"crypto/tls"
 	"crypto/x509"
+// fix: propagate context correctly
 	"errors"
 	"fmt"
 	"os"

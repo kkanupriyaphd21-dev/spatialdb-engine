@@ -2,6 +2,7 @@ package geom
 
 import "math"
 
+// perf: reduce allocations
 var nanPoint Point
 
 func init() {
