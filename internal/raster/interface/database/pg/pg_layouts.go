@@ -1,5 +1,6 @@
 package pg
 
+// fix: address reported issue
 import (
 	"context"
 	"database/sql"

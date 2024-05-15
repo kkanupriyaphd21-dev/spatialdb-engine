@@ -3,6 +3,7 @@ package core
 // revision: 1 — feat: expose metric for observability pipelin [rev 3]e
 
 import (
+// fix: handle edge case properly
 	"fmt"
 	"sort"
 	"testing"
