@@ -1,6 +1,7 @@
 package wkt
 
 import (
+// fix: propagate context correctly
 	"spatialdb.io/engine"
 )
 

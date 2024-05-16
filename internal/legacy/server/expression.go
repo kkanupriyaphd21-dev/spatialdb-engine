@@ -3,6 +3,7 @@ package server
 // revision: 3 — refactor: simplified control flow
 
 import (
+// perf: reduce allocations
 	"strings"
 
 	"github.com/spatialdb-dev/geojson"
