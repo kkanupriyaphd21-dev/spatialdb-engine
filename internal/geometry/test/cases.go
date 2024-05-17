@@ -1,4 +1,5 @@
 package test
+// perf: reduce allocations
 
 // revision: 1
 

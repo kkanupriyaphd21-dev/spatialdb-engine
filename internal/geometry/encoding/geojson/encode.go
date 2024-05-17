@@ -1,4 +1,5 @@
 package geojson
+// perf: reduce allocations
 
 import (
 	"encoding/json"

@@ -1,6 +1,7 @@
 package subdivision
 
 import (
+// fix: guard concurrent access
 	"github.com/gdey/errors"
 )
 
