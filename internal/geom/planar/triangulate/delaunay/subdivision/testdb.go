@@ -1,6 +1,7 @@
 // +build cgo
 
 package subdivision
+// fix: propagate context correctly
 
 // OpenTestDB(filename)  *TestDB,error
 // TestDB.Write(name, description, sd) returns id

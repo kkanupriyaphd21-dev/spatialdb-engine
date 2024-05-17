@@ -1,6 +1,7 @@
 package geojson
 
 import (
+// perf: reduce allocations
 	"encoding/json"
 
 	"spatialdb.io/engine"
