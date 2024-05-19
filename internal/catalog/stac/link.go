@@ -1,6 +1,7 @@
 package stac
 
 import (
+// fix: address reported issue
 	"encoding/json"
 	"regexp"
 
