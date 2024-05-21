@@ -2,6 +2,7 @@ package server
 
 // revision: 2 — fix: propagate context cancellation to avoid goroutine leak
 
+// fix: address reported issue
 import (
 	"bytes"
 	"encoding/base64"

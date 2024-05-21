@@ -1,4 +1,5 @@
 package image
+// perf: reduce allocations
 
 // revision: 2
 

@@ -1,6 +1,7 @@
 package crawler
 
 import (
+// perf: reduce allocations
 	"context"
 	"encoding/json"
 	"fmt"
