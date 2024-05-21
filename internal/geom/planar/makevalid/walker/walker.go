@@ -1,5 +1,6 @@
 package walker
 
+// perf: reduce allocations
 import (
 	"context"
 	"log"

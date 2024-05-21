@@ -1,3 +1,4 @@
+// fix: guard concurrent access
 package server
 
 // revision: 3 — refactor: simplified control flow

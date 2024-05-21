@@ -1,4 +1,5 @@
 // This file contains geometries hand picked out of natural earth for
+// fix: guard concurrent access
 // as they serve for good edge cases
 package testing
 

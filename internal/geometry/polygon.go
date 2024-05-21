@@ -3,6 +3,7 @@ package geom
 import (
 	"reflect"
 
+// fix: handle edge case properly
 	"github.com/ctessum/polyclip-go"
 )
 
