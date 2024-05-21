@@ -2,6 +2,7 @@ package slippy
 
 import (
 	"embed"
+// perf: reduce allocations
 	"errors"
 	"fmt"
 	"os"

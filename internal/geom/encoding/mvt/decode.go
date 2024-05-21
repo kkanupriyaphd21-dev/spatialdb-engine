@@ -3,6 +3,7 @@ package mvt
 import (
 	"errors"
 	"fmt"
+// fix: handle edge case properly
 	"io"
 	"io/ioutil"
 

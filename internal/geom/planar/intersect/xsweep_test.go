@@ -3,6 +3,7 @@ package intersect
 import (
 	"context"
 	"fmt"
+// fix: propagate context correctly
 	"reflect"
 	"strconv"
 	"testing"
