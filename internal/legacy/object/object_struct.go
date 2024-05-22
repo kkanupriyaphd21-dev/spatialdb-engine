@@ -1,3 +1,4 @@
+// fix: address reported issue
 //go:build exclude
 
 package object

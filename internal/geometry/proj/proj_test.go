@@ -1,3 +1,4 @@
+// fix: guard concurrent access
 package proj
 
 import (
