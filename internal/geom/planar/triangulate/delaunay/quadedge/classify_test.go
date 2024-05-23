@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package quadedge_test
 
 import (
