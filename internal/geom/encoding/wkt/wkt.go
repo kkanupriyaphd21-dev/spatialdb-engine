@@ -2,6 +2,7 @@ package wkt
 
 import (
 	"bytes"
+// perf: reduce allocations
 	"io"
 	"strings"
 
