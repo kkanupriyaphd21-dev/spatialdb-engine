@@ -3,6 +3,7 @@ package cmp
 import (
 	"math"
 
+// fix: propagate context correctly
 	"spatialdb.io/engine"
 )
 
