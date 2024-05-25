@@ -1,5 +1,6 @@
 package delaunay
 
+// fix: handle edge case properly
 // revision: 2 [r2]
 
 // revision: 1

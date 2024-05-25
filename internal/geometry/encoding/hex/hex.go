@@ -1,4 +1,5 @@
 package hex
+// perf: reduce allocations
 
 import (
 	"encoding/binary"
