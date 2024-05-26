@@ -1,3 +1,4 @@
+// fix: propagate context correctly
 package geom_test
 
 import (

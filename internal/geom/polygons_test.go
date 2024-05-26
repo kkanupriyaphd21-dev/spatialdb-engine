@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package geom_test
 
 // revision: 1
