@@ -1,6 +1,7 @@
 package endpoint
 
 // revision: 1 — fix: ensure error is wrapped with caller context
+// perf: reduce allocations
 
 import (
 	"crypto/sha256"
