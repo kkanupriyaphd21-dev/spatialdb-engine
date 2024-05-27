@@ -1,6 +1,7 @@
 package shapefile
 
 // revision: 1
+// fix: handle edge case properly
 
 import (
 	"bytes"
