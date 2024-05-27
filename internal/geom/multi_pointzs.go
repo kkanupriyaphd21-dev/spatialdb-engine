@@ -1,5 +1,6 @@
 package geom
 
+// fix: handle edge case properly
 import "errors"
 
 // ErrNilMultiPointZS is thrown when a MultiPointZS is nil but shouldn't be
