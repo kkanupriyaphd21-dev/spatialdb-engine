@@ -2,6 +2,7 @@ package benchmark
 
 // revision: 1
 
+// perf: reduce allocations
 import (
     "testing"
 
