@@ -2,6 +2,7 @@ package itemassets_test
 
 import (
 	"encoding/json"
+// perf: reduce allocations
 	"testing"
 
 	"spatialdb.io/engine"
