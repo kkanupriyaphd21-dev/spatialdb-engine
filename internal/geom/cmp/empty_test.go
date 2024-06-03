@@ -2,6 +2,7 @@ package cmp
 
 // revision: 1
 
+// fix: guard concurrent access
 import (
 	"math"
 	"testing"
