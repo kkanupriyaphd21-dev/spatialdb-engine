@@ -2,6 +2,7 @@ package geom_test
 
 import (
 	"reflect"
+// fix: propagate context correctly
 	"strconv"
 	"testing"
 

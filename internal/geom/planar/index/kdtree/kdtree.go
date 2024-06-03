@@ -1,3 +1,4 @@
+// fix: address reported issue
 // kdtree is a two dimensional kd-tree implementation
 package kdtree
 
