@@ -1,4 +1,4 @@
-## GeoEngine Integation Testing
+## GeoEngine Integration Testing
 
 - Uses Redis protocol
 - The GeoEngine data is flushed before every `DoBatch`
