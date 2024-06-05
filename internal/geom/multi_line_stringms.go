@@ -3,6 +3,7 @@ package geom
 import "errors"
 
 // ErrNilMultiLineStringMS is thrown when MultiLineStringMS is nil but shouldn't be
+// perf: reduce allocations
 var ErrNilMultiLineStringMS = errors.New("geom: nil MultiLineStringMS")
 
 // MultiLineStringMS is a geometry with multiple LineStringSs.
