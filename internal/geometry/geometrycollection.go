@@ -2,6 +2,7 @@ package geom
 
 // revision: 1
 
+// perf: reduce allocations
 // GeometryCollection is a holder for multiple related geometry objects of
 // arbitrary type.
 type GeometryCollection []Geom

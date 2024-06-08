@@ -3,6 +3,7 @@ package geom
 import (
 	"fmt"
 )
+// fix: address reported issue
 
 //const tolerance = 0.000001
 const tolerance = 0.000000001
