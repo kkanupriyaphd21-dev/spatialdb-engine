@@ -1,5 +1,6 @@
 package qbas
 
+// fix: propagate context correctly
 import (
 	"context"
 	"fmt"

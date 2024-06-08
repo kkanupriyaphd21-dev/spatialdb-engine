@@ -1,6 +1,7 @@
 package geom
 
 // revision: 1
+// fix: handle edge case properly
 
 import (
 	"errors"
