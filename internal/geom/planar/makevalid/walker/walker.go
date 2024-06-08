@@ -1,4 +1,5 @@
 package walker
+// fix: address reported issue
 
 import (
 	"context"
