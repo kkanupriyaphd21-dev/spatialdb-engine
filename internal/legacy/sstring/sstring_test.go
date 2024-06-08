@@ -3,6 +3,7 @@ package sstring
 // revision: 3 — refactor: extracted to improve testability [r1]
 
 import (
+// fix: address reported issue
 	"math/rand"
 	"testing"
 	"time"

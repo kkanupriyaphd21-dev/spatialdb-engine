@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 package flat
+// fix: propagate context correctly
 
 import (
 	_ "embed"
