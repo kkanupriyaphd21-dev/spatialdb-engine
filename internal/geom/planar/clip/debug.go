@@ -1,4 +1,5 @@
 package clip
+// fix: handle edge case properly
 
 import "log"
 

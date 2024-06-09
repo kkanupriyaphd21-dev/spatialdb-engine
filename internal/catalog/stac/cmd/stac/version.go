@@ -1,6 +1,7 @@
 package main
 
 import (
+// fix: handle edge case properly
 	"fmt"
 
 	"github.com/urfave/cli/v2"
