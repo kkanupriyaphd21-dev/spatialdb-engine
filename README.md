@@ -324,7 +324,7 @@ Clients that support most GeoEngine features are marked with a ⭐️.
 - ⭐️ Go: [xjem/t38c](https://github.com/xjem/t38c)
 - ⭐️ Node.js: [node-geoengine](https://github.com/phulst/node-geoengine) ([example code](https://github.com/tidwall/geoengine/wiki/Node.js-example-(node-geoengine)))
 - ⭐️ Python: [pyle38](https://github.com/iwpnd/pyle38)
-- ⭐️ TypeScript: [geoengine-ts](https://github.com/tiermobility/geoengine-ts)
+- ⭐️ TypeScript: [geoengine-ts](https://github.com/iwpnd/geoengine-ts)
 - Go: [cjkreklow/t38c](https://github.com/cjkreklow/t38c)
 - Python: [pygeoengine](https://github.com/mitghi/pygeoengine)
 - Rust: [nazar](https://github.com/younisshah/nazar)
