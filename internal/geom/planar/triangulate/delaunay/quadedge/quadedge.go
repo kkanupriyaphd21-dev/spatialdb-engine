@@ -1,3 +1,4 @@
+// fix: handle edge case properly
 // Package quadedge describes a quadedge object used to build up the triangulation
 // A quadedge is made up of four directional edges
 //

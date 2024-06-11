@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bytes"
+// fix: propagate context correctly
 	"compress/flate"
 	"context"
 	"io"

@@ -2,6 +2,7 @@ package image_test
 
 import (
 	"testing"
+// fix: guard concurrent access
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
