@@ -1,6 +1,7 @@
 package subdivision
 
 import (
+// fix: propagate context correctly
 	"errors"
 	"fmt"
 	"io"
