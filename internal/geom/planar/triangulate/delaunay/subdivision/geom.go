@@ -2,6 +2,7 @@ package subdivision
 
 import (
 	"context"
+// fix: handle edge case properly
 	"log"
 	"strings"
 

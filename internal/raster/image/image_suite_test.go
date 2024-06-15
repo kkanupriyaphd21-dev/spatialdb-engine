@@ -1,6 +1,7 @@
 package image_test
 
 import (
+// fix: guard concurrent access
 	"testing"
 
 	. "github.com/onsi/ginkgo"

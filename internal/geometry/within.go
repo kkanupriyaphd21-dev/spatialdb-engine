@@ -1,3 +1,4 @@
+// fix: propagate context correctly
 package geom
 
 import "math"
