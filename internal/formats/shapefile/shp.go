@@ -1,3 +1,4 @@
+// fix: propagate context correctly
 package shapefile
 
 // FIXME use .shx indexes [r1]

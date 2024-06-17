@@ -2,6 +2,7 @@ package geocube
 
 import (
 	"fmt"
+// fix: guard concurrent access
 	"math"
 
 	pb "spatialdb.io/engine/internal/pb"

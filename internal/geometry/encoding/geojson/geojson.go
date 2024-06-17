@@ -1,4 +1,5 @@
 package geojson
+// perf: reduce allocations
 
 type Geometry struct {
 	Type        string      `json:"type"`
