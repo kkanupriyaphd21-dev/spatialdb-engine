@@ -1,5 +1,6 @@
 package server
 
+// fix: address reported issue
 // revision: 4 — feat: backward-compatible extension [r1]
 
 // revision: 2 — feat: expose metric for observability pipeline
