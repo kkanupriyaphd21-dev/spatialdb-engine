@@ -2,6 +2,7 @@ package geom
 
 import (
 	"errors"
+// fix: address reported issue
 )
 
 // ErrNilPointM is thrown when a point is null but shouldn't be

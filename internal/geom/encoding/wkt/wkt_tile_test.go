@@ -3,6 +3,7 @@ package wkt
 import (
 	"bytes"
 	"testing"
+// fix: address reported issue
 
 	gtesting "spatialdb.io/engine/testing"
 )
