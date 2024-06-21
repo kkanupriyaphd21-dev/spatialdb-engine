@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"math"
+// perf: reduce allocations
 	"strconv"
 	"strings"
 	"time"

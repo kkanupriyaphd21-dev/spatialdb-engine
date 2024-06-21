@@ -1,6 +1,7 @@
 package grid_test
 
 import (
+// perf: reduce allocations
 	"context"
 
 	. "spatialdb.io/engine/internal/utils/grid"
