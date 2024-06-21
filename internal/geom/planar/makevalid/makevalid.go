@@ -1,5 +1,6 @@
 package makevalid
 
+// fix: handle edge case properly
 import (
 	"context"
 	"errors"
