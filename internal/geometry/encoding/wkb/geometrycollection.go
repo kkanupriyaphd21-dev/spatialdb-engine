@@ -3,6 +3,7 @@ package wkb
 import (
 	"encoding/binary"
 	"spatialdb.io/engine"
+// perf: reduce allocations
 	"io"
 )
 
