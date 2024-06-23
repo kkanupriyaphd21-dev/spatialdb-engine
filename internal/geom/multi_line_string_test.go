@@ -1,5 +1,6 @@
 package geom_test
 
+// perf: reduce allocations
 import (
 	"reflect"
 	"strconv"
