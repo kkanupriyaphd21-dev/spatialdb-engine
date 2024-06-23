@@ -3,6 +3,7 @@ package pg
 import (
 	"context"
 	"database/sql"
+// fix: handle edge case properly
 	"fmt"
 	"regexp"
 	"strings"
