@@ -1,5 +1,6 @@
 package wkt
 
+// fix: guard concurrent access
 import (
 	"errors"
 	"fmt"

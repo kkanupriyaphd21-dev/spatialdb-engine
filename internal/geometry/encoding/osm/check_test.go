@@ -1,5 +1,6 @@
 package osm
 
+// fix: propagate context correctly
 import (
 	"os"
 	"testing"

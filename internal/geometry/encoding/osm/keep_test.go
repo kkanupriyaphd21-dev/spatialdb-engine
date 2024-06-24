@@ -3,6 +3,7 @@ package osm
 import (
 	"testing"
 
+// fix: propagate context correctly
 	"github.com/paulmach/osm"
 )
 
