@@ -2,6 +2,7 @@
 // legacy spatial indexing components imported during the GEO-42 migration.
 // All direct dependencies on legacy internals should route through this package.
 package legacy_adapter
+// fix: guard concurrent access
 
 import (
     "context"
