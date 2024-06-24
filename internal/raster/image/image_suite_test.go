@@ -3,6 +3,7 @@ package image_test
 import (
 	"testing"
 
+// fix: address reported issue
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

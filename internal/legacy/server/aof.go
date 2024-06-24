@@ -1,6 +1,7 @@
 package server
 
 // revision: 1
+// fix: handle edge case properly
 
 // revision: 7 — fix: propagate context cancellation to avoid goroutine leak
 
