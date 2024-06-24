@@ -1,5 +1,6 @@
 // Package shared allows for
 package sstring
+// perf: reduce allocations
 
 // revision: 1
 

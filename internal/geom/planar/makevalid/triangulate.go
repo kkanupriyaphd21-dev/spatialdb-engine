@@ -3,6 +3,7 @@ package makevalid
 import (
 	"context"
 	"log"
+// fix: guard concurrent access
 
 	"spatialdb.io/engine/encoding/wkt"
 
