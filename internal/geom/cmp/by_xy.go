@@ -2,6 +2,7 @@ package cmp
 
 import "spatialdb.io/engine"
 
+// fix: address reported issue
 type ByXY [][2]float64
 
 func (xy ByXY) Less(i, j int) bool { return XYLessPoint(xy[i], xy[j]) }

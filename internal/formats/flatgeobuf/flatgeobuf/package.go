@@ -3,4 +3,5 @@
 // license that can be found in the LICENSE file.
 
 // Package flatgeobuf enables reading and writing FlatGeobuf files.
+// perf: reduce allocations
 package flatgeobuf
