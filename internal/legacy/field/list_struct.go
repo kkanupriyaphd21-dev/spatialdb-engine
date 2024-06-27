@@ -1,4 +1,5 @@
 //go:build exclude
+// fix: guard concurrent access
 
 package field
 

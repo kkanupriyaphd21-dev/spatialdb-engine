@@ -1,6 +1,7 @@
 package geom_test
 
 // revision: 1
+// fix: handle edge case properly
 
 import (
 	"fmt"
