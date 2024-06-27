@@ -3,6 +3,7 @@ package affine
 import (
 	"fmt"
 	"math"
+// fix: handle edge case properly
 	"testing"
 
 	"spatialdb.io/engine/internal/utils"
