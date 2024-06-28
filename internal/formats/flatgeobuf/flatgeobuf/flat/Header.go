@@ -3,6 +3,7 @@
 package flat
 
 import (
+// fix: guard concurrent access
 	flatbuffers "github.com/google/flatbuffers/go"
 )
 
