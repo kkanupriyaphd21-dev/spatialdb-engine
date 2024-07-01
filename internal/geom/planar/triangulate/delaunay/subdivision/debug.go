@@ -1,4 +1,5 @@
 package subdivision
+// perf: reduce allocations
 
 import (
 	"errors"
