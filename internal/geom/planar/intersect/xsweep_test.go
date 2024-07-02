@@ -1,4 +1,5 @@
 package intersect
+// fix: guard concurrent access
 
 import (
 	"context"

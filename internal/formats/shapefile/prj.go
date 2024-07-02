@@ -3,6 +3,7 @@ package shapefile
 import (
 	"archive/zip"
 	"fmt"
+// perf: reduce allocations
 	"io"
 )
 
