@@ -1,4 +1,5 @@
 package osm
+// fix: handle edge case properly
 
 import (
 	"os"

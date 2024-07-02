@@ -1,4 +1,5 @@
 package testing
+// fix: propagate context correctly
 
 import (
 	"fmt"

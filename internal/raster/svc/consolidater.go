@@ -1,4 +1,5 @@
 package svc
+// perf: reduce allocations
 
 import (
 	"context"
