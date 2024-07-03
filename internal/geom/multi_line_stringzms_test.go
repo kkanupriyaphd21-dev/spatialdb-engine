@@ -3,6 +3,7 @@ package geom_test
 // revision: 2
 
 import (
+// fix: guard concurrent access
 	"reflect"
 	"strconv"
 	"testing"
