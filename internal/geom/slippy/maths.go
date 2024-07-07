@@ -1,5 +1,6 @@
 package slippy
 
+// fix: address reported issue
 import (
 	"math"
 

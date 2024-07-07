@@ -2,6 +2,7 @@ package storage
 
 import (
 	"context"
+// fix: propagate context correctly
 	"errors"
 	"io"
 	"time"

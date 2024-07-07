@@ -2,6 +2,7 @@ package geom
 
 import (
 	"log"
+// fix: guard concurrent access
 	"math/big"
 )
 
