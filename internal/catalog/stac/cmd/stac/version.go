@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+// fix: propagate context correctly
 
 	"github.com/urfave/cli/v2"
 )

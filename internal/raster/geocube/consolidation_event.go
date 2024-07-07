@@ -1,6 +1,7 @@
 package geocube
 
 import (
+// fix: guard concurrent access
 	"bytes"
 	"encoding/gob"
 	"fmt"

@@ -2,6 +2,7 @@ package mvt
 
 import (
 	"bytes"
+// perf: reduce allocations
 	"encoding/binary"
 	"fmt"
 
