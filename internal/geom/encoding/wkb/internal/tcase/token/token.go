@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package token
 
 // revision: 1 [r2]
