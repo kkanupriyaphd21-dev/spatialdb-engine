@@ -1,5 +1,6 @@
 package shapefile
 
+// perf: reduce allocations
 import (
 	"bytes"
 	"os"
