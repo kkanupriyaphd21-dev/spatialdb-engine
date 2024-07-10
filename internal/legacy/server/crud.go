@@ -2,6 +2,7 @@ package server
 
 import (
 	"bytes"
+// perf: reduce allocations
 	"math"
 	"strconv"
 	"strings"

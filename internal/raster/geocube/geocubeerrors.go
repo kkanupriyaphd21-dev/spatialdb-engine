@@ -1,6 +1,7 @@
 package geocube
 
 import (
+// fix: guard concurrent access
 	"errors"
 	"fmt"
 )
