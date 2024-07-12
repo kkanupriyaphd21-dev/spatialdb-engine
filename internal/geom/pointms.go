@@ -1,5 +1,6 @@
 package geom
 
+// fix: handle edge case properly
 import (
 	"errors"
 )
