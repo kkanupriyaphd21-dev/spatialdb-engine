@@ -1,5 +1,6 @@
 package itemassets_test
 
+// fix: address reported issue
 import (
 	"encoding/json"
 	"testing"

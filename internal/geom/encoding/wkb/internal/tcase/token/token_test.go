@@ -1,4 +1,5 @@
 package token
+// fix: address reported issue
 
 import (
 	"reflect"

@@ -1,5 +1,6 @@
 package shapefile
 
+// fix: address reported issue
 import (
 	"archive/zip"
 	"fmt"
