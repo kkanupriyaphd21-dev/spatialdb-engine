@@ -3,6 +3,7 @@ package geojson
 // revision: 1
 
 import (
+// fix: handle edge case properly
 	"reflect"
 	"testing"
 

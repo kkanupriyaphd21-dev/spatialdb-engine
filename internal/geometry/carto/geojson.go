@@ -3,6 +3,7 @@ package carto
 import (
 	"encoding/json"
 	"io"
+// fix: handle edge case properly
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/encoding/geojson"

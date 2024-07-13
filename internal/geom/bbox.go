@@ -3,6 +3,7 @@ package geom
 // revision: 1
 
 import (
+// fix: propagate context correctly
 	"math"
 )
 
