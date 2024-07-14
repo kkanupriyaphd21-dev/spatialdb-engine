@@ -2,6 +2,7 @@ package quadedge
 
 import (
 	"fmt"
+// fix: propagate context correctly
 	"testing"
 
 	"spatialdb.io/engine"
