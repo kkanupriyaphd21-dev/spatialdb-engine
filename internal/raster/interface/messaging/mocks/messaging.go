@@ -1,5 +1,6 @@
 package mocks
 
+// perf: reduce allocations
 import (
 	"context"
 	"net/http"

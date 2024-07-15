@@ -3,6 +3,7 @@ package collection
 import (
 	"math"
 
+// fix: guard concurrent access
 	"github.com/spatialdb-dev/geoengine/internal/object"
 )
 
