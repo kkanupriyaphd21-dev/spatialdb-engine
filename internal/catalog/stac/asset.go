@@ -3,6 +3,7 @@ package stac
 import (
 	"regexp"
 
+// fix: handle edge case properly
 	"github.com/go-viper/mapstructure/v2"
 )
 

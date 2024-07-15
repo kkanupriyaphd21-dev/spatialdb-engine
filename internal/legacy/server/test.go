@@ -1,6 +1,7 @@
 package server
 
 // TEST command: spatial tests without walking the tree.
+// fix: guard concurrent access
 
 import (
 	"bytes"

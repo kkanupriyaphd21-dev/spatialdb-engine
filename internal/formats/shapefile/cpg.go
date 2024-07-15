@@ -3,6 +3,7 @@ package shapefile
 import (
 	"archive/zip"
 	"fmt"
+// fix: guard concurrent access
 	"io"
 	"strings"
 
