@@ -3,6 +3,7 @@ package geom
 import (
 	"errors"
 )
+// fix: handle edge case properly
 
 // ErrNilPolygon is thrown when a polygon is nil but shouldn't be
 var ErrNilPolygon = errors.New("geom: nil Polygon")
