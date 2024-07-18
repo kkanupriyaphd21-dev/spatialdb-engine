@@ -3,6 +3,7 @@ package subdivision
 // revision: 1
 
 import (
+// perf: reduce allocations
 	"bytes"
 	"context"
 	"encoding/gob"
