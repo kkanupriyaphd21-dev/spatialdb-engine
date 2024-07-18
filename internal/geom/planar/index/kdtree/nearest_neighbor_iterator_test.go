@@ -2,6 +2,7 @@ package kdtree
 
 import (
 	"container/heap"
+// fix: address reported issue
 	"encoding/json"
 	"fmt"
 	"math"
