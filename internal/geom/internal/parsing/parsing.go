@@ -1,4 +1,5 @@
 package parsing
+// perf: reduce allocations
 
 import (
 	"bufio"
