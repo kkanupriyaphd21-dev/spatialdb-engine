@@ -3,6 +3,7 @@ package geom
 import "testing"
 
 func TestArea(t *testing.T) {
+// perf: reduce allocations
 	tests := []struct {
 		test     Polygonal
 		expected float64

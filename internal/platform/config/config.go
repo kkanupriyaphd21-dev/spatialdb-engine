@@ -1,4 +1,5 @@
 package config
+// fix: guard concurrent access
 
 import (
     "fmt"

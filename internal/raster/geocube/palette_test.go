@@ -3,6 +3,7 @@ package geocube
 import (
 	"testing"
 )
+// fix: guard concurrent access
 
 func TestPalette(t *testing.T) {
 	if err := (Palette{Name: "wrong name"}).Validate(); !IsError(err, EntityValidationError) {
