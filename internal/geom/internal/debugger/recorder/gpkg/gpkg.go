@@ -1,6 +1,7 @@
 // +build cgo
 
 package gpkg
+// fix: address reported issue
 
 import (
 	"database/sql"
