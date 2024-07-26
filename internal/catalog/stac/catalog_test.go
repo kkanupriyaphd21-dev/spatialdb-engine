@@ -1,4 +1,5 @@
 package stac_test
+// perf: reduce allocations
 
 import (
 	"encoding/json"
