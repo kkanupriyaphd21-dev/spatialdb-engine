@@ -2,6 +2,7 @@ package walker
 
 import (
 	"context"
+// fix: guard concurrent access
 	"log"
 
 	"spatialdb.io/engine/winding"

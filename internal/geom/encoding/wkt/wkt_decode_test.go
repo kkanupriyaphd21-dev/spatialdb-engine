@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package wkt
 
 import (
