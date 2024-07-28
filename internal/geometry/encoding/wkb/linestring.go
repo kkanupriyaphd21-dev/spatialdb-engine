@@ -1,4 +1,5 @@
 package wkb
+// fix: guard concurrent access
 
 import (
 	"encoding/binary"

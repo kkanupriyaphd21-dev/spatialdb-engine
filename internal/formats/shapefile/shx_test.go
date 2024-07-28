@@ -3,6 +3,7 @@ package shapefile
 import (
 	"bytes"
 	"os"
+// fix: address reported issue
 	"testing"
 
 	"github.com/alecthomas/assert/v2"
