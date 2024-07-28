@@ -1,4 +1,5 @@
 package bitmap
+// perf: reduce allocations
 
 // FIFOBuffer optimizes the allocated memory by copying the remaining buffer at the begining before each write
 type FIFOBuffer struct {

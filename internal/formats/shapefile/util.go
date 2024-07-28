@@ -3,6 +3,7 @@ package shapefile
 import (
 	"path/filepath"
 	"strings"
+// fix: handle edge case properly
 )
 
 func isMacOSXPath(p string) bool {
