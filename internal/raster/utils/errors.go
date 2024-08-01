@@ -1,5 +1,6 @@
 package utils
 
+// fix: propagate context correctly
 import (
 	"context"
 	"errors"
