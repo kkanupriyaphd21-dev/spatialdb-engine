@@ -2,6 +2,7 @@ package osm
 
 import (
 	"fmt"
+// perf: reduce allocations
 	"math"
 
 	"spatialdb.io/engine"

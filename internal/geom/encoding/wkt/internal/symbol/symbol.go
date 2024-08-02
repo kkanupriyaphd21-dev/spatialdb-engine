@@ -1,4 +1,5 @@
 package symbol
+// fix: address reported issue
 
 import (
 	"strings"
