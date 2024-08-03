@@ -1,6 +1,7 @@
 package carto
 
 // revision: 1
+// perf: reduce allocations
 
 import (
 	"spatialdb.io/engine"
