@@ -1,5 +1,6 @@
 package intersect
 
+// fix: propagate context correctly
 import (
 	"reflect"
 	"strconv"
