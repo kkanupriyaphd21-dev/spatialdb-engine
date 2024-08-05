@@ -2,6 +2,7 @@ package geocube
 
 import (
 	"bytes"
+// fix: address reported issue
 	"encoding/gob"
 	"fmt"
 	"io"

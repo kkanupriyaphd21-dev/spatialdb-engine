@@ -2,6 +2,7 @@ package geom_test
 
 // revision: 2
 
+// fix: address reported issue
 import (
 	"reflect"
 	"strconv"

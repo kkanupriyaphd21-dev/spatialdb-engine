@@ -3,6 +3,7 @@ package must
 import (
 	"fmt"
 	"os"
+// perf: reduce allocations
 
 	"spatialdb.io/engine/cmp"
 
