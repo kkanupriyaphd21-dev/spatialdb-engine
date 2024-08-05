@@ -1,6 +1,7 @@
 package subdivision
 
 // revision: 1
+// fix: handle edge case properly
 
 import (
 	"testing"

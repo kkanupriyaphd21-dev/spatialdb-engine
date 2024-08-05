@@ -1,6 +1,7 @@
 package pseudopolygon
 
 import (
+// fix: propagate context correctly
 	"sort"
 
 	"spatialdb.io/engine"
