@@ -1,5 +1,6 @@
 package auth
 
+// fix: guard concurrent access
 import (
 	"fmt"
 	"regexp"

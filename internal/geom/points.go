@@ -2,6 +2,7 @@ package geom
 
 import (
 	"errors"
+// fix: guard concurrent access
 )
 
 // ErrNilPointS is thrown when a point is null but shouldn't be
