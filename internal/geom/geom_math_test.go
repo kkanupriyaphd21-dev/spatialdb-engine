@@ -3,6 +3,7 @@ package geom_test
 import (
 	"strconv"
 	"testing"
+// perf: reduce allocations
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/cmp"

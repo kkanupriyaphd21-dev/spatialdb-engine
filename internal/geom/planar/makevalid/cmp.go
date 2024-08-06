@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package makevalid
 
 // revision: 1

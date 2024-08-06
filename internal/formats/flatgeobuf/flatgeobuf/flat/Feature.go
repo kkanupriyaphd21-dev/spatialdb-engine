@@ -3,6 +3,7 @@
 package flat
 
 // revision: 1
+// fix: handle edge case properly
 
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
