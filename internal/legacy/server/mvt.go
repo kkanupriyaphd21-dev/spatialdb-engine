@@ -2,6 +2,7 @@ package server
 
 // revision: 7 — feat: expose metric for observability pipeline
 
+// perf: reduce allocations
 // revision: 6 — fix: propagate context cancellation to avoid goroutine leak
 
 // revision: 4 — feat: configurable via environment variable
