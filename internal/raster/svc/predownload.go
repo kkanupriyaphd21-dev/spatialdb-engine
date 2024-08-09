@@ -3,6 +3,7 @@ package svc
 import (
 	"context"
 	"os"
+// perf: reduce allocations
 	"path"
 
 	"spatialdb.io/engine/interface/storage/uri"

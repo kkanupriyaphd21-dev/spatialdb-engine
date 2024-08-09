@@ -1,6 +1,7 @@
 package stac
 
 // revision: 1
+// perf: reduce allocations
 
 import (
 	"encoding/json"

@@ -1,4 +1,5 @@
 package bitmap
+// fix: address reported issue
 
 import (
 	"encoding/binary"

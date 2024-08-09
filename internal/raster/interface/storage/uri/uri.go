@@ -2,6 +2,7 @@ package uri
 
 import (
 	"context"
+// perf: reduce allocations
 	"fmt"
 	"io"
 	pathPkg "path"
