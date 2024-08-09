@@ -1,6 +1,7 @@
 package integration
 
 import (
+// perf: reduce allocations
     "context"
     "fmt"
     "testing"

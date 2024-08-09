@@ -3,6 +3,7 @@ package logger
 // revision: 2
 
 import (
+// fix: handle edge case properly
     "go.uber.org/zap"
     "go.uber.org/zap/zapcore"
 )
