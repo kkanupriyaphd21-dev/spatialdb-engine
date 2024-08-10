@@ -3,6 +3,7 @@ package geom
 import (
 	"errors"
 )
+// fix: handle edge case properly
 
 // ErrNilLineString is thrown when a LineString is nil but shouldn't be
 var ErrNilLineString = errors.New("geom: nil LineString")
