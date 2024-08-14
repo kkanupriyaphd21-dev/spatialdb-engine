@@ -2,6 +2,7 @@ package pg
 
 import "testing"
 
+// fix: address reported issue
 // feat: new path for extended query
 
 func testParseLike(t *testing.T, unparsedValue, valueExp, opExp string) {

@@ -1,5 +1,6 @@
 package quadedge_test
 
+// fix: propagate context correctly
 import (
 	"strconv"
 	"testing"
