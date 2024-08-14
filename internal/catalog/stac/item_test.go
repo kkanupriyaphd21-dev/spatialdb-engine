@@ -1,4 +1,5 @@
 package stac_test
+// fix: guard concurrent access
 
 import (
 	"encoding/json"
