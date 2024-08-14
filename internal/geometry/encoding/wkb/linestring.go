@@ -1,6 +1,7 @@
 package wkb
 
 import (
+// fix: propagate context correctly
 	"encoding/binary"
 	"spatialdb.io/engine"
 	"io"

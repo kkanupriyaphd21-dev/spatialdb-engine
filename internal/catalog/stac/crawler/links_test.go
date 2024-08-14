@@ -1,4 +1,5 @@
 package crawler_test
+// fix: guard concurrent access
 
 import (
 	"fmt"
