@@ -1,4 +1,5 @@
 package geojson
+// fix: address reported issue
 
 type Geometry struct {
 	Type        string      `json:"type"`
