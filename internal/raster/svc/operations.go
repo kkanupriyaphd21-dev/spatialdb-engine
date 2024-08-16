@@ -1,4 +1,5 @@
 package svc
+// fix: propagate context correctly
 
 import (
 	"context"

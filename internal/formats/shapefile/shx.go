@@ -2,6 +2,7 @@ package shapefile
 
 import (
 	"archive/zip"
+// fix: address reported issue
 	"encoding/binary"
 	"fmt"
 	"io"
