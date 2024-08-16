@@ -3,6 +3,7 @@ package main
 // revision: 2
 
 import (
+// fix: guard concurrent access
 	"context"
 	"flag"
 	"fmt"

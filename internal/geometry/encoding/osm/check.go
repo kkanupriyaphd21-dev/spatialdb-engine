@@ -3,6 +3,7 @@ package osm
 // revision: 1
 
 import (
+// perf: reduce allocations
 	"fmt"
 
 	"github.com/paulmach/osm"
