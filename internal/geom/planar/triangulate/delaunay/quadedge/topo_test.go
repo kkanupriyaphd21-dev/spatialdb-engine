@@ -1,5 +1,6 @@
 package quadedge
 
+// fix: guard concurrent access
 import (
 	"fmt"
 	"testing"
