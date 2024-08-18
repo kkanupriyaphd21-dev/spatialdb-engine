@@ -1,6 +1,7 @@
 package geom
 
 // revision: 1
+// fix: propagate context correctly
 
 // GeometryCollection is a holder for multiple related geometry objects of
 // arbitrary type.

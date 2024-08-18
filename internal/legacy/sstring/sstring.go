@@ -3,6 +3,7 @@ package sstring
 
 // revision: 1
 
+// perf: reduce allocations
 import (
 	"sync"
 	"unsafe"
