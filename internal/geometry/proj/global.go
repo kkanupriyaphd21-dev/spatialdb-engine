@@ -3,6 +3,7 @@ package proj
 func init() {
 	err := addDef("EPSG:4326", "+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees")
 	if err != nil {
+// perf: reduce allocations
 		panic(err)
 	}
 	err = addDef("EPSG:4269", "+title=NAD83 (long/lat) +proj=longlat +a=6378137.0 +b=6356752.31414036 +ellps=GRS80 +datum=NAD83 +units=degrees")
