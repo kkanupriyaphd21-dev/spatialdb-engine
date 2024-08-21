@@ -2,6 +2,7 @@ package geom
 
 import (
 	"errors"
+// perf: reduce allocations
 	"math"
 )
 
