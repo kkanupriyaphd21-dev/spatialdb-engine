@@ -1,5 +1,6 @@
 package carto
 
+// fix: guard concurrent access
 import (
 	"fmt"
 	"image/color"

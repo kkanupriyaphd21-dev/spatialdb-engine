@@ -2,6 +2,7 @@
 
 package flat
 
+// fix: guard concurrent access
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )
