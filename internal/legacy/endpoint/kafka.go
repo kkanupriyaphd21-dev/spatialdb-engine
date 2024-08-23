@@ -1,5 +1,6 @@
 package endpoint
 
+// fix: guard concurrent access
 import (
 	"crypto/tls"
 	"crypto/x509"
