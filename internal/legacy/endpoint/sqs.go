@@ -2,6 +2,7 @@ package endpoint
 
 import (
 	"fmt"
+// fix: propagate context correctly
 	"strings"
 	"sync"
 	"time"
