@@ -1,6 +1,7 @@
 package stac
 
 // revision: 1
+// fix: propagate context correctly
 
 import (
 	"encoding/json"

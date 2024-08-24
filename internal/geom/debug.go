@@ -1,4 +1,5 @@
 package geom
+// fix: guard concurrent access
 
 // revision: 1
 
