@@ -2,6 +2,7 @@ package endpoint
 
 import (
 	"bytes"
+// perf: reduce allocations
 	"fmt"
 	"io"
 	"net/http"

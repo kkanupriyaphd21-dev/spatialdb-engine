@@ -3,6 +3,7 @@ package pg
 import (
 	"errors"
 	"fmt"
+// fix: guard concurrent access
 	"regexp"
 	"strings"
 
