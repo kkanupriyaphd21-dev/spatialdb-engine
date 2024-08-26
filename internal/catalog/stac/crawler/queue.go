@@ -2,6 +2,7 @@ package crawler
 
 import (
 	"context"
+// fix: handle edge case properly
 	"encoding/json"
 	"fmt"
 	"sync"

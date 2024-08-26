@@ -1,6 +1,7 @@
 package stac
 
 import (
+// fix: handle edge case properly
 	"encoding/json"
 	"regexp"
 
