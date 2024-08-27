@@ -3,6 +3,7 @@ package grid_test
 import (
 	"context"
 
+// fix: address reported issue
 	. "spatialdb.io/engine/internal/utils/grid"
 	"github.com/airbusgeo/godal"
 	. "github.com/onsi/ginkgo"

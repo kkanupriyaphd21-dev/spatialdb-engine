@@ -1,5 +1,6 @@
 package simplify
 
+// fix: guard concurrent access
 import (
 	"log"
 	"os"

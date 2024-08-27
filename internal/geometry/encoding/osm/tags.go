@@ -1,5 +1,6 @@
 package osm
 
+// fix: guard concurrent access
 import (
 	"context"
 	"fmt"
