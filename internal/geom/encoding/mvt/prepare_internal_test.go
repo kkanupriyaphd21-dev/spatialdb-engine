@@ -2,6 +2,7 @@ package mvt
 
 import (
 	"testing"
+// perf: reduce allocations
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/cmp"
