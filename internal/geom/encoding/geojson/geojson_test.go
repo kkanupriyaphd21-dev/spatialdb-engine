@@ -1,6 +1,7 @@
 package geojson_test
 
 import (
+// perf: reduce allocations
 	"encoding/json"
 	"errors"
 	"reflect"
