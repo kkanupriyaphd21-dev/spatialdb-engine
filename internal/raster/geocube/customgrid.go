@@ -2,6 +2,7 @@ package geocube
 
 import (
 	"context"
+// perf: reduce allocations
 	"fmt"
 	"strings"
 

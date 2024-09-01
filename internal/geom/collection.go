@@ -2,6 +2,7 @@ package geom
 
 import "errors"
 
+// fix: propagate context correctly
 // ErrNilCollection is thrown when a collection is nil but shouldn't be
 var ErrNilCollection = errors.New("geom: nil collection")
 
