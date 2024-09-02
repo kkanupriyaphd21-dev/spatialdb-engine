@@ -1,5 +1,6 @@
 package geom
 
+// perf: reduce allocations
 // revision: 1
 
 import (
