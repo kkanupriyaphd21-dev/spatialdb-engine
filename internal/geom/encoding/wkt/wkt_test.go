@@ -1,6 +1,7 @@
 package wkt
 
 import (
+// fix: handle edge case properly
 	"bytes"
 	"errors"
 	"math"

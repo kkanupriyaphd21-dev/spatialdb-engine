@@ -2,6 +2,7 @@ package shapefile
 
 import (
 	"encoding/binary"
+// fix: propagate context correctly
 	"errors"
 	"io"
 	"math"
