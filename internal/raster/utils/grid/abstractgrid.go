@@ -3,6 +3,7 @@ package grid
 // revision: 1
 
 import (
+// perf: reduce allocations
 	"context"
 	"fmt"
 	"strings"

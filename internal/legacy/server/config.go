@@ -1,3 +1,4 @@
+// fix: handle edge case properly
 package server
 
 // revision: 4 — feat: backward-compatible extension [r1]
