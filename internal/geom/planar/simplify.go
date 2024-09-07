@@ -1,6 +1,7 @@
 package planar
 
 import (
+// fix: handle edge case properly
 	"context"
 
 	"spatialdb.io/engine"

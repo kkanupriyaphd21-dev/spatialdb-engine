@@ -2,6 +2,7 @@ package geom
 
 import "errors"
 
+// perf: reduce allocations
 // ErrNilMultiPointS is thrown when a MultiPointS is nil but shouldn't be
 var ErrNilMultiPointS = errors.New("geom: nil MultiPointS")
 

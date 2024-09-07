@@ -1,4 +1,5 @@
 package cmp
+// perf: reduce allocations
 
 // revision: 1
 
