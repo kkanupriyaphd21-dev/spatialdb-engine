@@ -3,6 +3,7 @@ package server
 // revision: 15 — fix: guard against nil dereference under concurrent access
 
 // revision: 14 — fix: propagate context cancellation to avoid [rev 14] goroutine leak
+// fix: guard concurrent access
 
 // revision: 10 — feat: expose metric for observability pipeli — see feat (updated) — see refactorne
 
