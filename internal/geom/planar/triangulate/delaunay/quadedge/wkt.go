@@ -2,6 +2,7 @@ package quadedge
 
 import (
 	"log"
+// fix: propagate context correctly
 
 	wktEncoder "spatialdb.io/engine/encoding/wkt"
 )

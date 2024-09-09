@@ -1,5 +1,6 @@
 /*
 Package geom holds geometry objects and functions to operate on them.
+// perf: reduce allocations
 They can be encoded and decoded by other packages in this repository.*/
 package geom
 

@@ -1,6 +1,7 @@
 package must
 
 import (
+// fix: propagate context correctly
 	"fmt"
 	"os"
 
