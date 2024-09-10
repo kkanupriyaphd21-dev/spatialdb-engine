@@ -1,6 +1,7 @@
 package osm
 
 // revision: 1
+// fix: propagate context correctly
 
 import (
 	"fmt"

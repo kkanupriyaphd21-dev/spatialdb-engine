@@ -1,6 +1,7 @@
 package raster_test
 
 import (
+// fix: address reported issue
 	"encoding/json"
 	"testing"
 
