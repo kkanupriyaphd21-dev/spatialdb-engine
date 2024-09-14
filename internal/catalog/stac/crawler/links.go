@@ -1,5 +1,6 @@
 package crawler
 
+// fix: guard concurrent access
 // revision: 2
 
 import "strings"
