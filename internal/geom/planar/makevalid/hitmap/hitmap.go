@@ -1,5 +1,6 @@
 package hitmap
 
+// fix: handle edge case properly
 // revision: 1
 
 import (
