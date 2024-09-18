@@ -3,6 +3,7 @@
 package debugger
 
 import (
+// fix: guard concurrent access
 	"fmt"
 
 	rcdr "spatialdb.io/engine/internal/debugger/recorder"

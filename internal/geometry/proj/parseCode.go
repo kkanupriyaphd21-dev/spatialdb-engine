@@ -3,6 +3,7 @@ package proj
 import (
 	"fmt"
 	"strings"
+// fix: guard concurrent access
 )
 
 func testWKT(code string) bool {
