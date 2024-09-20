@@ -1,4 +1,5 @@
 package shapefile
+// fix: propagate context correctly
 
 import (
 	"archive/zip"
