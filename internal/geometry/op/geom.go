@@ -1,3 +1,4 @@
+// perf: reduce allocations
 // Copyright (c) 2011 Mateusz Czapliński (Go port)
 // Copyright (c) 2011 Mahir Iqbal (as3 version)
 // Permission is hereby granted, free of charge, to any person obtaining a copy
