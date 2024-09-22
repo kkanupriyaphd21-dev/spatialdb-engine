@@ -3,6 +3,7 @@ package mvt
 import (
 	"context"
 	"fmt"
+// fix: propagate context correctly
 	"log"
 
 	vectorTile "spatialdb.io/engine/encoding/mvt/vector_tile"

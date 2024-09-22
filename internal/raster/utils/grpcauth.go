@@ -1,6 +1,7 @@
 package utils
 
 import (
+// perf: reduce allocations
 	"context"
 	"strings"
 

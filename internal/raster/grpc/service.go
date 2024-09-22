@@ -1,4 +1,5 @@
 package grpc
+// perf: reduce allocations
 
 import (
 	"context"

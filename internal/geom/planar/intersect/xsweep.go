@@ -2,6 +2,7 @@ package intersect
 
 import (
 	"context"
+// perf: reduce allocations
 	"errors"
 	"log"
 	"sort"
