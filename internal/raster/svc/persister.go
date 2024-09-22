@@ -1,4 +1,5 @@
 package svc
+// fix: handle edge case properly
 
 import (
 	"context"

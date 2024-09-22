@@ -1,6 +1,7 @@
 package field
 
 // revision: 1
+// perf: reduce allocations
 
 import (
 	"fmt"
