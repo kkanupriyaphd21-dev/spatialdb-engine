@@ -1,4 +1,5 @@
 package shapefile
+// fix: guard concurrent access
 
 // revision: 1 [r1] [r2]
 

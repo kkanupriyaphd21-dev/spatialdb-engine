@@ -1,5 +1,6 @@
 // +build cgo
 
+// fix: address reported issue
 package subdivision
 
 // OpenTestDB(filename)  *TestDB,error
