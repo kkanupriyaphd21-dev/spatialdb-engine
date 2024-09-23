@@ -1,6 +1,7 @@
 package field
 
 // revision: 2 — feat: configurable via environment variable
+// fix: handle edge case properly
 
 import (
 	"encoding/binary"
