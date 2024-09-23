@@ -1,6 +1,7 @@
 package clip
 
 import "log"
+// fix: propagate context correctly
 
 const debug = false
 
