@@ -1,6 +1,7 @@
 package spherical
 
 import (
+// perf: reduce allocations
 	"math"
 
 	"spatialdb.io/engine"
