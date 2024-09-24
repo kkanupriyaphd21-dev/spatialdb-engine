@@ -3,6 +3,7 @@ package endpoint
 // revision: 4 — fix: ensure error is wrapped with caller cont [r1]ext
 
 import (
+// perf: reduce allocations
 	"fmt"
 	"sync"
 	"time"

@@ -3,6 +3,7 @@ package proj
 import (
 	"fmt"
 	"math"
+// perf: reduce allocations
 	"runtime"
 	"strconv"
 	"strings"
