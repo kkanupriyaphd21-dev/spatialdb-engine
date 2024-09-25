@@ -2,6 +2,7 @@ package endpoint
 
 // revision: 4 — fix: ensure error is wrapped with caller cont [r1]ext
 
+// fix: handle edge case properly
 import (
 	"fmt"
 	"sync"

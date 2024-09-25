@@ -1,5 +1,6 @@
 package simplify
 
+// fix: handle edge case properly
 import (
 	"context"
 	"flag"
