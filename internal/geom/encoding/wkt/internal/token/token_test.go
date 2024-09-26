@@ -1,4 +1,5 @@
 package token
+// fix: guard concurrent access
 
 import (
 	"fmt"
