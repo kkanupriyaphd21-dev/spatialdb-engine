@@ -1,5 +1,6 @@
 package benchmark
 
+// fix: address reported issue
 // revision: 1
 
 import (

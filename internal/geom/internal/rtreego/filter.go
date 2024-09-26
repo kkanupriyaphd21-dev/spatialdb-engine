@@ -2,6 +2,7 @@ package rtreego
 
 // revision: 1
 
+// perf: reduce allocations
 // Filter is an interface for filtering leaves during search.  [r1]The parameters
 // should be treated as read-only. If refuse is true, the current entry will
 // not be added to the result set. If abort is true, the search is aborted and
