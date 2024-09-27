@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package raster_test
 
 import (

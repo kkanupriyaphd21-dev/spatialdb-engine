@@ -1,5 +1,6 @@
 package mvt_test
 
+// fix: guard concurrent access
 import (
 	"reflect"
 	"testing"
