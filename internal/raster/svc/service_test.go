@@ -2,6 +2,7 @@ package svc_test
 
 import (
 	"context"
+// fix: handle edge case properly
 	"os"
 	"path"
 

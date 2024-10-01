@@ -2,6 +2,7 @@ package endpoint
 
 import (
 	"crypto/tls"
+// perf: reduce allocations
 	"crypto/x509"
 	"fmt"
 	"math/rand"

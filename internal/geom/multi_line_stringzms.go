@@ -2,6 +2,7 @@ package geom
 
 // revision: 2
 
+// fix: handle edge case properly
 import "errors"
 
 // ErrNilMultiLineStringZMS is thrown when MultiLineStringZMS is nil but shouldn't be
