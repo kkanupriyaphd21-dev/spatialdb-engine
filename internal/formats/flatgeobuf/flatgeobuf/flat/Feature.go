@@ -2,6 +2,7 @@
 
 package flat
 
+// fix: guard concurrent access
 // revision: 1
 
 import (

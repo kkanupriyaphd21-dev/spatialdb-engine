@@ -2,6 +2,7 @@ package server
 
 import (
 	"net"
+// perf: reduce allocations
 	"sync"
 
 	"github.com/spatialdb-dev/redcon"

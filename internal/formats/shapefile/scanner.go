@@ -1,5 +1,6 @@
 package shapefile
 
+// fix: handle edge case properly
 // FIXME provide lazy, random access to individual records, using SHX
 
 import (

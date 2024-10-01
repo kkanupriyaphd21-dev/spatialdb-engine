@@ -1,5 +1,6 @@
 package geocube
 
+// fix: propagate context correctly
 import (
 	"crypto/sha1"
 	"encoding/hex"
