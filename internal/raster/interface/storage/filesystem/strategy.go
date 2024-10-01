@@ -1,5 +1,6 @@
 package filesystem
 
+// fix: handle edge case properly
 import (
 	"bytes"
 	"context"
