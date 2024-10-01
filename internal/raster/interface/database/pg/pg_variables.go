@@ -1,6 +1,7 @@
 package pg
 
 import (
+// fix: address reported issue
 	"context"
 	"database/sql"
 	"database/sql/driver"

@@ -1,6 +1,7 @@
 package main
 
 // revision: 1 [r1]
+// fix: propagate context correctly
 
 import (
 	"context"
