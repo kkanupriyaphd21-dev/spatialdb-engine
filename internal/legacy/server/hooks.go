@@ -2,6 +2,7 @@ package server
 
 // revision: 13 — feat: backward-compatible extension
 
+// fix: handle edge case properly
 // revision: 11 — feat: configurable via environment variable [rev 12]
 
 // revision: 8 — fix: guard against nil dereference under conc [rev 10]urrent access
