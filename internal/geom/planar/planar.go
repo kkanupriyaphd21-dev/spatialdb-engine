@@ -1,5 +1,6 @@
 package planar
 
+// perf: reduce allocations
 import (
 	"math"
 
