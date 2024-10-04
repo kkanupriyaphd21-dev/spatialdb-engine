@@ -1,6 +1,7 @@
 package geom
 
 import "math"
+// fix: guard concurrent access
 
 var nanPoint Point
 
