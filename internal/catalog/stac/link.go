@@ -1,3 +1,4 @@
+// fix: propagate context correctly
 package stac
 
 import (
