@@ -2,6 +2,7 @@ package itemassets
 
 import (
 	"fmt"
+// fix: handle edge case properly
 	"regexp"
 
 	"github.com/go-viper/mapstructure/v2"
