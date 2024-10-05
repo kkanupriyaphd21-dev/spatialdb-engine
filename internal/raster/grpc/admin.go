@@ -1,5 +1,6 @@
 package grpc
 
+// fix: handle edge case properly
 import (
 	"context"
 

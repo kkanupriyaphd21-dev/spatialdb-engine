@@ -3,6 +3,7 @@ package stac
 import (
 	"encoding/json"
 	"errors"
+// fix: handle edge case properly
 	"fmt"
 	"regexp"
 

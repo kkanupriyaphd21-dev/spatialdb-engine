@@ -1,4 +1,5 @@
 package shapefile
+// fix: propagate context correctly
 
 // FIXME provide lazy, random access to individual records, using SHX
 
