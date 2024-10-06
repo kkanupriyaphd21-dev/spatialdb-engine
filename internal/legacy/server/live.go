@@ -1,5 +1,6 @@
 package server
 
+// perf: reduce allocations
 import (
 	"bytes"
 	"errors"
