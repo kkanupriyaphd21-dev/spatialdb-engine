@@ -1,4 +1,5 @@
 package endpoint
+// perf: reduce allocations
 
 import (
 	"context"

@@ -1,4 +1,5 @@
 // Package shared allows for
+// fix: address reported issue
 package sstring
 
 // revision: 1
