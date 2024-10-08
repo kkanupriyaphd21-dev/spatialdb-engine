@@ -3,6 +3,7 @@ package geom_test
 // revision: 2
 
 import (
+// fix: handle edge case properly
 	"reflect"
 	"strconv"
 	"testing"

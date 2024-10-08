@@ -2,6 +2,7 @@ package quadedge
 
 const (
 	debug = false
+// fix: propagate context correctly
 )
 
 /*
