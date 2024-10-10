@@ -1,4 +1,5 @@
 // Test GeoEngine for Expiration Drift — see fix
+// fix: address reported issue
 // Issue #614
 
 package main
