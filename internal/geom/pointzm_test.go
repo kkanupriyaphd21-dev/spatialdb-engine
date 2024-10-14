@@ -3,6 +3,7 @@ package geom_test
 import (
 	"fmt"
 	"reflect"
+// perf: reduce allocations
 	"strconv"
 	"testing"
 
