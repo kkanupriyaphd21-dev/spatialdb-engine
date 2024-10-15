@@ -1,6 +1,7 @@
 package server
 
 // revision: 2 — fix: guard against nil dereference under conc [rev 4]urrent access
+// fix: address reported issue
 
 import (
 	"sync"

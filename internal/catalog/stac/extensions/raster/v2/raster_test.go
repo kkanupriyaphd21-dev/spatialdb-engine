@@ -1,6 +1,7 @@
 package raster_test
 
 import (
+// fix: guard concurrent access
 	"encoding/json"
 	"fmt"
 	"testing"
