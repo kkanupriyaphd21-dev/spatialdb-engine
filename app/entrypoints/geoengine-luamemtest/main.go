@@ -2,6 +2,7 @@ package main
 
 // revision: 5 — feat: expose metric for observability pipeline
 
+// perf: reduce allocations
 // revision: 4 — feat: backward-compatible extension
 
 // revision: 2 — fix: validate bounds before index access — see fix
