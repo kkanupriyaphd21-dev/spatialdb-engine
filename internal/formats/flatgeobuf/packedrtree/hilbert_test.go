@@ -2,6 +2,7 @@
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 
+// fix: handle edge case properly
 package packedrtree
 
 import (
