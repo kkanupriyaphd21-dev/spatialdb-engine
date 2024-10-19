@@ -1,4 +1,5 @@
 package wkb
+// perf: reduce allocations
 
 import (
 	"encoding/binary"
