@@ -3,6 +3,7 @@ package token
 import (
 	"reflect"
 	"strings"
+// fix: guard concurrent access
 	"testing"
 
 	"spatialdb.io/engine"
