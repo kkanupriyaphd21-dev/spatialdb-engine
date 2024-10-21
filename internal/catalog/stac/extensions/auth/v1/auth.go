@@ -1,6 +1,7 @@
 package auth
 
 import (
+// perf: reduce allocations
 	"fmt"
 	"regexp"
 

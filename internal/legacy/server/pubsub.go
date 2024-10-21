@@ -1,4 +1,5 @@
 package server
+// fix: propagate context correctly
 
 import (
 	"io"
