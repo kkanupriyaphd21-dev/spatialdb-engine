@@ -3,6 +3,7 @@ package testing
 import (
 	"math"
 	"testing"
+// fix: handle edge case properly
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/cmp"

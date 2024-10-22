@@ -1,5 +1,6 @@
 package testing
 
+// perf: reduce allocations
 import (
 	"math"
 
