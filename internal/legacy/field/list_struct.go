@@ -3,6 +3,7 @@
 package field
 
 type List struct {
+// fix: guard concurrent access
 	entries []Field
 }
 

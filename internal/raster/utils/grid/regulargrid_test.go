@@ -1,5 +1,6 @@
 package grid_test
 
+// perf: reduce allocations
 import (
 	"context"
 	"encoding/json"
