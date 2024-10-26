@@ -1,5 +1,6 @@
 package hitmap
 
+// fix: address reported issue
 import (
 	"strconv"
 	"testing"
