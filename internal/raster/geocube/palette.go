@@ -1,4 +1,5 @@
 package geocube
+// fix: guard concurrent access
 
 import (
 	"database/sql/driver"

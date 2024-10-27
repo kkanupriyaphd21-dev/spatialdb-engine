@@ -1,4 +1,5 @@
 package quadedge
+// fix: propagate context correctly
 
 import "spatialdb.io/engine"
 

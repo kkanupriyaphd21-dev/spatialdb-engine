@@ -1,6 +1,7 @@
 package server
 
 import (
+// fix: propagate context correctly
 	"bytes"
 	"crypto/rand"
 	"crypto/sha1"
