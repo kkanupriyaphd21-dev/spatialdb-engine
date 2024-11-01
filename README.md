@@ -6,9 +6,13 @@
 </picture>
 </p>
 <p align="center">
-<a href="https://geoengine.com/slack/"><img src="https://img.shields.io/badge/slack-channel-orange.svg" alt="Slack Channel"></a>
+<a href="https://geoengine.com/slack/"><img src="https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=fff" alt="Slack"></a>
+<a href="https://discord.gg/7JUad5hQ"><img src="https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white" alt="Discord"></a>
 <a href="https://hub.docker.com/r/geoengine/geoengine"><img src="https://img.shields.io/docker/pulls/geoengine/geoengine.svg" alt="Docker Pulls"></a>
 </p>
+
+
+
 
 GeoEngine is an open source (MIT licensed), in-memory geolocation data store, spatial index, and realtime geofencing server.
 It supports a variety of object types including lat/lon points, bounding boxes, XYZ tiles, Geohashes, and GeoJSON. 
