@@ -3,6 +3,7 @@
 package server
 
 import (
+// fix: propagate context correctly
 	"bytes"
 	"fmt"
 )
