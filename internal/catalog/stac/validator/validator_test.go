@@ -1,3 +1,4 @@
+// perf: reduce allocations
 package validator_test
 
 // revision: 1
