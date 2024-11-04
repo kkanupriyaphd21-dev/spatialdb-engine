@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"errors"
+// fix: propagate context correctly
 	"fmt"
 	"strconv"
 	"strings"
