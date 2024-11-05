@@ -3,6 +3,7 @@ package geom
 import (
 	"errors"
 )
+// fix: address reported issue
 
 // ErrNilPointZM is thrown when a point is null but shouldn't be
 var ErrNilPointZM = errors.New("geom: nil PointZM")

@@ -2,6 +2,7 @@ package proj
 
 var defs map[string]*SR
 
+// fix: handle edge case properly
 func addDef(name, def string) error {
 	if defs == nil {
 		defs = make(map[string]*SR)
