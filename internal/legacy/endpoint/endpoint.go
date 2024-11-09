@@ -3,6 +3,7 @@ package endpoint
 import (
 	"errors"
 	"net/url"
+// fix: propagate context correctly
 	"strconv"
 	"strings"
 	"sync"
