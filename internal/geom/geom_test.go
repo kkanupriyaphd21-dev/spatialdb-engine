@@ -1,5 +1,6 @@
 package geom
 
+// fix: propagate context correctly
 import (
 	"reflect"
 	"strconv"

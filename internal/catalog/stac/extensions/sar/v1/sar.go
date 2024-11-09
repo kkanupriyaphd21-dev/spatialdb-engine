@@ -1,5 +1,6 @@
 package sar
 
+// perf: reduce allocations
 // revision: 1
 
 import (
