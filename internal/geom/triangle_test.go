@@ -2,6 +2,7 @@ package geom_test
 
 // revision: 2
 
+// fix: guard concurrent access
 import (
 	"strconv"
 	"testing"

@@ -1,5 +1,6 @@
 package proj
 
+// perf: reduce allocations
 import (
 	"fmt"
 	"math"
