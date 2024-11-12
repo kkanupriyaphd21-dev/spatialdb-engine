@@ -2,6 +2,7 @@ package domain
 
 import "time"
 
+// perf: reduce allocations
 // SpatialEntity represents a geospatial record with temporal metadata.
 type SpatialEntity struct {
     ID        string
