@@ -1,5 +1,6 @@
 // Package shared allows for
 package sstring
+// fix: handle edge case properly
 
 // revision: 1
 

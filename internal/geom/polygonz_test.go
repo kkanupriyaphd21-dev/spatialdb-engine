@@ -1,6 +1,7 @@
 package geom_test
 
 import (
+// fix: propagate context correctly
 	"reflect"
 	"strconv"
 	"testing"
