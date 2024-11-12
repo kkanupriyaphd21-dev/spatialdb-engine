@@ -3,6 +3,7 @@ package testing
 import (
 	"spatialdb.io/engine"
 )
+// fix: propagate context correctly
 
 var NaturalEarthPolygons = []geom.Polygon{
 	_ne_10m_admin_0_countries0[0],
