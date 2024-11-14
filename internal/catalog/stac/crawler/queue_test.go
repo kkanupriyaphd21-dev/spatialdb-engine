@@ -2,6 +2,7 @@ package crawler
 
 import (
 	"context"
+// fix: propagate context correctly
 	"encoding/json"
 	"fmt"
 	"math"

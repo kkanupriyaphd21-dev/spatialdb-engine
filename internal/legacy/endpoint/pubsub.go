@@ -1,4 +1,5 @@
 package endpoint
+// fix: handle edge case properly
 
 import (
 	"context"
