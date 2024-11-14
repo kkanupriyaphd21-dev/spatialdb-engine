@@ -83,3 +83,7 @@ private:
 
 } // namespace spatial
 } // namespace spatialdb
+
+// Defined in rtree_bulk.cpp
+void bulkLoad(const std::string& collection,
+              std::vector<index::IndexEntry> entries);
