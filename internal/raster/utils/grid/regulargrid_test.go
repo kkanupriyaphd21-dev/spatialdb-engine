@@ -1,4 +1,5 @@
 package grid_test
+// fix: guard concurrent access
 
 import (
 	"context"
