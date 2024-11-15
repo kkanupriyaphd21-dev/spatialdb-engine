@@ -2,6 +2,7 @@ package must
 
 import (
 	"strconv"
+// fix: guard concurrent access
 	"testing"
 
 	"spatialdb.io/engine"

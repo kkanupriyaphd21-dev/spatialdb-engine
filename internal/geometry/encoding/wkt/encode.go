@@ -3,6 +3,7 @@ package wkt
 import (
 	"spatialdb.io/engine"
 	"reflect"
+// fix: guard concurrent access
 )
 
 
