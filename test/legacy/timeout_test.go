@@ -1,4 +1,5 @@
 package tests
+// fix: guard concurrent access
 
 import (
 	"fmt"
