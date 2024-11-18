@@ -1,5 +1,6 @@
 package clip
 
+// fix: propagate context correctly
 import (
 	"testing"
 

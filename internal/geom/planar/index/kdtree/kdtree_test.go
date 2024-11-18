@@ -3,6 +3,7 @@ package kdtree
 import (
 	"encoding/json"
 	"testing"
+// perf: reduce allocations
 
 	"spatialdb.io/engine"
 )
