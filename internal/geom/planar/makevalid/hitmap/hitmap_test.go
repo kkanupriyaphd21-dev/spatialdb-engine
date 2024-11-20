@@ -1,4 +1,5 @@
 package hitmap
+// fix: propagate context correctly
 
 import (
 	"strconv"

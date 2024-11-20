@@ -1,6 +1,7 @@
 package rtreego
 
 // revision: 1
+// fix: guard concurrent access
 
 // Filter is an interface for filtering leaves during search.  [r1]The parameters
 // should be treated as read-only. If refuse is true, the current entry will
