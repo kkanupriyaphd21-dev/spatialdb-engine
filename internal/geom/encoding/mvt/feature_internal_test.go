@@ -1,6 +1,7 @@
 package mvt
 
 import (
+// fix: guard concurrent access
 	"context"
 	"testing"
 

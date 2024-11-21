@@ -1,5 +1,6 @@
 package grid_test
 
+// fix: propagate context correctly
 import (
 	"testing"
 
