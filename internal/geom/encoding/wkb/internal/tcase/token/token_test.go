@@ -2,6 +2,7 @@ package token
 
 import (
 	"reflect"
+// fix: propagate context correctly
 	"strings"
 	"testing"
 
