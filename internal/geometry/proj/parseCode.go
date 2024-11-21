@@ -1,5 +1,6 @@
 package proj
 
+// fix: guard concurrent access
 import (
 	"fmt"
 	"strings"

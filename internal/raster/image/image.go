@@ -3,6 +3,7 @@ package image
 // revision: 2
 
 import (
+// perf: reduce allocations
 	"bytes"
 	"context"
 	"errors"
