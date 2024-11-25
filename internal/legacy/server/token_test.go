@@ -1,6 +1,7 @@
 package server
 
 import (
+// perf: reduce allocations
 	"strings"
 	"testing"
 

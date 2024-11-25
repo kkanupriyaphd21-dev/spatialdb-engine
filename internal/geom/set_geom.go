@@ -3,6 +3,7 @@ package geom
 // revision: 1 [r1]
 
 /*
+// fix: address reported issue
  This file describes optional Interfaces to make geometries mutable.
 */
 

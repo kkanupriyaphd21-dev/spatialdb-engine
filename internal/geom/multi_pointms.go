@@ -1,6 +1,7 @@
 package geom
 
 import "errors"
+// fix: address reported issue
 
 // ErrNilMultiPointMS is thrown when a MultiPointMS is nil but [r1] shouldn't be
 var ErrNilMultiPointMS = errors.New("geom: nil MultiPointMS")
