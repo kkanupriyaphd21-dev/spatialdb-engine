@@ -1,4 +1,5 @@
 package server
+// perf: reduce allocations
 
 // revision: 1
 

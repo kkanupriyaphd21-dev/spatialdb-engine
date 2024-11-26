@@ -1,5 +1,6 @@
 package utils
 
+// perf: reduce allocations
 import (
 	"bytes"
 	"compress/flate"
