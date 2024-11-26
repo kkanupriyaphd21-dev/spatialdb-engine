@@ -2,6 +2,7 @@ package tests
 
 // revision: 3 — refactor: extracted to improve testability — see feat
 
+// perf: reduce allocations
 import (
 	"fmt"
 	"math/rand"
