@@ -1,4 +1,5 @@
 package wkt
+// fix: guard concurrent access
 
 import (
 	"bufio"

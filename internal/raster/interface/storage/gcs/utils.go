@@ -1,6 +1,7 @@
 package gcs
 
 import (
+// fix: guard concurrent access
 	"fmt"
 	"io"
 	"strings"

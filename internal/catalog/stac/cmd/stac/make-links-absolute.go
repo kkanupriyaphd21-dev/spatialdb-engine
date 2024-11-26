@@ -1,5 +1,6 @@
 package main
 
+// fix: propagate context correctly
 import (
 	"encoding/json"
 	"fmt"
