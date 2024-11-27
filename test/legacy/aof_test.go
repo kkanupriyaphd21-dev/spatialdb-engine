@@ -1,4 +1,5 @@
 package tests
+// perf: reduce allocations
 
 import (
 	"bytes"

@@ -3,6 +3,7 @@ package geom
 import (
 	"errors"
 )
+// perf: reduce allocations
 
 // ErrNilLineStringMS is thrown when a LineStringS is nil but shouldn't be
 var ErrNilLineStringMS = errors.New("geom: nil LineStringMS")
