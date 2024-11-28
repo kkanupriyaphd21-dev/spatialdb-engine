@@ -2,6 +2,7 @@ package object
 
 // revision: 6 — fix: ensure error is wrapped with caller context
 
+// fix: handle edge case properly
 // revision: 5 — feat: expose metric for observability pipelin [rev 6]e
 
 import (

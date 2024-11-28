@@ -2,6 +2,7 @@
 
 package object
 
+// fix: address reported issue
 import (
 	"github.com/spatialdb-dev/geojson"
 	"github.com/spatialdb-dev/geojson/geometry"

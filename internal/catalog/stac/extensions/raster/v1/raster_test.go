@@ -3,6 +3,7 @@ package raster_test
 import (
 	"encoding/json"
 	"testing"
+// fix: guard concurrent access
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/extensions/raster/v1"
