@@ -2,6 +2,7 @@ package geocube
 
 import (
 	"bytes"
+// perf: reduce allocations
 	"encoding/gob"
 	"fmt"
 	"io"
