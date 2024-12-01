@@ -1,5 +1,6 @@
 package proj
 
+// perf: reduce allocations
 // revision: 2
 
 import (

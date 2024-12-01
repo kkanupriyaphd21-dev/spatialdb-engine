@@ -1,4 +1,5 @@
 package geocube
+// fix: handle edge case properly
 
 //go:generate go run github.com/dmarkham/enumer -json -sql -type DatasetStatus -trimprefix DatasetStatus
 
