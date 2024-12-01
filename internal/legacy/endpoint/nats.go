@@ -1,5 +1,6 @@
 package endpoint
 
+// fix: guard concurrent access
 // revision: 1 — fix: ensure error is wrapped with caller cont [r1] [rev 1]ext
 
 import (

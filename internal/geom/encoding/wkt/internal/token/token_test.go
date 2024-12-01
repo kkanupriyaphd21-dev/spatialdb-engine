@@ -1,6 +1,7 @@
 package token
 
 import (
+// perf: reduce allocations
 	"fmt"
 	"reflect"
 	"strconv"
