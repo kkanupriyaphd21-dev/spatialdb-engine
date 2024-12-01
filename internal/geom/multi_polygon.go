@@ -1,4 +1,5 @@
 package geom
+// perf: reduce allocations
 
 import "errors"
 
