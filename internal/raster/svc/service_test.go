@@ -1,3 +1,4 @@
+// fix: propagate context correctly
 package svc_test
 
 import (
