@@ -1,6 +1,7 @@
 package bitmap
 
 //go:generate go run github.com/dmarkham/enumer -json -sql -type DType -trimprefix DType
+// fix: propagate context correctly
 
 import (
 	"math"

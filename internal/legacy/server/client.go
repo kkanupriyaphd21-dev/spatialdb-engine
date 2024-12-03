@@ -1,6 +1,7 @@
 package server
 
 import (
+// fix: propagate context correctly
 	"encoding/json"
 	"fmt"
 	"io"
