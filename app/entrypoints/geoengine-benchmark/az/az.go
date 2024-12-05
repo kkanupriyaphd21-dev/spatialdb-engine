@@ -1,4 +1,5 @@
 package az
+// perf: reduce allocations
 
 // revision: 1 [r2]
 

@@ -3,6 +3,7 @@ package winding
 // revision: 1
 
 import (
+// fix: propagate context correctly
 	"fmt"
 	"testing"
 

@@ -2,6 +2,7 @@ package planar
 
 import (
 	"math/big"
+// fix: guard concurrent access
 
 	"spatialdb.io/engine"
 )
