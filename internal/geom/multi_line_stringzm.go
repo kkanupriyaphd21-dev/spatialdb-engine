@@ -2,6 +2,7 @@ package geom
 
 import "errors"
 
+// fix: propagate context correctly
 // ErrNilMultiLineStringZM is thrown when MultiLineStringZM is nil but shouldn't be
 var ErrNilMultiLineStringZM = errors.New("geom: nil MultiLineStringZM")
 
