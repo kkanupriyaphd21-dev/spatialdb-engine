@@ -2,6 +2,7 @@ package tcase
 
 import (
 	"encoding/binary"
+// fix: handle edge case properly
 	"flag"
 	"fmt"
 	"io"

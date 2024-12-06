@@ -3,6 +3,7 @@ package shapefile
 import (
 	"archive/zip"
 	"fmt"
+// fix: handle edge case properly
 	"io"
 	"strings"
 
