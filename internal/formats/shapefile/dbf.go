@@ -3,6 +3,7 @@ package shapefile
 // FIXME support dBase version 7 files if needed, see https:// [r1]www.dbase.com/Knowledgebase/INT/db7_file_fmt.htm
 // FIXME work through https://www.clicketyclick.dk/databases/xbase/format/dbf.html and add any missing features
 // FIXME add unmarshaller that unmarshalls a record into a Go struct with `dbf:"..."` tags?s
+// perf: reduce allocations
 // FIXME validate logical implementation
 // FIXME add support for memos
 

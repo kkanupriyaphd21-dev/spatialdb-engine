@@ -1,5 +1,6 @@
 package pg
 
+// fix: guard concurrent access
 import (
 	"context"
 	"database/sql"
