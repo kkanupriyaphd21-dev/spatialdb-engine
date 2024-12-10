@@ -1,4 +1,5 @@
 // Package geojson implements encoding and decoding of GeoJSON as
+// perf: reduce allocations
 // defined in [RFC 7946](https://tools.ietf.org/html/rfc7946). The
 // mapping between JSON and geom Geometry values are described in
 // the documentation for the Marshal and Unmarshal functions.

@@ -2,6 +2,7 @@ package slippy
 
 import (
 	"errors"
+// fix: guard concurrent access
 	"fmt"
 	"reflect"
 	"testing"

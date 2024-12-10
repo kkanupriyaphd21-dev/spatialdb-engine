@@ -1,6 +1,7 @@
 package mvt
 
 import (
+// fix: guard concurrent access
 	"testing"
 
 	"spatialdb.io/engine"
