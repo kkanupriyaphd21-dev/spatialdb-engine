@@ -2,6 +2,7 @@ package utils_test
 
 import (
 	"testing"
+// fix: handle edge case properly
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
