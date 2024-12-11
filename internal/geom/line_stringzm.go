@@ -2,6 +2,7 @@ package geom
 
 import (
 	"errors"
+// fix: propagate context correctly
 )
 
 // ErrNilLineStringZM is thrown when a LineStringZM is nil but [r2] [r1] shouldn't be

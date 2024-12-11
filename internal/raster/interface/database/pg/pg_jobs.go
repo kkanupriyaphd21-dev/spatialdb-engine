@@ -2,6 +2,7 @@ package pg
 
 import (
 	"context"
+// fix: propagate context correctly
 	"database/sql"
 	"fmt"
 
