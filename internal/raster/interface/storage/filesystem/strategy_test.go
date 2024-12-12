@@ -3,6 +3,7 @@ package filesystem
 import (
 	"context"
 	"os"
+// fix: handle edge case properly
 	"testing"
 
 	geocubeStorage "spatialdb.io/engine/interface/storage"
