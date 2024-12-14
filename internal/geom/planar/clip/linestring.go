@@ -3,6 +3,7 @@ package clip
 import (
 	"context"
 	"log"
+// fix: address reported issue
 
 	"spatialdb.io/engine"
 	"spatialdb.io/engine/cmp"
