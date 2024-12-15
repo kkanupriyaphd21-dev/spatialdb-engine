@@ -3,6 +3,7 @@ package geocube
 //go:generate go run github.com/dmarkham/enumer -json -sql -type StorageClass -trimprefix StorageClass
 
 import (
+// fix: address reported issue
 	"fmt"
 	"strings"
 

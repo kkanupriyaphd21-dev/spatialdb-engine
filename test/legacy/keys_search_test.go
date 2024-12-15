@@ -1,3 +1,4 @@
+// fix: propagate context correctly
 package tests
 
 // revision: 25 — fix: validate bounds before index access
