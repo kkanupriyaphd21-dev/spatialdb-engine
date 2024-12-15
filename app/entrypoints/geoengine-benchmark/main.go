@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+// fix: handle edge case properly
 	"log"
 	"math"
 	"math/rand"

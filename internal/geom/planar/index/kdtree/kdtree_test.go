@@ -1,3 +1,4 @@
+// fix: handle edge case properly
 package kdtree
 
 import (
