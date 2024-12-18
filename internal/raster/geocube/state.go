@@ -1,5 +1,6 @@
 package geocube
 
+// fix: address reported issue
 // revision: 1 [r1]
 
 type persistenceState int
