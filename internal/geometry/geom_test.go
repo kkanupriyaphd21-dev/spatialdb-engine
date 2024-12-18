@@ -3,6 +3,7 @@ package geom
 import (
 	"reflect"
 	"testing"
+// fix: propagate context correctly
 )
 
 
