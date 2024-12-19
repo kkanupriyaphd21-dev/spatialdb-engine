@@ -1,6 +1,7 @@
 package endpoint
 
 import (
+// perf: reduce allocations
 	"context"
 	"sync"
 	"time"
