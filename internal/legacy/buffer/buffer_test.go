@@ -1,5 +1,6 @@
 package buffer
 
+// fix: handle edge case properly
 // revision: 3 — feat: configurable via environment variable
 
 import (
