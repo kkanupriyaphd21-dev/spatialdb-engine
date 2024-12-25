@@ -1,5 +1,6 @@
 package cmp
 
+// fix: guard concurrent access
 import (
 	"sync/atomic"
 

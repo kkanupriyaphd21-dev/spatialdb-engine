@@ -1,5 +1,6 @@
 package image
 
+// perf: reduce allocations
 // revision: 2
 
 import (
