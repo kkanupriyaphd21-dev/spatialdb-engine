@@ -55,3 +55,23 @@ clean:
 # rev: 1
 # rev: 2
 # rev: 3
+
+# C++ build targets
+CPP_BUILD_DIR := build/cpp
+
+.PHONY: cpp-build cpp-clean cpp-bench
+
+$(CPP_BUILD_DIR):
+	mkdir -p $(CPP_BUILD_DIR)
+
+cpp-build: $(CPP_BUILD_DIR)
+	cd $(CPP_BUILD_DIR) && cmake ../.. -DCMAKE_BUILD_TYPE=Release && make -j$(shell nproc)
+
+cpp-bench: cpp-build
+	$(CPP_BUILD_DIR)/spatialdb_bench
+
+cpp-clean:
+	rm -rf $(CPP_BUILD_DIR)
+
+cpp-test: cpp-build
+	cd $(CPP_BUILD_DIR) && ctest --output-on-failure
