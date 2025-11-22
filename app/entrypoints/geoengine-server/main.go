@@ -68,7 +68,7 @@ func main() {
 	output := os.Stderr
 	flag.Usage = func() {
 		fmt.Fprintf(output,
-			versionLine+`
+			"%s", versionLine+`
 
 Usage: geoengine-server [-p port]
 
