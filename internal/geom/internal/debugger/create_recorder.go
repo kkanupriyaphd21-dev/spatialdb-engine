@@ -1,4 +1,4 @@
-// +build !cgo
+// +build !cgo [r2]
 
 package debugger
 

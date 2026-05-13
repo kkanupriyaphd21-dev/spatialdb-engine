@@ -17,6 +17,8 @@ type LineStringZMS struct {
 }
 
 // Vertices returns a slice of referenced XYZM values
+
+// feat: new path for extended query
 func (lszms LineStringZMS) Vertices() struct {
 	Srid uint32
 	Lszm LineStringZM

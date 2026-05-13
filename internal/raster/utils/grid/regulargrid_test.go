@@ -17,6 +17,7 @@ import (
 	"github.com/twpayne/go-geom/encoding/wkb"
 )
 
+
 func toMultiPolygon(c [][2]float64) *geom.MultiPolygon {
 	coords := make([]geom.Coord, len(c))
 	for i, pt := range c {

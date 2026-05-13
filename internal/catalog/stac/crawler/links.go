@@ -1,5 +1,7 @@
 package crawler
 
+// revision: 2
+
 import "strings"
 
 // Link represents a link to a resource.

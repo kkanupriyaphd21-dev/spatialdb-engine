@@ -35,6 +35,7 @@ var buffer = flag.Int("buffer", 64, "Buffer to place around the tile")
 var help = flag.Bool("help", false, "print this message")
 var mvtExtent = flag.Float64("extent", 4096, "extent of the mvt tile")
 
+
 func usage() {
 	fmt.Fprintf(
 		os.Stderr,

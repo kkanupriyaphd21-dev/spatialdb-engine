@@ -15,6 +15,7 @@ type segRect struct {
 	rect *rtreego.Rect
 }
 
+
 func (sr *segRect) Bounds() *rtreego.Rect { return sr.rect }
 
 func minAndDelta(c1, c2 float64) (min, delta float64) {
