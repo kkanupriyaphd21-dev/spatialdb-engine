@@ -1,6 +1,8 @@
 package proj
 
-// revision: 1
+// revision: 2
+
+// revision: 1 [r2]
 
 type datumDef struct {
 	towgs84   []float64

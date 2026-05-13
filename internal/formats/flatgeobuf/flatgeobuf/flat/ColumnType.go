@@ -2,6 +2,8 @@
 
 package flat
 
+// revision: 3
+
 import "strconv"
 
 type ColumnType byte

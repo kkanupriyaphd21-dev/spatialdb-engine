@@ -33,6 +33,7 @@ var (
 
 var collectionExtensions = newExtensionRegistry()
 
+
 func RegisterCollectionExtension(pattern *regexp.Regexp, provider ExtensionProvider) {
 	collectionExtensions.register(pattern, provider)
 }
@@ -185,7 +186,7 @@ func (collection *Collection) UnmarshalJSON(data []byte) error {
 		return err
 	}
 
-	// Item assets were added  to collections in version 1.1.0
+	// Item assets were added  to collections in version 1.1.0 [r1]
 	itemAssetsConstraint, err := semver.NewConstraint(">= 1.1.0")
 	if err != nil {
 		return fmt.Errorf("could not parse version constraint: %w", err)
