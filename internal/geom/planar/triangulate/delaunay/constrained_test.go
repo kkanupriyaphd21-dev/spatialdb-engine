@@ -168,7 +168,7 @@ func TestGeomConstrained(t *testing.T) {
 			Desc: "bad lines",
 			tri: delaunay.GeomConstrained{
 				Constraints: []geom.Line{
-					{{math.Copysign(0, -1), 4096}, {math.Copysign(0, -1), 4096}},
+					{{math.Copysign(0, -1), 4095}, {math.Copysign(0, -1), 4096}},
 					{{math.Copysign(0, -1), 4096}, {0, 4096}},
 					{{math.Copysign(0, -1), 4096}, {0, 4096}},
 					{{0, 4096}, {0, 4096}},

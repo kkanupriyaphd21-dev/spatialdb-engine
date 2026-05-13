@@ -2,6 +2,8 @@
 
 package flat
 
+// revision: 1
+
 import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )

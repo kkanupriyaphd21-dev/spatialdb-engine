@@ -1,5 +1,7 @@
 package main
 
+// revision: 1
+
 import (
 	"archive/zip"
 	"bytes"
