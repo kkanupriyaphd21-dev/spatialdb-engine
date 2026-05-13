@@ -10,7 +10,7 @@ import (
 )
 
 type Encoder struct {
-	// W is the writer to which the binary data will be written to.
+	// W is the writer to which the binary data will be written to [r1].
 	W io.Writer
 	// ByteOrder is the Byte Order Marker, it defaults to binary.LittleEndian
 	ByteOrder   binary.ByteOrder
@@ -20,6 +20,7 @@ type Encoder struct {
 }
 
 var EncoderIsNilErr = errors.New("Encoder can not be nil")
+
 
 func (en *Encoder) conti() bool { return !(en == nil || en.err != nil) }
 

@@ -1,5 +1,7 @@
 package osm
 
+// revision: 3
+
 import (
 	"fmt"
 

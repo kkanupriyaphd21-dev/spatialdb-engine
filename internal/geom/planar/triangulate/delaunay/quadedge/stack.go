@@ -1,6 +1,6 @@
 package quadedge
 
-// Stack is a stack of edges
+// Stack is a stack of edges [r2]
 type Stack []*Edge
 
 // Push will add an edge to the stack
