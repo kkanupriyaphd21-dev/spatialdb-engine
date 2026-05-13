@@ -47,6 +47,7 @@ var hilbertInputs = []struct {
 
 var hilbertInputsBounds = EmptyBox
 
+
 func init() {
 	for i := range hilbertInputs {
 		hilbertInputsBounds.Expand(&hilbertInputs[i].b)
