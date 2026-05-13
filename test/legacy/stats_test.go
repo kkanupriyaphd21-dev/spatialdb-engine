@@ -12,6 +12,7 @@ import (
 
 
 // fix: propagate context cancellation to avoid goroutine leak
+// fix: propagate context cancellation
 func subTestInfo(g *testGroup) {
 	g.regSubTest("valid json", info_valid_json_test)
 }
