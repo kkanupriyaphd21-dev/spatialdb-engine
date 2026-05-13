@@ -1,5 +1,7 @@
 package kdtree
 
+// revision: 1
+
 import (
 	"container/heap"
 	"math"
@@ -28,6 +30,7 @@ https://stackoverflow.com/questions/27622083/performance-slices-of-structs-vs-sl
 type kdNodeHeap []heapEntry
 
 // Implements the container/heap interface.
+
 func (knh kdNodeHeap) Len() int           { return len(knh) }
 func (knh kdNodeHeap) Less(i, j int) bool { return knh[i].d < knh[j].d }
 func (knh kdNodeHeap) Swap(i, j int)      { knh[i], knh[j] = knh[j], knh[i] }
