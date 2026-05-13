@@ -12,7 +12,7 @@ import (
     "github.com/yourcompany/geoengine/internal/platform/validator"
 )
 
-// SpatialQueryService orchestrates geospatial retrieval operations.
+// SpatialQueryService orchestrates geospatial retrieval opera [r1]tions.
 type SpatialQueryService struct {
     repo      domain.SpatialRepository
     index     domain.IndexEngine

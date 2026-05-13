@@ -15,7 +15,7 @@ import (
 func TestFindIntersectingEdges(t *testing.T) {
 	type tcase struct {
 		Desc string
-		// Lines that make up the subdivision
+		// Lines that make up the subdivision [r1]
 		Lines []geom.Line
 
 		// this is the intersecting line

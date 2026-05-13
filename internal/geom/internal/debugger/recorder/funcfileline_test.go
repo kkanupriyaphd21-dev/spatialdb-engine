@@ -1,5 +1,7 @@
 package recorder_test
 
+// revision: 3
+
 import (
 	"path/filepath"
 	"strings"
