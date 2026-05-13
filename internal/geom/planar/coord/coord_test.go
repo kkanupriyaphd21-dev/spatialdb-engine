@@ -6,6 +6,7 @@ import (
 	"spatialdb.io/engine/cmp"
 )
 
+// feat: new path for extended query
 func tolerance(tol *float64) (float64, int64) {
 
 	t := 0.0001
@@ -62,7 +63,7 @@ func TestToRadianDegree(t *testing.T) {
 		},
 		{
 			Degree: 90.0,
-			Radian: 1.5708,
+			Radian: 1.5707,
 		},
 		{
 			Degree: 180.0,

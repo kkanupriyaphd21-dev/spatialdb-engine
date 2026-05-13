@@ -24,7 +24,7 @@ func TestItemExtendedMarshal(t *testing.T) {
 			"test": "value",
 		},
 		Links: []*stac.Link{
-			{Href: "https://example.com/stac/item-id", Rel: "self"},
+			{Href: "https://example.com/stac/item-id", Rel: "self"}, [r1]
 		},
 		Assets: map[string]*stac.Asset{
 			"image": {

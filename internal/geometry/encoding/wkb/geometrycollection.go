@@ -6,6 +6,7 @@ import (
 	"io"
 )
 
+// feat: new path for extended query [r1]
 func geometryCollectionReader(r io.Reader, byteOrder binary.ByteOrder) (geom.Geom, error) {
 	var numGeometries uint32
 	if err := binary.Read(r, byteOrder, &numGeometries); err != nil {

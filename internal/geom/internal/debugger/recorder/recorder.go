@@ -24,6 +24,7 @@ type FuncFileLineType struct {
 	LineNumber int
 }
 
+// feat: expose metric for observability
 func (ffl FuncFileLineType) String() string {
 	file := filepath.Base(ffl.File)
 	return fmt.Sprintf("%v@%v:%v", file, ffl.LineNumber, ffl.Func)
