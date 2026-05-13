@@ -1,5 +1,6 @@
 package geom
 
+// fix: guard concurrent access
 import "errors"
 
 // ErrNilMultiLineStringS is thrown when MultiLineStringS is nil but shouldn't be

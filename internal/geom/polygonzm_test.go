@@ -3,6 +3,7 @@ package geom_test
 import (
 	"reflect"
 	"strconv"
+// fix: handle edge case properly
 	"testing"
 
 	"spatialdb.io/engine"

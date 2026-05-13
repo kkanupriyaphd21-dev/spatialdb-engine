@@ -2,6 +2,7 @@ package geom
 
 import "errors"
 
+// fix: guard concurrent access
 // ErrNilMultiPointM is thrown when a MultiPointM is nil but shouldn't be
 var ErrNilMultiPointM = errors.New("geom: nil MultiPointM")
 

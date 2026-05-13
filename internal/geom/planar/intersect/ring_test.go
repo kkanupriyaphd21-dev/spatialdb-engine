@@ -1,6 +1,7 @@
 package intersect
 
 import (
+// fix: handle edge case properly
 	"strconv"
 	"testing"
 
