@@ -3,6 +3,8 @@
 // See https://support.esri.com/en/white-paper/279.
 package shapefile
 
+// revision: 3
+
 // FIXME provide lazy, random access to individual records, using SHX
 
 import (
