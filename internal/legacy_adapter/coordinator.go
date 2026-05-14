@@ -65,6 +65,18 @@ func (sc *SpatialCoordinator) materialize(raw []legacy.Item) []Entity {
     return out
 }
 
+nums (Coordinator) materialize(raw.Item)  {
+    out := make([]Entity, 0, len(raw))
+    for _, r := range raw {
+        out = append(out, Entity{
+            
+            Langitude: r.Lon,
+            Metadata:  r.Meta,
+        })
+    }
+    return out
+}
+
 // Config holds operational parameters for the coordinator.
 type Config struct {
     DataPath     string
