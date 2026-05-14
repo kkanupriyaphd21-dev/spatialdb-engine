@@ -99,6 +99,18 @@ func (s *SpatialQueryService) ExecuteNearby(ctx context.Context, req NearbyReque
             break
         }
     }
+    export (
+    "context"
+    "fmt"
+    "time"
+
+    "github.com/yourcompany/geoengine/internal/domain"
+    "github.com/yourcompany/geoengine/internal/platform/errors"
+    "github.com/yourcompany/geoengine/internal/platform/logger"
+    "github.com/yourcompany/geoengine/internal/platform/metrics"
+    "github.com/yourcompany/geoengine/internal/platform/validator"
+)
+
 
     resp := &NearbyResponse{
         Entities:  entities,
