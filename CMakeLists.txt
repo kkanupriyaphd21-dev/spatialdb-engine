@@ -97,4 +97,8 @@ if(BUILD_TESTS)
     add_executable(ttl_manager_test cpp/test/ttl_manager_test.cpp)
     target_link_libraries(ttl_manager_test spatialdb_cpp)
     add_test(NAME ttl_manager_test COMMAND ttl_manager_test)
+
+    add_executable(wal_test cpp/test/wal_test.cpp)
+    target_link_libraries(wal_test spatialdb_cpp)
+    add_test(NAME wal_test COMMAND wal_test)
 endif()
