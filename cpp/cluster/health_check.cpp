@@ -57,6 +57,7 @@ NodeHealth HealthChecker::checkNode(const NodeHealth& current) {
 
     if (rc < 0) {
         updated.status = NodeStatus::UNREACHABLE;
+        updated.consecutive_failures = current.consecutive_failures + 1;
         close(fd);
         return updated;
     }
@@ -73,8 +74,10 @@ NodeHealth HealthChecker::checkNode(const NodeHealth& current) {
 
     if (n > 0 && buf[0] == '+') {
         updated.status = NodeStatus::HEALTHY;
+        updated.consecutive_failures = 0;
     } else {
         updated.status = NodeStatus::DEGRADED;
+        updated.consecutive_failures = current.consecutive_failures + 1;
     }
 
     return updated;
@@ -157,6 +160,13 @@ bool HealthChecker::isHealthy(const std::string& id) const {
 void HealthChecker::onHealthChange(HealthChangeCallback cb) {
     std::lock_guard<std::mutex> lock(mu_);
     callbacks_.push_back(std::move(cb));
+}
+
+int HealthChecker::consecutiveFailures(const std::string& id) const {
+    std::lock_guard<std::mutex> lock(mu_);
+    auto it = nodes_.find(id);
+    if (it == nodes_.end()) return 0;
+    return it->second.consecutive_failures;
 }
 
 } // namespace cluster

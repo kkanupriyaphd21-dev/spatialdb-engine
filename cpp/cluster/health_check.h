@@ -26,6 +26,7 @@ struct NodeHealth {
     std::string version;
     uint64_t    uptime_sec = 0;
     size_t      active_conns = 0;
+    int         consecutive_failures = 0;
     std::chrono::steady_clock::time_point last_checked;
 };
 
@@ -48,6 +49,8 @@ public:
     bool          isHealthy(const std::string& id) const;
 
     void onHealthChange(HealthChangeCallback cb);
+
+    int consecutiveFailures(const std::string& id) const;
 
 private:
     int           interval_ms_;
