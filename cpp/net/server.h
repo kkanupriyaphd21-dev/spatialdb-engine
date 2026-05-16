@@ -34,6 +34,7 @@ struct ServerConfig {
     size_t      worker_threads = 4;
     int         read_timeout_ms  = 5000;
     int         write_timeout_ms = 5000;
+    int         drain_timeout_ms = 5000; // time to wait for active connections during shutdown
 };
 
 class TCPServer {
@@ -44,7 +45,9 @@ public:
     void setHandler(RequestHandler handler);
     bool start();
     void stop();
+    void shutdown(); // graceful: stop accepting, drain active connections
     bool isRunning() const { return running_.load(); }
+    bool isShuttingDown() const { return shutting_down_.load(); }
 
     size_t clientCount() const;
     size_t workerCount() const;
@@ -54,6 +57,7 @@ private:
     RequestHandler  handler_;
     int             listen_fd_ = -1;
     std::atomic<bool> running_{false};
+    std::atomic<bool> shutting_down_{false};
     std::thread     accept_thread_;
 
     mutable std::mutex                          clients_mu_;
