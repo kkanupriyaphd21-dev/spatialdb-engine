@@ -39,6 +39,25 @@ double Histogram::percentile(double p) const {
     return buckets.empty() ? sum : buckets.back();
 }
 
+Histogram::Snapshot Histogram::snapshot() const {
+    // Read sum and count under lock
+    double s;
+    uint64_t t;
+    {
+        std::lock_guard<std::mutex> lock(mu);
+        s = sum;
+        t = total.load();
+    }
+    Snapshot snap;
+    snap.count = t;
+    snap.sum = s;
+    snap.mean = t == 0 ? 0.0 : s / t;
+    snap.p50 = percentile(50.0);
+    snap.p95 = percentile(95.0);
+    snap.p99 = percentile(99.0);
+    return snap;
+}
+
 Registry& Registry::global() {
     static Registry instance;
     return instance;

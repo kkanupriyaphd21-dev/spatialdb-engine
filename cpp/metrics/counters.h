@@ -53,12 +53,22 @@ struct Histogram {
     }
 
     double mean() const {
+        std::lock_guard<std::mutex> lock(mu);
         uint64_t t = total.load();
         return t == 0 ? 0.0 : sum / t;
     }
 
     // Estimate percentile from bucket counts (linear interpolation)
     double percentile(double p) const;
+
+    // Thread-safe snapshot of all stats
+    struct Snapshot {
+        uint64_t count;
+        double sum;
+        double mean;
+        double p50, p95, p99;
+    };
+    Snapshot snapshot() const;
 };
 
 // Generate unique request IDs (thread-safe, monotonic)
