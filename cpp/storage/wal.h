@@ -45,6 +45,7 @@ private:
 
     bool writeEntry(const WalEntry& e);
     bool readEntry(std::ifstream& in, WalEntry& out);
+    bool syncToDisk();
 };
 
 } // namespace storage

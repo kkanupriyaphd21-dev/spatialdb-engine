@@ -89,3 +89,16 @@ message(STATUS "SpatialDB ${PROJECT_VERSION} configured")
 message(STATUS "  TLS:        ${ENABLE_TLS}")
 message(STATUS "  Benchmarks: ${BUILD_BENCHMARKS}")
 message(STATUS "  Tests:      ${BUILD_TESTS}")
+
+# Test suite
+if(BUILD_TESTS)
+    enable_testing()
+
+    add_executable(ttl_manager_test cpp/test/ttl_manager_test.cpp)
+    target_link_libraries(ttl_manager_test spatialdb_cpp)
+    add_test(NAME ttl_manager_test COMMAND ttl_manager_test)
+
+    add_executable(wal_test cpp/test/wal_test.cpp)
+    target_link_libraries(wal_test spatialdb_cpp)
+    add_test(NAME wal_test COMMAND wal_test)
+endif()
