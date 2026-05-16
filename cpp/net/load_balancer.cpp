@@ -3,11 +3,18 @@
 #include <stdexcept>
 #include <random>
 #include <functional>
+#include <chrono>
 
 namespace spatialdb {
 namespace net {
 
-LoadBalancer::LoadBalancer(LBStrategy strategy) : strategy_(strategy) {}
+static int64_t nowMs() {
+    return (int64_t)std::chrono::steady_clock::now()
+               .time_since_epoch().count() / 1000000;
+}
+
+LoadBalancer::LoadBalancer(LBStrategy strategy, HealthCheckConfig hc_cfg)
+    : strategy_(strategy), hc_cfg_(hc_cfg) {}
 
 void LoadBalancer::addBackend(Backend backend) {
     std::lock_guard<std::mutex> lock(mu_);
@@ -28,6 +35,32 @@ void LoadBalancer::markUnhealthy(const std::string& id) {
 void LoadBalancer::markHealthy(const std::string& id) {
     std::lock_guard<std::mutex> lock(mu_);
     for (auto& b : backends_) if (b.id == id) b.healthy = true;
+}
+
+void LoadBalancer::recordCheckResult(const std::string& id, bool success) {
+    std::lock_guard<std::mutex> lock(mu_);
+    auto now = nowMs();
+    for (auto& b : backends_) {
+        if (b.id != id) continue;
+        b.last_check_ms = now;
+
+        if (success) {
+            b.consecutive_failures = 0;
+            b.consecutive_successes++;
+            if (!b.healthy && b.consecutive_successes >= hc_cfg_.success_threshold) {
+                b.healthy = true;
+                b.last_state_change_ms = now;
+            }
+        } else {
+            b.consecutive_successes = 0;
+            b.consecutive_failures++;
+            if (b.healthy && b.consecutive_failures >= hc_cfg_.failure_threshold) {
+                b.healthy = false;
+                b.last_state_change_ms = now;
+            }
+        }
+        return;
+    }
 }
 
 const Backend* LoadBalancer::next(const std::string& client_ip) {
