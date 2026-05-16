@@ -18,6 +18,7 @@ struct Page {
     std::vector<uint8_t> data;
     bool                 dirty = false;
     uint64_t             last_access = 0;
+    uint64_t             created_at  = 0; // tick when page was created
 
     Page(uint64_t id, size_t page_size)
         : page_id(id), data(page_size, 0) {}
@@ -42,6 +43,9 @@ public:
         return total == 0 ? 0.0 : (double)hits_ / total;
     }
 
+    size_t dirtyCount() const;
+    size_t evictCount() const { return evict_count_; }
+
 private:
     using LRUList = std::list<uint64_t>;
     using LRUIt   = LRUList::iterator;
@@ -56,6 +60,7 @@ private:
 
     size_t hits_   = 0;
     size_t misses_ = 0;
+    size_t evict_count_ = 0;
     uint64_t tick_ = 0;
 
     void evict();

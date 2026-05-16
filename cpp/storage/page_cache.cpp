@@ -30,6 +30,7 @@ void PageCache::evict() {
         if (pit != pages_.end()) {
             // In production: write dirty pages to disk here
             pages_.erase(pit);
+            ++evict_count_;
         }
     }
 }
@@ -53,7 +54,9 @@ bool PageCache::write(uint64_t page_id, const std::vector<uint8_t>& data) {
     auto it = pages_.find(page_id);
     if (it == pages_.end()) {
         if (pages_.size() >= max_pages_) evict();
-        pages_.emplace(page_id, Page(page_id, page_size_));
+        Page p(page_id, page_size_);
+        p.created_at = tick_;
+        pages_.emplace(page_id, std::move(p));
         it = pages_.find(page_id);
     }
 
@@ -89,6 +92,15 @@ void PageCache::invalidate(uint64_t page_id) {
         lru_map_.erase(it);
     }
     pages_.erase(page_id);
+}
+
+size_t PageCache::dirtyCount() const {
+    std::lock_guard<std::mutex> lock(mu_);
+    size_t count = 0;
+    for (const auto& [id, page] : pages_) {
+        if (page.dirty) ++count;
+    }
+    return count;
 }
 
 } // namespace storage
