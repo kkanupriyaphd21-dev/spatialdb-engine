@@ -48,6 +48,7 @@ struct Circle {
     Point  center;
     double radius_km;
 
+    Circle() : center(0.0, 0.0), radius_km(0.0) {}
     Circle(Point c, double r) : center(c), radius_km(r) {}
 };
 

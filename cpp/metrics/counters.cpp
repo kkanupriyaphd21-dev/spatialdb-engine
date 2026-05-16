@@ -27,16 +27,17 @@ Gauge& Registry::gauge(const std::string& name, const std::string& help) {
 }
 
 Histogram& Registry::histogram(const std::string& name,
-                                 std::vector<double> buckets,
-                                 const std::string& help) {
+                                  std::vector<double> buckets,
+                                  const std::string& help) {
     std::lock_guard<std::mutex> lock(mu_);
     auto it = histograms_.find(name);
-    if (it != histograms_.end()) return it->second;
-    histograms_.emplace(name, Histogram(std::move(buckets)));
-    auto& h = histograms_.at(name);
-    h.name = name;
-    h.help = help;
-    return h;
+    if (it != histograms_.end()) return *it->second;
+    auto h = std::make_unique<Histogram>(std::move(buckets));
+    h->name = name;
+    h->help = help;
+    auto* ptr = h.get();
+    histograms_.emplace(name, std::move(h));
+    return *ptr;
 }
 
 std::string Registry::prometheusText() const {
@@ -57,7 +58,8 @@ std::string Registry::prometheusText() const {
         ss << name << " " << g.get() << "\n";
     }
 
-    for (const auto& [name, h] : histograms_) {
+    for (const auto& [name, h_ptr] : histograms_) {
+        const auto& h = *h_ptr;
         if (!h.help.empty())
             ss << "# HELP " << name << " " << h.help << "\n";
         ss << "# TYPE " << name << " histogram\n";
@@ -67,7 +69,7 @@ std::string Registry::prometheusText() const {
                << h.counts[i] << "\n";
         }
         ss << name << "_bucket{le=\"+Inf\"} " << h.total.load() << "\n";
-        ss << name << "_sum "   << h.sum.load()   << "\n";
+        ss << name << "_sum "   << h.sum   << "\n";
         ss << name << "_count " << h.total.load() << "\n";
     }
 

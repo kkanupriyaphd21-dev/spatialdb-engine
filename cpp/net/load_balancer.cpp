@@ -62,7 +62,7 @@ const Backend* LoadBalancer::leastConnections() {
 
     for (auto& b : backends_) {
         if (!b.healthy) continue;
-        int c = b.active_conns.load();
+        int c = b.active_conns;
         if (c < min_conns) { min_conns = c; best = &b; }
     }
 

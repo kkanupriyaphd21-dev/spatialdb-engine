@@ -15,7 +15,7 @@ std::string RespEncoder::encode(const RespValue& val) {
             ss << "-" << val.str << "\r\n";
             break;
         case RespType::INTEGER:
-            ss << ":" << val.integer << "\r\n";
+            ss << ":" << val.int_val << "\r\n";
             break;
         case RespType::BULK_STRING:
             ss << "$" << val.str.size() << "\r\n" << val.str << "\r\n";
@@ -24,8 +24,8 @@ std::string RespEncoder::encode(const RespValue& val) {
             ss << "$-1\r\n";
             break;
         case RespType::ARRAY:
-            ss << "*" << val.array.size() << "\r\n";
-            for (const auto& v : val.array) ss << encode(v);
+            ss << "*" << val.arr_val.size() << "\r\n";
+            for (const auto& v : val.arr_val) ss << encode(v);
             break;
     }
     return ss.str();
@@ -84,7 +84,7 @@ std::optional<RespValue> RespDecoder::decodeArray(int64_t count) {
         if (!v) return std::nullopt;
         arr.push_back(std::move(*v));
     }
-    return RespValue::array(std::move(arr));
+    return RespValue::makeArray(std::move(arr));
 }
 
 std::optional<RespValue> RespDecoder::decodeOne() {
@@ -97,7 +97,7 @@ std::optional<RespValue> RespDecoder::decodeOne() {
     switch (prefix) {
         case '+': return RespValue::simpleString(*line);
         case '-': return RespValue::error(*line);
-        case ':': return RespValue::integer(std::stoll(*line));
+        case ':': return RespValue::makeInteger(std::stoll(*line));
         case '$': {
             int64_t len = std::stoll(*line);
             return decodeBulkString(len);

@@ -105,4 +105,8 @@ if(BUILD_TESTS)
     add_executable(server_test cpp/test/server_test.cpp)
     target_link_libraries(server_test spatialdb_cpp)
     add_test(NAME server_test COMMAND server_test)
+
+    add_executable(parser_test cpp/test/parser_test.cpp)
+    target_link_libraries(parser_test spatialdb_cpp)
+    add_test(NAME parser_test COMMAND parser_test)
 endif()
