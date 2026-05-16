@@ -105,4 +105,8 @@ if(BUILD_TESTS)
     add_executable(server_test cpp/test/server_test.cpp)
     target_link_libraries(server_test spatialdb_cpp)
     add_test(NAME server_test COMMAND server_test)
+
+    add_executable(geohash_validation_test cpp/test/geohash_validation_test.cpp)
+    target_link_libraries(geohash_validation_test spatialdb_cpp)
+    add_test(NAME geohash_validation_test COMMAND geohash_validation_test)
 endif()

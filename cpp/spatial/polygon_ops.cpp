@@ -1,6 +1,7 @@
 #include "polygon_ops.h"
 #include <cmath>
 #include <algorithm>
+#include <functional>
 
 namespace spatialdb {
 namespace spatial {

@@ -17,6 +17,11 @@ int Geohash::charToIdx(char c) {
 }
 
 std::string Geohash::encode(double lat, double lon, int precision) {
+    if (precision <= 0) throw std::invalid_argument("geohash precision must be > 0");
+    if (precision > 12) precision = 12; // max useful precision for double
+    if (lat < -90.0 || lat > 90.0) throw std::invalid_argument("latitude out of range [-90, 90]");
+    if (lon < -180.0 || lon > 180.0) throw std::invalid_argument("longitude out of range [-180, 180]");
+
     double lat_min = -90.0,  lat_max = 90.0;
     double lon_min = -180.0, lon_max = 180.0;
 
@@ -50,6 +55,13 @@ std::string Geohash::encode(double lat, double lon, int precision) {
 }
 
 geometry::BBox Geohash::decodeBBox(const std::string& hash) {
+    if (hash.empty()) throw std::invalid_argument("geohash cannot be empty");
+    for (char c : hash) {
+        bool valid = false;
+        for (int i = 0; i < 32; ++i) { if (BASE32[i] == c) { valid = true; break; } }
+        if (!valid) throw std::invalid_argument(std::string("invalid geohash character: ") + c);
+    }
+
     double lat_min = -90.0,  lat_max = 90.0;
     double lon_min = -180.0, lon_max = 180.0;
     bool use_lon = true;
@@ -79,6 +91,7 @@ geometry::Point Geohash::decode(const std::string& hash) {
 }
 
 std::vector<std::string> Geohash::neighbors(const std::string& hash) {
+    if (hash.empty()) throw std::invalid_argument("geohash cannot be empty");
     auto box = decodeBBox(hash);
     int prec = (int)hash.size();
     double lat_step = (box.max_lat - box.min_lat);
@@ -104,6 +117,8 @@ std::string Geohash::parent(const std::string& hash) {
 }
 
 std::vector<std::string> Geohash::hashesForBBox(const geometry::BBox& bbox, int precision) {
+    if (precision <= 0) throw std::invalid_argument("geohash precision must be > 0");
+    if (precision > 12) precision = 12;
     std::vector<std::string> result;
     std::unordered_set<std::string> visited;
     std::queue<std::string> q;

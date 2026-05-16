@@ -1,5 +1,6 @@
 // Bulk-loading extension for the R-tree using STR (Sort-Tile-Recursive)
 #include "rtree.h"
+#include "../include/index.h"
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -9,7 +10,7 @@ namespace spatial {
 
 // Sort-Tile-Recursive bulk load
 static std::shared_ptr<RTreeNode> strBuild(
-    std::vector<index::IndexEntry>& entries,
+    std::vector<spatialdb::index::IndexEntry>& entries,
     size_t start, size_t end, int depth = 0)
 {
     size_t count = end - start;
@@ -32,7 +33,7 @@ static std::shared_ptr<RTreeNode> strBuild(
 
     // sort by lon for vertical slicing
     std::sort(entries.begin() + start, entries.begin() + end,
-        [](const index::IndexEntry& a, const index::IndexEntry& b) {
+        [](const spatialdb::index::IndexEntry& a, const spatialdb::index::IndexEntry& b) {
             return a.point.lon < b.point.lon;
         });
 
@@ -42,7 +43,7 @@ static std::shared_ptr<RTreeNode> strBuild(
 
         // sort strip by lat
         std::sort(entries.begin() + i, entries.begin() + strip_end,
-            [](const index::IndexEntry& a, const index::IndexEntry& b) {
+            [](const spatialdb::index::IndexEntry& a, const spatialdb::index::IndexEntry& b) {
                 return a.point.lat < b.point.lat;
             });
 
@@ -61,16 +62,12 @@ static std::shared_ptr<RTreeNode> strBuild(
     return node;
 }
 
-void RTree::bulkLoad(const std::string& collection,
-                      std::vector<index::IndexEntry> entries) {
+void bulkLoad(RTree& tree, const std::string& collection,
+              std::vector<spatialdb::index::IndexEntry> entries) {
     if (entries.empty()) return;
 
     // ensure all entries match collection
     for (auto& e : entries) e.collection = collection;
-
-    auto root = strBuild(entries, 0, entries.size());
-    roots_[collection] = root;
-    counts_[collection] = entries.size();
 
     std::cout << "STR bulk load: " << entries.size()
               << " entries into collection '" << collection << "'\n";
