@@ -7,6 +7,11 @@
 namespace spatialdb {
 namespace net {
 
+// Protocol limits to prevent abuse
+static constexpr size_t MAX_BULK_STRING_SIZE = 512 * 1024 * 1024; // 512MB
+static constexpr size_t MAX_ARRAY_SIZE       = 1024 * 1024;       // 1M elements
+static constexpr size_t MAX_LINE_LENGTH      = 8192;              // 8KB
+
 enum class RespType {
     SIMPLE_STRING,
     ERROR,
