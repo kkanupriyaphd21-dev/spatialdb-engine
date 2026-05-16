@@ -13,6 +13,11 @@ struct TLSConfig {
     bool        verify_client  = false;
     bool        verify_server  = true;
     std::string min_version    = "TLS1.2";
+    std::string cipher_list    = "HIGH:!aNULL:!MD5:!RC4:!3DES:!DES:!EXPORT";
+
+    // Validate configuration and return error message if invalid
+    std::string validate() const;
+    bool        isValid() const { return validate().empty(); }
 };
 
 struct TLSConn {
