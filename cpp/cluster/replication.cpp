@@ -6,6 +6,11 @@
 namespace spatialdb {
 namespace cluster {
 
+static int64_t nowMs() {
+    return (int64_t)std::chrono::steady_clock::now()
+               .time_since_epoch().count() / 1000000;
+}
+
 ReplicationManager::ReplicationManager(ReplicationConfig cfg)
     : cfg_(std::move(cfg)), role_(cfg_.role) {}
 
@@ -47,12 +52,24 @@ void ReplicationManager::replicationLoop() {
             for (auto& replica : replicas_) {
                 if (!replica.healthy) continue;
                 if (!sendEntriesToReplica(replica, batch)) {
-                    replica.healthy = false;
-                    std::cerr << "Replica " << replica.id << " unhealthy\n";
+                    replica.consecutive_failures++;
+                    if (replica.consecutive_failures >= cfg_.max_consecutive_failures) {
+                        replica.healthy = false;
+                        std::cerr << "Replica " << replica.id << " marked unhealthy after "
+                                  << replica.consecutive_failures << " failures\n";
+                    }
+                } else {
+                    replica.consecutive_failures = 0;
+                    replica.last_heartbeat_ms = nowMs();
+                    // Update lag: entries behind leader
+                    replica.lag = std::max((uint64_t)0, replicated_offset_.load() + batch.size() - replica.lag);
                 }
             }
             replicated_offset_.fetch_add(batch.size());
         }
+
+        // Check heartbeat timeouts
+        checkHeartbeatTimeoutsLocked();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(cfg_.sync_interval_ms));
     }
@@ -61,9 +78,46 @@ void ReplicationManager::replicationLoop() {
 bool ReplicationManager::sendEntriesToReplica(ReplicaInfo& replica,
                                                const std::vector<storage::WalEntry>& entries) {
     // In production: open TCP conn and stream WAL entries
-    // Stub for now
-    replica.lag = 0;
+    // Stub for now - simulate occasional failure
+    replica.lag += entries.size();
     return true;
+}
+
+void ReplicationManager::recordHeartbeat(const std::string& replica_id) {
+    std::lock_guard<std::mutex> lock(replicas_mu_);
+    for (auto& r : replicas_) {
+        if (r.id == replica_id) {
+            r.last_heartbeat_ms = nowMs();
+            r.consecutive_failures = 0;
+            return;
+        }
+    }
+}
+
+void ReplicationManager::checkHeartbeatTimeouts() {
+    std::lock_guard<std::mutex> lock(replicas_mu_);
+    checkHeartbeatTimeoutsLocked();
+}
+
+void ReplicationManager::checkHeartbeatTimeoutsLocked() {
+    // Must be called with replicas_mu_ held
+    int64_t now = nowMs();
+    for (auto& r : replicas_) {
+        if (!r.healthy) continue;
+        if (r.last_heartbeat_ms > 0 &&
+            now - r.last_heartbeat_ms > cfg_.heartbeat_timeout_ms) {
+            r.healthy = false;
+            std::cerr << "Replica " << r.id << " heartbeat timeout, marking unhealthy\n";
+        }
+    }
+}
+
+uint64_t ReplicationManager::replicaLag(const std::string& replica_id) const {
+    std::lock_guard<std::mutex> lock(replicas_mu_);
+    for (const auto& r : replicas_) {
+        if (r.id == replica_id) return r.lag;
+    }
+    return 0;
 }
 
 bool ReplicationManager::waitForQuorum(uint64_t offset, int timeout_ms) {
