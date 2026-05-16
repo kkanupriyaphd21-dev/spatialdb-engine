@@ -96,7 +96,11 @@ double QueryParser::expectNumber(const std::string& ctx) {
     auto t = lexer_.next();
     if (t.type != TokenType::NUMBER)
         throw std::runtime_error("expected number in " + ctx + ", got: " + t.value);
-    return std::stod(t.value);
+    try {
+        return std::stod(t.value);
+    } catch (const std::exception& e) {
+        throw std::runtime_error("invalid number '" + t.value + "' in " + ctx);
+    }
 }
 
 std::string QueryParser::expectString(const std::string& ctx) {

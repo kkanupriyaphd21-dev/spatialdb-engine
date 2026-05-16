@@ -19,8 +19,8 @@ enum class RespType {
 struct RespValue {
     RespType type;
     std::string str;
-    int64_t     integer = 0;
-    std::vector<RespValue> array;
+    int64_t     int_val = 0;
+    std::vector<RespValue> arr_val;
 
     static RespValue simpleString(std::string s) {
         return {RespType::SIMPLE_STRING, std::move(s), 0, {}};
@@ -28,7 +28,7 @@ struct RespValue {
     static RespValue error(std::string s) {
         return {RespType::ERROR, std::move(s), 0, {}};
     }
-    static RespValue integer(int64_t i) {
+    static RespValue makeInteger(int64_t i) {
         return {RespType::INTEGER, "", i, {}};
     }
     static RespValue bulkString(std::string s) {
@@ -37,7 +37,7 @@ struct RespValue {
     static RespValue nullBulk() {
         return {RespType::NULL_BULK, "", 0, {}};
     }
-    static RespValue array(std::vector<RespValue> arr) {
+    static RespValue makeArray(std::vector<RespValue> arr) {
         return {RespType::ARRAY, "", 0, std::move(arr)};
     }
 };

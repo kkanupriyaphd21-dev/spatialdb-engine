@@ -36,7 +36,7 @@ struct Histogram {
     std::vector<double>      buckets; // upper bounds
     mutable std::mutex       mu;
     std::vector<uint64_t>    counts;
-    std::atomic<double>      sum{0.0};
+    double                   sum = 0.0;
     std::atomic<uint64_t>    total{0};
 
     explicit Histogram(std::vector<double> bkts)
@@ -48,13 +48,13 @@ struct Histogram {
             if (val <= buckets[i]) { ++counts[i]; break; }
         }
         if (val > buckets.back()) ++counts[buckets.size()];
-        sum.fetch_add(val, std::memory_order_relaxed);
+        sum += val;
         total.fetch_add(1, std::memory_order_relaxed);
     }
 
     double mean() const {
         uint64_t t = total.load();
-        return t == 0 ? 0.0 : sum.load() / t;
+        return t == 0 ? 0.0 : sum / t;
     }
 };
 
@@ -74,7 +74,7 @@ private:
     mutable std::mutex                                mu_;
     std::unordered_map<std::string, Counter>          counters_;
     std::unordered_map<std::string, Gauge>            gauges_;
-    std::unordered_map<std::string, Histogram>        histograms_;
+    std::unordered_map<std::string, std::unique_ptr<Histogram>> histograms_;
 };
 
 } // namespace metrics

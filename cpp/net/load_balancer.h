@@ -22,15 +22,11 @@ struct Backend {
     int         port       = 9851;
     bool        healthy    = true;
     int         weight     = 1;
-    std::atomic<int> active_conns{0};
+    int         active_conns = 0;
 
     Backend() = default;
     Backend(std::string id, std::string host, int port, int weight = 1)
         : id(std::move(id)), host(std::move(host)), port(port), weight(weight) {}
-    Backend(const Backend& o)
-        : id(o.id), host(o.host), port(o.port), healthy(o.healthy), weight(o.weight) {
-        active_conns.store(o.active_conns.load());
-    }
 };
 
 class LoadBalancer {
