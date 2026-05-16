@@ -52,7 +52,6 @@ private:
     std::vector<ExpiryCallback>                 callbacks_;
 
     void sweepLoop();
-    void fireCallbacks(const std::string& collection, const std::string& id);
 };
 
 } // namespace storage

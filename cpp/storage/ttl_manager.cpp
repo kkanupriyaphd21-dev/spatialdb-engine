@@ -21,8 +21,13 @@ void TTLManager::setTTL(const std::string& collection,
     auto it = expiry_map_.find(key);
     if (it != expiry_map_.end()) {
         auto range = expiry_index_.equal_range(it->second);
-        for (auto r = range.first; r != range.second; ++r) {
-            if (r->second == key) { expiry_index_.erase(r); break; }
+        for (auto r = range.first; r != range.second; ) {
+            if (r->second == key) {
+                r = expiry_index_.erase(r);
+                break;
+            } else {
+                ++r;
+            }
         }
     }
 
@@ -59,10 +64,6 @@ uint64_t TTLManager::remainingMs(const std::string& collection, const std::strin
     return std::chrono::duration_cast<std::chrono::milliseconds>(it->second - now).count();
 }
 
-void TTLManager::fireCallbacks(const std::string& collection, const std::string& id) {
-    for (auto& cb : callbacks_) cb(collection, id);
-}
-
 void TTLManager::sweepLoop() {
     while (running_) {
         auto now = std::chrono::steady_clock::now();
@@ -78,8 +79,16 @@ void TTLManager::sweepLoop() {
             }
         }
 
+        std::vector<ExpiryCallback> callbacks_to_fire;
+        {
+            std::lock_guard<std::mutex> lock(mu_);
+            callbacks_to_fire = callbacks_;
+        }
+
         for (const auto& [col, id] : expired) {
-            fireCallbacks(col, id);
+            for (const auto& cb : callbacks_to_fire) {
+                cb(col, id);
+            }
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(sweep_interval_ms_));
