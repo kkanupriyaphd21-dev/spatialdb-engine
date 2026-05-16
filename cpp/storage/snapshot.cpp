@@ -5,6 +5,14 @@
 #include <stdexcept>
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#include <fileapi.h>
+#else
+#include <unistd.h>
+#include <fcntl.h>
+#endif
+
 namespace spatialdb {
 namespace storage {
 
@@ -60,16 +68,25 @@ bool SnapshotWriter::writeEntry(const index::IndexEntry& entry) {
     uint16_t id_len  = (uint16_t)entry.id.size();
     uint16_t col_len = (uint16_t)entry.collection.size();
 
-    fwrite(&id_len,  2, 1, fp_);
-    fwrite(entry.id.data(), 1, id_len, fp_);
-    fwrite(&col_len, 2, 1, fp_);
-    fwrite(entry.collection.data(), 1, col_len, fp_);
-    fwrite(&entry.point.lat, 8, 1, fp_);
-    fwrite(&entry.point.lon, 8, 1, fp_);
-    fwrite(&entry.timestamp, 8, 1, fp_);
+    if (fwrite(&id_len, 2, 1, fp_) != 1) return false;
+    if (fwrite(entry.id.data(), 1, id_len, fp_) != id_len) return false;
+    if (fwrite(&col_len, 2, 1, fp_) != 1) return false;
+    if (fwrite(entry.collection.data(), 1, col_len, fp_) != col_len) return false;
+    if (fwrite(&entry.point.lat, 8, 1, fp_) != 1) return false;
+    if (fwrite(&entry.point.lon, 8, 1, fp_) != 1) return false;
+    if (fwrite(&entry.timestamp, 8, 1, fp_) != 1) return false;
+
+    // Update CRC with entry data
+    crc_ = updateCRC(crc_, &id_len, 2);
+    crc_ = updateCRC(crc_, entry.id.data(), id_len);
+    crc_ = updateCRC(crc_, &col_len, 2);
+    crc_ = updateCRC(crc_, entry.collection.data(), col_len);
+    crc_ = updateCRC(crc_, &entry.point.lat, 8);
+    crc_ = updateCRC(crc_, &entry.point.lon, 8);
+    crc_ = updateCRC(crc_, &entry.timestamp, 8);
 
     ++written_;
-    return !ferror(fp_);
+    return true;
 }
 
 bool SnapshotWriter::finalizeHeader() {
@@ -77,14 +94,30 @@ bool SnapshotWriter::finalizeHeader() {
     SnapshotHeader h;
     h.timestamp   = ts_;
     h.entry_count = (uint64_t)written_;
-    h.checksum    = 0; // simplified
-    return fwrite(&h, sizeof(h), 1, fp_) == 1;
+    h.checksum    = crc_;
+    if (fwrite(&h, sizeof(h), 1, fp_) != 1) return false;
+    return fflush(fp_) == 0;
+}
+
+// fsync the file descriptor to ensure data is flushed to disk
+static int fsyncFile(FILE* fp) {
+    fflush(fp);
+#ifdef _WIN32
+    HANDLE h = (HANDLE)_get_osfhandle(_fileno(fp));
+    if (h == INVALID_HANDLE_VALUE) return -1;
+    return FlushFileBuffers(h) ? 0 : -1;
+#else
+    return fsync(fileno(fp));
+#endif
 }
 
 bool SnapshotWriter::commit() {
     if (!fp_) return false;
-    finalizeHeader();
+    if (!finalizeHeader()) return false;
+    if (fsyncFile(fp_) != 0) return false;
     fclose(fp_); fp_ = nullptr;
+
+    // Atomic rename ensures crash-safe durability
     return rename(tmp_path_.c_str(), path_.c_str()) == 0;
 }
 
@@ -100,11 +133,13 @@ SnapshotReader::SnapshotReader(const std::string& path) : path_(path) {}
 bool SnapshotReader::readEntry(FILE* fp, index::IndexEntry& out) {
     uint16_t id_len;
     if (fread(&id_len, 2, 1, fp) != 1) return false;
+    if (id_len > 1024) return false; // sanity check
     out.id.resize(id_len);
     if (fread(out.id.data(), 1, id_len, fp) != id_len) return false;
 
     uint16_t col_len;
     if (fread(&col_len, 2, 1, fp) != 1) return false;
+    if (col_len > 1024) return false; // sanity check
     out.collection.resize(col_len);
     if (fread(out.collection.data(), 1, col_len, fp) != col_len) return false;
 
