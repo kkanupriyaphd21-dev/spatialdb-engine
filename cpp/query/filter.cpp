@@ -6,6 +6,9 @@
 namespace spatialdb {
 namespace query {
 
+static constexpr size_t MAX_FILTER_DEPTH = 64;
+static constexpr size_t MAX_FILTER_VALUE_LEN = 4096;
+
 bool FieldFilter::match(const std::string& actual) const {
     switch (op) {
         case FilterOp::EQ:          return actual == value;
@@ -105,8 +108,11 @@ FilterOp FilterParser::parseOp() {
 FieldFilter FilterParser::parseLeaf() {
     FieldFilter f;
     f.field = readToken();
+    if (f.field.empty()) throw std::runtime_error("empty filter field");
     f.op    = parseOp();
     f.value = readToken();
+    if (f.value.size() > MAX_FILTER_VALUE_LEN)
+        throw std::runtime_error("filter value too long");
     return f;
 }
 
@@ -137,7 +143,7 @@ FilterTree FilterParser::parseTerm() {
 FilterTree FilterParser::parseExpr() {
     auto left = parseTerm();
     skipWS();
-    if (expr_.substr(pos_, 2) == "OR") {
+    if (pos_ < expr_.size() && expr_.substr(pos_, 2) == "OR") {
         pos_ += 2;
         auto right = parseExpr();
         return makeOr({left, right});
