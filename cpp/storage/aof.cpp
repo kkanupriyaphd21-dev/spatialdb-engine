@@ -50,13 +50,8 @@ static bool doFsync(std::ofstream& file) {
     if (h == INVALID_HANDLE_VALUE) return false;
     return FlushFileBuffers(h) != 0;
 #else
-    // Get the underlying file descriptor
-    // We need to use rdbuf()->fd() but that's not portable, so use fileno on the underlying
-    // Actually, std::ofstream doesn't expose fd directly. Use a workaround with C FILE*.
-    // For C++ ofstream, we can't easily get the fd. Let's use a different approach.
-    // The most portable way for ofstream is to flush and rely on OS, but for true durability
-    // we need to open with O_SYNC or use a C FILE*.
-    // For now, fflush is the best we can do with ofstream. A proper fix would use POSIX open().
+    // For C++ ofstream, we flush and rely on OS. A proper fix would use POSIX open()
+    // with O_SYNC or a C FILE* with fileno()+fsync().
     return true; // flush() was already called above
 #endif
 }

@@ -4,6 +4,8 @@
 #include <chrono>
 #include <unordered_map>
 #include <mutex>
+#include <deque>
+#include <algorithm>
 
 namespace spatialdb {
 namespace net {
@@ -78,30 +80,55 @@ MiddlewareFn authMiddleware(const std::string& password) {
     };
 }
 
+// Sliding window rate limiter with periodic cleanup
 MiddlewareFn rateLimitMiddleware(size_t max_per_sec) {
+    struct ClientState {
+        std::deque<uint64_t> timestamps; // request timestamps within window
+    };
+
     struct State {
         std::mutex mu;
-        std::unordered_map<std::string, size_t>   counts;
-        std::unordered_map<std::string, uint64_t> windows;
+        std::unordered_map<std::string, ClientState> clients;
+        uint64_t last_cleanup = 0;
     };
+    constexpr uint64_t CLEANUP_INTERVAL = 60; // cleanup every 60 seconds
     auto state = std::make_shared<State>();
 
     return [state, max_per_sec](const std::string& cmd,
-                                  const std::vector<std::string>& args,
-                                  ClientConn& conn,
-                                  const RequestHandler& next) -> std::string {
+                                   const std::vector<std::string>& args,
+                                   ClientConn& conn,
+                                   const RequestHandler& next) -> std::string {
         auto now = (uint64_t)std::chrono::system_clock::now()
                        .time_since_epoch().count() / 1000000000ULL;
 
         std::lock_guard<std::mutex> lock(state->mu);
-        auto& window = state->windows[conn.addr];
-        auto& count  = state->counts[conn.addr];
 
-        if (window != now) { window = now; count = 0; }
-        if (++count > max_per_sec) {
+        // Periodic cleanup of stale entries
+        if (now - state->last_cleanup > CLEANUP_INTERVAL) {
+            state->last_cleanup = now;
+            for (auto it = state->clients.begin(); it != state->clients.end();) {
+                if (it->second.timestamps.empty() ||
+                    now - it->second.timestamps.back() > 120) {
+                    it = state->clients.erase(it);
+                } else {
+                    ++it;
+                }
+            }
+        }
+
+        auto& client = state->clients[conn.addr];
+        auto& ts = client.timestamps;
+
+        // Remove timestamps outside the 1-second window
+        while (!ts.empty() && now - ts.front() >= 1) {
+            ts.pop_front();
+        }
+
+        if (ts.size() >= max_per_sec) {
             return "-ERR rate limit exceeded\r\n";
         }
 
+        ts.push_back(now);
         return next(cmd, args, conn);
     };
 }
