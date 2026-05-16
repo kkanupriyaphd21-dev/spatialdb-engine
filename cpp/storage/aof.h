@@ -33,6 +33,7 @@ public:
 
 private:
     std::string   path_;
+    std::string   tmp_path_;
     std::ofstream file_;
     std::mutex    mu_;
     AOFSync       sync_;
