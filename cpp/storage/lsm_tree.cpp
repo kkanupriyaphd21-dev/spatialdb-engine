@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <cstring>
+#include <chrono>
 
 namespace spatialdb {
 namespace storage {
@@ -200,13 +201,28 @@ void LSMTree::flushMemTable() {
     std::cout << "Flushed memtable -> " << path << "\n";
 }
 
-void LSMTree::compact() {
+CompactionStats LSMTree::compact() {
     std::lock_guard<std::mutex> lock(mu_);
-    if (sstables_.size() < 2) return;
+    CompactionStats stats;
+    auto t0 = std::chrono::steady_clock::now();
+
+    if (sstables_.size() < 2) {
+        stats.skipped = true;
+        stats.duration_ms = (int64_t)std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - t0).count();
+        return stats;
+    }
+
+    // Calculate bytes before
+    for (const auto& sst : sstables_) {
+        stats.bytes_before += sst->entryCount();
+    }
+    stats.sstables_merged = sstables_.size();
 
     std::map<std::string, LSMEntry> merged;
     for (auto& sst : sstables_) {
         auto entries = sst->scan("", "\xff\xff\xff\xff\xff");
+        stats.entries_read += entries.size();
         for (auto& e : entries) {
             auto it = merged.find(e.key);
             if (it == merged.end() || it->second.seq_num < e.seq_num)
@@ -216,15 +232,28 @@ void LSMTree::compact() {
 
     std::vector<LSMEntry> compacted;
     for (auto& [k, v] : merged) {
-        if (!v.deleted) compacted.push_back(v);
+        if (!v.deleted) {
+            compacted.push_back(v);
+        } else {
+            stats.entries_deleted++;
+        }
     }
+    stats.entries_written = compacted.size();
 
     sstables_.clear();
     if (!compacted.empty()) {
         auto path = newSSTablePath();
         sstables_.push_back(std::make_shared<SSTable>(path, std::move(compacted)));
     }
-    std::cout << "Compaction done: " << merged.size() << " entries merged\n";
+    stats.bytes_after = sstables_.empty() ? 0 : sstables_[0]->entryCount();
+    stats.duration_ms = (int64_t)std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - t0).count();
+
+    std::cout << "Compaction done: " << stats.entries_read << " read, "
+              << stats.entries_written << " written, "
+              << stats.entries_deleted << " tombstones removed, "
+              << stats.duration_ms << "ms\n";
+    return stats;
 }
 
 } // namespace storage
