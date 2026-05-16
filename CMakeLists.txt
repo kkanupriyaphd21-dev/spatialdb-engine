@@ -101,4 +101,8 @@ if(BUILD_TESTS)
     add_executable(wal_test cpp/test/wal_test.cpp)
     target_link_libraries(wal_test spatialdb_cpp)
     add_test(NAME wal_test COMMAND wal_test)
+
+    add_executable(server_test cpp/test/server_test.cpp)
+    target_link_libraries(server_test spatialdb_cpp)
+    add_test(NAME server_test COMMAND server_test)
 endif()

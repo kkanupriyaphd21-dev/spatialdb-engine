@@ -7,6 +7,8 @@
 #include <memory>
 #include <unordered_map>
 #include <mutex>
+#include <condition_variable>
+#include <queue>
 
 namespace spatialdb {
 namespace net {
@@ -25,10 +27,11 @@ using RequestHandler = std::function<std::string(const std::string& cmd,
                                                   ClientConn& conn)>;
 
 struct ServerConfig {
-    std::string host        = "0.0.0.0";
-    int         port        = 9851;
-    int         backlog     = 128;
-    size_t      max_clients = 10000;
+    std::string host         = "0.0.0.0";
+    int         port         = 9851;
+    int         backlog      = 128;
+    size_t      max_clients  = 10000;
+    size_t      worker_threads = 4;
     int         read_timeout_ms  = 5000;
     int         write_timeout_ms = 5000;
 };
@@ -44,6 +47,7 @@ public:
     bool isRunning() const { return running_.load(); }
 
     size_t clientCount() const;
+    size_t workerCount() const;
 
 private:
     ServerConfig    config_;
@@ -54,13 +58,21 @@ private:
 
     mutable std::mutex                          clients_mu_;
     std::unordered_map<uint64_t, ClientConn>   clients_;
-    std::vector<std::thread>                    client_threads_;
     uint64_t                                    next_client_id_ = 1;
 
+    // Thread pool
+    std::vector<std::thread>                    worker_threads_;
+    std::mutex                                  queue_mu_;
+    std::condition_variable                     queue_cv_;
+    std::queue<uint64_t>                        work_queue_;
+
     void acceptLoop();
+    void workerLoop();
     void handleClient(uint64_t client_id);
     bool setNonBlocking(int fd);
     bool setKeepAlive(int fd);
+    bool setTcpNoDelay(int fd);
+    bool sendAll(int fd, const char* data, size_t len);
     std::string processRequest(const std::string& raw, ClientConn& conn);
 };
 
