@@ -1,9 +1,43 @@
 #include "counters.h"
 #include <sstream>
 #include <iomanip>
+#include <atomic>
+#include <cstdio>
 
 namespace spatialdb {
 namespace metrics {
+
+// Request ID generation
+static std::atomic<uint64_t> request_id_counter{0};
+
+std::string nextRequestID() {
+    uint64_t id = request_id_counter.fetch_add(1, std::memory_order_relaxed);
+    char buf[24];
+    snprintf(buf, sizeof(buf), "%016lx", (unsigned long)id);
+    return std::string(buf);
+}
+
+void resetRequestID() {
+    request_id_counter.store(0, std::memory_order_relaxed);
+}
+
+// Histogram percentile estimation from bucket counts
+double Histogram::percentile(double p) const {
+    std::lock_guard<std::mutex> lock(mu);
+    if (total.load() == 0) return 0.0;
+
+    uint64_t target = (uint64_t)(p / 100.0 * total.load());
+    uint64_t cumulative = 0;
+
+    for (size_t i = 0; i < counts.size(); ++i) {
+        cumulative += counts[i];
+        if (cumulative >= target) {
+            if (i < buckets.size()) return buckets[i];
+            return buckets.empty() ? sum : buckets.back() * 2; // overflow bucket
+        }
+    }
+    return buckets.empty() ? sum : buckets.back();
+}
 
 Registry& Registry::global() {
     static Registry instance;
