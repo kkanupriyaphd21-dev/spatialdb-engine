@@ -56,7 +56,16 @@ struct Histogram {
         uint64_t t = total.load();
         return t == 0 ? 0.0 : sum / t;
     }
+
+    // Estimate percentile from bucket counts (linear interpolation)
+    double percentile(double p) const;
 };
+
+// Generate unique request IDs (thread-safe, monotonic)
+std::string nextRequestID();
+
+// Reset request ID counter (for testing)
+void resetRequestID();
 
 class Registry {
 public:
