@@ -72,6 +72,17 @@ private:
     bool write(const std::vector<LSMEntry>& entries);
 };
 
+struct CompactionStats {
+    size_t sstables_merged = 0;
+    size_t entries_read    = 0;
+    size_t entries_written = 0;
+    size_t entries_deleted = 0; // tombstones removed
+    size_t bytes_before    = 0;
+    size_t bytes_after     = 0;
+    int64_t duration_ms    = 0;
+    bool   skipped         = false; // true if compaction was skipped (nothing to do)
+};
+
 class LSMTree {
 public:
     explicit LSMTree(std::string dir, size_t memtable_size = 64 * 1024 * 1024);
@@ -81,7 +92,7 @@ public:
     bool del(const std::string& key);
     std::optional<std::string> get(const std::string& key);
 
-    void   compact();
+    CompactionStats compact();
     size_t sstableCount() const { return sstables_.size(); }
     size_t memtableSize() const { return memtable_.sizeBytes(); }
 
