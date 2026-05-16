@@ -3,9 +3,73 @@
 #include <stdexcept>
 #include <sstream>
 #include <algorithm>
+#include <cmath>
 
 namespace spatialdb {
 namespace query {
+
+// Validation constants
+static constexpr double MIN_LAT = -90.0;
+static constexpr double MAX_LAT = 90.0;
+static constexpr double MIN_LON = -180.0;
+static constexpr double MAX_LON = 180.0;
+static constexpr double MIN_RADIUS = 0.0;
+static constexpr double MAX_RADIUS = 20037508.34; // ~half Earth circumference in meters
+static constexpr size_t MIN_KNN_LIMIT = 1;
+static constexpr size_t MAX_KNN_LIMIT = 10000;
+
+static void validateCoordinate(double lat, double lon, const std::string& ctx) {
+    if (std::isnan(lat) || std::isnan(lon)) {
+        throw std::runtime_error("NaN coordinate in " + ctx);
+    }
+    if (std::isinf(lat) || std::isinf(lon)) {
+        throw std::runtime_error("infinite coordinate in " + ctx);
+    }
+    if (lat < MIN_LAT || lat > MAX_LAT) {
+        throw std::runtime_error("latitude " + std::to_string(lat) + " out of range [" +
+                                 std::to_string(MIN_LAT) + ", " + std::to_string(MAX_LAT) + "] in " + ctx);
+    }
+    if (lon < MIN_LON || lon > MAX_LON) {
+        throw std::runtime_error("longitude " + std::to_string(lon) + " out of range [" +
+                                 std::to_string(MIN_LON) + ", " + std::to_string(MAX_LON) + "] in " + ctx);
+    }
+}
+
+static void validateRadius(double radius, const std::string& ctx) {
+    if (std::isnan(radius) || std::isinf(radius)) {
+        throw std::runtime_error("invalid radius in " + ctx);
+    }
+    if (radius < MIN_RADIUS) {
+        throw std::runtime_error("radius must be non-negative, got " + std::to_string(radius) + " in " + ctx);
+    }
+    if (radius > MAX_RADIUS) {
+        throw std::runtime_error("radius " + std::to_string(radius) + " exceeds maximum " +
+                                 std::to_string(MAX_RADIUS) + " in " + ctx);
+    }
+}
+
+static void validateLimit(size_t limit, const std::string& ctx) {
+    if (limit < MIN_KNN_LIMIT) {
+        throw std::runtime_error("limit must be at least " + std::to_string(MIN_KNN_LIMIT) + " in " + ctx);
+    }
+    if (limit > MAX_KNN_LIMIT) {
+        throw std::runtime_error("limit " + std::to_string(limit) + " exceeds maximum " +
+                                 std::to_string(MAX_KNN_LIMIT) + " in " + ctx);
+    }
+}
+
+static void validateBBox(double min_lat, double min_lon, double max_lat, double max_lon, const std::string& ctx) {
+    validateCoordinate(min_lat, min_lon, ctx);
+    validateCoordinate(max_lat, max_lon, ctx);
+    if (min_lat > max_lat) {
+        throw std::runtime_error("min_lat " + std::to_string(min_lat) + " > max_lat " +
+                                 std::to_string(max_lat) + " in " + ctx);
+    }
+    if (min_lon > max_lon) {
+        throw std::runtime_error("min_lon " + std::to_string(min_lon) + " > max_lon " +
+                                 std::to_string(max_lon) + " in " + ctx);
+    }
+}
 
 // ─── Lexer ───────────────────────────────────────────────────────────────────
 
@@ -139,12 +203,17 @@ NearbyQuery QueryParser::parseNearby() {
     double lon   = expectNumber("NEARBY lon");
     double dist  = expectNumber("NEARBY radius");
 
+    validateCoordinate(lat, lon, "NEARBY");
+    validateRadius(dist, "NEARBY");
+
     q.circle = {geometry::Point(lat, lon), dist};
 
     auto t = lexer_.peek();
     if (t.type == TokenType::KEYWORD && t.value == "LIMIT") {
         lexer_.next();
-        q.opts.limit = (size_t)expectNumber("LIMIT");
+        size_t limit = (size_t)expectNumber("LIMIT");
+        validateLimit(limit, "NEARBY LIMIT");
+        q.opts.limit = limit;
     }
 
     return q;
@@ -160,12 +229,16 @@ BBoxQuery QueryParser::parseBBox() {
     double max_lat = expectNumber("bbox max_lat");
     double max_lon = expectNumber("bbox max_lon");
 
+    validateBBox(min_lat, min_lon, max_lat, max_lon, "WITHIN");
+
     q.bbox = {min_lat, min_lon, max_lat, max_lon};
 
     auto t = lexer_.peek();
     if (t.type == TokenType::KEYWORD && t.value == "LIMIT") {
         lexer_.next();
-        q.opts.limit = (size_t)expectNumber("LIMIT");
+        size_t limit = (size_t)expectNumber("LIMIT");
+        validateLimit(limit, "WITHIN LIMIT");
+        q.opts.limit = limit;
     }
 
     return q;
