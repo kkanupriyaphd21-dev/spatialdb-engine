@@ -4,6 +4,7 @@
 #include <limits>
 #include <stdexcept>
 #include <cmath>
+#include <unordered_set>
 
 namespace spatialdb {
 namespace spatial {
@@ -125,7 +126,17 @@ std::vector<index::IndexEntry> RTree::searchBBox(
     auto it = roots_.find(collection);
     if (it == roots_.end() || !it->second) return results;
     searchNode(it->second.get(), bbox, results);
-    return results;
+
+    // Deduplicate by ID - overlapping nodes can return same entry
+    std::unordered_set<std::string> seen;
+    std::vector<index::IndexEntry> deduped;
+    deduped.reserve(results.size());
+    for (auto& e : results) {
+        if (seen.insert(e.id).second) {
+            deduped.push_back(std::move(e));
+        }
+    }
+    return deduped;
 }
 
 std::vector<index::IndexEntry> RTree::searchRadius(
@@ -133,6 +144,9 @@ std::vector<index::IndexEntry> RTree::searchRadius(
     const geometry::Circle& circle,
     size_t limit) const
 {
+    // Validate radius
+    if (circle.radius_km <= 0.0) return {};
+
     // expand bbox then filter by actual distance
     double lat_delta = circle.radius_km / geometry::EARTH_RADIUS_KM *
                        (180.0 / M_PI);
