@@ -16,6 +16,7 @@ struct PooledConn {
     bool        healthy = true;
     uint64_t    id      = 0;
     std::string remote_addr;
+    uint64_t    last_used = 0; // epoch seconds, for idle eviction
 };
 
 struct PoolConfig {
@@ -53,6 +54,7 @@ private:
 
     std::shared_ptr<PooledConn> createConn();
     bool pingConn(PooledConn& conn);
+    void evictIdleLocked();
 };
 
 } // namespace net
