@@ -85,7 +85,7 @@ bool TCPServer::start() {
 }
 
 void TCPServer::acceptLoop() {
-    while (running_) {
+    while (running_ && !shutting_down_) {
         sockaddr_in client_addr{};
         socklen_t   addr_len = sizeof(client_addr);
 
@@ -133,7 +133,7 @@ void TCPServer::acceptLoop() {
 }
 
 void TCPServer::workerLoop() {
-    while (running_) {
+    while (running_ || !work_queue_.empty()) {
         uint64_t cid;
         {
             std::unique_lock<std::mutex> lock(queue_mu_);
@@ -244,6 +244,55 @@ void TCPServer::stop() {
         close(conn.fd);
     }
     clients_.clear();
+}
+
+void TCPServer::shutdown() {
+    if (shutting_down_.exchange(true)) return; // already shutting down
+
+    std::cout << "Graceful shutdown initiated, draining " << clientCount() << " connections...\n";
+
+    // Stop accepting new connections
+    if (listen_fd_ >= 0) {
+        close(listen_fd_);
+        listen_fd_ = -1;
+    }
+
+    // Wait for active connections to drain or timeout
+    auto deadline = std::chrono::steady_clock::now() +
+                    std::chrono::milliseconds(config_.drain_timeout_ms);
+
+    while (std::chrono::steady_clock::now() < deadline) {
+        {
+            std::lock_guard<std::mutex> lock(clients_mu_);
+            if (clients_.empty()) break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
+    // Force close remaining connections
+    size_t remaining = 0;
+    {
+        std::lock_guard<std::mutex> lock(clients_mu_);
+        remaining = clients_.size();
+        for (auto& [id, conn] : clients_) {
+            close(conn.fd);
+        }
+        clients_.clear();
+    }
+    if (remaining > 0) {
+        std::cout << "Force closed " << remaining << " remaining connections\n";
+    }
+
+    // Stop workers
+    running_ = false;
+    queue_cv_.notify_all();
+
+    if (accept_thread_.joinable()) accept_thread_.join();
+    for (auto& t : worker_threads_) {
+        if (t.joinable()) t.join();
+    }
+
+    std::cout << "Server shutdown complete\n";
 }
 
 size_t TCPServer::clientCount() const {
