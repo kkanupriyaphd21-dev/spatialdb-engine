@@ -20,6 +20,12 @@ public:
     size_t numBits()   const { return bits_.size(); }
     int    numHashes() const { return num_hashes_; }
     size_t insertCount() const { return insert_count_; }
+    size_t expectedItems() const { return expected_items_; }
+
+    // Returns saturation ratio (0.0 to 1.0+). >1.0 means over capacity.
+    double saturation() const;
+    // Returns true if filter is likely saturated (FPR exceeds target by 2x)
+    bool isSaturated() const;
 
     std::vector<uint8_t> serialize() const;
     static BloomFilter   deserialize(const std::vector<uint8_t>& data);
@@ -28,6 +34,8 @@ private:
     std::vector<bool> bits_;
     int               num_hashes_;
     size_t            insert_count_ = 0;
+    size_t            expected_items_ = 0;
+    double            target_fpr_ = 0.01;
 
     uint64_t hash1(const std::string& key) const;
     uint64_t hash2(const std::string& key) const;

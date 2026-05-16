@@ -5,11 +5,17 @@
 namespace spatialdb {
 namespace storage {
 
-BloomFilter::BloomFilter(size_t expected_items, double fpr) {
+BloomFilter::BloomFilter(size_t expected_items, double fpr)
+    : expected_items_(expected_items), target_fpr_(fpr) {
+    if (expected_items == 0) throw std::runtime_error("bloom: expected_items must be > 0");
+    if (fpr <= 0.0 || fpr >= 1.0) throw std::runtime_error("bloom: fpr must be in (0, 1)");
+
     double ln2 = std::log(2.0);
     size_t m = (size_t)(-expected_items * std::log(fpr) / (ln2 * ln2));
     m = std::max(m, (size_t)64);
     num_hashes_ = std::max(1, (int)(m / expected_items * ln2));
+    // Cap hash count to prevent excessive CPU
+    num_hashes_ = std::min(num_hashes_, 64);
     bits_.assign(m, false);
 }
 
@@ -64,10 +70,22 @@ void BloomFilter::clear() {
 }
 
 double BloomFilter::estimatedFPR() const {
-    double k = num_hashes_;
+    double k = (double)num_hashes_;
     double m = (double)bits_.size();
     double n = (double)insert_count_;
+    if (m == 0) return 1.0;
+    // (1 - e^(-kn/m))^k
     return std::pow(1.0 - std::exp(-k * n / m), k);
+}
+
+double BloomFilter::saturation() const {
+    if (expected_items_ == 0) return 0.0;
+    return (double)insert_count_ / (double)expected_items_;
+}
+
+bool BloomFilter::isSaturated() const {
+    // Saturated when actual FPR exceeds 2x the target
+    return estimatedFPR() > target_fpr_ * 2.0;
 }
 
 std::vector<uint8_t> BloomFilter::serialize() const {
