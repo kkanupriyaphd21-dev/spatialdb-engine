@@ -18,8 +18,12 @@ struct ReplicaInfo {
     std::string id;
     std::string host;
     int         port    = 9852;
-    uint64_t    lag     = 0;
+    uint64_t    lag     = 0;       // entries behind leader
     bool        healthy = true;
+
+    // Heartbeat tracking
+    int64_t     last_heartbeat_ms = 0; // monotonic time of last successful heartbeat
+    int         consecutive_failures = 0;
 };
 
 struct ReplicationConfig {
@@ -29,6 +33,8 @@ struct ReplicationConfig {
     int         leader_port    = 9852;
     int         sync_interval_ms = 100;
     bool        sync_aof       = true;
+    int         heartbeat_timeout_ms = 5000;  // mark unhealthy after this many ms without heartbeat
+    int         max_consecutive_failures = 3; // remove replica after this many failed attempts
 };
 
 class ReplicationManager {
@@ -50,6 +56,13 @@ public:
     void removeReplica(const std::string& id);
     std::vector<ReplicaInfo> replicas() const;
 
+    // Record heartbeat from replica - updates last_heartbeat_ms
+    void recordHeartbeat(const std::string& replica_id);
+    // Check for timed-out replicas and mark them unhealthy
+    void checkHeartbeatTimeouts();
+    // Get replication lag for a specific replica
+    uint64_t replicaLag(const std::string& replica_id) const;
+
 private:
     ReplicationConfig       cfg_;
     NodeRole                role_;
@@ -66,6 +79,7 @@ private:
     void replicationLoop();
     bool sendEntriesToReplica(ReplicaInfo& replica,
                                const std::vector<storage::WalEntry>& entries);
+    void checkHeartbeatTimeoutsLocked(); // must hold replicas_mu_
 };
 
 } // namespace cluster
