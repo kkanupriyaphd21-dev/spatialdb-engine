@@ -63,6 +63,7 @@ RespDecoder::RespDecoder(std::string buf) : buf_(std::move(buf)) {}
 std::optional<std::string> RespDecoder::readLine() {
     auto pos = buf_.find("\r\n", pos_);
     if (pos == std::string::npos) return std::nullopt;
+    if (pos - pos_ > MAX_LINE_LENGTH) return std::nullopt;
     auto line = buf_.substr(pos_, pos - pos_);
     pos_ = pos + 2;
     return line;
@@ -70,6 +71,7 @@ std::optional<std::string> RespDecoder::readLine() {
 
 std::optional<RespValue> RespDecoder::decodeBulkString(int64_t len) {
     if (len < 0) return RespValue::nullBulk();
+    if (static_cast<size_t>(len) > MAX_BULK_STRING_SIZE) return std::nullopt;
     if (pos_ + len + 2 > buf_.size()) return std::nullopt;
     auto s = buf_.substr(pos_, len);
     pos_ += len + 2;
@@ -77,6 +79,8 @@ std::optional<RespValue> RespDecoder::decodeBulkString(int64_t len) {
 }
 
 std::optional<RespValue> RespDecoder::decodeArray(int64_t count) {
+    if (count < 0) return std::nullopt;
+    if (static_cast<size_t>(count) > MAX_ARRAY_SIZE) return std::nullopt;
     std::vector<RespValue> arr;
     arr.reserve(count);
     for (int64_t i = 0; i < count; ++i) {
@@ -97,14 +101,21 @@ std::optional<RespValue> RespDecoder::decodeOne() {
     switch (prefix) {
         case '+': return RespValue::simpleString(*line);
         case '-': return RespValue::error(*line);
-        case ':': return RespValue::makeInteger(std::stoll(*line));
+        case ':': {
+            try { return RespValue::makeInteger(std::stoll(*line)); }
+            catch (...) { return std::nullopt; }
+        }
         case '$': {
-            int64_t len = std::stoll(*line);
-            return decodeBulkString(len);
+            try {
+                int64_t len = std::stoll(*line);
+                return decodeBulkString(len);
+            } catch (...) { return std::nullopt; }
         }
         case '*': {
-            int64_t count = std::stoll(*line);
-            return decodeArray(count);
+            try {
+                int64_t count = std::stoll(*line);
+                return decodeArray(count);
+            } catch (...) { return std::nullopt; }
         }
         default:
             return std::nullopt;
