@@ -1,13 +1,17 @@
 #include "script_engine.h"
 #include <stdexcept>
+#include <chrono>
 
 namespace spatialdb {
 namespace lua {
 
-ScriptEngine::ScriptEngine() {}
+static constexpr size_t MAX_SOURCE_SIZE = 1024 * 1024; // 1MB max script size
+
+ScriptEngine::ScriptEngine(ScriptConfig cfg) : cfg_(cfg) {}
 ScriptEngine::~ScriptEngine() {}
 
 bool ScriptEngine::loadScript(const std::string& name, const std::string& source) {
+    if (source.size() > MAX_SOURCE_SIZE) return false;
     std::lock_guard<std::mutex> lock(mu_);
     scripts_[name] = source;
     return true;
@@ -32,15 +36,25 @@ void ScriptEngine::registerFunction(const std::string& name,
 
 ScriptResult ScriptEngine::execute(const std::string& source,
                                     const std::vector<std::string>& args) {
+    auto t0 = std::chrono::steady_clock::now();
+    ScriptResult result;
+
     // Stub: in production this would init a Lua state, push args, pcall
     // For now just check for registered function calls
     std::lock_guard<std::mutex> lock(mu_);
     for (const auto& [fname, fn] : functions_) {
         if (source.find(fname) != std::string::npos) {
-            return fn(args);
+            result = fn(args);
+            result.duration_ms = (int64_t)std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::steady_clock::now() - t0).count();
+            return result;
         }
     }
-    return {true, "nil", ""};
+    result.ok = true;
+    result.value = "nil";
+    result.duration_ms = (int64_t)std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - t0).count();
+    return result;
 }
 
 ScriptResult ScriptEngine::runScript(const std::string& name,
