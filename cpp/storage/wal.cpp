@@ -1,7 +1,8 @@
 #include "wal.h"
 #include <stdexcept>
 #include <cstring>
-#include <iostream>
+#include <unistd.h>
+#include <fcntl.h>
 
 namespace spatialdb {
 namespace storage {
@@ -18,6 +19,7 @@ WAL::WAL(const std::string& path, size_t sync_every)
 WAL::~WAL() {
     if (file_.is_open()) {
         file_.flush();
+        syncToDisk();
         file_.close();
     }
 }
@@ -47,6 +49,7 @@ bool WAL::append(const WalEntry& entry) {
     ++pending_;
     if (pending_ >= sync_every_) {
         file_.flush();
+        if (!syncToDisk()) return false;
         pending_ = 0;
     }
     return true;
@@ -55,8 +58,9 @@ bool WAL::append(const WalEntry& entry) {
 bool WAL::flush() {
     std::lock_guard<std::mutex> lock(mu_);
     file_.flush();
+    bool ok = syncToDisk();
     pending_ = 0;
-    return file_.good();
+    return ok && file_.good();
 }
 
 bool WAL::readEntry(std::ifstream& in, WalEntry& out) {
@@ -66,11 +70,13 @@ bool WAL::readEntry(std::ifstream& in, WalEntry& out) {
 
     uint16_t col_len;
     if (!in.read(reinterpret_cast<char*>(&col_len), 2)) return false;
+    if (col_len > 1024) return false;
     out.collection.resize(col_len);
     if (!in.read(out.collection.data(), col_len)) return false;
 
     uint16_t id_len;
     if (!in.read(reinterpret_cast<char*>(&id_len), 2)) return false;
+    if (id_len > 1024) return false;
     out.id.resize(id_len);
     if (!in.read(out.id.data(), id_len)) return false;
 
@@ -86,13 +92,10 @@ bool WAL::replay(std::function<void(const WalEntry&)> handler) {
     if (!in.is_open()) return false;
 
     WalEntry entry;
-    size_t count = 0;
     while (readEntry(in, entry)) {
         handler(entry);
-        ++count;
     }
 
-    std::cout << "WAL replay: " << count << " entries\n";
     return true;
 }
 
@@ -101,6 +104,21 @@ bool WAL::truncate() {
     file_.close();
     file_.open(path_, std::ios::binary | std::ios::trunc);
     return file_.is_open();
+}
+
+bool WAL::syncToDisk() {
+    if (!file_.is_open()) return false;
+    file_.flush();
+
+#ifdef _WIN32
+    return true;
+#else
+    int file_desc = open(path_.c_str(), O_RDONLY);
+    if (file_desc < 0) return false;
+    bool result = (fsync(file_desc) == 0);
+    close(file_desc);
+    return result;
+#endif
 }
 
 } // namespace storage
