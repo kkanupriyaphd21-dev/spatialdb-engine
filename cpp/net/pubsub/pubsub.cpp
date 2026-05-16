@@ -41,12 +41,18 @@ void PubSubBroker::unsubscribe(uint64_t sub_id, const std::string& channel) {
     if (it == subscribers_.end()) return;
 
     if (channel.empty()) {
-        for (const auto& ch : it->second.channels)
+        for (const auto& ch : it->second.channels) {
             channel_subs_[ch].erase(sub_id);
+            if (channel_subs_[ch].empty()) channel_subs_.erase(ch);
+        }
         subscribers_.erase(it);
     } else {
         it->second.channels.erase(channel);
-        channel_subs_[channel].erase(sub_id);
+        auto cit = channel_subs_.find(channel);
+        if (cit != channel_subs_.end()) {
+            cit->second.erase(sub_id);
+            if (cit->second.empty()) channel_subs_.erase(cit);
+        }
         if (it->second.channels.empty() && it->second.patterns.empty())
             subscribers_.erase(it);
     }
@@ -58,12 +64,18 @@ void PubSubBroker::punsubscribe(uint64_t sub_id, const std::string& pattern) {
     if (it == subscribers_.end()) return;
 
     if (pattern.empty()) {
-        for (const auto& p : it->second.patterns)
+        for (const auto& p : it->second.patterns) {
             pattern_subs_[p].erase(sub_id);
+            if (pattern_subs_[p].empty()) pattern_subs_.erase(p);
+        }
         subscribers_.erase(it);
     } else {
         it->second.patterns.erase(pattern);
-        pattern_subs_[pattern].erase(sub_id);
+        auto pit = pattern_subs_.find(pattern);
+        if (pit != pattern_subs_.end()) {
+            pit->second.erase(sub_id);
+            if (pit->second.empty()) pattern_subs_.erase(pit);
+        }
     }
 }
 
@@ -83,8 +95,13 @@ int PubSubBroker::publish(const std::string& channel, const std::string& message
         for (const auto& [pattern, ids] : pattern_subs_) {
             if (matchPattern(pattern, channel)) {
                 for (uint64_t id : ids) {
-                    auto sit = subscribers_.find(id);
-                    if (sit != subscribers_.end()) handlers.push_back(sit->second.handler);
+                    // Deduplicate: skip if already added via direct subscription
+                    bool already = false;
+                    if (it != channel_subs_.end() && it->second.count(id)) already = true;
+                    if (!already) {
+                        auto sit = subscribers_.find(id);
+                        if (sit != subscribers_.end()) handlers.push_back(sit->second.handler);
+                    }
                 }
             }
         }
